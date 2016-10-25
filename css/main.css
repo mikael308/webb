@@ -1,0 +1,117 @@
+
+html {
+	background-color: rgb(250, 250, 250); 
+	background-color: #CCCCCC;
+	font-family: sans-serif;
+	text-align: left;
+	width: 80%;
+	margin: auto;
+	min-width: 650px;
+	max-width: 1160px;
+
+}
+
+header {
+	padding-top: 4px;
+	padding-bottom: 10px;
+
+}
+
+nav {
+	margin-top: 16px;
+	padding-left: 8px;
+	overflow:auto;
+
+}
+
+.parallellogram{
+	transform: skew(-20deg); 
+    -o-transform: skew(-20deg); 
+    -moz-transform: skew(-20deg); 
+    -webkit-transform: skew(-20deg);
+}
+
+.button {
+	background-color: #C0C0EF;
+	border: 4px solid #0A0ACF;
+	border-radius: 8px;
+	color: black;
+	padding: 9px 15px;
+	min-width: 15px;
+	min-height: 24px;
+	text-align: center;
+	text-decoration: none;
+	word-wrap: break-word;
+	display: inline-block;
+	font-size: 16px;
+	cursor: pointer;
+}
+.button:hover{
+	background-color: #E0E0EF;
+	border: 4px solid #CACACF;
+}
+
+.btn_nav {
+	background-color: #5050EF;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color:white;
+	border-radius: 10px 10px 0 0;
+	padding: 14px 8px 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	margin-top: 25px;
+	min-width: 90px;
+	
+}
+.btn_nav:hover{
+	background-color: #7575EF;
+	border: 4px solid #7070EF;
+}
+
+.btn_nav > a:hover{
+	background-color: rgb(200, 210, 210);
+}
+
+#subnav > #username_label {
+	
+}
+#subnav > #username_label > a{
+	text-decoration: none;
+}
+
+aside{
+	width: 300px;
+	max-width: 500px;
+	float:left;
+}
+
+main {
+	overflow:auto;
+	margin: 0 46px;
+	min-height: 380px;
+
+}
+
+main article{
+	margin:auto;	
+}
+
+body{
+	overflow:auto;
+	background-color: white; 
+	padding: 4px 16px;
+	border-radius: 5px;
+
+}
+
+#login_errmsg{
+	color: red;
+}
+
+footer {
+	text-align: center;
+	margin-top: 60px;
+	margin-bottom: 80px;
+}
+

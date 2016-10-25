@@ -1,0 +1,238 @@
+
+#forum_content{
+	
+}
+
+#topic{
+	text-transform: capitalize;
+}
+
+.header{
+	font-size:140%;
+}
+
+.forum_navigator{
+	min-height: 60px;
+	max-height: 230px;
+	margin: 10px 0;
+	border: 2px solid #0A0ACF;
+	border-radius: 6px;
+
+	color: black;
+	text-align: left;
+	
+	word-wrap: break-word;
+	cursor: pointer;
+}
+
+.forum_navigator:hover{
+	
+	
+}
+.forum_navigator:hover #topic{
+	text-decoration: underline;
+	color:red;
+}
+.forum_navigator, a{
+	text-decoration: none;
+}
+.forum_navigator #topic{
+	color:black;
+	padding-left: 8px;
+	padding-top:3px;
+}
+
+.forum_navigator #info{
+	position:relative;
+	top:-4px;
+	font-size:85%;
+	margin-left: 15px;
+
+}
+#forum_navigator_list{
+	width:90%;
+	margin-left:10px;
+}
+#forum_navigator_list a{
+	background-color: yellow;
+	text-decoration: none;
+}
+
+/*******************************************
+	SUBJECTS
+ *******************************************/
+
+.subject {
+	background-color: #CACACA; /* std value*/
+	background: -webkit-linear-gradient(left top, #CACACA, #F0F0F0); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #CACACA, #F0F0F0); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #CACACA, #F0F0F0); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #CACACA, #F0F0F0); /* Standard syntax */
+	
+}
+
+.subject:hover{
+	border: 2px solid #5A5ACF;
+	background-color: #E0E0E0; /* std value*/
+	background: -webkit-linear-gradient(left top, #E0E0E0, #F9F9F9); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #E0E0E0, #F9F9F9); /* Standard syntax */
+	
+}
+
+
+/*******************************************
+	THREADS
+********************************************/
+
+#threadlist{
+
+}
+
+.thread{
+	background-color: #C0C0DB; /* std value*/
+	background: -webkit-linear-gradient(left top, #C0C0DB, #F0F0F5); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #C0C0DB, #F0F0F5); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #C0C0DB, #F0F0F5); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #C0C0DB, #F0F0F5); /* Standard syntax */
+
+}
+.thread:hover{
+	border: 2px solid #5050F5;
+	background-color: #E0E0E3; /* std value*/
+	background: -webkit-linear-gradient(left top, #E0E0E3, #EFEFF9); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #E0E0E3, #EFEFF9); /* Standard syntax */
+
+}
+
+
+/********************************************
+	POSTS
+*********************************************/
+
+#postslist{
+	width:90%;
+}
+#posts{
+	overflow: auto;
+}
+
+.displayForumPost{
+	display: flex;
+	background-color: rgb(240,245,225);
+	padding: 0px;
+	margin: 10px 0;
+	min-height: 80px;
+	border-radius: 5px;
+	border-style: ridge;
+	
+}
+
+.displayForumPost .author{
+	padding: 0 5px 0 0;
+	min-width: 14%;
+	border-width: 0 1px 0 0;
+	border-style: solid;
+	
+	float:left;
+}
+
+.displayForumPost .author{
+	text-align: center;
+}
+.displayForumPost .author .name a{
+	font-weight: bold;
+	color:black;
+	text-decoration: none;
+}
+.displayForumPost .author .role{
+	position:relative;
+	top:-4px;
+	font-size: 80%;
+}
+
+.displayForumPost .post{
+	flex: 1;
+	padding: 10px 0 0 10px;
+	
+	border-width: medium;
+}
+
+.displayForumPost .created{
+	font-size: 85%;
+	float:right;
+	margin: 10px 20px;
+}
+
+/***********************************
+	BREADCRUM
+*************************************/
+#breadcrum{
+	margin: 2px 4px 10px;
+	overflow:auto;
+}
+ #breadcrum > div{
+ 	float:left;
+	min-width: 90px;
+	min-height: 20px;
+
+ }
+
+#breadcrum .breadcrum_link{
+	margin: 4px 6px;
+	padding: 0px 20px;
+
+	border: 2px solid #8080EF;
+	background-color: #A0A0EF; /* std value*/
+	background: -webkit-linear-gradient(left top, #A0A0EF, #D6E6EF); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #A0A0EF, #D6E6EF); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #A0A0EF, #D6E6EF); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #A0A0EF, #D6E6EF); /* Standard syntax */
+
+	color: black;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14px;
+	cursor: pointer;
+
+}
+#breadcrum .breadcrum_link:hover{
+	border: 2px solid #E0E0EF;
+	background-color: #BEBEEF; /* std value*/
+	background: -webkit-linear-gradient(left top, #BEBEEF, #DEEEEF); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #BEBEEF, #DEEEEF); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #BEBEEF, #DEEEEF); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #BEBEEF, #DEEEEF); /* Standard syntax */
+
+}
+
+/**************************************
+	INDEX 
+***************************************/
+#forum_content{ 
+}
+#posts{
+	
+}
+#indexPages{
+
+   margin: 0 auto;
+
+}
+.link{
+	float:left;
+	margin: 0 4px;
+}
+/*
+.index_navigation{
+	letter-spacing: -0.2em;
+}
+
+.pageLinkIndex:hover{
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px #333333 ;
+}
+*/

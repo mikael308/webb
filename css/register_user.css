@@ -1,0 +1,49 @@
+
+
+#registeruser_errmsg{
+	color: red;
+}
+
+main{
+
+}
+
+#register{
+	float:left;
+	overflow:hidden;
+
+}
+
+#login{
+	float:left;
+}
+#login_h{
+	font-weight:bold;
+}
+#user_reg_table{
+	float:left;
+}
+#valid_password_hint{
+	width: 300px;
+	padding: 10px 30px;
+	margin: 0px 100px;
+	float:left;
+}
+
+#password_hint_label{
+	width: 70px;
+}
+
+#valid_password_hint_rule{
+	margin: 10px 0 0 0;
+	padding: 10px 0 0 0;
+}
+
+#valid_password_hint div{
+
+	padding: 6px 2px;
+	margin: 2px 2px;
+
+}
+
+
