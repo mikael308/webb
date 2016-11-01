@@ -143,20 +143,18 @@
 		return $resRole;
 	}
 	/**
-	* read all subjects with specific whereclause
-	* @param whereclause specify query 
+	* read all subjects
+	* @param spec specify query 
 	* @return array of search result 
 	*/	
-	function readSubjects($whereclause = NULL){
+	function readSubjects($spec= ""){
 		$subjs = NULL;
 		$db_conn = connect();
 		if ($db_conn){
 			$query = " SELECT subject.id, subject.topic, subject.subtitle "
-				. " FROM " . $GLOBALS['dbtable_subjects'] . " as subject ";
-			if($whereclause != NULL && $whereclause != ""){
-				$query .= " " . $whereclause . " ";
-			}
-			$query .= " ;";
+				. " FROM " . $GLOBALS['dbtable_subjects'] . " as subject "
+				. $spec
+				. " ;";
 			
 			$res = pg_query($db_conn, $query);
 			if ($res){
