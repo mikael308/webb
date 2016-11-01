@@ -84,5 +84,11 @@
 			}
 		}
 	}
+	/**
+	 * get this sessions authorized user
+	 */
+	function getAuthorizedUser(){
+		return $_SESSION['authorized_user'];
+	}
 
 ?>
