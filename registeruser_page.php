@@ -11,6 +11,7 @@
 	require_once "sections.php";
 	require_once "database.php";
 	require_once "listeners.php";
+	require_once "display_format.php";
 	
 	# autoload classes
 	spl_autoload_register(function($class) {
@@ -192,7 +193,8 @@
 			$user->setEmail($email);
 			$user->setRole(2);
 			$user->setBanned(False);
-						
+			$user->setRegistered(date($GLOBALS['timestamp_format']));
+			
 			if(exists($user)){
 				$_SESSION['registeruser_errmsg'] = "email already registered";	
 				return;
