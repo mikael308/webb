@@ -9,6 +9,12 @@
 	require_once "listeners.php";
 	
 	startSession();
+	
+	/**
+	 * format used for displaying timestamps
+	 */
+	$GLOBALS['timestamp_format']  = 'Y-m-d G:i:s';
+	
 	/**
 	 * get url link to thread page 
 	 * @param thread the thread 
