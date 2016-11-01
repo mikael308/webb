@@ -184,6 +184,9 @@
 	 * @return requested forumsubject, if not found NULL is returned 
 	 */
 	function readSubject($subject_id){
+		if($subject_id == NULL)
+			return NULL;
+		
 		$res = readSubjects(" WHERE subject.id='" . $subject_id . "'");
 		if($res != NULL){
 			return $res[0];
