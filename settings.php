@@ -15,7 +15,7 @@
  */
 function readSettings($setting_name){
 	$ret_val = NULL;
-	$settings_file = fopen("settings.md", "r") or die("unable to read settings");
+	$settings_file = fopen("config/settings.md", "r") or die("unable to read settings");
 	
 	while(! feof($settings_file)){
 		$line = fgets($settings_file);
