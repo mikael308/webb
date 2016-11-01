@@ -234,7 +234,7 @@
 	function replyButton(){
 		return 
 			'<a href="post_page.php?t='.getReqThread().'">'
-				.'<Button>reply</Button>'
+				.'<Button class="button">reply</Button>'
 			.'</a>';
 		
 	}
