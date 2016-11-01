@@ -394,8 +394,13 @@
 			$banned_val = $user->isBanned() ? "TRUE" : "FALSE";
 			
 			$query = "INSERT INTO " . $GLOBALS['dbtable_forumusers'] 
-				. " (name, email, role, banned, password) "
-				. " VALUES('".$user->getName()."','".$user->getEmail()."', ".$user->getRole().",'".$banned_val."', '".$passw."');";
+				. " (name, email, role, banned, password, registered) "
+				. " VALUES('".$user->getName()."',"
+				. "'" . $user->getEmail() . "', "
+				. "'" . $user->getRole() . "',"
+				. "'" . $banned_val . "', " 
+				. "'" . $passw . "', "
+				. "'" . $user->getRegistered() . "');";
 			
 			$res = pg_query($db_conn, $query);
 			if($res){
