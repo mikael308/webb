@@ -660,6 +660,30 @@
 		return NULL;
 	}
 	/**
+	 * updates the forumuser in database
+	 */
+	function updateForumUser(ForumUser $user){
+		$db_conn = connect();
+		if($db_conn){
+
+			$banned_val = $user->isBanned() ? "TRUE" : "FALSE";
+			
+			$query = " UPDATE " . $GLOBALS['dbtable_forumusers'] . " "
+			 . " SET "
+			 . " email='" 	. $user->getEmail() . "', "
+			 . " banned='" 	. $banned_val . "' "
+			 
+			 . " WHERE name='" . $user->getPrimaryKey() . "';";
+			 
+			$res = pg_query($db_conn, $query);
+			if($res){
+				pg_free_result($res);
+				return True;	
+			}
+		}
+		return False;
+	}
+	/**
 	 * update banned attribute of user
 	 * @param user the user to edit
 	 * @param banned boolean or string representing boolean value that will be set to banned attribute in database
