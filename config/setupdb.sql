@@ -52,11 +52,11 @@ VALUES
 (1, 'moderator'),
 (2, 'user');
 
-INSERT INTO proj.forumusers (name, email, password, role, banned)
+INSERT INTO proj.forumusers (name, email, password, role, banned, registered)
 VALUES
-('tom', 'tom@gmail.com', 'abc', 1, 'FALSE'),
-('tim', 'tim@gmail.com', 'hej', 0, 'FALSE'),
-('mikael', 'mik@gmail.com', 'asd', 2, 'FALSE');
+('tom', 'tom@gmail.com', 'abc', 1, 'FALSE', to_timestamp('16-05-2010 15:40:38', 'dd-mm-yyyy hh24:mi:ss')),
+('tim', 'tim@gmail.com', 'hej', 0, 'FALSE', to_timestamp('16-05-2012 15:40:38', 'dd-mm-yyyy hh24:mi:ss')),
+('mikael', 'mik@gmail.com', 'asd', 2, 'FALSE', to_timestamp('16-05-2014 15:40:38', 'dd-mm-yyyy hh24:mi:ss'));
 
 INSERT INTO proj.forumsubjects(topic, subtitle)
 VALUES
