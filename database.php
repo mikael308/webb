@@ -480,7 +480,41 @@
 		}
 		return False;
 	}
-	
+	/**
+	 * get the creator of forumthread\n
+	 * creator is defined as the first post of a thread
+	 * @param thread thread to find the creator of
+	 * @return the creator as ForumUser, if no creator was found NULL is returned
+	 */
+	function getCreator(ForumThread $thread){
+		if($thread == NULL) return NULL;
+		
+		$user = NULL; # the creator
+		
+		$db_conn = connect();
+		if ($db_conn){
+			$query = "SELECT p.author " 
+				. " FROM ". $GLOBALS['dbtable_forumposts'] ." AS p "
+				. " LEFT JOIN " . $GLOBALS['dbtable_forumthreads'] . " AS t "
+				. "     ON p.thread=t.id "
+				. " WHERE p.thread='" . $thread->getPrimaryKey() . "' "
+				. " ORDER BY p.created ASC "
+				. " LIMIT 1"
+				. " ;";
+			
+			$res = pg_query($db_conn, $query);
+			if($res){
+				$data = pg_fetch_object($res, 0);
+				
+				pg_free_result($res);
+				if($data != NULL){
+					$user = readForumUser($data->author);	
+				}
+			}
+			
+		}
+		return $user;
+	}
 	/**
 	 * count the number of forumthreads created by specific user
 	 * @param user the specific user
