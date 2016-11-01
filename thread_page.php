@@ -45,7 +45,7 @@
 <head>
 <?php	
 	echo getMainHeadContent();
-	echo '<link rel="stylesheet" href="./css/forum.css" >';
+	echo getStylesheet("forum.css");
 	$thread = readThread(getReqThread());
 	if($thread != NULL){
 		echo setTitle($thread->getTopic());	
