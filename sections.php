@@ -170,10 +170,11 @@
 	 * 
 	 */
 	function getLoginForm(){
+		$errmsg = isset($_SESSION['login_errmsg']) ? $_SESSION['login_errmsg'] : "";
 		return
 			'<div>'
 			.'<form id="loginform" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" >'
-				. '<div><span id="login_errmsg"> ' . $_SESSION['login_errmsg'] . '</span></div>'
+				. '<div><span id="login_errmsg"> ' . $errmsg . '</span></div>'
 				.'<label for="input_username">username (email)</label><br>'
 				.'<input type="text" id="input_username" name="input_username" autofocus><br>'
 				.'<label for="input_password">password</label><br>'
