@@ -113,10 +113,12 @@
 	 */
 	function displayForumPost(ForumPost $post){
 		
+		$author = $post->getAuthor();
 		return '<div class="displayForumPost">'
 			. '<div class="author">'
-				. '<div class="name"><a href="viewuser_page.php?u='.$post->getAuthor()->getPrimaryKey().'">' . $post->getAuthor()->getName() . '</a></div>'
-				. '<div class="role">' . $post->getAuthor()->getRole() . '</div>'
+				. '<div class="name"><a href="viewuser_page.php?u='.$author->getPrimaryKey().'">' . $post->getAuthor()->getName() . '</a></div>'
+				. '<div class="role">' . $author->getRole() . '</div>'
+				. '<div class="registered">registered<br>'.formatDate($author->getRegistered()).'</div>'
 			. '</div>'
 			. '<div class="post">'
 				. '<div class="message">' . $post->getMessage() . '</div>'
