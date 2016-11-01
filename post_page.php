@@ -17,6 +17,7 @@
 	require_once "database.php";
 	require_once "listeners.php";
 	require_once "settings.php";
+	require_once "display_format.php";
 	
 	startSession();
 	restrictedToAuthorized("index.php");
@@ -121,7 +122,7 @@
 		$user = $_SESSION['authorized_user'];
 		$thread = new ForumThread($topic);
 		$thread->setSubject($subj);
-		$timestamp = date();
+		$timestamp = date($GLOBALS['timestamp_format']);
 		
 		$post = new ForumPost();
 		$post->setAuthor($user);
