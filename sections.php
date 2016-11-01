@@ -67,7 +67,7 @@
 	function getNavContent(){
 		$cont = '<nav>'
 			. getNavButton('index.php', 'start')
-			. getNavButton('mainforumboard_page.php', 'forum')
+			. getNavButton('forum_page.php', 'forum')
 			. getNavButton('my_page.php', 'my page')
 			. getNavButton('search_page.php', 'search');
 		
@@ -107,9 +107,9 @@
 	}
 	function getBreadcrum(ForumSubject $subject = NULL, ForumThread $thread = NULL){
 		$cont = '<div id="breadcrum">'
-				. getBreadcrumLink("mainforumboard_page.php", "main");
+				. getBreadcrumLink("forum_page.php", "main");
 		if($subject != NULL){
-			$cont .= getBreadcrumLink("subject_page.php?s=".$subject->getPrimaryKey()."&p=1", $subject->getTopic());
+			$cont .= getBreadcrumLink("forum_page.php?s=".$subject->getPrimaryKey()."&p=1", $subject->getTopic());
 		}
 		if($thread != NULL){
 			$cont .= getBreadcrumLink("thread_page.php?t=".$thread->getPrimaryKey()."&p=1", $thread->getTopic());

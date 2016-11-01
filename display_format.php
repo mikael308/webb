@@ -82,7 +82,7 @@
 	 */
 	function displayForumSubject(ForumSubject $subject){
 		$cont = 
-			 '<a href="subject_page.php?s='.$subject->getPrimaryKey().'&p=1">'
+			 '<a href="forum_page.php?s='.$subject->getPrimaryKey().'&p=1">'
 			.	'<div class="subject forum_navigator">' 	
 			. 		'<div id="topic" class="topic">'.$subject->getTopic().'</div>'
 			.		'<div id="info">'
