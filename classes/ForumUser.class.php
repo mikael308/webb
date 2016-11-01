@@ -26,6 +26,10 @@ class ForumUser extends DataAccessObject {
 	 * true if this user is banned
 	 */
 	private $banned;
+	/**
+	 * timestamp when this forumuser was registered
+	 */
+	 private $registered;
 	
 	/**
 	 *
@@ -49,6 +53,12 @@ class ForumUser extends DataAccessObject {
 	 */
 	public function getRole(){
 		return $this->role;
+	}
+	/**
+	 * get timestamp when this forumuser was registered
+	 */
+	public function getRegistered(){
+		return $this->registered;
 	}
 	/**
 	 * get this private key
@@ -83,6 +93,13 @@ class ForumUser extends DataAccessObject {
 	*/
 	public function setBanned($banned){
 		$this->banned = $banned;
+	}
+	/**
+	 * set this registered timestamp
+	 * @param regsitered timestamp when this forumuser was registered
+	 */
+	public function setRegistered($registered){
+		$this->registered = $registered;
 	}
 	/**
 	 * determine if this user role is admin

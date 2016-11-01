@@ -10,7 +10,8 @@ CREATE TABLE proj.forumusers(
 	email TEXT NOT NULL,
 	role INTEGER NOT NULL references proj.roles,
 	banned BOOLEAN,
-	password TEXT NOT NULL
+	password TEXT NOT NULL,
+	registered TIMESTAMP NOT NULL
 );
 
 CREATE TABLE proj.forumsubjects(
