@@ -202,7 +202,7 @@
 				# user is registered in database
 				$user = readForumUser($user->getPrimaryKey());
 				$_SESSION['authorized_user'] = $user;
-				header("Location: my_page.php");
+				header("Location: viewuser_page.php?u=" . $user->getPrimaryKey());
 		
 			}
 	}

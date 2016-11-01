@@ -68,7 +68,7 @@
 		$cont = '<nav>'
 			. getNavButton('index.php', 'start')
 			. getNavButton('forum_page.php', 'forum')
-			. getNavButton('my_page.php', 'my page')
+			. getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page')
 			. getNavButton('search_page.php', 'search');
 		
 		if(isset($_SESSION['authorized_user']) 
