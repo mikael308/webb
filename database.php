@@ -686,37 +686,6 @@
 		}
 		return False;
 	}
-	/**
-	 * update banned attribute of user
-	 * @param user the user to edit
-	 * @param banned boolean or string representing boolean value that will be set to banned attribute in database
-	 */
-	function updateBanned(ForumUser $user, $banned){
-		
-		$db_conn = connect();
-		if($db_conn){
-			$banned_val;
-			if(is_bool($banned)){
-				$banned_val = $banned ? "TRUE" : "FALSE";	
-			} elseif(is_string($banned)){
-				$banned_val = $banned;
-			} else {
-				return False;
-			}
-			
-			$query = "UPDATE " . $GLOBALS['dbtable_forumusers'] . " AS fuser "
-			 . " SET banned='" . $banned_val . "' "
-			 . " WHERE fuser.name='" . $user->getPrimaryKey() . "';";
-			 			
-			$res = pg_query($db_conn, $query);
-			if($res){
-				pg_free_result($res);
-				
-				return True;	
-			}
-		}
-		return False;
-	}
 
 
 ?>
