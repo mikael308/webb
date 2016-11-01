@@ -522,10 +522,43 @@
 	 * count the number of forumthreads created by specific user
 	 * @param user the specific user
 	 */
-	function countForumThreads(ForumUser $user){		
-		$thread_arr = readAllThreadsWhere(" creator.author='".$user->getPrimaryKey()."' ");
+	function countForumThreads(ForumUser $user){
 		
-		return count($thread_arr);
+		$db_conn = connect();
+		if ($db_conn){
+			$query = "SELECT p.author, p.message, t.topic "			
+				. " FROM proj.forumthreads AS t "
+				. " LEFT JOIN proj.forumposts as p "
+				. " ON p.thread=t.id "
+				. " WHERE p.author = '".$user->getPrimaryKey()."' "
+				. " AND p.id IN "
+				. " ( "
+				# the first posts in every thread
+				. " SELECT p.id "
+				. " FROM proj.forumposts p "
+				. " WHERE p.id = "
+					. " ( "
+						. " SELECT p2.id "
+						. " FROM proj.forumposts p2 "
+						. " WHERE p2.thread=p.thread "
+						. " ORDER BY p2.created ASC "
+						. " LIMIT 1 "
+					. " ) "
+				. " ) "
+				. " ;";
+			
+			$res = pg_query($db_conn, $query);
+			if($res){
+				$numrow = pg_num_rows($res);
+				
+				pg_free_result($res);
+				return $numrow;
+			}
+			
+		} # ! db_conn
+		
+		return 0;
+		
 	}
 	/**
 	 * count the number of forumposts created by specific user
