@@ -149,6 +149,7 @@
 		}		
 		$cont .=
 				 tr(td('role') . td($user->getRole()))
+			 	. tr(td('registered') . td($user->getRegistered()))
 				. tr(td('created threads') . td($nForumThreads))
 				. tr(td('posts') . td($nForumPosts))
 			. '</table>';
