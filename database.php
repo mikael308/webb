@@ -568,8 +568,11 @@
 		$nFP = 0;
 		$db_conn = connect();
 		if($db_conn){
-			$res = pg_query($db_conn, "SELECT author, id FROM ". $GLOBALS['dbtable_forumposts'] 
-					." WHERE author='".$user->getPrimaryKey()."';");
+			$query = "SELECT p.author " 
+				. " FROM ". $GLOBALS['dbtable_forumposts'] ." AS p "
+				. " WHERE p.author='".$user->getPrimaryKey()."';";
+					
+			$res = pg_query($db_conn, $query);
 			if($res){
 				$nFP = pg_num_rows($res);
 				pg_free_result($res);
