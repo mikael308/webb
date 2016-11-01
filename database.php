@@ -291,7 +291,7 @@
 			$query = "SELECT post.id "
 				. " FROM " . $GLOBALS['dbtable_forumposts'] . " AS post "
 				. " WHERE thread='" . $thread_id . "' "
-				. " ORDER BY post.created ;";
+				. " ORDER BY post.created ASC;";
 			
 			$res = pg_query($db_conn, $query);
 			if ($res){
