@@ -27,18 +27,18 @@
 		return getReq("u");
 	}
 	
-
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		$bann_user_id = $_POST['bann_user_arg'];
-		$bann_user = readForumUser($bann_user_id);
+		$user = readForumUser($_POST['u']);
+	
+		if($_POST['update_user']){
+			# SET NEW ATTRS
+			$user->setBanned($_POST['update_user_banned'] ? 1 : 0);
 			
-		if(isset($_POST['bann_user'])){
-			updateBanned($bann_user, "TRUE");
-			
-		} elseif(isset($_POST['unbann_user'])){
-			updateBanned($bann_user, "FALSE");			
+			updateForumUser($user);
 		}
-		$_GET['u'] = $bann_user_id;
+		
+		$_GET['u'] = $user->getPrimaryKey();
+
 	}
 	
 	$view_user = readForumUser(getReqUser());
@@ -50,17 +50,20 @@
 <?php	
 
 	echo getMainHeadContent();
-	
+	echo setTitle($view_user->getName());
+	echo getStylesheet("widgets.css");
 ;?>	
 </head>
 <body>
 	<header>
-		<?php echo getMainHeaderContent(); ?>
+		<?php 
+			echo getMainHeaderContent(); 
+		?>
 
 	</header>
 	<main>
 		<?php
-		
+			
 			if($view_user != NULL){
 				echo getUserInfo($view_user);
 				$authorized_user = $_SESSION['authorized_user'];
@@ -83,19 +86,28 @@
 function getAdminTools(){
 	global $view_user;
 	$cont = "<div class='header'>admin tools</div>";
-	$cont .= "banned: " 
-		. $view_user->isBanned() ? "true" : "false";
 	
-	$cont .= '<form id="bannuserform" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-			. 	'<input type="hidden" name="bann_user_arg" value="' . $view_user->getPrimaryKey() . '" />';
-	if($view_user->isBanned()){
-		$cont .= '<input type="submit" class="button" value="unbann user"	name="unbann_user">';
-	} else {
-		$cont .= '<input type="submit" class="button" value="bann user"	name="bann_user">';
-	}
+	# POST FORM
+	$cont .= '<form id="admintools" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
+			. 	'<input type="hidden" name="u" value="' . $view_user->getPrimaryKey() . '" />';
+	
+	# BANN USER
+	$banned_checkedval = $view_user->isBanned() ? "checked" : "unchecked";
+	$cont .= "<label>banned user</label>";
+	$cont .= "<div class='tooltip'>"
+			. "<span class='tooltiptext'>user is currently: " . ($view_user->isBanned()?"true":"false") . "</span>"
+			. 	"<label class='switch'>"
+  					. "<input type='checkbox' ".$banned_checkedval." name='update_user_banned'>"
+  					. "<div class='slider'></div>"
+			. 	"</label>"
+			. "</div>"
+			. "<br>";
+	
+	# SAVE BUTTON
+	$cont .= '<input type="submit" class="button" value="save" name="update_user">';
 	$cont .= '</form>';
 	
-	return $cont;
+	return '<div id="admin_tools">' . $cont . '</div>';
 }
 
 ?>
