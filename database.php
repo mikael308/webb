@@ -350,7 +350,7 @@
 	function readForumUsers($whereclause = NULL){
 		$db_conn = connect();
 		if($db_conn){
-			$query = "SELECT fuser.name, fuser.email, roles.title, fuser.banned "
+			$query = "SELECT fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
 			 . " FROM proj.forumusers AS fuser "
 			 . " LEFT JOIN proj.roles ON fuser.role=roles.id ";
 			 if($whereclause != NULL && $whereclause != ""){
@@ -370,6 +370,7 @@
 					$user->setName($data->name);
 					$user->setEmail($data->email);
 					$user->setRole($data->title);
+					$user->setRegistered($data->registered);
 					
 					$b = $data->banned === 't' ? 1:0;
 					$user->setBanned($b);
