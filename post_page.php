@@ -45,7 +45,7 @@
 	</header>
 	<main>
 		<?php
-			$user = $_SESSION['authorized_user'];
+			$user = getAuthorizedUser();
 			
 			if($_SERVER["REQUEST_METHOD"] == "GET"){
 				if(isset($_GET['t'])){
@@ -119,7 +119,7 @@
 		
 		#TODO validate topic and msg
 
-		$user = $_SESSION['authorized_user'];
+		$user = getAuthorizedUser();
 		$thread = new ForumThread($topic);
 		$thread->setSubject($subj);
 		$timestamp = date($GLOBALS['timestamp_format']);
@@ -146,7 +146,7 @@
 		$thread = readThread($_POST['thread']);
 		
 		$post = new ForumPost();
-		$post->setAuthor($_SESSION['authorized_user']);
+		$post->setAuthor(getAuthorizedUser());
 		$post->setMessage($msg);
 		
 		persistForumPost($thread, $post);

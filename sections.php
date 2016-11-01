@@ -65,14 +65,18 @@
 	 * get the navigation content
 	 */
 	function getNavContent(){
+		$user = getAuthorizedUser();
+		$authorizedUserId = $user != NULL ? $user->getPrimaryKey() : "";
+		
 		$cont = '<nav>'
 			. getNavButton('index.php', 'start')
 			. getNavButton('forum_page.php', 'forum')
 			. getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page')
 			. getNavButton('search_page.php', 'search');
 		
-		if(isset($_SESSION['authorized_user']) 
-			&& $_SESSION['authorized_user']->isAdmin()){
+		$user = getAuthorizedUser();
+		if($user != NULL 
+			&& $user->isAdmin()){
 			$cont .= getNavButton("admin_page.php", "admin");
 		}
 
@@ -93,11 +97,12 @@
 	function getSubNavContent(){
 		$cont = '<div id="subnav">';
 		
-		if(isset($_SESSION['authorized_user'])){
+		$user = getAuthorizedUser();
+		if($user != NULL){
 			logoutListener();
 			$cont .= getLogoutForm();
 			
-			$cont .= "<div id='username_label'>you're logged in as <a href='my_page.php'>" . $_SESSION['authorized_user']->getName() . "</a></div>";
+			$cont .= "<div id='username_label'>you're logged in as <a href='viewuser_page.php?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>";
 		}
 		
 			
