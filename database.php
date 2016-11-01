@@ -194,21 +194,19 @@
 	}
 	
 	/**
-	* read all threads with specific whereclause
-	* @param whereclause specify query
+	* read all threads can be specified by param
+	* @param spec specify query
 	* @return array of search result 
 	*/	
-	function readAllThreadsWhere($whereclause = NULL){
+	function readThreads($spec = ""){
 		$resThreadArr = NULL;
 		$db_conn = connect();
 		if ($db_conn){
 			$query = " SELECT thread.id, thread.subject, thread.topic "
 			." FROM " . $GLOBALS['dbtable_forumthreads'] . " AS thread "
+			. $spec
 			;
-			if($whereclause != NULL && $whereclause != ""){
-				$query .= " WHERE " . $whereclause;
-			}
-			$query .= " ;"; 	
+			$query .= " ;";
 			
 			$res = pg_query($db_conn, $query);
 			if ($res){
@@ -221,8 +219,6 @@
 					
 					$thread = new ForumThread($data->topic);
 					$thread->setSubject(readSubject($data->subject));
-					#$thread->setCreator($data->first);
-					#$thread->setLastAttributor($data->last);
 					$thread->setId($data->id);
 					
 					$resThreadArr[] = $thread;
@@ -274,7 +270,7 @@
 	* @param thread_id id of thread to read
 	*/
 	function readThread($thread_id){
-		$resThread = readAllThreadsWhere(" thread.id=".$thread_id." ")[0];
+		$resThread = readThreads(" WHERE thread.id=".$thread_id." ")[0];
 
 		return $resThread;
 	}
