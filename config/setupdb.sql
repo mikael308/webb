@@ -74,7 +74,11 @@ INSERT INTO proj.forumposts (author, thread, message, created)
 VALUES
 ('tom', 1, 'klaatu verada nikto', to_timestamp('16-05-2013 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
 ('tim', 1, 'whut?', to_timestamp('16-05-2013 15:40:38', 'dd-mm-yyyy hh24:mi:ss')),
-('tim', 2, 'rummel, where is he know?', to_timestamp('16-05-2011 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+('tim', 2, 'Lorem ipsum dolor sit amet, vel id tollit audiam sanctus, no quem reque accusamus qui. Sonet copiosae senserit usu an. Eu vix antiopam accusamus consulatu, an volumus perpetua eam. Ut alii nostro mea, sit movet congue tantas ut.
+
+Cum in antiopam conceptam suscipiantur, vim ad augue vitae, an clita oblique mea. Labores graecis ex mei. Sit ea quod omnis consequat, cum in maiorum sadipscing. Id scribentur delicatissimi sit, ei vis movet timeam. Qui doming vulputate at, ad ornatus oporteat sea, vix liber dictas splendide et. No tollit malorum quaestio nam.
+
+Te esse dicta definitionem his, atqui eripuit albucius pri eu, est ut alii consulatu. Solum utinam te usu, prima eloquentiam no mei. Id nec quando vocent moderatius, cu mei primis animal reprimique. In pro facer dissentiunt, reque disputando id eum. Congue quodsi omittantur usu ad, vim dolore ancillae et, per noster aliquip fastidii ea. Graeco option ex mel, mucius oportere his te, nam probo iisque voluptua no.', to_timestamp('16-05-2011 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
 ('tom', 1, 'bird is the word!', now()),
 ('tim', 3, 'bright nightclubbing', now()),
 ('mikael', 3, 'whats going on?', now());
