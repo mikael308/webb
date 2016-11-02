@@ -20,9 +20,7 @@ class ForumThread extends DataAccessObject {
 	private $topic;
 	# original creator of this thread
 	private $creator;
-	
-	private $lastAttributor;
-	
+		
 	public function __construct($topic){
 		$this->topic = $topic;
 	}
@@ -78,13 +76,6 @@ class ForumThread extends DataAccessObject {
 	 */
 	public function setCreator($creator) {
 		$this->creator = $creator;
-	}
-	/**
-	 * set this last attributor
-	 * @param lastAttributor last attributor
-	 */
-	public function setLastAttributor($lastAttributor){
-		$this->lastAttributor = $lastAttributor;
 	}
 	
 
