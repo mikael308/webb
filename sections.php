@@ -111,6 +111,13 @@
 		
 	}
 	function getBreadcrum(ForumSubject $subject = NULL, ForumThread $thread = NULL){
+		function getBreadcrumLink($link, $title){
+			return 
+				'<div class="parallellogram">'
+					. '<a class="breadcrum_link" href="'.$link.'">'.$title.'</a>'
+				.'</div>';
+		}
+		
 		$cont = '<div id="breadcrum">'
 				. getBreadcrumLink("forum_page.php", "main");
 		if($subject != NULL){
@@ -122,13 +129,6 @@
 		$cont .= '</div>';
 		return $cont;
 	}
-	function getBreadcrumLink($link, $title){
-		return 
-			'<div class="parallellogram">'
-				. '<a class="breadcrum_link" href="'.$link.'">'.$title.'</a>'
-			.'</div>';
-	}
-	
 	
 	
 	////////////////////////////////////////////////////////////////////
