@@ -4,8 +4,9 @@ require_once 'classes/DataAccessObject.class.php';
 
 /**
  * represents a thread in forum 
+ * thread contains forumposts
+ * thread is part of forumsubject
  *
- * Programvaruteknik,	Webbprogrammering 7.5hp
  * @author Mikael Holmbom
  * @version 1.0
  */
@@ -31,6 +32,9 @@ class ForumThread extends DataAccessObject {
 	public function getId(){
 		return $this->id;
 	}
+	/**
+	 * get subject containing this thread
+	 */
 	public function getSubject(){
 		return $this->subject;
 	}
@@ -62,6 +66,9 @@ class ForumThread extends DataAccessObject {
 	public function setId($id){
 		$this->id = $id;
 	}
+	/**
+	 * set subject containing this thread
+	 */
 	public function setSubject($subject){
 		$this->subject = $subject;
 	}
