@@ -205,8 +205,7 @@
 			$query = " SELECT thread.id, thread.subject, thread.topic "
 			." FROM " . $GLOBALS['dbtable_forumthreads'] . " AS thread "
 			. $spec
-			;
-			$query .= " ;";
+			. " ;";
 			
 			$res = pg_query($db_conn, $query);
 			if ($res){
