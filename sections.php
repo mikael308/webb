@@ -20,6 +20,7 @@
 	function getMainHeadContent(){
 		return
 			'<meta charset="utf-8">'
+			. getStylesheet("msg.css")
 			. '<link rel="stylesheet" href="./css/main.css">';
 			
 	}

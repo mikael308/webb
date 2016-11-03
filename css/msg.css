@@ -1,0 +1,21 @@
+.msg{
+	padding: 10px 14px;
+	border-left: solid 6px;
+}
+
+.msg_header{
+	text-transform: uppercase;
+}
+
+/*********************
+* SPECIFIC MESSAGES
+**********************/
+.err_msg{
+	background-color: #FBB;
+	border-color: #D00;
+}
+
+.info_msg{
+	background-color: #FFB;
+	border-color: #DD0;
+}
