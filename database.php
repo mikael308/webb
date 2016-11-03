@@ -219,6 +219,8 @@
 					$thread = new ForumThread($data->topic);
 					$thread->setId($data->id);
 					$thread->setSubject(readSubject($data->subject));
+					$thread->setCreator(getCreator($thread));
+					
 					
 					$resThreadArr[] = $thread;
 				}
