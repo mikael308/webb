@@ -43,6 +43,11 @@
 	function getStylesheet($filename){
 		return '<link rel="stylesheet" href="./css/'.$filename.'" >';
 	}
+	/**
+	 * get script link to file
+	 * @param filename name of script 
+	 * @return script link as html
+	 */
 	function getScript($filename){
 		return '<script type="text/javascript" src="./js/'.$filename.'" ></script>';	
 	}
