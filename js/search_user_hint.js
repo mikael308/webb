@@ -31,6 +31,8 @@ function showSuggestedUsers(str, elem_id){
 	if(str.length == 0){
 		target.innerHTML = "";
 		target.style.border="none";
+		setBoxShadow(target, '0px 20px 20px #FFF');
+		
 		return;
 		
 	} else {
@@ -48,6 +50,8 @@ function showSuggestedUsers(str, elem_id){
 	    		if(target != null){
 					target.innerHTML = response; 
 					target.style.border="2px solid #A5ACB2";
+					setBoxShadow(target, '20px 20px 20px #AAA');
+
 				}
 
 		    }
