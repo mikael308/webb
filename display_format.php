@@ -49,12 +49,17 @@
 		return 'viewuser_page.php?u=' . $forumuser->getPrimaryKey();
 	}
 	/**
-	 * display a newsfeed
-	 * @param newsfeed the newsfeed to display
-	 * @return display as html string
+	 * generate newsfeed view
+	 * @param newsfeed the newsfeed
+	 * @return content as html string
 	 */
-	function displayNewsfeed(News $newsfeed){
+	function newsfeedView(News $newsfeed){
 		return '<div class="newsfeed">'
+			. '<div class="title">' . $newsfeed->getTitle() . '</div>'
+			. '<div class="created">' . $newsfeed->getCreated() . '</div>'
+			. '<div class="message">' . $newsfeed->getMessage() . '</div>'
+			. '<div class="author">' . $newsfeed->getAuthor() . '</div>'
+
 		. '</div>';
 	}
 	/**

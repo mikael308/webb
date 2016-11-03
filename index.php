@@ -73,7 +73,7 @@ function getNewsFeed(){
 	$arr = readNews(" ORDER BY news.created DESC ");
 
 	foreach($arr as $news)
-		$s .= '<article>' . displayNewsfeed($news) . '</article>';
+		$s .= '<article>' . newsfeedView($news) . '</article>';
 
 
 	return $s;
