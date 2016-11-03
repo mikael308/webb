@@ -1,5 +1,64 @@
 <?php
 
+	############################
+	#
+	#	REQUEST VARIABLES
+	#
+	###########################
+
+	/**
+	 * get value from request GET\n
+	 * scope using this must declare variable $requestIndex
+	 * @param index return value from GET request 
+	 * @return 
+	 */
+	function get($index){
+		global $requestIndex;
+		$key = $requestIndex[$index];
+				
+		if(isset($_GET[$key])){
+			return $_GET[$key];
+		}
+		return NULL;
+	}
+	/**
+	 * get value from request POST\n
+	 * scope using this must declare variable $requestIndex
+	 * @param index return value from GET request 
+	 * @return 
+	 */
+	function post($index){
+		global $requestIndex;
+		$key = $requestIndex[$index];
+				
+		if(isset($_POST[$key])){
+			return $_POST[$key];
+		}
+		return NULL;
+	}
+	/**
+	 * determine if index is set as GET\n
+	 * scope using this must declare variable $requestIndex
+	 * @param index index to determine
+	 */
+	function issetGet($index){
+		global $requestIndex;
+		return isset($_GET[$requestIndex[$index]]);
+	}
+	/**
+	 * determine if index is set as POST\n
+	 * scope using this must declare variable $requestIndex
+	 * @param index index to determine
+	 */
+	function issetPost($index){
+		global $requestIndex;
+		return isset($_GET[$requestIndex[$index]]);
+	}
+
+
+
+
+
 	/**
 	 * starts session if not already active
 	 */
