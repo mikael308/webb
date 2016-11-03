@@ -20,8 +20,10 @@
 	function getMainHeadContent(){
 		return
 			'<meta charset="utf-8">'
+			. getStylesheet("main.css")
 			. getStylesheet("msg.css")
-			. getStylesheet("main.css");
+			. getStylesheet("widgets.css")
+			. '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">';
 			
 	}
 	function setTitle($subtitle = NULL){
