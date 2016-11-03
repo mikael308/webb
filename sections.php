@@ -35,6 +35,11 @@
 		
 		return $s .'</title>';
 	}
+	/**
+	 * get stylesheet link to file
+	 * @param filename name of stylesheet 
+	 * @return stylesheet link as html
+	 */
 	function getStylesheet($filename){
 		return '<link rel="stylesheet" href="./css/'.$filename.'" >';
 	}
