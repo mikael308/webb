@@ -38,7 +38,7 @@
 	 * @return link url as string
 	 */
 	function getDisplayThreadLink(ForumThread $thread, $page){
-		return "thread_page.php?t=" . $thread->getId() . "&p=" . $page;
+		return "forum_page.php?t=" . $thread->getId() . "&p=" . $page;
 	}
 	/**
 	 * get a url to view user page

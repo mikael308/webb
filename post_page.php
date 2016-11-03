@@ -101,7 +101,7 @@
 	* get form to create forumthread as html string
 	*/
 	function getThreadpageLink(ForumThread $thread, $pageIdx){
-		return 'thread_page.php?t='. $thread->getId() . '&p=' . $pageIdx; 
+		return 'forum_page.php?t='. $thread->getId() . '&p=' . $pageIdx; 
 	}
 	/**
 	* create a thread with POST arguments

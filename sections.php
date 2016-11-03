@@ -125,11 +125,12 @@
 			$cont .= getBreadcrumLink("forum_page.php?s=".$subject->getPrimaryKey()."&p=1", $subject->getTopic());
 		}
 		if($thread != NULL){
-			$cont .= getBreadcrumLink("thread_page.php?t=".$thread->getPrimaryKey()."&p=1", $thread->getTopic());
+			$cont .= getBreadcrumLink("forum_page.php?t=".$thread->getPrimaryKey()."&p=1", $thread->getTopic());
 		}
 		$cont .= '</div>';
 		return $cont;
-	}
+	}	
+
 	
 	
 	////////////////////////////////////////////////////////////////////
