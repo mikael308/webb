@@ -5,6 +5,20 @@
  * @author Mikael Holmbom
  */
 
+
+/**
+ * set box shadow to element
+ * @param target the element to influence
+ * @param val the value of elements boxshadow
+ */
+function setBoxShadow(target, val){
+	
+	target.style.boxShadow = val;
+	target.style.webkitBoxShadow = val;
+	target.style.mozBoxShadow = val;
+	target.style.oBoxShadow = val;
+}
+
 /**
  * get suggestions from gethint.php
  * @param str search string
