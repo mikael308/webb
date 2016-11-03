@@ -123,6 +123,15 @@
 		return '<a class="button btn_nav" href="'.$href.'">'.$text.'</a>';
 	}
 	/**
+	 * get meta navigation content
+	 */
+	function getMetaNav(){
+		return '<div id="meta_nav">'
+			. 	'<a href="about_page.php">'. getToolTip(getIconButton("info_outline"), "about") . '</a>'
+			. 	'<a href="search_page.php">'.getToolTip(getIconButton('search'), "search").'</a>'
+			. '</div>';
+	}
+	/**
 	 * get the subnavigation content
 	 */
 	function getSubNavContent(){
