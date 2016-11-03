@@ -217,8 +217,8 @@
 					$data = pg_fetch_object($res, $i);
 					
 					$thread = new ForumThread($data->topic);
-					$thread->setSubject(readSubject($data->subject));
 					$thread->setId($data->id);
+					$thread->setSubject(readSubject($data->subject));
 					
 					$resThreadArr[] = $thread;
 				}
