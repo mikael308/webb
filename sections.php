@@ -52,6 +52,15 @@
 		return '<script type="text/javascript" src="./js/'.$filename.'" ></script>';	
 	}
 	/**
+	 * generate listitem 
+	 * @param listitem the listitem element
+	 * @return listitem as html
+	 */
+	function listitem($listitem){
+		return '<li>' . $listitem . '</li>';
+	}
+	
+	/**
 	 * get the main header content
 	 * displays navigation content
 	 */
