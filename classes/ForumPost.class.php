@@ -19,7 +19,6 @@ class ForumPost extends DataAccessObject{
 	private $created;
 	private $thread;
 	
-	public $createdformat = 'Y-m-d h:i:s';
 	
 	/**
 	 * @param author
