@@ -20,7 +20,7 @@ main{
 
 }
 #newsfeed article .title {
-	font-size: 110%;
+	font-size: 100%;
 	font-weight: bold;
 }
 
@@ -34,5 +34,5 @@ main{
 	margin: 10px;
 }
 #newsfeed article .created{
-	font-size: 90%;
+	font-size: 80%;
 }
