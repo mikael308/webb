@@ -16,6 +16,14 @@
 	$GLOBALS['timestamp_format']  = 'Y-m-d G:i:s';
 	
 	/**
+	 * get a info message
+	 * @param message the text message contained
+	 * @return info message as html string
+	 */
+	function infoMessage($message){
+		return '<p class="info_msg msg"><strong class="msg_header">info</strong> '.$message.'</p>';
+	}
+	/**
 	 * get url link to thread page 
 	 * @param thread the thread 
 	 * @param page the index page of the link
