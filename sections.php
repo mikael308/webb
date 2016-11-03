@@ -105,6 +105,15 @@
 		$cont	.= '</nav>';
 		return $cont;
 	}
+
+	/**
+	 * get a icon button
+	 * @param icon the icon title
+	 * @return icon button as html
+	 */
+	function getIconButton($icon){
+		return '<i id="'.$icon.'" class="clickable material-icons">'.$icon.'</i>';
+	}
 	/**
 	 * get a navigation button
 	 * @param href reference link
