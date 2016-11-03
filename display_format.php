@@ -87,6 +87,19 @@
 		return $cont;
 	}
 	
+	/**
+	 * generate a element that shows tooltip when hover
+	 * @param target the target element to display a tooltip
+	 * @param tooltip the tooltip text
+	 * @return tooltip element as html
+	 */
+	function getToolTip($target, $tooltip){
+		return '<div class="tooltip">'
+			. 	'<span class="tooltiptext">' . $tooltip . '</span>'
+			.	$target
+			. '</div>';
+		
+	}
 
 
 
