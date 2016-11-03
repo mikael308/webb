@@ -21,20 +21,6 @@
 	logoutListener();
 	restrictedToAuthorized("registeruser_page.php");
 	
-	function getReq($index){
-		if(isset($_GET[$index])){
-			return $_GET[$index];
-		}
-		return NULL;
-	}
-	function getReqSubject(){
-		return getReq("s");
-	}
-	function getReqPage(){
-		$p = getReq("p");
-		if($p == NULL) $p = 1;
-		return $p;
-	}
 	
 ?>
 
