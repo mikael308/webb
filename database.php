@@ -199,7 +199,7 @@
 	* @return array of search result 
 	*/	
 	function readThreads($spec = ""){
-		$resThreadArr = NULL;
+		$resThreadArr = array();
 		$db_conn = connect();
 		if ($db_conn){
 			$query = " SELECT thread.id, thread.subject, thread.topic "
