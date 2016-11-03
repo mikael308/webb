@@ -8,6 +8,7 @@
  * @version 1.0
  */
 
+ 	require_once "display_format.php";
 
 	/**
 	 * get main head content
