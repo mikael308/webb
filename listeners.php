@@ -1,4 +1,9 @@
 <?php
+/**
+ * defines helper functions to read scope variables 
+ * 
+ * @author Mikael Holmbom
+ */
 
 	############################
 	#
