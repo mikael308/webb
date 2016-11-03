@@ -16,6 +16,14 @@
 	$GLOBALS['timestamp_format']  = 'Y-m-d G:i:s';
 	
 	/**
+	 * get a error message
+	 * @param message the text message contained
+	 * @return error message as html string
+	 */
+	function errorMessage($message){
+		return '<p class="err_msg msg"><strong class="msg_header">error</strong> '.$message.'</p>';
+	}
+	/**
 	 * get a info message
 	 * @param message the text message contained
 	 * @return info message as html string
