@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Programvaruteknik,	Webbprogrammering 7.5hp
  *  
  * helper fucntions containing dynamic std sections of website
  * 
