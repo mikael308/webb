@@ -15,12 +15,23 @@
 	require_once "listeners.php";
 	require_once "display_format.php";
 	require_once "settings.php";
-	
+	require_once "forumformat.php";
+	require_once "forumformat_main.php";
+	require_once "forumformat_subject.php";
+	require_once "forumformat_thread.php";
 	
 	startSession();
 	logoutListener();
 	restrictedToAuthorized("registeruser_page.php");
 	
+	/**
+	 * index of request variables
+	 */
+	$requestIndex = array(
+		"page" => "p",
+		"subject" => "s",
+		"thread" => "t"
+	);
 	
 ?>
 
@@ -38,27 +49,37 @@
 			echo getMainHeaderContent();
 			
 			$title = "forum";
-			if(isset($_GET['s'])){
-				$title .= ":" . $_GET['s'];
+			$targ = NULL;
+			if(issetGet("subject")){
+				$targ = readSubject(get("subject"));
+				
+			} elseif(issetGet("thread")){
+				$targ = readThread(get("thread"));
 			}
+			if($targ != NULL)
+					$title .= ":" . $targ->getTopic();
 			echo setTitle($title);
 		 ?>
 	</header>
 	<main>
 		<?php
 		
-			echo getBreadcrum(readSubject(getReqSubject()), NULL);
-			echo '<div id="forum_content">';
-			if(isset($_GET['s'])){
-				echo subject($_GET['s']);
-				
-			} else {
-				echo mainForum();
-				
+			$index 		= 'main';
+			$indexVal 	= '';
+			
+			if(issetGet("thread")){
+				$index 		= "thread";
+				$indexVal 	= get("thread");
+			
+			} elseif (issetGet("subject")){
+				$index 		= "subject";
+				$indexVal 	= get("subject");
 			}
-			echo '</div>';
+			
+			echo forum($index, $indexVal, get("page"));
 			
 			
+		
 		?>
 
 	</main>
@@ -70,66 +91,6 @@
 <?php
 
 
-	function mainForum(){
-		
-		$cont = "";
-		
-		$threads_arr = readThreads(NULL);
-		$n_threads = count($threads_arr);
-		$cont .= '<article id="subjects">';
-		
-		$cont .="<div id='forum_navigator_list'>"
-			. 	displayForumSubjects(readSubjects())
-			. "</div>";
-		
-		# find the lowest amount to display
-		/*$n_display_threads = min(array(
-			(int)readSettings("threads_per_page"), 
-			$n_threads));
-		
-		for ($i = 0; $i < $n_display_threads; $i++){
-			$thr = $threads_arr[$i];
-			$cont .= displayThreadLink($thr);
-		}
-		 
-		 */
-		$cont .= '</article>';
-		return $cont;
-	}
-	
-	function subject($subject_id){
-		$subject = readSubject(getReqSubject());
-		if($subject != NULL){
-			echo "<article id='forum_content'>";
-			echo '<div id="topic" class="header"  >' . $subject->getTopic() . '</div>';
-			echo '<a class="button" href="post_page.php?s='.$subject->getPrimaryKey().'">new thread</a>';
-			echo '<div id="forum_content">'
-				.	 subjects($subject)
-				. '</div>';	
-			echo "</article>";
-		}
-	}
-	
-		function subjects($subject){
-		
-		$cont = "";
-		
-		$cont .= "<div id='forum_navigator_list'>";
-		$threads = readThreads(" WHERE thread.subject=" . $subject->getPrimaryKey());
-		
-		if($threads == NULL){
-			$cont .= '<p>subject contains 0 threads</p>';
-			
-		} else { # query OK
-			
-			foreach($threads as $thread){
-				$cont .= displayThreadLink($thread);
-			}	
-		}
-		$cont .= "</div>"; # ! threadlist
-		
-		return $cont;
-	}
 
 
 
