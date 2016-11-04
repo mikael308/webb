@@ -191,9 +191,7 @@
 	 */
 	function replyButton($thread){
 		return 
-			'<a href="post_page.php?t='.$thread->getPrimaryKey().'">'
-			. 	'<Button class="button">reply</Button>'
-			. '</a>';
+			'<a class="button forum_button" href="post_page.php?t='.$thread->getPrimaryKey().'">reply</a>';
 
 	}
 	/**
