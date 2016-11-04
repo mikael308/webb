@@ -152,7 +152,10 @@
 	 * get this sessions authorized user
 	 */
 	function getAuthorizedUser(){
-		return $_SESSION['authorized_user'];
+		if(isset($_SESSION['authorized_user'])){
+			return $_SESSION['authorized_user'];	
+		}
+		return NULL;
 	}
 
 ?>
