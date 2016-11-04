@@ -4,6 +4,7 @@
  * @author Mikael Holmbom
  */
 
+ 	require_once "forumformat.php";
 
 	/**
 	 * display forumcontent list of posts
@@ -23,7 +24,10 @@
 		$forumpost_arr 	= readPostsFromThread($thread->getPrimaryKey());
 		$maxlim 		= ($n_postsPerPage + $i);
 		$n_posts 		= count($forumpost_arr);
+		$max_pages		= getMaxPagesThread($thread);
 		
+		if($page < 1 || $page > $max_pages)
+			return errorMessage("invalid page number");
 		if($n_posts < 1)
 			return infoMessage("subject contains no threads");
 

@@ -58,19 +58,11 @@
 			return errorMessage("invalid page");
 
 		$subject 		= $thread->getSubject();
-		
-		$n_posts 		= count(readPostsFromThread($thread->getPrimaryKey()));
-		$max_pages		= ceil($n_posts / readSettings("posts_per_page"));
 
-		if ($n_posts < 1)
-			return infoMessage("subject contains no posts");
-		if( $p > $max_pages || $p < 1)
-			return errorMessage("invalid page number");
-			
 		$pag = pagination(
 			$p, 
 			(int) readSettings("pag_max_interval"),
-			$max_pages, 
+			getMaxPagesThread($thread), 
 			"forum_page.php?t=" . $thread->getPrimaryKey());
 
 		return forumViewFormat(
@@ -91,19 +83,11 @@
 			return errorMessage("invalid subject");
 		if ($p == NULL || $p == "") 
 			return errorMessage("invalid page");
-		
-		$n_threads 		= count(readThreads(" WHERE thread.subject=" . $subject->getPrimaryKey()));
-		$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
 
-		if($n_threads < 1)
-			return infoMessage("subject contains no threads");
-		if($p > $max_pages || $p < 1)
-			return errorMessage("invalid page number");
-			
 		$pag = pagination(
 			$p, 
 			(int) readSettings("pag_max_interval"), 
-			$max_pages,
+			getMaxPagesSubject($subject),
 			"forum_page.php?s=" . $subject->getPrimaryKey());
 
 		return forumViewFormat(

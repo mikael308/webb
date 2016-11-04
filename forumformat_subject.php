@@ -4,7 +4,7 @@
  * @author Mikael Holmbom
  */
 
-
+	require_once "forumformat.php";
 	require_once "display_format.php";
 
 	/**
@@ -24,9 +24,12 @@
 		$tpp 		= (int) readSettings("threads_per_page");
 		$i 			= ($tpp * ($page-1)); # start offset
 		
-		$maxlim 	= ($tpp + $i);
+		$maxlim 	= ($tpp + $i); # end offset
 		$n_threads 	= count($threads);
+		$max_pages 	= getMaxPagesSubject($subject);
 
+		if($i > $max_pages)
+			return errorMessage("invalid page number");
 		if($n_threads < 1)
 			return infoMessage("subject contains no threads");
 		
