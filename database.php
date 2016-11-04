@@ -267,13 +267,16 @@
 
 	}
 	/**
-	* read a specific thread from database
-	* @param thread_id id of thread to read
-	*/
+	 * read a specific thread from database
+	 * @param thread_id id of thread to read
+	 * @return the first found row in database, if no result was found NULL is returned
+	 */
 	function readThread($thread_id){
-		$resThread = readThreads(" WHERE thread.id=".$thread_id." ")[0];
-
-		return $resThread;
+		$resThreads = readThreads(" WHERE thread.id=".$thread_id." ");
+		if(sizeof($resThreads) > 0)
+			return $resThreads[0];
+		
+		return NULL;
 	}
 	/**
 	* read posts related to thread with id as param from database
