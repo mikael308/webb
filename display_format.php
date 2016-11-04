@@ -86,7 +86,14 @@
 			
 		return $cont;
 	}
-	
+	/**
+	 * format a datetimestamp string
+	 * @param datetimestamp the string to format
+	 * @return transformed string 
+	 */
+	function formatDate($datetimestamp){
+		return substr($datetimestamp, 0, 10);
+	}
 	/**
 	 * generate a element that shows tooltip when hover
 	 * @param target the target element to display a tooltip
