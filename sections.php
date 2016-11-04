@@ -91,10 +91,13 @@
 		$authorizedUserId = $user != NULL ? $user->getPrimaryKey() : "";
 		
 		$cont = '<nav>'
-			. getNavButton('index.php', 'start')
-			. getNavButton('forum_page.php', 'forum')
-			. getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page')
-			. getNavButton('search_page.php', 'search');
+			. '<ul id="page_nav">'
+			. 	listitem(getNavButton('index.php', 'start'))
+			. 	listitem(getNavButton('forum_page.php', 'forum'))
+			. 	listitem(getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page'))
+			. 	listitem(getMetaNav())
+			. '</ul>'
+			;
 		
 		$user = getAuthorizedUser();
 		if($user != NULL 
