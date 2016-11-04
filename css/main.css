@@ -157,3 +157,10 @@ footer {
 .clickable:hover{
 	cursor: pointer;
 }
+
+.button_panel{
+	overflow: auto;
+}
+.button_panel > .button{
+	margin-right: 10px;
+}
