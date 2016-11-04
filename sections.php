@@ -95,7 +95,6 @@
 			. 	listitem(getNavButton('index.php', 'start'))
 			. 	listitem(getNavButton('forum_page.php', 'forum'))
 			. 	listitem(getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page'))
-			. 	listitem(getMetaNav())
 			. '</ul>'
 			;
 		
@@ -143,9 +142,12 @@
 		$user = getAuthorizedUser();
 		if($user != NULL){
 			logoutListener();
-			$cont .= getLogoutForm();
-			
-			$cont .= "<div id='username_label'>you're logged in as <a href='viewuser_page.php?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>";
+			$cont .=
+				"<ul>" 
+				. listitem(getLogoutForm())
+				. listitem("<div id='username_label'>you're logged in as <a href='viewuser_page.php?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>")
+				. "<li id='metanav_li'>" . getMetaNav() . "</li>"
+				. "</ul>";
 		}
 		
 			
