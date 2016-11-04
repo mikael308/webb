@@ -283,3 +283,24 @@
 .pag_button_dir{
 
 }
+
+
+/****************************
+ * BUTTONPANEL
+ ****************************/
+
+#forum_top_bts{
+	min-height: 32px;
+}
+#forum_top_bts .button{	
+	
+}
+
+#forum_bottom_bts{
+	min-height: 32px;
+
+	
+}
+#forum_bottom_bts .button{
+	float:right;
+}
