@@ -17,9 +17,11 @@ header {
 }
 
 nav {
-	margin-top: 16px;
+	margin-top: 25px;
 	padding-left: 8px;
-	overflow:auto;
+	margin-bottom: 0;
+		
+}
 
 }
 
