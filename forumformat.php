@@ -196,6 +196,14 @@
 			. '</a>';
 
 	}
+	/**
+	 * get a button to add thread to subject
+	 * @param subject the subject to add thread to
+	 * @return button as html string
+	 */
+	function newThreadButton($subject){
+		return '<a class="button forum_button" href="post_page.php?s='.$subject->getPrimaryKey().'">new thread</a>';
+	}
 	
 	/**
 	 * get the amount of pages in thread
