@@ -38,6 +38,13 @@ nav #meta_nav {
 	float:right;
 }
 
+hr{
+	position:relative;
+	top:-8px;
+	margin-top:0px;
+	padding-top:0;
+}
+
 .parallellogram{
 	transform: skew(-20deg); 
     -o-transform: skew(-20deg); 
