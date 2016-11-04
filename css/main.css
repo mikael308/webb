@@ -149,3 +149,11 @@ footer {
 #search{
 	font-size: 35px;
 }
+
+.clickable{
+	
+
+}
+.clickable:hover{
+	cursor: pointer;
+}
