@@ -49,6 +49,12 @@
 
 }
 
+.forum_button{
+	
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
 
 #topic{
 	text-transform: capitalize;
