@@ -169,7 +169,7 @@
 			. 	pagButton("pag_button_dir", $link."&p=".$prevPage,	"<i id='pag_prev'  class='material-icons'>navigate_before</i>")
 			. 	$pagIdxBtns
 			. 	pagButton("pag_button_dir", $link."&p=".$nextPage,	"<i id='pag_next'  class='material-icons'>navigate_next</i>")
-		 	. 	pagButton("pag_button_dir", $link."&p=".$maxlim,		"<i id='pag_last'  class='material-icons'>last_page</i>")
+		 	. 	pagButton("pag_button_dir", $link."&p=".$n_pages,		"<i id='pag_last'  class='material-icons'>last_page</i>")
 			. '</div>';
 	}
 
