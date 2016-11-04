@@ -67,9 +67,9 @@
 
 		return forumViewFormat(
 			getBreadcrum($subject, $thread),
-			replyButton($thread),
-			forumContentListPosts($thread, $p),
 			"",
+			forumContentListPosts($thread, $p),
+			replyButton($thread),
 			$pag);
 	}
 	/**
