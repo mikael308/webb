@@ -36,10 +36,11 @@
 	 * @param pag pagination of content
 	 * @return content as html string
 	 */
-	function forumViewFormat($breadcrum, $top_bts, $forumcontlist, $bottom_bts, $pag){
+	function forumViewFormat($breadcrum, $header, $top_bts, $forumcontlist, $bottom_bts, $pag){
 		return 
 		'<article id="forum_content">'
 		.	$breadcrum
+		. 	'<div id="forum_header">' . $header . '</div>'
 		. 	'<div id="forum_top_bts" class="button_panel">'.$top_bts . '</div>'
 		. 	'<div id="forum_content_list">'. $forumcontlist .'</div>'
 		.	'<div id="forum_bottom_bts" class="button_panel">'. $bottom_bts .'</div>'
@@ -68,6 +69,7 @@
 
 		return forumViewFormat(
 			getBreadcrum($subject, $thread),
+			$thread->getTopic(),
 			"",
 			forumContentListPosts($thread, $p),
 			replyButton($thread),
@@ -93,6 +95,7 @@
 
 		return forumViewFormat(
 			getBreadcrum($subject, NULL),
+			$subject->getTopic(),
 			newThreadButton($subject),
 			forumContentListThreads($subject, $p),
 			"",
@@ -106,6 +109,7 @@
 
 		return forumViewFormat(
 			getBreadcrum(NULL, NULL),
+			"forum",
 			"",
 			forumContentListSubjects(readSubjects()),
 			"",
