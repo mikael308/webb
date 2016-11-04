@@ -53,7 +53,10 @@
 	</header>
 	<main>
 	<?php
-		echo '<p id="registeruser_errmsg">' . $_SESSION['registeruser_errmsg'] . '</p>';
+		if(isset($_SESSION['registeruser_errmsg'])){
+			echo '<p id="registeruser_errmsg">' . $_SESSION['registeruser_errmsg'] . '</p>';	
+		}
+		
 		echo 
 			'<article id="register">'
 				. getRegisterUserForm()
