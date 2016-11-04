@@ -134,6 +134,13 @@ footer {
 	margin-bottom: 80px;
 }
 
+#meta_nav a{
+	color: #444;
+}
+#meta_nav a:hover{
+	color: #CCC;
+}
+
 #info_outline{
 	font-size:35px;
 
