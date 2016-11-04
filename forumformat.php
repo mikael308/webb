@@ -196,6 +196,34 @@
 			. '</a>';
 
 	}
+	
+	/**
+	 * get the amount of pages in thread
+	 * @param thread count this threads pages
+	 * @param amount of pages
+	 */
+	function getMaxPagesThread(ForumThread $thread){
+		$n_posts 		= count(readPostsFromThread($thread->getPrimaryKey()));
+		$max_pages		= ceil($n_posts / readSettings("posts_per_page"));
+		return $max_pages;
+		
+	}
+	/**
+	 * get the amount of pages in subject
+	 * @param subject count this subjects pages
+	 * @return amount of pages
+	 */
+	function getMaxPagesSubject(ForumSubject $subject){
+		try{
+			$n_threads 		= count(readThreads(" WHERE thread.subject=" . $subject->getPrimaryKey()));
+			$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
+			return $max_pages;	
+		} catch(Exception $e){
+			return 0;
+		}
+		
+
+	}
 
 
 
