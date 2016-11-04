@@ -92,7 +92,7 @@
 
 		return forumViewFormat(
 			getBreadcrum($subject, NULL),
-			"",
+			newThreadButton($subject),
 			forumContentListThreads($subject, $p),
 			"",
 			$pag);
