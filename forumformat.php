@@ -39,9 +39,9 @@
 		return 
 		'<article id="forum_content">'
 		.	$breadcrum
-		. 	'<div id="forum_top_bts">'.$top_bts . '</div>'
+		. 	'<div id="forum_top_bts" class="button_panel">'.$top_bts . '</div>'
 		. 	'<div id="forum_content_list">'. $forumcontlist .'</div>'
-		.	'<div id="forum_bottom_bts">'. $bottom_bts .'</div>'
+		.	'<div id="forum_bottom_bts" class="button_panel">'. $bottom_bts .'</div>'
 		. 	$pag
 		. '</article>';
 	}
