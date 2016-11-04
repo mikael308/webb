@@ -1,6 +1,7 @@
 <?php
 /**
  * helper functions to display forum\n
+ * uses abstract factory pattern to create forum content\n
  * to generate forum content: {@link #forum($index, $indexValue, $page)}
  * @author Mikael Holmbom
  */
