@@ -141,8 +141,12 @@
 	 */
 	function logoutListener(){
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
+			$authUser = getAuthorizedUser();
 			if (isset($_POST['logout'])){
-				$_SESSION['authorized_user'] = null;
+				
+				if($authUser != NULL)
+					$_SESSION['authorized_user'] = NULL;
+				
 				header("Location: index.php");
 				exit();
 			}
