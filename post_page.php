@@ -50,7 +50,7 @@
 			if($_SERVER["REQUEST_METHOD"] == "GET"){
 				if(isset($_GET['t'])){
 					# REPLY TO THREAD
-					$thread = readThread($_GET['t']);
+					$thread = read::thread($_GET['t']);
 					echo 'thread: ' . $thread->getTopic()
 						. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 						. '<input type="text" name="thread" value="'.$thread->getId().'" hidden> '
@@ -114,7 +114,7 @@
 			echo 'ERROR could not read subject';
 		}
 		
-		$subj = readSubject($_SESSION['s']);
+		$subj = read::subject($_SESSION['s']);
 		$_SESSION['s'] = NULL;
 		
 		#TODO validate topic and msg
@@ -129,9 +129,10 @@
 		$post->setMessage($msg);
 		$post->setCreated($timestamp);
 					
-		$thread = persistForumThread($thread);
+		$thread = persist::forumThread($thread, $post);
 		
-		persistForumPost($thread, $post);
+		persist::forumPost($thread, $post);
+		
 	
 		# redirect to thread page
 		$link = getThreadpageLink($thread, 1);
@@ -143,17 +144,17 @@
 	*/
 	function postReply(){
 		$msg = $_POST['forumpost_message'];
-		$thread = readThread($_POST['thread']);
+		$thread = read::thread($_POST['thread']);
 		
 		$post = new ForumPost();
 		$post->setAuthor(getAuthorizedUser());
 		$post->setMessage($msg);
 		
-		persistForumPost($thread, $post);
+		persist::forumPost($thread, $post);
 		
 		# redirect to thread page
 		$posts_per_page = readSettings("posts_per_page");
-		$n_posts = count(readPostsFromThread($thread->getId()));
+		$n_posts = count(read::postsFromThread($thread->getId()));
 		$last_page = ceil($n_posts / $posts_per_page);
 		
 		$link = getThreadpageLink($thread, $last_page);

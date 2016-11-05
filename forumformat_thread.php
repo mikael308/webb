@@ -21,7 +21,7 @@
 		$n_postsPerPage = readSettings("posts_per_page");
 		$i 				= ($page -1) * $n_postsPerPage; # start offset
 
-		$forumpost_arr 	= readPostsFromThread($thread->getPrimaryKey());
+		$forumpost_arr 	= read::postsFromThread($thread->getPrimaryKey());
 		$maxlim 		= ($n_postsPerPage + $i);
 		$n_posts 		= count($forumpost_arr);
 		$max_pages		= getMaxPagesThread($thread);

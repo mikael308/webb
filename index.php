@@ -70,7 +70,7 @@
  */
 function getNewsFeed(){
 	$s = "";
-	$arr = readNews(" ORDER BY news.created DESC ");
+	$arr = read::news(" ORDER BY news.created DESC ");
 
 	foreach($arr as $news)
 		$s .= '<article>' . newsfeedView($news) . '</article>';

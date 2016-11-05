@@ -28,20 +28,20 @@
 	}
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		$user = readForumUser($_POST['u']);
-	
+		$user = read::forumUser($_POST['u']);
+		
 		if($_POST['update_user']){
 			# SET NEW ATTRS
 			$user->setBanned($_POST['update_user_banned'] ? 1 : 0);
 			
-			updateForumUser($user);
+			update::forumUser($user);
 		}
 		
 		$_GET['u'] = $user->getPrimaryKey();
 
 	}
 	
-	$view_user = readForumUser(getReqUser());
+	$view_user = read::forumUser(getReqUser());
 
 ?>
 

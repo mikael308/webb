@@ -19,7 +19,7 @@
 		if ($page == NULL || $page == "") 
 			return errorMessage("invalid page");
 
-		$threads 	= readThreads(" WHERE thread.subject=" . $subject->getPrimaryKey());
+		$threads 	= read::threads(" WHERE thread.subject=" . $subject->getPrimaryKey());
 	
 		$tpp 		= (int) readSettings("threads_per_page");
 		$i 			= ($tpp * ($page-1)); # start offset
@@ -51,7 +51,7 @@
 			return errorMessage("thread could not be displayed");
 
 		$tlink = getDisplayThreadLink($thread, 1);
-		$creator = getCreator($thread);
+		$creator = read::creator($thread);
 
 		$cont =  	
 	 	 '<div class="forum_content_listitem forum_thread">' 	

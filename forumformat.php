@@ -20,8 +20,8 @@
 	function forum($index, $indexValue, $page){
 
 		switch($index){
-			case "thread": 		return displayThreadContent(readThread($indexValue), $page);
-			case "subject":		return displaySubjectContent(readSubject($indexValue), $page);
+			case "thread": 		return displayThreadContent(read::thread($indexValue), $page);
+			case "subject":		return displaySubjectContent(read::subject($indexValue), $page);
 			case "main":		return displayMainContent();
 			default:			return errorMessage("page request error");
 		}
@@ -111,7 +111,7 @@
 			getBreadcrum(NULL, NULL),
 			"forum",
 			"",
-			forumContentListSubjects(readSubjects()),
+			forumContentListSubjects(read::subjects()),
 			"",
 			"");
 	}
@@ -198,7 +198,7 @@
 	 * @param amount of pages
 	 */
 	function getMaxPagesThread(ForumThread $thread){
-		$n_posts 		= count(readPostsFromThread($thread->getPrimaryKey()));
+		$n_posts 		= count(read::postsFromThread($thread->getPrimaryKey()));
 		$max_pages		= ceil($n_posts / readSettings("posts_per_page"));
 		return $max_pages;
 		
@@ -210,7 +210,7 @@
 	 */
 	function getMaxPagesSubject(ForumSubject $subject){
 		try{
-			$n_threads 		= count(readThreads(" WHERE thread.subject=" . $subject->getPrimaryKey()));
+			$n_threads 		= count(read::threads(" WHERE thread.subject=" . $subject->getPrimaryKey()));
 			$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
 			return $max_pages;	
 		} catch(Exception $e){

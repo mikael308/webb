@@ -51,10 +51,10 @@
 			$title = "forum";
 			$targ = NULL;
 			if(issetGet("subject")){
-				$targ = readSubject(get("subject"));
+				$targ = read::subject(get("subject"));
 				
 			} elseif(issetGet("thread")){
-				$targ = readThread(get("thread"));
+				$targ = read::thread(get("thread"));
 			}
 			if($targ != NULL)
 					$title .= ":" . $targ->getTopic();
