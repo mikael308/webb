@@ -32,7 +32,13 @@
 		
 		if($_POST['update_user']){
 			# SET NEW ATTRS
-			$user->setBanned($_POST['update_user_banned'] ? 1 : 0);
+			$b = null;
+			if(isset($_POST['update_user_banned']))
+				$b = $_POST['update_user_banned'] == "on" ? 1 : 0;
+			else
+				$b = 0;
+			
+			$user->setBanned($b);
 			
 			update::forumUser($user);
 		}
