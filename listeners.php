@@ -78,7 +78,8 @@
 	 * @param redirectedPage the page to redirect client to
 	 */
 	function restrictedToAuthorized($redirectedPage){
-		if(! isset($_SESSION['authorized_user'])){
+		$authUser = getAuthorizedUser();
+		if(!$authUser){	
 			header("Location: " . $redirectedPage);
 			exit();
 		}
