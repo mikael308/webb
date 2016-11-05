@@ -95,7 +95,6 @@
 			. 	listitem(getNavButton('index.php', 'start'))
 			. 	listitem(getNavButton('forum_page.php', 'forum'))
 			. 	listitem(getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page'))
-			. '</ul>'
 			;
 		
 		$user = getAuthorizedUser();
@@ -103,6 +102,7 @@
 			&& $user->isAdmin()){
 			$cont .= getNavButton("admin_page.php", "admin");
 		}
+		$cont .= '</ul>';
 
 		$cont	.= '</nav>';
 		return $cont;
