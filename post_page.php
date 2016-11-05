@@ -129,11 +129,10 @@
 		$post->setMessage($msg);
 		$post->setCreated($timestamp);
 					
+		# database
 		$thread = persist::forumThread($thread, $post);
-		
 		persist::forumPost($thread, $post);
 		
-	
 		# redirect to thread page
 		$link = getThreadpageLink($thread, 1);
 		header("Location: " . $link);
