@@ -48,9 +48,7 @@
 	</aside>
 	<main>
 		<?php
-		if(isset($_SESSION['authorized_user'])){
-			$user = $_SESSION['authorized_user'];
-		}
+		$user = getAuthorizedUser();
 	 
 		echo '<div id="newsfeed">'
 				. getNewsFeed()
