@@ -92,7 +92,8 @@
 	function restrictedToAdmin($redirectedPage){
 		restrictedToAuthorized($redirectedPage);
 		$authUser = getAuthorizedUser();
-		if( $authUser != NULL && $authoUser->isAdmin()){
+		
+		if( $authUser == NULL || ! $authUser->isAdmin()){
 			header("Location: " . $redirectedPage);
 			exit();
 		} 
