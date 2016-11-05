@@ -1,12 +1,11 @@
 <?php
 /**
- * Programvaruteknik,	Webbprogrammering 7.5hp
  * 
  * database helper functions
  * 
  * to create connection with database @see connect()
  *
- * @author Mikael Holmbom: miho1202
+ * @author Mikael Holmbom
  * @version 1.0
  */
 
