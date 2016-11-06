@@ -1,4 +1,14 @@
+------------------------
+--
+-- RESET
+
 DROP TABLE IF EXISTS proj.news, proj.forumsubjects, proj.roles, proj.forumposts, proj.forumusers, proj.forumthreads CASCADE;
+
+------------------------------
+--
+-- CREATE TABLES
+--
+-------------------------------
 
 CREATE TABLE proj.roles(
 	id INTEGER NOT NULL PRIMARY KEY,
@@ -43,9 +53,11 @@ CREATE TABLE proj.news(
 	created TIMESTAMP NOT NULL
 );
 
-
----- INIT VALUES
-
+--------------------------------------------
+--
+--	 INIT VALUES
+--
+--------------------------------------------
 INSERT INTO proj.roles(id, title)
 VALUES
 (0, 'admin'),
