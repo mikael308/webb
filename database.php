@@ -370,8 +370,9 @@
 				if($res){
 					$data = pg_fetch_object($res);
 					$author = read::forumUser($data->author);
-					
-					$post = new ForumPost($data->id);
+							
+					$post = new ForumPost();
+					$post->setId($data->id);
 					$post->setAuthor($author);
 					$post->setMessage($data->message);
 					$post->setCreated($data->created);
