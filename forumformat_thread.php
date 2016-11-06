@@ -48,7 +48,7 @@
 		if ($post == NULL) 
 			return errorMessage("could not display post");
 		
-		$editMessageForm =  editable($post)? editMessageForm($post) : "";
+		$editMessageForm = editable($post) ? editMessageForm($post) : "";
 		
 		$author = $post->getAuthor();
 		return '<div class="forum_content_listitem forum_post">'
