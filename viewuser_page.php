@@ -114,7 +114,7 @@ function getAdminTools(){
 			. "<br>";
 	
 	# SAVE BUTTON
-	$cont .= '<input type="submit" class="material-icons" value="save" name="update_user">';
+	$cont .= '<input type="submit" class="icon_button material-icons" value="save" name="update_user">';
 	$cont .= '</form>';
 	
 	return '<div id="admin_tools">' . $cont . '</div>';
