@@ -84,20 +84,20 @@
 	/**
 	* get form to create forumpost as string
 	*/
-	function getCreateForumPostForm(){
+	function getCreateForumPostInput($value = ""){
 		return
 			'<label for="forumpost_message">message</label><br>'
-			. '<textarea rows="5" cols="40" name="forumpost_message" required></textarea>';
+			. '<textarea rows="5" cols="40" name="forumpost_message" autofocus required />'.$value.'</textarea>';
 	}
 	/**
 	* get form to create forumthread as html string
 	*/
-	function getCreateForumThreadForm(){
+	function getCreateForumThreadInput(){
 		return 
 				'<label for="forumthread_topic">topic</label><br>'
-				. '<input type="text" name="forumthread_topic" autofocus required><br>';
+				. '<input type="text" name="forumthread_topic" autofocus required ><br>';
 	}
-		/**
+	/**
 	* get form to create forumthread as html string
 	*/
 	function getThreadpageLink(ForumThread $thread, $pageIdx){
