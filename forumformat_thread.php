@@ -59,14 +59,16 @@
 				. '<div class="registered">registered<br>'.formatDate($author->getRegistered()).'</div>'
 			. '</div>'
 			. '<div class="post">'
-			. 	'<div class="option_panel">' 
-			.		$editMessageForm
-			.		$deletePostForm
-			.	'</div>'	
 				. '<div class="message">' . $post->getMessage() . '</div>'
 				. '<div class="created">created:' . $post->getCreated() . '</div>'
 			. '</div>'
-		. '</div>';
+			. 	'<div class="option_panel">' 
+			.		$editMessageForm
+			.		$deletePostForm
+			.	'</div>'
+		. '</div>'
+					
+		;
 	}
 	
 	function editable($post){
