@@ -134,9 +134,20 @@
 				. '<input type="text" name="forumthread_topic" autofocus required ><br>';
 	}
 	/**
-	* get form to create forumthread as html string
-	*/
-	function getThreadpageLink(ForumThread $thread, $pageIdx){
+	 * get form to create forumthread as html string\n
+	 * get the last page if requested index is over thread bound or param pageidx is null
+	 * @param thread concerned thread
+	 * @param pageIdx requested page index
+	 * @return forum page with requested pageindex link as string 
+	 */
+	function getThreadPageLink(ForumThread $thread, $pageIdx = NULL){
+		$posts_per_page = readSettings("posts_per_page");
+		$n_posts = count(read::postsFromThread($thread->getId()));
+		$last_page = ceil($n_posts / $posts_per_page);
+		
+		if($pageIdx == NULL || $pageIdx > $last_page)
+			$pageIdx = $last_page;
+			
 		return 'forum_page.php?t='. $thread->getId() . '&p=' . $pageIdx; 
 	}
 	/**
@@ -170,7 +181,7 @@
 		persist::forumPost($thread, $post);
 		
 		# redirect to thread page
-		$link = getThreadpageLink($thread, 1);
+		$link = getThreadPageLink($thread, 1);
 		header("Location: " . $link);
 		exit();
 	}
@@ -189,7 +200,7 @@
 		persist::forumPost($thread, $post);
 		
 		# redirect to thread page
-		header("Location: " . linkLastPageOf($thread));
+		header("Location: " . getThreadPageLink($thread));
 		exit();
 	}
 	/**
@@ -204,19 +215,9 @@
 		update::forumPost($post);
 		
 		# redirect to thread page
-		header("Location: " . linkLastPageOf(read::thread($post->getThread())));
+		$page = isset($_POST['p']) ? $_POST['p'] : NULL;
+		header("Location: " . getThreadPageLink(read::thread($post->getThread()), $page));
 		exit();
 	}
-	/**
-	 * get the last page of thread
-	 * @param thread requested thread
-	 * @return last page index of threads post
-	 */
-	function linkLastPageOf(ForumThread $thread){
-		$posts_per_page = readSettings("posts_per_page");
-		$n_posts = count(read::postsFromThread($thread->getId()));
-		$last_page = ceil($n_posts / $posts_per_page);
-		
-		return getThreadpageLink($thread, $last_page);
-	}
+
 ?>
