@@ -11,7 +11,7 @@ CREATE TABLE proj.forumusers(
 	role INTEGER NOT NULL references proj.roles,
 	banned BOOLEAN,
 	password TEXT NOT NULL,
-	registered TIMESTAMP NOT NULL
+	registered TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
 );
 
 CREATE TABLE proj.forumsubjects(
