@@ -139,7 +139,8 @@
 		exit();
 	}
 	/**
-	* post a reply with data from POST
+	* post a reply with data from POST\n
+	* redirects to forums last page
 	*/
 	function postReply(){
 		$msg = $_POST['forumpost_message'];
