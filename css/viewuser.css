@@ -1,0 +1,17 @@
+#userinfo{
+	float:left;
+}
+#admin_tools{
+	float:right;
+	border:solid 1px black;
+	padding: 10px;
+}
+
+#admin_tools .header{
+	font-weight: bold;
+	text-transform: capitalize;
+}
+
+#admin_tools .switch {
+	margin: 0 10px;
+}
