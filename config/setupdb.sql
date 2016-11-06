@@ -31,7 +31,7 @@ CREATE TABLE proj.forumposts(
 	thread INTEGER NOT NULL references proj.forumthreads,
 	id SERIAL NOT NULL PRIMARY KEY,
 	message TEXT NOT NULL,
-	created TIMESTAMP NOT NULL
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP 
 );
 
 
