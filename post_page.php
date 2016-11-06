@@ -85,6 +85,23 @@
 						echo 'error1'; #TODO error msg
 					}
 					
+				} elseif(isset($_POST['delete_post'])){
+					if (isset($_POST['post'])){
+						$post = read::forumPost($_POST['post']);
+						$thread = read::thread($post->getThread());
+						if (delete::forumPost($post)){
+							# redirect to thread page
+							$page = isset($_POST['p']) ? $_POST['p'] : NULL;
+							header("Location: " . getThreadPageLink($thread, $page));
+							exit();	
+						}		
+						
+					}
+				
+					echo errorMessage("could not delete post");
+					
+					
+					
 				} else {
 					echo 'error2'; #TODO error msg
 				}
