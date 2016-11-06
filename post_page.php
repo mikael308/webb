@@ -27,10 +27,11 @@
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		if(isset($_POST['create_forumthread'])){
 			createThread();
-			
 		} elseif (isset($_POST['post_reply'])){
 			postReply();
-		}
+		} elseif (isset($_POST['update_post'])){
+			updatePost();
+		} 
 	}
 
 ?>
@@ -54,7 +55,7 @@
 					echo 'thread: ' . $thread->getTopic()
 						. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 						. '<input type="text" name="thread" value="'.$thread->getId().'" hidden> '
-						. getCreateForumPostForm()
+						. getCreateForumPostInput()
 						. '<input type="submit" value="post" name="post_reply">'
 						. '</form>';
 				} elseif(isset($_GET['s'])){
@@ -62,13 +63,31 @@
 					# CREATE THREAD
 					echo '<p>create forum thread </p>'
 						. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-						. getCreateForumThreadForm()
-						. getCreateForumPostForm() . '<br>'
+						. getCreateForumThreadInput()
+						. getCreateForumPostInput() . '<br>'
 						. '<input type="submit" value="create" name=create_forumthread>'
 					. '</form>';
 				}
-			} else {
+			} else if($_SERVER["REQUEST_METHOD"] == "POST"){
+				if(isset($_POST['edit_post'])){
+					if(isset($_POST['msg']) && isset($_POST['post'])){
+						# UPDATE POST
+						$post = read::forumPost($_POST['post']);
+						$thread = read::thread($post->getThread());
+						
+						echo '<p>edit ' . $thread->getTopic().'</hp>';
+						echo '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
+							.	'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" >'
+							.	getCreateForumPostInput($_POST['msg'])
+							.	'<input type="submit" value="post" name="update_post">'
+							. '</form>';	
+					} else {
+						echo 'error1'; #TODO error msg
+					}
 					
+				} else {
+					echo 'error2'; #TODO error msg
+				}
 			}
 			
 
@@ -156,7 +175,21 @@
 		header("Location: " . linkLastPageOf($thread));
 		exit();
 	}
-	
+	/**
+	 * update post of POST['post'] with message of POST['forumpost_message']\n
+	 * redirects to forums last page
+	 */
+	function updatePost(){
+		$newmsg = $_POST['forumpost_message'];
+		$post = read::forumPost($_POST['post']);
+		$post->setMessage($newmsg);
+		
+		update::forumPost($post);
+		
+		# redirect to thread page
+		header("Location: " . linkLastPageOf(read::thread($post->getThread())));
+		exit();
+	}
 	/**
 	 * get the last page of thread
 	 * @param thread requested thread
