@@ -84,7 +84,7 @@
 		 * @return True if post was inserted in database successfully
 		 */
 		public static function forumPost(ForumThread $thread, ForumPost $post){
-			$persistOK = False;
+			
 			$db_conn = connect();
 			if($db_conn){
 				$query = "INSERT INTO " . $GLOBALS['dbtable_forumposts'] 
@@ -93,14 +93,14 @@
 					
 				$res = pg_query($db_conn, $query);
 				if($res){
-					$persistOK = True;
 					pg_free_result($res);
+					return True;
 					
 				} else {
 					echo pg_last_error($db_conn);
 				}
 			}
-			return $persistOK;
+			return False;
 		}
 		/**
 		 * persist forumthread to database
@@ -135,7 +135,6 @@
 		 * @param passw requested password to persist
 		 */
 		public static function forumUser(ForumUser $user, $passw){
-			$persistOK = False;
 			$db_conn = connect();
 			if($db_conn){
 				$banned_val = $user->isBanned() ? "TRUE" : "FALSE";
@@ -151,13 +150,14 @@
 				
 				$res = pg_query($db_conn, $query);
 				if($res){
-					$persistOK = True;
 					pg_free_result($res);
+					return True;
+					
 				} else {
 					echo pg_last_error($db_conn);
 				}
 			}
-			return $persistOK;
+			return False;
 		}
 	} # ! PERSIST
 
