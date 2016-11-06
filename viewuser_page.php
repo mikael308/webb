@@ -103,18 +103,24 @@ function getAdminTools(){
 	
 	# BANN USER
 	$banned_checkedval = $view_user->isBanned() ? "checked" : "unchecked";
-	$cont .= "<label>banned user</label>";
-	$cont .= "<div class='tooltip'>"
-			. "<span class='tooltiptext'>user is currently: " . ($view_user->isBanned()?"true":"false") . "</span>"
-			. 	"<label class='switch'>"
+	$cont .=
+			"<table>" 
+			. tr(
+				td("<label>banned user</label>")
+				. td("<div class='tooltip'>" 
+				. "<span class='tooltiptext'>user is currently: " . ($view_user->isBanned()?"true":"false") . "</span>"
+				. 	"<label class='switch'>"
   					. "<input type='checkbox' ".$banned_checkedval." name='update_user_banned'>"
   					. "<div class='slider'></div>"
-			. 	"</label>"
-			. "</div>"
-			. "<br>";
+				. 	"</label>") 
+				. "</div>")
+			;
 	
 	# SAVE BUTTON
-	$cont .= '<input type="submit" class="icon_button material-icons" value="save" name="update_user">';
+	$submit = '<input type="submit" id="submit" class="icon_button material-icons" value="save" name="update_user">';
+
+	$cont .= tr(td("").td(getTooltip($submit, "save changes")));
+	$cont .= "</table>";
 	$cont .= '</form>';
 	
 	return '<div id="admin_tools">' . $cont . '</div>';
