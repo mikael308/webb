@@ -74,7 +74,7 @@
 			return False;
 		}
 		
-	}
+	} # ! UPDATE
 	
 	class persist{
 		/**
@@ -159,7 +159,7 @@
 			}
 			return $persistOK;
 		}
-	}
+	} # ! PERSIST
 
 	class read{
 		/**
@@ -475,7 +475,7 @@
 			}
 			return $user;
 		}
-	}
+	} # ! READ
 
 
 	class delete{
@@ -498,7 +498,7 @@
 			}
 			return False;
 		}
-	}
+	} # !DELETE
 
 
 	/**
