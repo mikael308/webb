@@ -49,6 +49,7 @@
 			return errorMessage("could not display post");
 		
 		$editMessageForm = editable($post) ? editMessageForm($post) : "";
+		$deletePostForm = editable($post) ? deletePostForm($post) : "";
 		
 		$author = $post->getAuthor();
 		return '<div class="forum_content_listitem forum_post">'
@@ -60,6 +61,7 @@
 			. '<div class="post">'
 			. 	'<div class="option_panel">' 
 			.		$editMessageForm
+			.		$deletePostForm
 			.	'</div>'	
 				. '<div class="message">' . $post->getMessage() . '</div>'
 				. '<div class="created">created:' . $post->getCreated() . '</div>'
@@ -95,7 +97,17 @@
 			  '<form class="edit_post" name="" method="POST" action="'.htmlspecialchars("post_page.php").'" >'
 			.		'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" />'
 			.		'<input type="hidden" name="msg" value="' . $post->getMessage() . '" />'
+			.		'<input type="hidden" name="p" value="' . $_GET['p'] . '" />'		
 			.		'<input type="submit" class="material-icons" value="edit" name="edit_post"></input>' 
+			. '</form>';
+	}
+
+	function deletePostForm(ForumPost $post){
+		return 
+			  '<form class="delete_post" name="" method="POST" action="'.htmlspecialchars("post_page.php").'" >'
+			.		'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" />'
+			.		'<input type="hidden" name="p" value="' . $_GET['p'] . '" />'
+			.		'<input type="submit" class="material-icons" value="delete" name="delete_post"></input>' 
 			. '</form>';
 	}
 	
