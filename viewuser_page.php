@@ -57,7 +57,6 @@
 
 	echo getMainHeadContent();
 	echo setTitle($view_user->getName());
-	echo getStylesheet("widgets.css");
 ;?>	
 </head>
 <body>
