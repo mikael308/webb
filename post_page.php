@@ -152,13 +152,20 @@
 		persist::forumPost($thread, $post);
 		
 		# redirect to thread page
+		header("Location: " . linkLastPageOf($thread));
+		exit();
+	}
+	
+	/**
+	 * get the last page of thread
+	 * @param thread requested thread
+	 * @return last page index of threads post
+	 */
+	function linkLastPageOf(ForumThread $thread){
 		$posts_per_page = readSettings("posts_per_page");
 		$n_posts = count(read::postsFromThread($thread->getId()));
 		$last_page = ceil($n_posts / $posts_per_page);
 		
-		$link = getThreadpageLink($thread, $last_page);
-		header("Location: " . $link);
-		exit();
+		return getThreadpageLink($thread, $last_page);
 	}
-
 ?>
