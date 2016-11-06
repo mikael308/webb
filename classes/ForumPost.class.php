@@ -3,7 +3,7 @@
 require_once 'classes/DataAccessObject.class.php';
 
 /**
- * Programvaruteknik,	Webbprogrammering 7.5hp
+ *
  * @author Mikael Holmbom
  * @version 1.0
  */
