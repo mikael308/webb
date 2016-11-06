@@ -326,6 +326,7 @@
 		}
 		/**
 		* read posts related to thread with id as param from database
+		 * ordered by created attr
 		* @param thread_id the id of the thread to read
 		*/
 		public static function postsFromThread($thread_id){
