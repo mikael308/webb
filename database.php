@@ -641,70 +641,45 @@
 		return $exists;
 	}
 	
-
 	/**
 	 * count the number of forumthreads created by specific user
 	 * @param user the specific user
 	 */
 	function countForumThreads(ForumUser $user){
-		
-		$db_conn = connect();
-		if ($db_conn){
-			$query = "SELECT p.author, p.message, t.topic "			
-				. " FROM proj.forumthreads AS t "
-				. " LEFT JOIN proj.forumposts as p "
-				. " ON p.thread=t.id "
-				. " WHERE p.author = '".$user->getPrimaryKey()."' "
-				. " AND p.id IN "
-				. " ( "
+		$query = 
+			  #"SELECT p.author, p.message, t.topic "
+			 " FROM proj.forumthreads AS t "
+			. " LEFT JOIN proj.forumposts as p "
+			. " ON p.thread=t.id "
+			. " WHERE p.author = '".$user->getPrimaryKey()."' "
+			. " AND p.id IN "
+			. " ( "
 				# the first posts in every thread
 				. " SELECT p.id "
 				. " FROM proj.forumposts p "
 				. " WHERE p.id = "
-					. " ( "
-						. " SELECT p2.id "
-						. " FROM proj.forumposts p2 "
-						. " WHERE p2.thread=p.thread "
-						. " ORDER BY p2.created ASC "
-						. " LIMIT 1 "
-					. " ) "
+				. " ( "
+					. " SELECT p2.id "
+					. " FROM proj.forumposts p2 "
+					. " WHERE p2.thread=p.thread "
+					. " ORDER BY p2.created ASC "
+					. " LIMIT 1 "
 				. " ) "
-				. " ;";
-			
-			$res = pg_query($db_conn, $query);
-			if($res){
-				$numrow = pg_num_rows($res);
-				
-				pg_free_result($res);
-				return $numrow;
-			}
-			
-		} # ! db_conn
-		
-		return 0;
-		
+			. " ) "
+			. " ;";
+																																					
+		return countQuery($query);
 	}
 	/**
 	 * count the number of forumposts created by specific user
 	 * @param user the specific user
 	 */
 	function countForumPosts(ForumUser $user){
-		$nFP = 0;
-		$db_conn = connect();
-		if($db_conn){
-			$query = "SELECT p.author " 
-				. " FROM ". $GLOBALS['dbtable_forumposts'] ." AS p "
-				. " WHERE p.author='".$user->getPrimaryKey()."';";
-					
-			$res = pg_query($db_conn, $query);
-			if($res){
-				$nFP = pg_num_rows($res);
-				pg_free_result($res);
-			}
-			
-		}
+		$query = " FROM " . $GLOBALS['dbtable_forumposts']
+			. " WHERE author='" . $user->getPrimaryKey() . "'"
+			. " ;";
 		
-		return $nFP;
+		return countQuery($query);
 	}
 	/**
 	 * get forumusers with id as param user_id
@@ -807,18 +782,46 @@
 				
 			$res = pg_query($db_conn, $query);
 			if($res){
-				return pg_num_rows($res);
+				$num = pg_num_rows($res);
+				pg_free_result($res);
+				
+				return $num;
+				
 			}
 		}
 		return 0;
 	}
+	/**
+	 * count results from database query
+	 * @param unknown $query the query defining from and where sql statements
+	 * @return num rows from query result|NULL
+	 */
+	function countQuery($query){
+		$db_conn = connect();
+		if($db_conn){
+			$q = "SELECT COUNT(*) " . $query;
+			$res = pg_query($db_conn, $q);
+			if($res){
+				$num = pg_fetch_object($res)->count;
+				pg_free_result($res);
+				
+				return $num;
+			}
+		}
+		return NULL;
+	}
+	
 	/**
 	 * get the amount of pages in thread
 	 * @param thread count this threads pages
 	 * @param amount of pages
 	 */
 	function getMaxPagesThread(ForumThread $thread){
-		$n_posts 		= count(read::postsFromThread($thread->getPrimaryKey()));
+		$query = 
+			  " FROM " . $GLOBALS['dbtable_forumposts'] 
+			. " WHERE thread='" . $thread->getPrimaryKey() ."'"
+			.";";
+		$n_posts 		= countQuery($query);
 		$max_pages		= ceil($n_posts / readSettings("posts_per_page"));
 		return $max_pages;
 		
@@ -830,7 +833,11 @@
 	 */
 	function getMaxPagesSubject(ForumSubject $subject){
 		try{
-			$n_threads 		= count(read::threads(" WHERE thread.subject=" . $subject->getPrimaryKey()));
+			$query = 
+				  " FROM " . $GLOBALS['dbtable_forumthreads']
+				. " WHERE subject='" . $subject->getPrimaryKey() . "'"
+				. ";";
+			$n_threads 		= countQuery($query);
 			$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
 			return $max_pages;	
 		} catch(Exception $e){
