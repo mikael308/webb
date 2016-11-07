@@ -51,36 +51,18 @@
 			if($_SERVER["REQUEST_METHOD"] == "GET"){
 				if(isset($_GET['t'])){
 					# REPLY TO THREAD
-					$thread = read::thread($_GET['t']);
-					echo 'thread: ' . $thread->getTopic()
-						. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-						. '<input type="text" name="thread" value="'.$thread->getId().'" hidden> '
-						. getCreateForumPostInput()
-						. '<input type="submit" value="post" name="post_reply">'
-						. '</form>';
+					echo postReplyView();
+					
 				} elseif(isset($_GET['s'])){
-					$_SESSION['s'] = $_GET['s'];
-					# CREATE THREAD
-					echo '<p>create forum thread </p>'
-						. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-						. getCreateForumThreadInput()
-						. getCreateForumPostInput() . '<br>'
-						. '<input type="submit" value="create" name=create_forumthread>'
-					. '</form>';
+					# CREATE THREAD	
+					$_SESSION['s'] = $_GET['s']; #TODO till session??? subject
+					echo createThreadView();
 				}
 			} else if($_SERVER["REQUEST_METHOD"] == "POST"){
 				if(isset($_POST['edit_post'])){
 					if(isset($_POST['msg']) && isset($_POST['post'])){
 						# UPDATE POST
-						$post = read::forumPost($_POST['post']);
-						$thread = read::thread($post->getThread());
-						
-						echo '<p>edit ' . $thread->getTopic().'</hp>';
-						echo '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-							.	'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" >'
-							.	getCreateForumPostInput($_POST['msg'])
-							.	'<input type="submit" value="post" name="update_post">'
-							. '</form>';	
+						echo updatePostView();
 					} else {
 						echo 'error1'; #TODO error msg
 					}
@@ -215,9 +197,52 @@
 		update::forumPost($post);
 		
 		# redirect to thread page
-		$page = isset($_POST['p']) ? $_POST['p'] : NULL;
-		header("Location: " . getThreadPageLink(read::thread($post->getThread()), $page));
+		$p = getPostPageIndex($post->getPrimaryKey());
+
+		$pageLink = getThreadPageLink($post->getThread(), $p);
+		header("Location: " . getThreadPageLink($post->getThread(), $pageLink));
 		exit();
+		
+	}
+	/**
+	 * get a view to reply to post
+	 * @return form as html string
+	 */
+	function postReplyView(){
+		$thread = read::thread($_GET['t']);
+		return 'thread: ' . $thread->getTopic()
+			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
+			. 	'<input type="text" name="thread" value="'.$thread->getId().'" hidden> '
+			. 	getCreateForumPostInput()
+			. 	'<input type="submit" value="post" name="post_reply">'
+			. '</form>';
+	}
+	/**
+	 * get a view to create view
+	 * @return form as html string
+	 */
+	function createThreadView(){
+		return '<p>create forum thread </p>'
+			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
+			. getCreateForumThreadInput()
+			. getCreateForumPostInput() . '<br>'
+			. '<input type="submit" value="create" name=create_forumthread>'
+		. '</form>';
+	}
+	/**
+	 * get a view to update post
+	 * @return form as html string
+	 */
+	function updatePostView(){
+		$post = read::forumPost($_POST['post']);
+		$thread = $post->getThread();
+		
+		return '<p>edit ' . $thread->getTopic().'</hp>'
+			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
+			.	'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" >'
+			.	getCreateForumPostInput($_POST['msg'])
+			.	'<input type="submit" value="post" name="update_post">'
+			. '</form>';	
 	}
 
 ?>
