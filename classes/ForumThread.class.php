@@ -66,19 +66,21 @@ class ForumThread extends DataAccessObject {
 	################
 	
 	/**
-	 * get this threads subject
+	 * 
+	 * @return this threads subject
 	 */
 	public function getSubject(){
 		return read::subject($this->getSubjectFK());
 	}
 	/**
-	 * get last attributor
+	 * @return last attributor of this thread
 	 */
 	public function getLastAttributor(){
 		return read::lastAttributor($this->getPrimaryKey());
 	}
 	/**
-	 * get this creator
+	 * 
+	 * @return the cretor of this thread
 	 */
 	public function getCreator() {
 		return read::creator($this->getPrimaryKey());
