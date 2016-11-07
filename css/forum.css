@@ -315,6 +315,13 @@
  * BUTTONPANEL
  ****************************/
 
+ #forum_header{
+ 	float:left;
+ 	font-weight: bold;
+ 	font-size: 120%;
+ 	text-transform: capitalize;
+ }
+
 #forum_top_bts{
 	min-height: 32px;
 }
