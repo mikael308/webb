@@ -7,6 +7,7 @@ posts_per_page 3
 # pagination width
 pag_max_interval 2;
 
+pag_max_interval_threadlink 3
 
 ##### SEARCH ATTRS
 # the amount of searchresults displayed
