@@ -72,7 +72,7 @@ input:checked + .slider:before {
  /* Tooltip container */
 .tooltip {
     position: relative;
-    display: inline-block;
+    
 }
 
 /* Tooltip text */
