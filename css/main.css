@@ -100,12 +100,36 @@ hr{
 .btn_nav > a:hover{
 	background-color: rgb(200, 210, 210);
 }
+#subnav{
 
+	height: 50px;
+}
+#subnav > ul{
+	margin-top:0;
+	
+}
+#subnav > ul > li{
+	vertical-align: top;
+	
+	margin-top:0;
+	margin-right:16px;
+	display: inline-block;
+	text-decoration: none;
+	list-style-type: none;
+}
+#subnav > ul > #metanav_li{
+	float:right;
+	margin-right: 50px;
+}
 #subnav > #username_label {
 	
 }
 #subnav > #username_label > a{
 	text-decoration: none;
+}
+
+#meta_nav a{
+	display: inline-block;
 }
 
 aside{
@@ -151,12 +175,12 @@ footer {
 }
 
 #info_outline{
-	font-size:35px;
+	font-size:30px;
 
 }
 
 #search{
-	font-size: 35px;
+	font-size: 30px;
 }
 
 .clickable{
