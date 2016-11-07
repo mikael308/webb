@@ -151,7 +151,7 @@
 		$user = getAuthorizedUser();
 		$thread = new ForumThread($topic);
 		$thread->setSubject($subj);
-		$timestamp = date($GLOBALS['timestamp_format']);
+		$timestamp = date($GLOBALS['timestamp_format']); # now
 		
 		$post = new ForumPost();
 		$post->setAuthorFK($user->getPrimaryKey());
