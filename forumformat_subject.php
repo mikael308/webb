@@ -51,15 +51,16 @@
 			return errorMessage("thread could not be displayed");
 
 		$tlink = getDisplayThreadLink($thread, 1);
-		$creator = read::creator($thread);
-
+		$creator = $thread->getCreator();
+		$lastAttr = $thread->getLastAttributor();
 		$cont =  	
 	 	 '<div class="forum_content_listitem forum_thread">' 	
 			. 	'<a href="'.$tlink.'">'
 			. 		'<div id="topic" class="topic">'.$thread->getTopic().'</div>'
 			. 	'</a>'			
 			.	'<div id="info">'
-			.		'<div class="creator">created by: <a href="'.getDisplayUserLink($creator).'">'.$creator->getName().'</a></div>'
+			.		'<div class="creator">created by: <a href="'.getDisplayUserLink($creator->getPrimaryKey()).'">'.$creator->getName().'</a></div>'
+			.		'<div class="lastAttributor">last: <a href="'.getDisplayUserLink($lastAttr->getPrimaryKey()).'">'.$lastAttr->getName().'</a></div>'
 			.		'<div class="indexlink">'
 			.		'</div>'
 			. 	'</div>' 

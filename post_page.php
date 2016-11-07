@@ -88,7 +88,7 @@
 				} elseif(isset($_POST['delete_post'])){
 					if (isset($_POST['post'])){
 						$post = read::forumPost($_POST['post']);
-						$thread = read::thread($post->getThread());
+						$thread = $post->getThread();
 						if (delete::forumPost($post)){
 							# redirect to thread page
 							$page = isset($_POST['p']) ? $_POST['p'] : NULL;
@@ -172,7 +172,7 @@
 		$timestamp = date($GLOBALS['timestamp_format']);
 		
 		$post = new ForumPost();
-		$post->setAuthor($user);
+		$post->setAuthorFK($user->getPrimaryKey());
 		$post->setMessage($msg);
 		$post->setCreated($timestamp);
 					
@@ -194,7 +194,7 @@
 		$thread = read::thread($_POST['thread']);
 		
 		$post = new ForumPost();
-		$post->setAuthor(getAuthorizedUser());
+		$post->setAuthorFK(getAuthorizedUser()->getPrimaryKey());
 		$post->setMessage($msg);
 		
 		persist::forumPost($thread, $post);

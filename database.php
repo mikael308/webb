@@ -263,10 +263,8 @@
 						
 						$thread = new ForumThread($data->topic);
 						$thread->setId($data->id);
-						$thread->setSubject(read::subject($data->subject));
-						$thread->setCreator(read::creator($thread));
-						
-						
+						$thread->setSubjectFK($data->subject);
+												
 						$resThreadArr[] = $thread;
 					}
 					
@@ -370,14 +368,13 @@
 				$res = pg_query($db_conn, $query);
 				if($res){
 					$data = pg_fetch_object($res);
-					$author = read::forumUser($data->author);
-							
+											
 					$post = new ForumPost();
 					$post->setId($data->id);
-					$post->setAuthor($author);
+					$post->setAuthorFK($data->author);
 					$post->setMessage($data->message);
 					$post->setCreated($data->created);
-					$post->setThread($data->thread);
+					$post->setThreadFK($data->thread);
 					
 					pg_free_result($res);
 				}
@@ -442,11 +439,11 @@
 		/**
 		 * read the creator of forumthread\n
 		 * creator is defined as the first post of a thread
-		 * @param thread thread to find the creator of
+		 * @param thread primary key of thread to find the creator of
 		 * @return the creator as ForumUser, if no creator was found NULL is returned
 		 */
-		public static function creator(ForumThread $thread){
-			if($thread == NULL) return NULL;
+		public static function creator($thread_fk){
+			if($thread_fk == NULL || $thread_fk == "") return NULL;
 			
 			$user = NULL; # the creator
 			
@@ -456,7 +453,7 @@
 					. " FROM ". $GLOBALS['dbtable_forumposts'] ." AS p "
 					. " LEFT JOIN " . $GLOBALS['dbtable_forumthreads'] . " AS t "
 					. "     ON p.thread=t.id "
-					. " WHERE p.thread='" . $thread->getPrimaryKey() . "' "
+					. " WHERE p.thread='" . $thread_fk . "' "
 					. " ORDER BY p.created ASC "
 					. " LIMIT 1"
 					. " ;";
@@ -744,9 +741,8 @@
 					$data = pg_fetch_object($res, $i);
 					$post = new ForumPost();
 					$post->setMessage($data->message);
-					$post->setThread($data->thread);
-					$author = readForumUser($data->author);
-					$post->setAuthor($author);
+					$post->setThreadFK($data->thread);
+					$post->setAuthorFK($data->author);
 					
 					$posts[] = $post;				
 				}

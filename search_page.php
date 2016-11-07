@@ -103,7 +103,7 @@ function displaySearchResForumPosts($forumposts){
 		}
 		
 		$res .= 
-			"<a href='forum_page.php?t=".$post->getThread()."&p=1'>"
+			"<a href='forum_page.php?t=".$post->getThread()->getPrimaryKey()."&p=1'>"
 			. 	"<div class='searchres_post searchres_item'>"
 			. 		$msg." : "."<a href='viewuser_page.php?u=".$post->getAuthor()->getPrimaryKey()."'>".$post->getAuthor()->getName() ."</a>"
 			. 	"</div>"
