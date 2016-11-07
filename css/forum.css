@@ -110,6 +110,22 @@
 
 }
 
+.forum_thread > #info > div{
+	display: inline-block;
+}
+.forum_thread > #info > .indexlink{
+	margin-left: 20px;
+}
+.forum_thread .threadlink_pagination{
+	margin-left: 4px;
+}
+.forum_thread .threadlink_pagination > a{
+	margin-left: 2px;
+}
+.forum_thread .indexlink > div{
+	display:inline-block;
+}
+
 
 /********************************************
 	POSTS
