@@ -187,7 +187,7 @@
 	}
 	/**
 	 * update post of POST['post'] with message of POST['forumpost_message']\n
-	 * redirects to forums last page
+	 * redirects to forums page of edited post
 	 */
 	function updatePost(){
 		$newmsg = $_POST['forumpost_message'];
