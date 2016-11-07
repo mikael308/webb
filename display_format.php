@@ -42,11 +42,11 @@
 	}
 	/**
 	 * get a url to view user page
-	 * @param forumuser the user to display
+	 * @param forumuser_pk primary key of the user to display
 	 * @return link url as string
 	 */
-	function getDisplayUserLink(ForumUser $forumuser){
-		return 'viewuser_page.php?u=' . $forumuser->getPrimaryKey();
+	function getDisplayUserLink($forumuser_pk){
+		return 'viewuser_page.php?u=' . $forumuser_pk;
 	}
 	/**
 	 * generate newsfeed view
