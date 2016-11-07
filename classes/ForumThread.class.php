@@ -15,11 +15,11 @@ class ForumThread extends DataAccessObject {
 	# this id
 	private $id;
 	# this subject containing this thread
-	private $subject;
+	private $subject_fk;
 	# this topic
 	private $topic;
 	# original creator of this thread
-	private $creator;
+	private $creator_fk;
 		
 	public function __construct($topic){
 		$this->topic = $topic;
@@ -33,8 +33,8 @@ class ForumThread extends DataAccessObject {
 	/**
 	 * get subject containing this thread
 	 */
-	public function getSubject(){
-		return $this->subject;
+	public function getSubjectFK(){
+		return $this->subject_fk;
 	}
 	/**
 	 * get this topic
@@ -42,18 +42,7 @@ class ForumThread extends DataAccessObject {
 	public function getTopic(){
 		return $this->topic;
 	}
-	/**
-	 * get this creator
-	 */
-	public function getCreator() {
-		return $this->creator;
-	}
-	/**
-	 * get last attributor
-	 */
-	public function getLastAttributor(){
-		return $this->lastAttributor;
-	}
+
 	public function getPrimaryKey(){
 		return $this->getId();
 	}
@@ -67,17 +56,34 @@ class ForumThread extends DataAccessObject {
 	/**
 	 * set subject containing this thread
 	 */
-	public function setSubject($subject){
-		$this->subject = $subject;
-	}
-	/**
-	 * set this creator
-	 * @param creator new creator
-	 */
-	public function setCreator($creator) {
-		$this->creator = $creator;
+	public function setSubjectFK($subject_fk){
+		$this->subject_fk = $subject_fk;
 	}
 	
+	
+	
+	# DATABASE
+	################
+	
+	/**
+	 * get this threads subject
+	 */
+	public function getSubject(){
+		return read::subject($this->getSubjectFK());
+	}
+	/**
+	 * get last attributor
+	 */
+	public function getLastAttributor(){
+		return read::lastAttributor($this->getPrimaryKey());
+	}
+	/**
+	 * get this creator
+	 */
+	public function getCreator() {
+		return read::creator($this->getPrimaryKey());
+	}
+
 
 
 }
