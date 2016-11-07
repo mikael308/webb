@@ -66,7 +66,7 @@
 			. '<div class="post">'
 				. '<div class="message">' . $post->getMessage() . '</div>'
 				. '<div class="dates">'
-				. 	'<div class="created">created:' . $post->getCreated() . '</div>'
+				. 	'<div class="created">created: ' . formatDateTime($post->getCreated()) . '</div>'
 				. 	$edited
 				. '</div>'
 			. '</div>'
