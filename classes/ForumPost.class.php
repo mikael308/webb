@@ -15,7 +15,7 @@ class ForumPost extends DataAccessObject{
 	private $author_fk;
 	# posts message
 	private $message;
-	# timestamp when this post was written
+	# timestamp when this post was created
 	private $created;
 	# timestamp when this post was last edited
 	private $edited;
