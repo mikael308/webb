@@ -51,8 +51,8 @@
 		$editMessageForm = editable($post) ? editMessageForm($post) : "";
 		$deletePostForm = editable($post) ? deletePostForm($post) : "";
 		
-		$edited = ($post->getCreated() != $post->getEdited()) ? 
-			'<div class="edited">edited: ' . $post->getEdited() . '</div>' 
+		$edited = ($post->getEdited() != NULL && $post->getCreated() != $post->getEdited()) ? 
+			'<div class="edited">edited: ' . formatDateTime($post->getEdited()) . '</div>' 
 			: ""; 
 		
 		$author = $post->getAuthor();
