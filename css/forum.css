@@ -177,6 +177,15 @@
 
 /*		FORUMPOST MESSAGE SECTION
 */
+ .option_panel{
+	margin-left: 20px;
+	margin-bottom: 10px;
+	
+}
+.forum_post .option_panel form{
+	display: block;
+}
+
 .forum_post .post{
 	position: relative;
 	flex: 1;
