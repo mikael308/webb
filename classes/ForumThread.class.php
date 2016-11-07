@@ -85,7 +85,13 @@ class ForumThread extends DataAccessObject {
 	public function getCreator() {
 		return read::creator($this->getPrimaryKey());
 	}
-
+	/**
+	 * get posts contained in this thread
+	 * @return forumpost[]
+	 */
+	public function getPosts(){
+		return read::postsFromThread($this->getPrimaryKey());
+	}
 
 
 }
