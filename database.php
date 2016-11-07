@@ -475,6 +475,33 @@
 			}
 			return $user;
 		}
+		/**
+		 * get the last attributor of param thread
+		 * @param thread_pk primary key of requested thread
+		 * @return last attributor of thread as ForumUser
+		 */
+		public static function lastAttributor($thread_pk){
+			if($thread_pk == NULL || $thread_pk == "") return NULL;
+			$user = NULL; # the last attributor
+			$db_conn = connect();
+			if($db_conn){
+				$query = "SELECT author "
+					. " FROM " . $GLOBALS['dbtable_forumposts']
+					. " WHERE thread='" . $thread_pk . "' "
+					. " ORDER BY created DESC "
+					. " LIMIT 1 "
+					. " ;";
+				$res = pg_query($db_conn, $query);
+				if($res){
+					if(pg_num_rows($res) > 0){
+						$data = pg_fetch_object($res, 0);
+						$user = read::forumUser($data->author);
+					}
+				}
+			}
+			
+			return $user;
+		}
 	} # ! READ
 
 
