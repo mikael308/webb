@@ -129,8 +129,8 @@
 	 */
 	function getMetaNav(){
 		return '<div id="meta_nav">'
-			. 	'<a href="about_page.php">'. getToolTip(getIconButton("info_outline"), "about") . '</a>'
-			. 	'<a href="search_page.php">'.getToolTip(getIconButton('search'), "search").'</a>'
+			. 	'<a href="about_page.php">'. toolTip(getIconButton("info_outline"), "about") . '</a>'
+			. 	'<a href="search_page.php">'.toolTip(getIconButton('search'), "search").'</a>'
 			. '</div>';
 	}
 	/**

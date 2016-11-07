@@ -71,8 +71,8 @@
 				. '</div>'
 			. '</div>'
 			. 	'<div class="option_panel">' 
-			.		getTooltip($editMessageForm, "edit post")
-			.		getTooltip($deletePostForm, "delete post")
+			.		tooltip($editMessageForm, "edit post")
+			.		tooltip($deletePostForm, "delete post")
 			.	'</div>'
 		. '</div>';
 		

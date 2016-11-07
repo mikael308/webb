@@ -119,7 +119,7 @@ function getAdminTools(){
 	# SAVE BUTTON
 	$submit = '<input type="submit" id="submit" class="icon_button material-icons" value="save" name="update_user">';
 
-	$cont .= tr(td("").td(getTooltip($submit, "save changes")));
+	$cont .= tr(td("").td(toolTip($submit, "save changes")));
 	$cont .= "</table>";
 	$cont .= '</form>';
 	

@@ -108,7 +108,7 @@
 	 * @param tooltip the tooltip text
 	 * @return tooltip element as html
 	 */
-	function getToolTip($target, $tooltip){
+	function toolTip($target, $tooltip){
 		return '<div class="tooltip">'
 			. 	'<span class="tooltiptext">' . $tooltip . '</span>'
 			.	$target
