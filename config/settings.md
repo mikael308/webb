@@ -5,8 +5,7 @@ threads_per_page 4
 posts_per_page 3
 
 # pagination width
-pag_max_interval 2;
-
+pag_max_interval 2
 pag_max_interval_threadlink 3
 
 ##### SEARCH ATTRS
