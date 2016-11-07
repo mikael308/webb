@@ -787,6 +787,32 @@
 	}
 	
 	/**
+	 * get the index of post in thread ordered by created attribute
+	 * @param post_pk primary key to request post
+	 * @return post index
+	 */
+	function getPostPageIndex($post_pk){
+		
+		$db_conn = connect();
+		if($db_conn){
+			$query = " SELECT * "
+				. " FROM proj.forumposts "
+				. " WHERE thread='". read::forumPost($post_pk)->getThread()->getPrimaryKey() ."' "
+				. " AND created <= ( "
+				. 		" SELECT created "
+				. 		" FROM proj.forumposts " 
+				. 		" WHERE id='".$post_pk."' "
+				. 	" ) "
+				. " ;";
+				
+			$res = pg_query($db_conn, $query);
+			if($res){
+				return pg_num_rows($res);
+			}
+		}
+		return 0;
+	}
+	/**
 	 * get the amount of pages in thread
 	 * @param thread count this threads pages
 	 * @param amount of pages
