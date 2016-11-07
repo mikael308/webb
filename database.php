@@ -62,7 +62,7 @@
 				$query = " UPDATE " . $GLOBALS['dbtable_forumposts'] . " "
 					. " SET "
 					. " message='". $post->getMessage() ."', "
-					. " created=now() "
+					. " edited=now() "
 					. " WHERE id='" . $post->getId() . "' ;";	
 					
 				$res = pg_query($db_conn, $query);
@@ -361,7 +361,7 @@
 			$db_conn = connect();
 			
 			if($db_conn){
-				$query = "SELECT post.id, post.thread, post.message, post.created, post.author "
+				$query = "SELECT post.id, post.thread, post.message, post.created, post.edited, post.author "
 					. " FROM " . $GLOBALS['dbtable_forumposts'] . " AS post "
 					. " WHERE post.id='".$post_id."' ;";
 					
@@ -374,6 +374,7 @@
 					$post->setAuthorFK($data->author);
 					$post->setMessage($data->message);
 					$post->setCreated($data->created);
+					$post->setEdited($data->edited);
 					$post->setThreadFK($data->thread);
 					
 					pg_free_result($res);
