@@ -75,18 +75,18 @@ INSERT INTO proj.forumsubjects(topic, subtitle)
 VALUES
 ('news', 'threads about news'),
 ('general', 'not non-general stuff'),
-('klaatu', 'verada nikto');
+('other', 'not like any other, just ordinary other');
 
 INSERT INTO proj.forumthreads (subject, topic)
 VALUES
 (1, 'kokbok'),
-(2, 'rabalder'),
+(2, 'klaatu'),
 (2, 'nightclubbing');
 
 INSERT INTO proj.forumposts (author, thread, message, created)
 VALUES
-('tom', 1, 'klaatu verada nikto', to_timestamp('16-05-2013 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
-('tim', 1, 'whut?', to_timestamp('16-05-2013 15:40:38', 'dd-mm-yyyy hh24:mi:ss')),
+('tom', 2, 'verada nikto', to_timestamp('16-05-1981 15:36:38', 'dd-mm-yyyy hh24:mi:ss')),
+('tim', 2, 'whut?', to_timestamp('16-05-2008 15:40:38', 'dd-mm-yyyy hh24:mi:ss')),
 ('tim', 2, 'Lorem ipsum dolor sit amet, vel id tollit audiam sanctus, no quem reque accusamus qui. Sonet copiosae senserit usu an. Eu vix antiopam accusamus consulatu, an volumus perpetua eam. Ut alii nostro mea, sit movet congue tantas ut.
 
 Cum in antiopam conceptam suscipiantur, vim ad augue vitae, an clita oblique mea. Labores graecis ex mei. Sit ea quod omnis consequat, cum in maiorum sadipscing. Id scribentur delicatissimi sit, ei vis movet timeam. Qui doming vulputate at, ad ornatus oporteat sea, vix liber dictas splendide et. No tollit malorum quaestio nam.
