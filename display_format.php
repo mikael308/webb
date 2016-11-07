@@ -115,6 +115,18 @@
 			. '</div>';
 		
 	}
+	/**
+	 * generate a switchbutton form input
+	 * @param unknown $name name of input
+	 * @param unknown $checked set the preset state of switchbutton
+	 * @return string html
+	 */
+	function switchButton($name, $checked){
+		return "<label class='switch'>"
+  				. "<input type='checkbox' ".($checked?"checked":"unchecked")." name='".$name."'>"
+  				. "<div class='slider'></div>"
+			. 	"</label>";
+	}
 
 
 
