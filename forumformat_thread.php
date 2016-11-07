@@ -51,24 +51,32 @@
 		$editMessageForm = editable($post) ? editMessageForm($post) : "";
 		$deletePostForm = editable($post) ? deletePostForm($post) : "";
 		
+		$edited = ($post->getCreated() != $post->getEdited()) ? 
+			'<div class="edited">edited: ' . $post->getEdited() . '</div>' 
+			: ""; 
+		
 		$author = $post->getAuthor();
+
 		return '<div class="forum_content_listitem forum_post">'
 			. '<div class="author">'
-				. '<div class="name"><a href="viewuser_page.php?u='.$author->getPrimaryKey().'">' . $post->getAuthor()->getName() . '</a></div>'
+				. '<div class="name"><a href="viewuser_page.php?u='.$author->getPrimaryKey().'">' . $author->getName() . '</a></div>'
 				. '<div class="role">' . $author->getRole() . '</div>'
 				. '<div class="registered">registered<br>'.formatDate($author->getRegistered()).'</div>'
 			. '</div>'
 			. '<div class="post">'
 				. '<div class="message">' . $post->getMessage() . '</div>'
-				. '<div class="created">created:' . $post->getCreated() . '</div>'
+				. '<div class="dates">'
+				. 	'<div class="created">created:' . $post->getCreated() . '</div>'
+				. 	$edited
+				. '</div>'
 			. '</div>'
 			. 	'<div class="option_panel">' 
 			.		$editMessageForm
 			.		$deletePostForm
 			.	'</div>'
-		. '</div>'
-					
-		;
+		. '</div>';
+		
+		
 	}
 	
 	function editable($post){
