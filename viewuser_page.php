@@ -101,19 +101,14 @@ function getAdminTools(){
 	$cont .= '<form id="admintools" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 			. 	'<input type="hidden" name="u" value="' . $view_user->getPrimaryKey() . '" />';
 	
-	# BANN USER
-	$banned_checkedval = $view_user->isBanned() ? "checked" : "unchecked";
+	
 	$cont .=
 			"<table>" 
-			. tr(
+			. tr( # BANN USER
 				td("<label>banned user</label>")
-				. td("<div class='tooltip'>" 
-				. "<span class='tooltiptext'>user is currently: " . ($view_user->isBanned()?"true":"false") . "</span>"
-				. 	"<label class='switch'>"
-  					. "<input type='checkbox' ".$banned_checkedval." name='update_user_banned'>"
-  					. "<div class='slider'></div>"
-				. 	"</label>") 
-				. "</div>")
+				.td(toolTip(switchButton("update_user_banned", $view_user->isBanned()),
+					"user is currently: " . ($view_user->isBanned()?"true":"false") ))
+				)
 			;
 	
 	# SAVE BUTTON
