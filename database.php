@@ -770,7 +770,7 @@
 		
 		$db_conn = connect();
 		if($db_conn){
-			$query = " SELECT * "
+			$query = " SELECT count(*) "
 				. " FROM proj.forumposts "
 				. " WHERE thread='". read::forumPost($post_pk)->getThread()->getPrimaryKey() ."' "
 				. " AND created <= ( "
@@ -782,10 +782,10 @@
 				
 			$res = pg_query($db_conn, $query);
 			if($res){
-				$num = pg_num_rows($res);
+				$num = pg_fetch_object($res, 0)->count;
 				pg_free_result($res);
 				
-				return $num;
+				return ceil($num / readSettings("posts_per_page"));
 				
 			}
 		}
