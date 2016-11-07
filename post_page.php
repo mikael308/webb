@@ -197,9 +197,9 @@
 		update::forumPost($post);
 		
 		# redirect to thread page
-		$p = getPostPageIndex($post->getPrimaryKey());
-
+		$p = isset($_POST['p']) ? $_POST['p'] : 1; 
 		$pageLink = getThreadPageLink($post->getThread(), $p);
+		
 		header("Location: " . getThreadPageLink($post->getThread(), $pageLink));
 		exit();
 		
@@ -239,8 +239,9 @@
 		
 		return '<p>edit ' . $thread->getTopic().'</hp>'
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-			.	'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" >'
+			.	'<input type="hidden" name="post" value="' . $_POST['post'] . '" >'
 			.	getCreateForumPostInput($_POST['msg'])
+			.	'<input type="hidden" name="p" value="' . $_POST['p'] . '" >'
 			.	'<input type="submit" value="post" name="update_post">'
 			. '</form>';	
 	}
