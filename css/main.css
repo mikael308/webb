@@ -128,7 +128,7 @@ hr{
 	text-decoration: none;
 }
 
-#meta_nav a{
+#meta_nav > a{
 	display: inline-block;
 }
 
@@ -170,7 +170,7 @@ footer {
 #meta_nav a{
 	color: #444;
 }
-#meta_nav a:hover{
+#meta_nav >:hover{
 	color: #CCC;
 }
 
