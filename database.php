@@ -400,8 +400,8 @@
 			$db_conn = connect();
 			if($db_conn){
 				$query = "SELECT fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
-				 . " FROM proj.forumusers AS fuser "
-				 . " LEFT JOIN proj.roles ON fuser.role=roles.id ";
+				 . " FROM ".$GLOBALS['dbtable_forumusers']." AS fuser "
+				 . " LEFT JOIN ".$GLOBALS['dbtable_roles']." ON fuser.role=roles.id ";
 				 if($whereclause != NULL && $whereclause != ""){
 				 	$query .= " WHERE " . $whereclause;
 				 }
@@ -647,20 +647,19 @@
 	 */
 	function countForumThreads(ForumUser $user){
 		$query = 
-			  #"SELECT p.author, p.message, t.topic "
-			 " FROM proj.forumthreads AS t "
-			. " LEFT JOIN proj.forumposts as p "
+			 " FROM ".$GLOBALS['dbtable_forumthreads']." AS t "
+			. " LEFT JOIN ".$GLOBALS['dbtable_forumposts']." as p "
 			. " ON p.thread=t.id "
 			. " WHERE p.author = '".$user->getPrimaryKey()."' "
 			. " AND p.id IN "
 			. " ( "
 				# the first posts in every thread
 				. " SELECT p.id "
-				. " FROM proj.forumposts p "
+				. " FROM ".$GLOBALS['dbtable_forumposts']." p "
 				. " WHERE p.id = "
 				. " ( "
 					. " SELECT p2.id "
-					. " FROM proj.forumposts p2 "
+					. " FROM ".$GLOBALS['dbtable_forumposts']." p2 "
 					. " WHERE p2.thread=p.thread "
 					. " ORDER BY p2.created ASC "
 					. " LIMIT 1 "
@@ -690,8 +689,8 @@
 		$db_conn = connect();
 		if($db_conn){
 			$query = "SELECT fuser.name, fuser.email, roles.title "
-			 . " FROM proj.forumusers AS fuser "
-			 . " LEFT JOIN proj.roles ON fuser.role=roles.id "
+			 . " FROM ".$GLOBALS['dbtable_forumusers']." AS fuser "
+			 . " LEFT JOIN ".$GLOBALS['dbtable_roles']." ON fuser.role=roles.id "
 			 . " WHERE fuser.name LIKE '%" . $user_id . "%';";
 			
 			$res = pg_query($db_conn, $query);
@@ -731,7 +730,7 @@
 		$db_conn = connect();
 		if($db_conn){
 			$query = "SELECT posts.message, posts.author, posts.thread "
-			 . " FROM proj.forumposts AS posts "
+			 . " FROM ".$GLOBALS['dbtable_forumposts']." AS posts "
 			 . " WHERE posts.message LIKE '%" . $post_msg . "%';";
 			
 			$res = pg_query($db_conn, $query);
@@ -775,7 +774,7 @@
 				. " WHERE thread='". read::forumPost($post_pk)->getThread()->getPrimaryKey() ."' "
 				. " AND created <= ( "
 				. 		" SELECT created "
-				. 		" FROM proj.forumposts " 
+				. 		" FROM " . $GLOBALS['dbtable_forumposts']
 				. 		" WHERE id='".$post_pk."' "
 				. 	" ) "
 				. " ;";
