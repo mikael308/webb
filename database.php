@@ -766,11 +766,8 @@
 	 * @return post index
 	 */
 	function getPostPageIndex($post_pk){
-		
-		$db_conn = connect();
-		if($db_conn){
-			$query = " SELECT count(*) "
-				. " FROM proj.forumposts "
+		$query = " SELECT count(*) "
+				. " FROM " . $GLOBALS['dbtable_forumposts']
 				. " WHERE thread='". read::forumPost($post_pk)->getThread()->getPrimaryKey() ."' "
 				. " AND created <= ( "
 				. 		" SELECT created "
@@ -778,17 +775,7 @@
 				. 		" WHERE id='".$post_pk."' "
 				. 	" ) "
 				. " ;";
-				
-			$res = pg_query($db_conn, $query);
-			if($res){
-				$num = pg_fetch_object($res, 0)->count;
-				pg_free_result($res);
-				
-				return ceil($num / readSettings("posts_per_page"));
-				
-			}
-		}
-		return 0;
+		return ceil(countQuery($query) / readSettings("posts_per_page"));													
 	}
 	/**
 	 * count results from database query
