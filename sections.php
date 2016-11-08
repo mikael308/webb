@@ -130,8 +130,11 @@
 	 */
 	function getMetaNav(){
 		return '<div id="meta_nav">'
-			. 	'<a href="about_page.php">'. toolTip(getIconButton("info_outline"), "about") . '</a>'
-			. 	'<a href="search_page.php">'.toolTip(getIconButton('search'), "search").'</a>'
+			. 	dropDownList(getIconButton("info_outline"), array(
+						"faq" => "about_page.php?d=faq",
+						"about" => "about_page.php?d=about"
+					))
+			. 	'<a href="search_page.php">'. toolTip(getIconButton('search'), "search") .'</a>'
 			. '</div>';
 	}
 	/**
