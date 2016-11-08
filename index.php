@@ -48,11 +48,11 @@
 	</aside>
 	<main>
 		<?php
-		$user = getAuthorizedUser();
-	 
-		echo '<div id="newsfeed">'
-				. getNewsFeed()
-			. '</div>';
+			$user = getAuthorizedUser();
+	 		
+			echo '<div id="newsfeed">'
+					. getNewsFeed()
+				. '</div>';
 		
 		?>
 	</main>
