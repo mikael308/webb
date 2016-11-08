@@ -91,22 +91,22 @@
 		$user = getAuthorizedUser();
 		$authorizedUserId = $user != NULL ? $user->getPrimaryKey() : "";
 		
-		$cont = '<nav>'
-			. '<ul id="page_nav">'
-			. 	listitem(getNavButton('index.php', 'start'))
+		$listitems = 
+			 	listitem(getNavButton('index.php', 'start'))
 			. 	listitem(getNavButton('forum_page.php', 'forum'))
-			. 	listitem(getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page'))
-			;
+			. 	listitem(getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page'));
 		
 		$user = getAuthorizedUser();
 		if($user != NULL 
 			&& $user->isAdmin()){
-			$cont .= getNavButton("admin_page.php", "admin");
+			$listitems .= getNavButton("admin_page.php", "admin");
 		}
-		$cont .= '</ul>';
-
-		$cont	.= '</nav>';
-		return $cont;
+		
+		return '<nav>'
+			. 	'<ul id="page_nav">'
+			.		$listitems
+			. 	'</ul>'
+			. '</nav>';
 	}
 
 	/**
@@ -138,22 +138,21 @@
 	 * get the subnavigation content
 	 */
 	function getSubNavContent(){
-		$cont = '<div id="subnav">';
-		
+		$listitems = '';
 		$user = getAuthorizedUser();
 		if($user != NULL){
 			logoutListener();
-			$cont .=
-				"<ul>" 
-				. listitem(getLogoutForm())
-				. listitem("<div id='username_label'>you're logged in as <a href='viewuser_page.php?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>")
-				. "<li id='metanav_li'>" . getMetaNav() . "</li>"
-				. "</ul>";
+			$listitems .=
+				  listitem(getLogoutForm())
+				. listitem("<div id='username_label'>you're logged in as <a href='viewuser_page.php?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>");
 		}
+		$listitems .= "<li id='metanav_li'>" . getMetaNav() . "</li>";
 		
-			
-		$cont .= '</div>';
-		return $cont;
+		return '<div id="subnav">'
+			. '<ul>'
+			.	$listitems
+			. '</ul>'
+			. '</div>';
 		
 	}
 	function getBreadcrum(ForumSubject $subject = NULL, ForumThread $thread = NULL){
