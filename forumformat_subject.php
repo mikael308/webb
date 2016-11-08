@@ -60,8 +60,8 @@
 			. 	'</a>'			
 			.	'<div id="info">'
 			.		'<div class="authors">'
-			.			'<div class="creator">created by: <a href="'.getDisplayUserLink($creator->getPrimaryKey()).'">'.$creator->getName().'</a></div>'
-			.			'<div class="lastAttributor">last: <a href="'.getDisplayUserLink($lastAttr->getPrimaryKey()).'">'.$lastAttr->getName().'</a></div>'
+			.			'<div class="clickable creator">created by: <a href="'.getDisplayUserLink($creator->getPrimaryKey()).'">'.$creator->getName().'</a></div>'
+			.			'<div class="clickable lastAttributor">last: <a href="'.getDisplayUserLink($lastAttr->getPrimaryKey()).'">'.$lastAttr->getName().'</a></div>'
 			.		'</div>'
 			.		'<div class="indexlink"><div class="label">index:</div>'
 			.			threadInnerPag($thread)
@@ -75,7 +75,7 @@
 		return '<a href="' . getDisplayThreadLink($thread, $index) . '">' . $index . '</a>';
 	}
 	function threadInnerPag(ForumThread $thread){
-		$cont = "<div class='threadlink_pagination'>";
+		$cont = "<div class='clickabe threadlink_pagination'>";
 
 		$maxPages = getMaxPagesThread($thread);
 		$paginterval = readSettings("pag_max_interval_threadlink");
