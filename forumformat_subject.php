@@ -85,13 +85,14 @@
 		for(; $i <= $maxlim; $i++){
 			$cont .= threadlinkPagButton($thread, $i);
 		}
-
-		if($i < ($maxPages - $paginterval)){
-			$i = $maxPages - $paginterval;
-		}
-		if($i <= $maxPages)
-			$cont .= " ... ";
 		
+		$end_offset = ($maxPages - $paginterval) +1;
+		if($i < $end_offset){
+			$i = $end_offset;
+		}
+		if($maxPages > ($paginterval * 2)){ # mid part
+			$cont .= " ... ";
+		}
 		# ending indexes
 		for(;$i <= $maxPages; $i++){
 			$cont .= threadlinkPagButton($thread, $i);
