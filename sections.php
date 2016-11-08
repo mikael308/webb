@@ -80,6 +80,7 @@
 	function getMainFooterContent(){
 		return
 			'<hr>'
+			. getScript("dropdownlist.js")
 			. '<p>&copy; Mikael Holmbom ' . date("Y") . '</p>'
 			. '<p>Webbprogrammering, 7.5hp, Mittuniversitetet</p>';
 	}
@@ -174,6 +175,25 @@
 		$cont .= '</div>';
 		return $cont;
 	}	
+	/**
+	 * 
+	 * @param unknown $target the target element to react as dropdown button 
+	 * @param unknown $listitems 
+	 * @return string
+	 */
+	function dropDownList($target, $listitems){
+		$ddlist = "";
+		foreach($listitems as $label => $link){
+			$ddlist .= '<a href="' . $link . '">' . $label . '</a>';
+		}
+		
+		return '<div class="dropdown">'
+			. 	'<button class="dropbtn">' . $target . '</button>'
+			.	'<div class="dropdown-content">'
+			.		$ddlist
+			.	'</div>'
+			. '</div>';
+	}
 
 	
 	
