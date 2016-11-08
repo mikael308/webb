@@ -160,7 +160,7 @@
 		function getBreadcrumLink($link, $title){
 			return 
 				'<div class="parallellogram">'
-					. '<a class="breadcrum_link" href="'.$link.'">'.$title.'</a>'
+					. '<a class="clickable breadcrum_link" href="'.$link.'">'.$title.'</a>'
 				.'</div>';
 		}
 		
