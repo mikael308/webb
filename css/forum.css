@@ -5,8 +5,8 @@
 
 #forum_content_list{
 	margin-top: 8px;
-	margin-left: 16px;
 	margin-bottom: 20px;
+	margin-left: 10px;
 	max-width: 90%;
 	min-height: 280px;
 }
@@ -45,12 +45,11 @@
 	position:relative;
 	top:-4px;
 	font-size:85%;
-	margin-left: 15px;
+	margin-left: 20px;
 
 }
 
-.forum_button{
-	
+.forum_button{	
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
@@ -109,6 +108,7 @@
 	background: linear-gradient(to bottom right, #E0E0E3, #EFEFF9); /* Standard syntax */
 
 }
+
 
 .forum_thread > #info > div{
 	display: inline-block;
@@ -195,10 +195,10 @@
 }
 .forum_post .message{
 	margin-left:12px;
-	margin-right: 40px;
+	margin-right: 20px;
 	margin-bottom:40px;
 }
-.forum_post .created{
+.forum_post .dates{
 	font-size: 85%;
 	float:right;
 	align-content: bottom;
@@ -214,7 +214,7 @@
 	BREADCRUM
 *************************************/
 #breadcrum{
-	margin: 2px 4px 10px;
+	margin: 2px 0px 10px;
 	overflow:auto;
 }
  #breadcrum > div{
@@ -239,8 +239,7 @@
 	text-align: center;
 	text-decoration: none;
 	font-size: 14px;
-	cursor: pointer;
-
+	
 }
 #breadcrum .breadcrum_link:hover{
 	border: 2px solid #E0E0EF;
@@ -253,7 +252,7 @@
 }
 
 /**************************************
-	PAGINATION 
+	PAGINATION FORUMPOST
 ***************************************/
 
 }
@@ -264,9 +263,9 @@
 
 #pag_nav{
 	font-size: 20px;
-	margin-top: 20px;
+	margin-top: 10px;
 	width:100%;
-	height: 100px;
+	height: 50px;
 	overflow: auto;
 }
 
@@ -324,13 +323,15 @@
 
 #forum_top_bts{
 	min-height: 32px;
+	margin-right: 10%;
 }
 #forum_top_bts .button{	
-	
+	float:right;
 }
 
 #forum_bottom_bts{
 	min-height: 32px;
+	margin-right: 10%;
 
 	
 }
