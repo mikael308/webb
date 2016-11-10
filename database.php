@@ -9,6 +9,7 @@
  * @version 1.0
  */
 
+	require_once "settings.php";
 	
 	# autoload classes
 	spl_autoload_register(function($class) {
