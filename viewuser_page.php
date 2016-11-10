@@ -69,20 +69,20 @@
 	</header>
 	<main>
 		<?php
-			
+		
 			if($view_user != NULL){
 				echo getUserInfo($view_user);
 				$authorized_user = $_SESSION['authorized_user'];
 				if($authorized_user->isAdmin()
 					|| ($authorized_user->isModerator() 
-						&& (!$view_user->isAdmin() || $view_user->isModerator())
-						)
+						&& (!$view_user->isAdmin() || $view_user->isModerator()))
 				){
 					echo getAdminTools();
 				}
 			} else {
 				echo '<p>user was not found</p>';
 			}
+					
 			
 		?>
 	</main>

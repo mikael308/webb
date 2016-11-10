@@ -59,7 +59,7 @@
 		if ($p == NULL || $p == "") 
 			return errorMessage("invalid page");
 
-		$subject 		= $thread->getSubject();
+		$subject = $thread->getSubject();
 
 		$pag = pagination(
 			$p, 
