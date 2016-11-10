@@ -72,19 +72,32 @@
 		$nForumThreads 	= countForumThreads($user);
 		$nForumPosts 	= countForumPosts($user);
 	
-		$cont = '<table id="userinfo">'
-				. tr(td('name') . td($user->getName()));
+		$cont = userinfoTableContent(array(
+						'name' => $user->getName()
+				));
+				
 		if ( $_SESSION['authorized_user']->getPrimaryKey() == $user->getPrimaryKey()){
-			$cont .= tr(td('email') . td($user->getEmail()));
+			$cont .= userinfoTableContent(array(
+					'email' => $user->getEmail()
+			));
 		}		
-		$cont .=
-				 tr(td('role') . td($user->getRole()))
-			 	. tr(td('registered') . td(formatDateTime($user->getRegistered())))
-				. tr(td('created threads') . td($nForumThreads))
-				. tr(td('posts') . td($nForumPosts))
+		$cont .= userinfoTableContent(array(
+						'role' => $user->getRole(),
+						'registered' => $user->getRegistered(),
+						'created threads' => $nForumThreads,
+						'posts' => $nForumPosts
+				));
+		
+		return 
+			  '<table id="userinfo">'
+				. $cont
 			. '</table>';
-			
-		return $cont;
+	}
+	function userinfoTableContent($cont){
+		$c = '';
+		foreach($cont as $label => $data)
+			$c .= tr('<td class="userinfo_label">'.$label.'</td><td class="userinfo_data">'.$data.'</td>');
+		return $c;
 	}
 	/**
 	 * format a datetimestamp string
