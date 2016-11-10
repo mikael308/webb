@@ -119,10 +119,11 @@
 	/**
 	 * get a icon button
 	 * @param icon the icon title
+	 * @param attrs extra attributes added to icon element
 	 * @return icon button as html
 	 */
-	function getIconButton($icon){
-		return '<i id="'.$icon.'" class="clickable material-icons">'.$icon.'</i>';
+	function getIconButton($icon, $attrs = ""){
+		return '<i id="'.$icon.'_btn" class="clickable material-icons" '.$attrs.'>'.$icon.'</i>';
 	}
 	/**
 	 * get a navigation button
