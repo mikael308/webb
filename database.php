@@ -421,9 +421,7 @@
 						$user->setEmail($data->email);
 						$user->setRole($data->title);
 						$user->setRegistered($data->registered);
-						
-						$b = $data->banned === 't' ? 1:0;
-						$user->setBanned($b);
+						$user->setBanned($data->banned === 't' ? 1:0);
 	
 						$users[] = $user;
 					}
