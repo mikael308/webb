@@ -26,7 +26,7 @@
 		
 		$maxlim 	= ($tpp + $i); # end offset
 		$n_threads 	= count($threads);
-		$max_pages 	= getMaxPagesSubject($subject);
+		$max_pages 	= count::maxPagesSubject($subject);
 
 		if($i > $max_pages)
 			return errorMessage("invalid page number");
@@ -77,7 +77,7 @@
 	function threadInnerPag(ForumThread $thread){
 		$cont = "<div class='clickabe threadlink_pagination'>";
 
-		$maxPages = getMaxPagesThread($thread);
+		$maxPages = count::maxPagesThread($thread);
 		$paginterval = readSettings("pag_max_interval_threadlink");
 		$maxlim = min($maxPages, $paginterval);
 		$i = 1;

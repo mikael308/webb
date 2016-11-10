@@ -69,8 +69,8 @@
 	function getUserInfo(ForumUser $user){
 		if($user == NULL) return "";
 		
-		$nForumThreads 	= countForumThreads($user);
-		$nForumPosts 	= countForumPosts($user);
+		$nForumThreads 	= count::forumThreads($user);
+		$nForumPosts 	= count::forumPosts($user);
 	
 		$cont = userinfoTableContent(array(
 						'name' => $user->getName()

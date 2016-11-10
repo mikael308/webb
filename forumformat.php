@@ -64,7 +64,7 @@
 		$pag = pagination(
 			$p, 
 			(int) readSettings("pag_max_interval"),
-			getMaxPagesThread($thread), 
+			count::maxPagesThread($thread), 
 			"forum_page.php?t=" . $thread->getPrimaryKey());
 
 		return forumViewFormat(
@@ -90,7 +90,7 @@
 		$pag = pagination(
 			$p, 
 			(int) readSettings("pag_max_interval"), 
-			getMaxPagesSubject($subject),
+			count::maxPagesSubject($subject),
 			"forum_page.php?s=" . $subject->getPrimaryKey());
 
 		return forumViewFormat(

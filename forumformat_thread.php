@@ -25,7 +25,7 @@
 		$forumpost_arr 	= read::postsFromThread($thread->getPrimaryKey());
 		$maxlim 		= ($n_postsPerPage + $i);
 		$n_posts 		= count($forumpost_arr);
-		$max_pages		= getMaxPagesThread($thread);
+		$max_pages		= count::maxPagesThread($thread);
 		
 		if($page < 1 || $page > $max_pages)
 			return errorMessage("invalid page number");
