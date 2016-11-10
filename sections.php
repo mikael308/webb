@@ -20,6 +20,9 @@
 	function getMainHeadContent(){
 		return
 			'<meta charset="utf-8">'
+			. getScript("searchsidepanel.js")
+			. getScript("searchdatabase.js")
+			
 			. getStylesheet("main.css")
 			. getStylesheet("msg.css")
 			. getStylesheet("widgets.css")
@@ -69,8 +72,12 @@
 			'<h1 id="main_header">Webbprogrammering-projekt</h1>'
 			. getNavContent()
 			. '<hr>'
-			. getSubNavContent();
+			. getSubNavContent()
+			. getSidePanel();
 			
+	}
+	function getSidePanel(){
+		return searchSidePanel();
 	}
 	/**
 	 * get the main footer content\n
@@ -134,7 +141,7 @@
 						"faq" => "about_page.php?d=faq",
 						"about" => "about_page.php?d=about"
 					))
-			. 	'<a href="search_page.php">'. toolTip(getIconButton('search'), "search") .'</a>'
+			. toolTip(getIconButton('search', 'onclick="openSearchPanel()"'), 'search') 
 			. '</div>';
 	}
 	/**
@@ -197,6 +204,35 @@
 			. '</div>';
 	}
 	
+	function searchSidePanel(){
+		$res_cont = getAuthorizedUser() != NULL ? 
+					'<div id="searchres"></span></div>' :
+					'<div><a href="registeruser_page.php">register to search forum</a></div>';
+		
+		return '<div id="search_sidepanel" class="sidepanel">'
+				. '<a href="javascript:void(0)" class="clickable closebtn" onclick="closeSearchPanel()">&times;</a>'
+				. '<div id="sidepanel_content">'
+				. 	getSearchForm()
+				. 	$res_cont
+				. '</div>'
+			. '</div>';
+	}
+	
+	/**
+	 * get form for client searching in database
+	 *
+	 */
+	function getSearchForm(){
+		return
+		"<form method='GET' id='searchform'>"
+			. "<label for='post'>post</label>"
+			. "<input type='radio' value='post' name='search_type' checked >"
+			. "<label for='user'>user</label>"
+			. "<input type='radio' value='user' name='search_type' ><br>"
+			. "<input type='text' id='searchbar' name='search_value' onkeyup='search(this.value)' autocomplete='off' autofocus >"
+			. "<input type='submit' value='search'>" #TODO kolla hur du kan sätta den som search icon button istället
+		. "</form>";
+	}
 	
 	////////////////////////////////////////////////////////////////////
 	//

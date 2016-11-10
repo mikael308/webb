@@ -226,7 +226,73 @@ div.panel.show {
   background-color: #f1f1f1;
 }
 
-/* Show the dropdown menu on hover */
-/*.dropdown:hover .dropdown-content {
+
+/**************************************
+*
+* SIDE PANEL 
+*
+***************************************/
+
+
+.sidepanel {
+    height: 100%; 
+    width: 0; /* std value, used as hidden */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    right: 0;
+    background-color: #FCFCFC;
+    border:solid 0px black;
+    border-radius: 8px 0 0 8px;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.2s; /* 0.5 second transition effect to slide in the sidepanel */
+
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
     display: block;
+    transition: 0.3s
+}
+
+
+/* When you mouse over the navigation links, change their color */
+/*.sidepanel div:hover, .offcanvas div:focus{
+    color: #f1f1f1;
 }*/
+
+/* Position and style the close button (top left corner) */
+.sidepanel .closebtn {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 36px;
+    
+}
+.closebtn{
+  text-decoration: none;
+  color: #555;
+}
+.closebtn:hover{
+  color: #AAA;
+}
+
+.visible_sidepanel{
+  width: 420px;
+  border:solid 2px black;
+
+}
+
+@media screen and (max-width: 680px) {
+  .visible_sidepanel{
+    position:fixed;
+    left:0;
+    right:0;
+    width:auto;
+
+  } 
+}
+
+
+.searchres_item > a{
+  font-size: 24px;
+}
