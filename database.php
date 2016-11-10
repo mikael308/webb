@@ -124,11 +124,13 @@
 					
 					pg_free_result($res);
 					
+					return $resThread;
+					
 				} else {
 					echo pg_last_error($db_conn);
 				}
 			}
-			return $resThread;
+			return NULL;
 		}
 		/**
 		 * persist a user to database
