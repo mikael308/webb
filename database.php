@@ -763,7 +763,7 @@
 	function searchForumUser($user_id){
 		$db_conn = connect();
 		if($db_conn){
-			$query = "SELECT fuser.name, fuser.email, roles.title "
+			$query = "SELECT fuser.name "
 			 . " FROM ".$GLOBALS['dbtable_forumusers']." AS fuser "
 			 . " LEFT JOIN ".$GLOBALS['dbtable_roles']." ON fuser.role=roles.id "
 			 . " WHERE fuser.name LIKE '%" . $user_id . "%';";
@@ -776,11 +776,7 @@
 				$users = array();
 				for ($i = 0; $i < $num_rows; $i++){
 					$data = pg_fetch_object($res, $i);
-					$user = new ForumUser();
-					$user->setName($data->name);
-					$user->setEmail($data->email);
-					$user->setRole($data->title);
-					$users[] = $user;
+					$users[] = read::forumuser($data->name);
 					
 				}
 				
@@ -804,9 +800,9 @@
 		
 		$db_conn = connect();
 		if($db_conn){
-			$query = "SELECT posts.message, posts.author, posts.thread "
-			 . " FROM ".$GLOBALS['dbtable_forumposts']." AS posts "
-			 . " WHERE posts.message LIKE '%" . $post_msg . "%';";
+			$query = "SELECT post.id, post.message "
+			 . " FROM ".$GLOBALS['dbtable_forumposts']." AS post "
+			 . " WHERE post.message LIKE '%" . $post_msg . "%';";
 			
 			$res = pg_query($db_conn, $query);
 			if($res){
@@ -816,10 +812,7 @@
 				$posts = array();
 				for ($i = 0; $i < $num_rows; $i++){
 					$data = pg_fetch_object($res, $i);
-					$post = new ForumPost();
-					$post->setMessage($data->message);
-					$post->setThreadFK($data->thread);
-					$post->setAuthorFK($data->author);
+					$post = read::forumPost($data->id);
 					
 					$posts[] = $post;				
 				}
