@@ -4,10 +4,11 @@
 }
 
 #forum_content_list{
+	
 	margin-top: 8px;
 	margin-bottom: 20px;
 	margin-left: 10px;
-	max-width: 90%;
+	max-width: 92%;
 	min-height: 280px;
 }
 .forum_content_listitem{
@@ -330,9 +331,6 @@
 
 #forum_bottom_bts{
 	min-height: 32px;
-	margin-right: 10%;
-
-	
 }
 #forum_bottom_bts .button{
 	float:right;
