@@ -222,6 +222,7 @@
 		
 		return '<div id="search_sidepanel" class="sidepanel">'
 				. '<a href="javascript:void(0)" class="clickable closebtn" onclick="closeSearchPanel()">&times;</a>'
+				. '<h2>search</h2>'
 				. '<div class="sidepanel_content">'
 				. 	getSearchForm()
 				. 	$res_cont
