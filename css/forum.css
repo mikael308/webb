@@ -140,6 +140,7 @@
 
 .forum_post:hover{
 	border: 2px solid #5A5ACF;	
+	box-shadow: none;
 }
 
 /*		FORUMPOST AUTHOR SECTION
