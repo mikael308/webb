@@ -138,7 +138,7 @@
 	 */
 	function getMetaNav(){
 		return '<div id="meta_nav">'
-			. 	dropDownList(getIconButton("info_outline"), array(
+			. 	dropDownList(toolTip(getIconButton("info_outline"),"about"), array(
 						"faq" => "about_page.php?d=faq",
 						"about" => "about_page.php?d=about"
 					))
