@@ -55,7 +55,7 @@
 	 */
 	function newsfeedView(News $newsfeed){
 		return '<div class="newsfeed">'
-			. '<div class="title">' . $newsfeed->getTitle() . '</div>'
+			. '<h2 class="title">' . $newsfeed->getTitle() . '</h2>'
 			. '<div class="created">' . $newsfeed->getCreated() . '</div>'
 			. '<div class="message">' . $newsfeed->getMessage() . '</div>'
 			. '<div class="author">' . $newsfeed->getAuthor() . '</div>'

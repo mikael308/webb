@@ -17,6 +17,7 @@
 #newsfeed article .title {
 	font-size: 100%;
 	font-weight: bold;
+	margin:0;
 }
 
 #newsfeed article .author{
