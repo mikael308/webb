@@ -186,12 +186,15 @@ footer {
 }
 
 
+
+
 .clickable{
 	
 
 }
 .clickable:hover{
 	cursor: pointer;
+	color:red;
 }
 
 .button_panel{
