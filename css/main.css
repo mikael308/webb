@@ -168,20 +168,22 @@ footer {
 }
 
 #meta_nav a{
-	color: #444;
+	
 }
-#meta_nav >:hover{
-	color: #CCC;
+#meta_nav > div{
+	display: inline-block;
+}
+#meta_nav div:hover{
+	color: #EEE;
+}
+#meta_nav i:hover{
+	color: #AAA;	
+}
+#meta_nav i{
+	font-size:32px;
+	color: #3A3A3A;
 }
 
-#info_outline{
-	font-size:30px;
-
-}
-
-#search{
-	font-size: 30px;
-}
 
 .clickable{
 	
