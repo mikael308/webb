@@ -181,15 +181,8 @@ footer {
 	font-size:32px;
 	color: #666;
 }
-#meta_nav div:hover{
-	color: #EEE;
-}
 #meta_nav i:hover{
-	color: #AAA;	
-}
-#meta_nav i{
-	font-size:32px;
-	color: #3A3A3A;
+	color:#AAA;
 }
 
 
