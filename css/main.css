@@ -222,17 +222,28 @@ footer {
 
 .searchres_item{
 	list-style-type: none;
-	background-color: #EEE;
+	background-color: #CBCBCB;
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	margin-bottom: 6px;
 	font-size: 13px;
 	color:black;
 	padding:6px;
+
+}
+.searchres_item:hover{
+	background-color: #ECECEC;
 }
 .searchres_item .post{
 	margin-bottom:0;
 	
+}
+.searchres_item .info{
+	margin-left:8px;
+}
+.searchres_item .info > div{
+	margin-left: 4px;
+	display: inline-block;
 }
 .searchres_item .author{
 	margin-top:0;
