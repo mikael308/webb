@@ -800,7 +800,7 @@
 		
 		$db_conn = connect();
 		if($db_conn){
-			$query = "SELECT post.id, post.message "
+			$query = "SELECT post.id "
 			 . " FROM ".$GLOBALS['dbtable_forumposts']." AS post "
 			 . " WHERE post.message LIKE '%" . $post_msg . "%';";
 			
