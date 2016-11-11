@@ -286,7 +286,7 @@
 			.'<form id="loginform" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" >'
 				.	'<div><span id="login_errmsg"> ' . $errmsg . '</span></div>'
 				.	'<label for="input_username">username (email)</label><br>'
-				.	'<input type="text" id="input_username" name="input_username" autofocus><br>'
+				.	'<input type="text" id="input_username" name="input_username" ><br>'
 				.	'<label for="input_password">password</label><br>'
 				.	'<input type="password" id="input_password" name="input_password"><br>'
 				.	'<input type="submit" class="btn" value="login" name="login"><br>'
