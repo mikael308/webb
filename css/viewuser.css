@@ -1,6 +1,9 @@
 #userinfo{
 	float:left;
 }
+#userinfo .userinfo_label{
+	font-weight: bold;
+}
 #admin_tools{
 	float:right;
 	border:solid 1px black;
