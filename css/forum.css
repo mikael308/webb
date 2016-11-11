@@ -135,7 +135,6 @@
 	padding: 0px;
 	border-radius: 5px;
 	border-style: ridge;
-	
 }
 
 .forum_post:hover{
@@ -179,7 +178,6 @@
  .option_panel{
 	margin-left: 20px;
 	margin-bottom: 10px;
-	
 }
 .forum_post .option_panel form{
 	display: block;
@@ -189,7 +187,6 @@
 	position: relative;
 	flex: 1;
 	padding: 10px 0;
-	
 	border-width: medium;
 }
 .forum_post .message{
