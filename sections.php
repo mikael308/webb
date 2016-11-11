@@ -144,6 +144,7 @@
 						"about" => "about_page.php?d=about"
 					))
 			. toolTip(getIconButton('search', 'onclick="openSearchPanel()"'), 'search') 
+
 			. '</div>';
 	}
 	/**
