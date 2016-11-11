@@ -168,6 +168,11 @@
 			. '</div>';
 		
 	}
+	/**
+	 * generate breadcrum links to current subject and thread
+	 * @param subject the current subject
+	 * @param thread the current thread
+	 */
 	function getBreadcrum(ForumSubject $subject = NULL, ForumThread $thread = NULL){
 		function getBreadcrumLink($link, $title){
 			return 
@@ -206,7 +211,10 @@
 			.	'</div>'
 			. '</div>';
 	}
-	
+	/**
+	 * get searchsidepanel as hidden. to open, see searchsidepanel.js
+	 * @return search sidepanel as html
+	 */
 	function searchSidePanel(){
 		$res_cont = getAuthorizedUser() != NULL ? 
 					'<div id="searchres"></div>' :
