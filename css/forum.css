@@ -30,18 +30,18 @@
 	color:red;
 }
 
-.forum_content_listitem:hover #topic{
+.forum_content_listitem:hover .topic{
 	text-decoration: underline;
 	color:red;
 }
 
-.forum_content_listitem #topic{
+.forum_content_listitem .topic{
 	color:black;
 	padding-left: 8px;
 	padding-top:3px;
 }
 
-.forum_content_listitem #info{
+.forum_content_listitem .info{
 	position:relative;
 	top:-4px;
 	font-size:85%;
@@ -55,7 +55,7 @@
 }
 
 
-#topic{
+.topic{
 	text-transform: capitalize;
 }
 

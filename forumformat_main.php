@@ -30,8 +30,8 @@
 		$cont = 
 			  '<div class="forum_content_listitem forum_subject">' 	
 			. 	'<a href="forum_page.php?s='.$subject->getPrimaryKey().'&p=1">'
-			. 		'<div id="topic" class="topic">'.$subject->getTopic().'</div>'
-			.		'<div id="info">'
+			. 		'<div class="topic">'.$subject->getTopic().'</div>'
+			.		'<div class="info">'
 			.			'<div class="subtitle">'.$subject->getSubtitle().'</div>'
 			. 		'</div>' 
 			. 	'</a>'
