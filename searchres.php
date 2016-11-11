@@ -42,7 +42,8 @@
 	 *
 	 */
 	function searchresForumUser(ForumUser $user){
-		$cont = '<div class="name">'. $user->getName() .'</div>';
+		$cont = '<div class="name">'. $user->getName() .'</div>'
+			. '<div class="role">'. $user->getRole() . '</div>';
 
 		return
 		 	  '<a href="viewuser_page.php?u=' . $user->getPrimaryKey() . '" class="user main">'
