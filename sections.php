@@ -208,7 +208,7 @@
 	
 	function searchSidePanel(){
 		$res_cont = getAuthorizedUser() != NULL ? 
-					'<div id="searchres"></span></div>' :
+					'<div id="searchres"></div>' :
 					'<div><a href="registeruser_page.php">register to search forum</a></div>';
 		
 		return '<div id="search_sidepanel" class="sidepanel">'
