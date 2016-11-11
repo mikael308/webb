@@ -250,32 +250,10 @@ div.panel.show {
     transition: 0.2s; /* 0.5 second transition effect to slide in the sidepanel */
 
     text-decoration: none;
-    font-size: 25px;
+    font-size: 16px;
     color: #818181;
     display: block;
     transition: 0.3s
-}
-
-
-/* When you mouse over the navigation links, change their color */
-/*.sidepanel div:hover, .offcanvas div:focus{
-    color: #f1f1f1;
-}*/
-
-/* Position and style the close button (top left corner) */
-.sidepanel .closebtn {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    font-size: 36px;
-    
-}
-.closebtn{
-  text-decoration: none;
-  color: #555;
-}
-.closebtn:hover{
-  color: #AAA;
 }
 
 .visible_sidepanel{
@@ -284,8 +262,35 @@ div.panel.show {
 
 }
 
+/* Position and style the close button (top left corner) */
+.sidepanel .closebtn {
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    font-size: 36px;
+    
+}
+.sidepanel .closebtn{
+  text-decoration: none;
+  color: #555;
+}
+.sidepanel .closebtn:hover{
+  color: #AAA;
+}
+.sidepanel h2{
+  font-size: 130%;
+  text-align: center;
+  margin: 14px 40px;
+}
+
+.sidepanel_content{
+  margin-top:50px;
+  margin-left:35px;
+
+}
+
 @media screen and (max-width: 680px) {
-  .visible_sidepanel{
+  .sidepanel .visible_sidepanel{
     position:fixed;
     left:0;
     right:0;
@@ -294,7 +299,3 @@ div.panel.show {
   } 
 }
 
-
-.searchres_item > a{
-  font-size: 24px;
-}

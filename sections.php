@@ -26,6 +26,7 @@
 			
 			. getStylesheet("main.css")
 			. getStylesheet("msg.css")
+			. getStylesheet("search.css")
 			. getStylesheet("widgets.css")
 			. '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">';
 			
@@ -213,7 +214,7 @@
 		
 		return '<div id="search_sidepanel" class="sidepanel">'
 				. '<a href="javascript:void(0)" class="clickable closebtn" onclick="closeSearchPanel()">&times;</a>'
-				. '<div id="sidepanel_content">'
+				. '<div class="sidepanel_content">'
 				. 	getSearchForm()
 				. 	$res_cont
 				. '</div>'

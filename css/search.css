@@ -1,0 +1,68 @@
+/**
+ *
+ * stylesheet used for search sidepanel
+ * searchsidepanel is child of sidepanel, see widgets.css
+ * @author Mikael Holmbom
+ */
+
+#searchres_list{
+	margin-top: 12px;
+	margin-left:0;
+	padding-left:0;
+}
+
+#searchres_list a{
+	font-size: 16px;
+}
+
+.searchres_item{
+	list-style-type: none;
+	background-color: #CBCBCB;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	margin-bottom: 6px;
+	font-size: 13px;
+	color:black;
+	padding:6px;
+
+}
+.searchres_item:hover{
+	background-color: #ECECEC;
+}
+
+.searchres_item .main{
+	margin-bottom:0;
+	
+}
+.searchres_item .extra{
+	margin-left:8px;
+}
+.searchres_item .extra > div{
+	margin-left: 4px;
+	display: inline-block;
+}
+
+/*************
+ * FORUMPOST
+ **************/
+.searchres_item .author{
+	margin-top:0;
+	padding-top:0;
+}
+
+/*************
+ * FORUMUSER
+ **************/
+.searchres_item .role{
+	color:black;
+	float:right;
+	font-size: 80%;
+}
+
+.searchres_item a{
+	font-size: 24px;
+	text-decoration: none;
+}
+.searchres_item a:hover{
+	color:red;
+}
