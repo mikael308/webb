@@ -31,13 +31,14 @@
 	<?php
 		echo getMainHeadContent();
 		echo getStylesheet("index.css");
+		echo setTitle("");
 	?>
 </head>
 <body>
 	<header>
 		<?php
 			echo getMainHeaderContent();
-			echo setTitle("");
+			
 		?>
 	</header>
 	<aside>

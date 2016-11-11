@@ -40,7 +40,19 @@
 <?php	
 	echo getMainHeadContent();
 	echo getStylesheet("forum.css");
-	
+	# TITLE 
+	$title = "forum";
+	$targ = NULL;
+	if(issetGet("subject")){
+		$targ = read::subject(get("subject"));
+		
+	} elseif(issetGet("thread")){
+		$targ = read::thread(get("thread"));
+	}
+	if($targ != NULL)
+			$title .= ":" . $targ->getTopic();
+	echo setTitle($title);
+
 ;?>	
 </head>
 <body>
@@ -48,17 +60,6 @@
 		<?php 
 			echo getMainHeaderContent();
 			
-			$title = "forum";
-			$targ = NULL;
-			if(issetGet("subject")){
-				$targ = read::subject(get("subject"));
-				
-			} elseif(issetGet("thread")){
-				$targ = read::thread(get("thread"));
-			}
-			if($targ != NULL)
-					$title .= ":" . $targ->getTopic();
-			echo setTitle($title);
 		 ?>
 	</header>
 	<main>
