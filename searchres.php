@@ -29,9 +29,9 @@
 
 		return
 
-			  '<a href="'. getDisplayThreadLink($t,$p) .'"><div class="post">'. $label .'</div>'
+			  '<a href="'. getDisplayThreadLink($t,$p) .'"><div class="post main">'. $label .'</div>'
 			. '</a>'
-			. '<div class="info">'
+			. '<div class="post extra">'
 			.	'<div class="author">author: <a href="'. getDisplayUserLink($author->getPrimaryKey()) .'">'. $author->getName() .'</a></div>'
 			.	'<div class="topic" >topic: <a href="'.getDisplayThreadLink($t,1).'">' . $t->getTopic() .'</a><div>'
 			. '</div>'
@@ -42,11 +42,13 @@
 	 *
 	 */
 	function searchresForumUser(ForumUser $user){
-		$cont = '<div class="content">'.$user->getName() . '</div>';
+		$cont = '<div class="name">'. $user->getName() .'</div>';
 
 		return
-		 	  '<a href="viewuser_page.php?u=' . $user->getPrimaryKey() . '">'
-			.	$cont
+		 	  '<a href="viewuser_page.php?u=' . $user->getPrimaryKey() . '" class="user main">'
+		 	. 	'<div class="user extra">'
+			.		$cont
+			. 	'</div>'
 			. '</a>'
 			;
 	}
