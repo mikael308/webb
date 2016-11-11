@@ -31,8 +31,10 @@
 
 			  '<a href="'. getDisplayThreadLink($t,$p) .'"><div class="post">'. $label .'</div>'
 			. '</a>'
+			. '<div class="info">'
 			.	'<div class="author">author: <a href="'. getDisplayUserLink($author->getPrimaryKey()) .'">'. $author->getName() .'</a></div>'
-			. '<div class="topic" >topic: <a href="'.getDisplayThreadLink($t,1).'">' . $t->getTopic() .'</a><div>'
+			.	'<div class="topic" >topic: <a href="'.getDisplayThreadLink($t,1).'">' . $t->getTopic() .'</a><div>'
+			. '</div>'
 			;
 	}
 	/**
