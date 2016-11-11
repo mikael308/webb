@@ -42,13 +42,13 @@
 	 *
 	 */
 	function searchresForumUser(ForumUser $user){
-		$cont = $user->getName();
+		$cont = '<div class="content">'.$user->getName() . '</div>';
 
-		return #'<div class="searchres_item">'
-			 		'<a href="viewuser_page.php?u=' . $user->getPrimaryKey() . '">'
-			. 			$cont
-			.		'</a>'
-			;#. '</div>';	
+		return
+		 	  '<a href="viewuser_page.php?u=' . $user->getPrimaryKey() . '">'
+			.	$cont
+			. '</a>'
+			;
 	}
 
 	function search_li($data){
