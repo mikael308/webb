@@ -20,26 +20,29 @@
 }
 .forum_content_listitem:hover{
 	border: 2px solid #DADAF5;
-	
+	box-shadow: 5px 5px 5px #CCC;
 }
+
 .forum_content_listitem  a{
 	text-decoration: none;
 
 }
-.forum_content_listitem #info a:hover {
-	text-decoration: underline;
+.forum_content_listitem .topic:hover{
 	color:red;
+	text-decoration: underline;
 }
 
-.forum_content_listitem:hover .topic{
-	text-decoration: underline;
-	color:red;
+.forum_content_listitem:hover .info{
+	text-decoration: none;
 }
 
 .forum_content_listitem .topic{
 	color:black;
-	padding-left: 8px;
-	padding-top:3px;
+	margin-left: 8px;
+	margin-top: 3px;
+	margin-bottom: 0;
+	font-size: 100%;
+	font-weight: normal;
 }
 
 .forum_content_listitem .info{
@@ -318,6 +321,7 @@
  	font-weight: bold;
  	font-size: 120%;
  	text-transform: capitalize;
+ 	margin-bottom: 0;
  }
 
 #forum_top_bts{

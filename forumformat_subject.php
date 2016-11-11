@@ -56,9 +56,9 @@
 		$cont =  	
 	 	 '<div class="forum_content_listitem forum_thread">' 	
 			. 	'<a href="'.$tlink.'">'
-			. 		'<div id="topic" class="topic">'.$thread->getTopic().'</div>'
+			. 		'<h3 class="topic">'.$thread->getTopic().'</h3>'
 			. 	'</a>'			
-			.	'<div id="info">'
+			.	'<div class="info">'
 			.		'<div class="authors">'
 			.			'<div class="clickable creator">created by: <a href="'.getDisplayUserLink($creator->getPrimaryKey()).'">'.$creator->getName().'</a></div>'
 			.			'<div class="clickable lastAttributor">last: <a href="'.getDisplayUserLink($lastAttr->getPrimaryKey()).'">'.$lastAttr->getName().'</a></div>'
