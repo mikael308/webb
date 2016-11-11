@@ -13,10 +13,9 @@ var ddbtns = document.getElementsByClassName("dropbtn");
 for(var i = 0; i < ddbtns.length; i++){
 
 	ddbtns[i].onclick = function(){
-		var cont =  this.parentNode.getElementsByClassName("dropdown-content")[0];
-	
-		cont.style.display = "inherit";
+		var cont =  this.parentNode.parentNode.getElementsByClassName("dropdown-content")[0];
 
+		cont.style.display = "inherit";
 		// listen for outside click to close dropdown-content
 		window.onclick = function(event) {
 			if (!event.target.matches('.dropbtn')) {

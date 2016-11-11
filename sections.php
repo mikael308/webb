@@ -139,10 +139,10 @@
 	 */
 	function getMetaNav(){
 		return '<div id="meta_nav">'
-			. 	dropDownList(toolTip(getIconButton("info_outline"),"about"), array(
+			. 	toolTip(dropDownList("<i class='dropbtn material-icons clickable'>info_outline</i>", array(
 						"faq" => "about_page.php?d=faq",
 						"about" => "about_page.php?d=about"
-					))
+					)),"about")
 			. toolTip(getIconButton('search', 'onclick="openSearchPanel()"'), 'search') 
 			. '</div>';
 	}
@@ -199,7 +199,7 @@
 		}
 		
 		return '<div class="dropdown">'
-			.	'<button class="dropbtn">'.$target.'</button>'
+			. $target
 			.	'<div class="dropdown-content">'
 			.		$ddlist
 			.	'</div>'
