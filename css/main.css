@@ -167,11 +167,19 @@ footer {
 	margin-bottom: 80px;
 }
 
+/******************
+ * META_NAV
+ *******************/
 #meta_nav a{
 	
 }
 #meta_nav > div{
 	display: inline-block;
+}
+/* std button attributes */
+#meta_nav i{
+	font-size:32px;
+	color: #666;
 }
 #meta_nav div:hover{
 	color: #EEE;
