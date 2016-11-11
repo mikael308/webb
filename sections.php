@@ -13,6 +13,7 @@
 	/**
 	 * get main head content
 	 * defines:
+	 * * javascript
 	 * * meta charset
 	 * * link
 	 * * title
