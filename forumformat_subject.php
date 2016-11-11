@@ -55,13 +55,15 @@
 		$lastAttr = $thread->getLastAttributor();
 		$cont =  	
 	 	 '<div class="forum_content_listitem forum_thread">' 	
-			. 	'<a href="'.$tlink.'">'
-			. 		'<h3 class="topic">'.$thread->getTopic().'</h3>'
+			.	'<a href="'.$tlink.'">'
+			. 		'<h3 class="topic">'
+			. 			$thread->getTopic()
+			.		'</h3>'
 			. 	'</a>'			
 			.	'<div class="info">'
 			.		'<div class="authors">'
-			.			'<div class="clickable creator">created by: <a href="'.getDisplayUserLink($creator->getPrimaryKey()).'">'.$creator->getName().'</a></div>'
-			.			'<div class="clickable lastAttributor">last: <a href="'.getDisplayUserLink($lastAttr->getPrimaryKey()).'">'.$lastAttr->getName().'</a></div>'
+			.			'<div class="creator">created by: <a class="clickable" href="'.getDisplayUserLink($creator->getPrimaryKey()).'">'.$creator->getName().'</a></div>'
+			.			'<div class="lastAttributor">last: <a class="clickable" href="'.getDisplayUserLink($lastAttr->getPrimaryKey()).'">'.$lastAttr->getName().'</a></div>'
 			.		'</div>'
 			.		'<div class="indexlink"><div class="label">index:</div>'
 			.			threadInnerPag($thread)
