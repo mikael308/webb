@@ -74,10 +74,10 @@
 		return $cont;
 	}
 	function threadlinkPagButton($thread, $index){
-		return '<a href="' . getDisplayThreadLink($thread, $index) . '">' . $index . '</a>';
+		return '<a class="clickable" href="' . getDisplayThreadLink($thread, $index) . '">' . $index . '</a>';
 	}
 	function threadInnerPag(ForumThread $thread){
-		$cont = "<div class='clickabe threadlink_pagination'>";
+		$cont = '<div class="threadlink_pagination">';
 
 		$maxPages = count::maxPagesThread($thread);
 		$paginterval = readSettings("pag_max_interval_threadlink");
