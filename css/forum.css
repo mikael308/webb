@@ -54,15 +54,9 @@
 	padding-bottom: 3px;
 }
 
-
 .topic{
 	text-transform: capitalize;
 }
-
-.header{
-	font-size:140%;
-}
-
 
 
 /*******************************************
@@ -110,10 +104,10 @@
 }
 
 
-.forum_thread > #info > div{
+.forum_thread > .info > div{
 	display: inline-block;
 }
-.forum_thread > #info > .indexlink{
+.forum_thread > .info > .indexlink{
 	margin-left: 20px;
 }
 .forum_thread .threadlink_pagination{
@@ -314,16 +308,21 @@
  * BUTTONPANEL
  ****************************/
 
- #forum_header{
- 	float:left;
+#forum_content{
+	
+}
+
+ #forum_content h2{
+ 	display: inline-block;
  	font-weight: bold;
  	font-size: 120%;
  	text-transform: capitalize;
  }
 
 #forum_top_bts{
+	display: inline-block;
 	min-height: 32px;
-	margin-right: 10%;
+	float:right;
 }
 #forum_top_bts .button{	
 	float:right;

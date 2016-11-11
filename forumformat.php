@@ -40,7 +40,7 @@
 		return 
 		'<article id="forum_content">'
 		.	$breadcrum
-		. 	'<div id="forum_header">' . $header . '</div>'
+		. 	'<h2>' . $header . '</h2>'
 		. 	'<div id="forum_top_bts" class="button_panel">'.$top_bts . '</div>'
 		. 	'<div id="forum_content_list">'. $forumcontlist .'</div>'
 		.	'<div id="forum_bottom_bts" class="button_panel">'. $bottom_bts .'</div>'
