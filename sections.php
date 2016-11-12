@@ -238,9 +238,9 @@
 		return
 		"<form method='GET' id='searchform'>"
 			. "<label for='post'>post</label>"
-			. "<input type='radio' value='post' name='search_type' checked >"
+			. "<input type='radio' value='post' name='search_type' onclick='search(search_value.value)' checked >"
 			. "<label for='user'>user</label>"
-			. "<input type='radio' value='user' name='search_type' ><br>"
+			. "<input type='radio' value='user' name='search_type' onclick='search(search_value.value)'><br>"
 			. "<input type='text' id='searchbar' name='search_value' onkeyup='search(this.value)' autocomplete='off' >"
 			. "<input type='submit' value='search'>" #TODO kolla hur du kan sätta den som search icon button istället
 		. "</form>";
