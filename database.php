@@ -61,8 +61,6 @@
 		
 			$query = "SELECT fuser.password, fuser.name "
 				. " FROM " . $GLOBALS['dbtable_forumusers'] . " AS fuser "
-				. " LEFT JOIN " . $GLOBALS['dbtable_roles'] . " AS role "
-				. " ON fuser.role=role.id " 
 				. " WHERE name= '". $userPK ."' AND password = '". $password ."';";
 			
 			$res = pg_query($db_conn, $query);
