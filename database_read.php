@@ -141,7 +141,7 @@
 						
 						$news = new News();
 						$news->setId($data->id);
-						$news->setAuthor($data->author);
+						$news->setAuthorPK($data->author);
 						$news->setTitle($data->title);
 						$news->setMessage($data->message);
 						$news->setCreated($data->created);
