@@ -1,6 +1,7 @@
 <?php
 
 require_once 'classes/DataAccessObject.class.php';
+require_once "database_read.php";
 
 /**
  * Programvaruteknik,	Webbprogrammering 7.5hp
@@ -11,7 +12,7 @@ require_once 'classes/DataAccessObject.class.php';
 class News extends DataAccessObject {
 
 	private $id = NULL;
-	private $author = NULL;
+	private $author_pk = NULL;
 	private $title = NULL;
 	private $message = NULL;
 	private $created = NULL;
@@ -20,8 +21,8 @@ class News extends DataAccessObject {
 
 	}
 
-	function setAuthor($author){
-		$this->author = $author;
+	function setAuthorPK($author_pk){
+		$this->author_pk = $author_pk;
 	}
 	function setTitle($title){
 		$this->title = $title;
@@ -35,8 +36,14 @@ class News extends DataAccessObject {
 	function setId($id){
 		$this->id = $id;
 	}
+	function getAuthorPK(){
+		return $this->author_pk;
+	}
 	function getAuthor(){
-		return $this->author;
+		return $this->getAuthorPK() == NULL ?
+			NULL:
+			read::ForumUser($this->getAuthorPK());
+
 	}
 	function getTitle(){
 		return $this->title;
