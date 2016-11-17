@@ -4,6 +4,8 @@
  * @author Mikael Holmbom
  */
 
+	require_once "pageref.php";
+
 	/**
 	 * display list of subjects
 	 * @param subjects list of subjects to display
@@ -29,7 +31,7 @@
 
 		$cont = 
 			  '<div class="forum_content_listitem forum_subject">' 	
-			. 	'<a href="forum_page.php?s='.$subject->getPrimaryKey().'&p=1">'
+			. 	'<a href="'.$GLOBALS['forum_page'] .'?s='.$subject->getPrimaryKey().'&p=1">'
 			. 		'<div class="topic">'.$subject->getTopic().'</div>'
 			.		'<div class="info">'
 			.			'<div class="subtitle">'.$subject->getSubtitle().'</div>'

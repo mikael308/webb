@@ -4,6 +4,7 @@
  * @author Mikael Holmbom
  */
 
+	require_once "pageref.php";
  	require_once "forumformat.php";
 	require_once "listeners.php";
 
@@ -59,7 +60,7 @@
 
 		return '<div class="forum_content_listitem forum_post">'
 			. '<div class="author">'
-				. '<div class="name"><a href="viewuser_page.php?u='.$author->getPrimaryKey().'">' . $author->getName() . '</a></div>'
+				. '<div class="name"><a href="'.$GLOBALS['user_page'] .'?u='.$author->getPrimaryKey().'">' . $author->getName() . '</a></div>'
 				. '<div class="role">' . $author->getRole() . '</div>'
 				. '<div class="registered">registered<br>'.formatDate($author->getRegistered()).'</div>'
 			. '</div>'
@@ -104,7 +105,7 @@
 	
 	function editMessageForm(ForumPost $post){
 		return 
-			  '<form class="edit_post" name="" method="POST" action="'.htmlspecialchars("post_page.php").'" >'
+			  '<form class="edit_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
 			.		'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" />'
 			.		'<input type="hidden" name="msg" value="' . $post->getMessage() . '" />'
 			.		'<input type="hidden" name="p" value="' . $_GET['p'] . '" />'		
@@ -114,7 +115,7 @@
 
 	function deletePostForm(ForumPost $post){
 		return 
-			  '<form class="delete_post" name="" method="POST" action="'.htmlspecialchars("post_page.php").'" >'
+			  '<form class="delete_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
 			.		'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" />'
 			.		'<input type="hidden" name="p" value="' . $_GET['p'] . '" />'
 			.		'<input type="submit" class="icon_button material-icons" value="delete" name="delete_post"></input>' 

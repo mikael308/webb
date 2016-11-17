@@ -13,6 +13,7 @@
 		include 'classes/' . $class . '.class.php';
 	});
 	
+	require_once "pageref.php";
 	require_once "sections.php";
 	require_once "database.php";
 	require_once "listeners.php";
@@ -20,7 +21,7 @@
 	require_once "display_format.php";
 	
 	startSession();
-	restrictedToAuthorized("index.php");
+	restrictedToAuthorized($GLOBALS['index_page']);
 	
 		
 	
@@ -130,7 +131,7 @@
 		if($pageIdx == NULL || $pageIdx > $last_page)
 			$pageIdx = $last_page;
 			
-		return 'forum_page.php?t='. $thread->getId() . '&p=' . $pageIdx; 
+		return $GLOBALS['forum_page'] . '?t='. $thread->getId() . '&p=' . $pageIdx; 
 	}
 	/**
 	* create a thread with POST arguments

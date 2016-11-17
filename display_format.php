@@ -5,6 +5,7 @@
  * @version 1.0
  */
 
+	require_once "pageref.php";
 	require_once "database.php";
 	require_once "listeners.php";
 	
@@ -38,7 +39,7 @@
 	 * @return link url as string
 	 */
 	function getDisplayThreadLink(ForumThread $thread, $page){
-		return "forum_page.php?t=" . $thread->getId() . "&p=" . $page;
+		return $GLOBALS['forum_page'] . "?t=" . $thread->getId() . "&p=" . $page;
 	}
 	/**
 	 * get a url to view user page
@@ -46,7 +47,7 @@
 	 * @return link url as string
 	 */
 	function getDisplayUserLink($forumuser_pk){
-		return 'viewuser_page.php?u=' . $forumuser_pk;
+		return $GLOBALS['user_page'] . '?u=' . $forumuser_pk;
 	}
 	/**
 	 * generate newsfeed view

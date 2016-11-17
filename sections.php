@@ -8,6 +8,7 @@
  * @version 1.0
  */
 
+	require_once "pageref.php";
  	require_once "display_format.php";
 
 	/**
@@ -101,14 +102,14 @@
 		$authorizedUserId = $user != NULL ? $user->getPrimaryKey() : "";
 		
 		$listitems = 
-			 	listitem(getNavButton('index.php', 'start'))
-			. 	listitem(getNavButton('forum_page.php', 'forum'))
-			. 	listitem(getNavButton('viewuser_page.php?u=' . $authorizedUserId, 'my page'));
+			 	listitem(getNavButton($GLOBALS['index_page'] , 'start'))
+			. 	listitem(getNavButton($GLOBALS['forum_page'] , 'forum'))
+			. 	listitem(getNavButton($GLOBALS['user_page'] .'?u=' . $authorizedUserId, 'my page'));
 		
 		$user = getAuthorizedUser();
 		if($user != NULL 
 			&& $user->isAdmin()){
-			$listitems .= getNavButton("admin_page.php", "admin");
+			$listitems .= getNavButton($GLOBALS['admin_page'] , "admin");
 		}
 		
 		return '<nav>'
@@ -141,8 +142,8 @@
 	function getMetaNav(){
 		return '<div id="meta_nav">'
 			. 	toolTip(dropDownList("<i class='dropbtn material-icons clickable'>info_outline</i>", array(
-						"faq" => "about_page.php?d=faq",
-						"about" => "about_page.php?d=about"
+						"faq" => $GLOBALS['about_page'] . "?d=faq",
+						"about" => $GLOBALS['about_page'] . "?d=about"
 					)),"about")
 			. toolTip(getIconButton('search', 'onclick="openSearchPanel()"'), 'search') 
 			. '</div>';
@@ -157,7 +158,7 @@
 			logoutListener();
 			$listitems .=
 				  listitem(getLogoutForm())
-				. listitem("<div id='username_label'>you're logged in as <a href='viewuser_page.php?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>");
+				. listitem("<div id='username_label'>you're logged in as <a href='".$GLOBALS['user_page'] ."?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>");
 		}
 		$listitems .= "<li id='metanav_li'>" . getMetaNav() . "</li>";
 		
@@ -182,12 +183,12 @@
 		}
 		
 		$cont = '<div id="breadcrum">'
-				. getBreadcrumLink("forum_page.php", "main");
+				. getBreadcrumLink($GLOBALS['forum_page'], "main");
 		if($subject != NULL){
-			$cont .= getBreadcrumLink("forum_page.php?s=".$subject->getPrimaryKey()."&p=1", $subject->getTopic());
+			$cont .= getBreadcrumLink($GLOBALS['forum_page'] ."?s=".$subject->getPrimaryKey()."&p=1", $subject->getTopic());
 		}
 		if($thread != NULL){
-			$cont .= getBreadcrumLink("forum_page.php?t=".$thread->getPrimaryKey()."&p=1", $thread->getTopic());
+			$cont .= getBreadcrumLink($GLOBALS['forum_page'] ."?t=".$thread->getPrimaryKey()."&p=1", $thread->getTopic());
 		}
 		$cont .= '</div>';
 		return $cont;
@@ -218,7 +219,7 @@
 	function searchSidePanel(){
 		$res_cont = getAuthorizedUser() != NULL ? 
 					'<div id="searchres"></div>' :
-					'<div><a href="registeruser_page.php">register to search forum</a></div>';
+					'<div><a href="'.$GLOBALS['register_page'] .'">register to search forum</a></div>';
 		
 		return '<div id="search_sidepanel" class="sidepanel">'
 				. '<a href="javascript:void(0)" class="clickable closebtn" onclick="closeSearchPanel()">&times;</a>'
@@ -281,7 +282,7 @@
 	 * get link to registration content
 	 */
 	function getRegisterContent(){
-		return '<span><a href="registeruser_page.php">register here!</a></span>';
+		return '<span><a href="'. $GLOBALS['register_page']. '">register here!</a></span>';
 	}
 	/**
 	 * form with fields:

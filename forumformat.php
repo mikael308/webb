@@ -6,7 +6,7 @@
  * @author Mikael Holmbom
  */
 
-
+	require_once "pageref.php";
 	require_once "display_format.php";
 
 
@@ -65,7 +65,7 @@
 			$p, 
 			(int) readSettings("pag_max_interval"),
 			count::maxPagesThread($thread), 
-			"forum_page.php?t=" . $thread->getPrimaryKey());
+			$GLOBALS['forum_page'] . "?t=" . $thread->getPrimaryKey());
 
 		return forumViewFormat(
 			getBreadcrum($subject, $thread),
@@ -91,7 +91,7 @@
 			$p, 
 			(int) readSettings("pag_max_interval"), 
 			count::maxPagesSubject($subject),
-			"forum_page.php?s=" . $subject->getPrimaryKey());
+			$GLOBALS['forum_page'] . "?s=" . $subject->getPrimaryKey());
 
 		return forumViewFormat(
 			getBreadcrum($subject, NULL),
@@ -180,7 +180,7 @@
 	 */
 	function replyButton($thread){
 		return 
-			'<a class="button forum_button" href="post_page.php?t='.$thread->getPrimaryKey().'">reply</a>';
+			'<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?t='.$thread->getPrimaryKey().'">reply</a>';
 
 	}
 	/**
@@ -189,7 +189,7 @@
 	 * @return button as html string
 	 */
 	function newThreadButton($subject){
-		return '<a class="button forum_button" href="post_page.php?s='.$subject->getPrimaryKey().'">new thread</a>';
+		return '<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?s='.$subject->getPrimaryKey().'">new thread</a>';
 	}
 
 

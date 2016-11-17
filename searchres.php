@@ -7,6 +7,7 @@
  * @version 1.0
  */
 	
+	require_once "pageref.php";
 	require_once "database.php";
 	require_once "settings.php";
 	require_once "display_format.php";
@@ -46,7 +47,7 @@
 			. '<div class="role">'. $user->getRole() . '</div>';
 
 		return
-		 	  '<a href="viewuser_page.php?u=' . $user->getPrimaryKey() . '" class="user main">'
+		 	  '<a href="'.$GLOBALS['user_page'] .'?u=' . $user->getPrimaryKey() . '" class="user main">'
 		 	. 	'<div class="user extra">'
 			.		$cont
 			. 	'</div>'

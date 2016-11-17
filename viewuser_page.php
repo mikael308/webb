@@ -9,13 +9,14 @@
  * @version 1.0
  */
  
+ 	require_once "pageref.php";
 	require_once "sections.php";
 	require_once "database.php";
 	require_once "display_format.php";	
 	
 	startSession();
 	logoutListener(); 
-	restrictedToAuthorized("registeruser_page.php");
+	restrictedToAuthorized($GLOBALS['register_page'] );
 
 	function getReq($index){
 		if(isset($_GET[$index])){

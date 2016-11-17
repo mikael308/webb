@@ -13,11 +13,12 @@
 		include 'classes/' . $class . '.class.php';
 	});
 	
+	require_once "pageref.php";
 	require_once "sections.php";
 	require_once "listeners.php";
 	
 	startSession();
-	restrictedToAdmin("index.php");
+	restrictedToAdmin($GLOBALS['index_page']);
 	
 
 

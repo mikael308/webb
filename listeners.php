@@ -5,6 +5,8 @@
  * @author Mikael Holmbom
  */
 
+	require_once "pageref.php";
+
 	############################
 	#
 	#	REQUEST VARIABLES
@@ -149,7 +151,7 @@
 				if($authUser != NULL)
 					$_SESSION['authorized_user'] = NULL;
 				
-				header("Location: index.php");
+				header("Location: " . $GLOBALS['index_page']);
 				exit();
 			}
 		}

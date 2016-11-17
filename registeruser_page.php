@@ -8,6 +8,7 @@
  * @version 1.0
  */
 
+	require_once "pageref.php";
 	require_once "sections.php";
 	require_once "database.php";
 	require_once "listeners.php";
@@ -20,7 +21,7 @@
 
 	startSession();
 	if(loginListener()){
-		header("Location: index.php");
+		header("Location: " . $GLOBALS['index_page']);
 		exit();
 	}
 
@@ -207,7 +208,8 @@
 				# user is registered in database
 				$user = readForumUser($user->getPrimaryKey());
 				$_SESSION['authorized_user'] = $user;
-				header("Location: viewuser_page.php?u=" . $user->getPrimaryKey());
+				$linkref = $GLOBALS['user_page'] . '?u=' . $user->getPrimaryKey();
+				header("Location: " . $linkref);
 		
 			}
 	}

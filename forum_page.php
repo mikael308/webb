@@ -10,6 +10,7 @@
 		require_once 'classes/' . $class . '.class.php';
 	});
 	
+	require_once "pageref.php";
 	require_once "sections.php";
 	require_once "database.php";
 	require_once "listeners.php";
@@ -22,7 +23,7 @@
 	
 	startSession();
 	logoutListener();
-	restrictedToAuthorized("registeruser_page.php");
+	restrictedToAuthorized($GLOBALS['register_page'] );
 	
 	/**
 	 * index of request variables
