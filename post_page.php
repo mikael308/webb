@@ -74,37 +74,10 @@
 			$user = getAuthorizedUser();
 			
 			if($_SERVER["REQUEST_METHOD"] == "GET"){
-				
-				if(isset($_GET['op'])) {
-					switch($_GET['op']){
-						case 'reply':
-							if(isset($_GET['t'])){
-								echo postReplyView();
-							}
-							break;
-						case 'createthread':
-							$_SESSION['s'] = $_GET['s']; #TODO till session??? subject
-							echo createThreadView();
-								
-							break;
-						case 'news':
-							if(getAuthorizedUser()->isAdmin()){
-								echo createNewsView();
-							} else {
-								echo errorMessage("access denied: admin only");
-							}
-							
-							break;
-						default:
-							echo errorMessage("unknown operation");
-							break;
-					} # ! switch op
-					
-				} # ! isset GET op
-
+				handleGetOp();
+	
 			} else if($_SERVER["REQUEST_METHOD"] == "POST"){
 				if(isset($_POST['edit_post'])){					
-					# UPDATE POST
 					echo updatePostView();
 	
 				} else {
@@ -122,22 +95,45 @@
 </body>
 </html>
 <?php
+
 	/**
-	* get form to create forumpost as string
-	*/
-	function getCreateForumPostInput($value = ""){
-		return
-			'<label for="forumpost_message">message</label><br>'
-			. '<textarea rows="5" cols="40" name="forumpost_message" autofocus required />'.$value.'</textarea>';
+	 * handle get variable op
+	 * @return boolean True if operation was parsed successful
+	 */
+	function handleGetOp(){
+
+		if(isset($_GET['op'])) {
+			switch($_GET['op']){
+				case 'reply':
+					if(isset($_GET['t'])){
+						echo postReplyView();
+					}
+					break;
+				case 'createthread':
+					$_SESSION['s'] = $_GET['s']; #TODO till session??? subject
+					echo createThreadView();
+		
+					break;
+				case 'news':
+					if(getAuthorizedUser()->isAdmin()){
+						echo createNewsView();
+					} else {
+						echo errorMessage("access denied: admin only");
+					}
+						
+					break;
+				default:
+					echo errorMessage("unknown operation");
+					return False;
+					break;
+			} # ! switch op
+			return True;
+				
+		} # ! isset GET op
+		
+		return True;
 	}
-	/**
-	* get form to create forumthread as html string
-	*/
-	function getCreateForumThreadInput(){
-		return 
-				'<label for="forumthread_topic">topic</label><br>'
-				. '<input type="text" name="forumthread_topic" autofocus required ><br>';
-	}
+
 	/**
 	 * get form to create forumthread as html string\n
 	 * get the last page if requested index is over thread bound or param pageidx is null
@@ -234,14 +230,14 @@
 	 * else error message is shown
 	 */
 	function createNews(){
-		$content = $_POST['news_content'];
 		$title = $_POST['news_title'];
+		$msg = $_POST['news_message'];
 		
 		$news = new News();
 		
 		$news->setAuthorPK(getAuthorizedUser()->getPrimaryKey());
 		$news->setTitle($title);
-		$news->setMessage($content);
+		$news->setMessage($msg);
 		
 		if(persist::news($news)){
 			header("Location: " . $GLOBALS['index_page']);
@@ -259,16 +255,35 @@
 	 * *************************************/
 	
 	/**
+	 * get form to create forumthread as html string
+	 */
+	function getForumThreadtopicRow(){
+		return
+		td('<label for="forumthread_topic">topic</label>')
+		. td('<input type="text" name="forumthread_topic" autofocus required >');
+	}
+	/**
+	 * get form to create forumpost as string
+	 */
+	function getCreateForumPostMessageRow($value = ""){
+		return
+			td('<label for="forumpost_message">message</label>')
+			. td('<textarea rows="5" cols="40" name="forumpost_message" autofocus required />'.$value.'</textarea>');
+	}
+	/**
 	 * get a view to reply to post
 	 * @return form as html string
 	 */
 	function postReplyView(){
 		$thread = read::thread($_GET['t']);
-		return 'thread: ' . $thread->getTopic()
+		return '<h3>reply to thread: ' . $thread->getTopic() . '</h3>'
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-			. 	'<input type="text" name="thread" value="'.$thread->getId().'" hidden> '
-			. 	getCreateForumPostInput()
-			. 	'<input type="submit" value="post" name="post_reply">'
+			. 	'<table>'
+			. 		'<input type="hidden" name="thread" value="'.$thread->getId().'" /> '
+			.		tr(getCreateForumPostMessageRow())
+			.		tr(td('')
+						.td('<input type="submit" value="post" name="post_reply">'))
+			. 	'</table>'
 			. '</form>';
 	}
 	/**
@@ -276,27 +291,36 @@
 	 * @return form as html string
 	 */
 	function createThreadView(){
-		return '<p>create forum thread </p>'
+		return '<h3>create forum thread </h3>'
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-			. getCreateForumThreadInput()
-			. getCreateForumPostInput() . '<br>'
-			. '<input type="submit" value="create" name=create_forumthread>'
-		. '</form>';
+			. 	'<table>'
+			.		tr(getForumThreadtopicRow())
+			.		tr(getCreateForumPostMessageRow())
+			. 		tr(td('')
+						. td('<input type="submit" value="create" name=create_forumthread>'))
+			. 	'</table>'
+			. '</form>';
 	}
 	/**
 	 * get a view to update post
 	 * @return form as html string
 	 */
 	function updatePostView(){
+		if(! isset($_POST['msg']) || ! isset($_POST['post']))
+			return errorMessage("could not update post");
+		
 		$post = read::forumPost($_POST['post']);
 		$thread = $post->getThread();
 		
-		return '<p>edit ' . $thread->getTopic().'</hp>'
+		return '<h3>edit ' . $thread->getTopic().'</h3>'
+			. '<table>'
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 			.	'<input type="hidden" name="post" value="' . $_POST['post'] . '" >'
-			.	getCreateForumPostInput($_POST['msg'])
 			.	'<input type="hidden" name="p" value="' . $_POST['p'] . '" >'
-			.	'<input type="submit" value="post" name="update_post">'
+			.	tr(getCreateForumPostMessageRow($_POST['msg']))
+			.	tr(td('')
+					. td('<input type="submit" value="post" name="update_post">'))
+			. '</table>'
 			. '</form>';	
 	}
 	/**
@@ -307,10 +331,13 @@
 		return '<h3>create newsfeed</h3>'
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 			.	'<table>'
+					# news TITLE
 			.		tr(td('<label for="news_title">title</label>')
 						. td('<input type="text" name="news_title" />'))
-			.		tr(td('<label for="news_content">content</label>')
-						. td('<textarea rows="5" cols="40" name="news_content" ></textarea>'))
+					# news MESSAGE
+			.		tr(td('<label for="news_message">message</label>')
+						. td('<textarea rows="5" cols="40" name="news_message" ></textarea>'))
+					# SUBMIT BUTTON
 			.		tr(td('')
 						. td('<input type="submit" name="create_news" value="create" />'))
 	 		.	'</table>'
