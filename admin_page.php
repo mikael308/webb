@@ -37,7 +37,7 @@
 	<main>
 		<?php
 			echo '<p>admin page</p>';
-		
+			echo adminMenu();
 		?>
 	</main>
 	<footer>
@@ -46,3 +46,16 @@
 </body>
 </html>
 
+<?php
+	/**
+	 * display admin menu\n
+	 * list of admin tools
+	 */
+	function adminMenu(){
+		return '<ul>'
+			
+			. 	listitem('<a href="'.$GLOBALS['post_page'] .'?op=news">post news</a>')
+			. '</ul>';
+	}
+
+?>
