@@ -102,23 +102,25 @@
 		
 		return False;
 	}
-	
 	function editMessageForm(ForumPost $post){
-		return 
-			  '<form class="edit_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
+		return
+			'<form class="edit_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
 			.		'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" />'
 			.		'<input type="hidden" name="msg" value="' . $post->getMessage() . '" />'
-			.		'<input type="hidden" name="p" value="' . $_GET['p'] . '" />'		
-			.		'<input type="submit" class="icon_button material-icons" value="edit" name="edit_post"></input>' 
+			# the page index to redirect after edit
+			.		'<input type="hidden" name="p" value="' . $_GET['p'] . '" />'
+			.		'<input type="submit" class="icon_button material-icons" value="edit" name="edit_post"></input>'
 			. '</form>';
 	}
-
+	
 	function deletePostForm(ForumPost $post){
-		return 
-			  '<form class="delete_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
+		return
+			'<form class="delete_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
+			# the post to delete
 			.		'<input type="hidden" name="post" value="' . $post->getPrimaryKey() . '" />'
+			# the page index to redirect after deletion
 			.		'<input type="hidden" name="p" value="' . $_GET['p'] . '" />'
-			.		'<input type="submit" class="icon_button material-icons" value="delete" name="delete_post"></input>' 
+			.		'<input type="submit" class="icon_button material-icons" value="delete" name="delete_post"></input>'
 			. '</form>';
 	}
 	
