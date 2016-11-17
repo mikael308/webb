@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <?php
 /**
- * page used to create forumthread or forumpost
+ * page used to create forumthread or forumpost\n
+ * the GET variable has index of op
+ * 	<ul>
+ * 	<li>
+ * 		<h1>reply</h1> reply to a existing thread\n must contain GET attr: 
+ * 		<table>
+ * 			<tr><th>t</th><td>the thread PK to reply to</td><tr>
+ * 			<tr><th>p</th><td>the page index to redirect back to</td><tr>
+ * 		</table>
+ * 	</li>
+ * 	<li>
+ * 		<h1>createthread</h1> create a new thread to a subject\n must contain GET attr:
+ * 		<table>
+ * 			<tr><th>s</th><td>the post PK to reply to</td><tr>
+ * 			<tr><th>p</th><td>the page index to redirect back to</td><tr>
+ * 		</table>
+ * 	</li>
+ * 	<li> 
+ * 		<h1>news</h1> create a news article. user must be admin
+ * 	</li>
+ * </ul>
  * 
  *
  * @author Mikael Holmbom
@@ -52,43 +72,41 @@
 			$user = getAuthorizedUser();
 			
 			if($_SERVER["REQUEST_METHOD"] == "GET"){
-				if(isset($_GET['t'])){
-					# REPLY TO THREAD
-					echo postReplyView();
-					
-				} elseif(isset($_GET['s'])){
-					# CREATE THREAD	
-					$_SESSION['s'] = $_GET['s']; #TODO till session??? subject
-					echo createThreadView();
-				}
-			} else if($_SERVER["REQUEST_METHOD"] == "POST"){
-				if(isset($_POST['edit_post'])){
-					if(isset($_POST['msg']) && isset($_POST['post'])){
-						# UPDATE POST
-						echo updatePostView();
-					} else {
-						echo 'error1'; #TODO error msg
-					}
-					
-				} elseif(isset($_POST['delete_post'])){
-					if (isset($_POST['post'])){
-						$post = read::forumPost($_POST['post']);
-						$thread = $post->getThread();
-						if (delete::forumPost($post)){
-							# redirect to thread page
-							$page = isset($_POST['p']) ? $_POST['p'] : NULL;
-							header("Location: " . getThreadPageLink($thread, $page));
-							exit();	
-						}		
-						
-					}
 				
-					echo errorMessage("could not delete post");
+				if(isset($_GET['op'])) {
+					switch($_GET['op']){
+						case 'reply':
+							if(isset($_GET['t'])){
+								echo postReplyView();
+							}
+							break;
+						case 'createthread':
+							$_SESSION['s'] = $_GET['s']; #TODO till session??? subject
+							echo createThreadView();
+								
+							break;
+						case 'news':
+							if(getAuthorizedUser()->isAdmin()){
+								echo createNewsView();
+							} else {
+								echo errorMessage("access denied: admin only");
+							}
+							
+							break;
+						default:
+							echo errorMessage("unknown operation");
+							break;
+					} # ! switch op
 					
-					
-					
+				} # ! isset GET op
+
+			} else if($_SERVER["REQUEST_METHOD"] == "POST"){
+				if(isset($_POST['edit_post'])){					
+					# UPDATE POST
+					echo updatePostView();
+	
 				} else {
-					echo 'error2'; #TODO error msg
+					echo errorMessage("unknown post");
 				}
 			}
 			
