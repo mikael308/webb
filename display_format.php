@@ -59,7 +59,7 @@
 			. '<h2 class="title">' . $newsfeed->getTitle() . '</h2>'
 			. '<div class="created">' . $newsfeed->getCreated() . '</div>'
 			. '<div class="message">' . $newsfeed->getMessage() . '</div>'
-			. '<div class="author">' . $newsfeed->getAuthor() . '</div>'
+			. '<div class="author">' . $newsfeed->getAuthor()->getName() . '</div>'
 
 		. '</div>';
 	}
