@@ -32,7 +32,9 @@
 			postReply();
 		} elseif (isset($_POST['update_post'])){
 			updatePost();
-		} 
+		} elseif(isset($_POST['create_news'])){
+			createNews();
+		}
 	}
 
 ?>
@@ -206,6 +208,29 @@
 		
 	}
 	/**
+	/**
+	 * create news and persist to database from post indexes\n
+	 * on successful creation redirects to index page,
+	 * else error message is shown
+	 */
+	function createNews(){
+		$content = $_POST['news_content'];
+		$title = $_POST['news_title'];
+		
+		$news = new News();
+		
+		$news->setAuthorPK(getAuthorizedUser()->getPrimaryKey());
+		$news->setTitle($title);
+		$news->setMessage($content);
+		
+		if(persist::news($news)){
+			header("Location: " . $GLOBALS['index_page']);
+			exit();
+		} else {
+			echo errorMessage("could not create news");
+		}
+		
+	}
 	 * get a view to reply to post
 	 * @return form as html string
 	 */
@@ -245,6 +270,23 @@
 			.	'<input type="hidden" name="p" value="' . $_POST['p'] . '" >'
 			.	'<input type="submit" value="post" name="update_post">'
 			. '</form>';	
+	}
+	/**
+	 * newsview\n get a form to post and create news
+	 * @return string as form
+	 */
+	function createNewsView(){
+		return '<h3>create newsfeed</h3>'
+			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
+			.	'<table>'
+			.		tr(td('<label for="news_title">title</label>')
+						. td('<input type="text" name="news_title" />'))
+			.		tr(td('<label for="news_content">content</label>')
+						. td('<textarea rows="5" cols="40" name="news_content" ></textarea>'))
+			.		tr(td('')
+						. td('<input type="submit" name="create_news" value="create" />'))
+	 		.	'</table>'
+			. '</form>';
 	}
 
 ?>
