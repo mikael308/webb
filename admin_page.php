@@ -27,6 +27,7 @@
 <head>
 	<?php 
 		echo getMainHeadContent();
+		echo getStylesheet("admin.css");
 		setTitle("admin");
 	?>
 </head>
