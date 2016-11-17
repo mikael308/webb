@@ -37,7 +37,7 @@
 	</header>
 	<main>
 		<?php
-			echo '<p>admin page</p>';
+			echo '<h2>admin page</h2>';
 			echo adminMenu();
 		?>
 	</main>
