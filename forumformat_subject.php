@@ -53,8 +53,8 @@
 		$tlink = getDisplayThreadLink($thread, 1);
 		$creator = $thread->getCreator();
 		$lastAttr = $thread->getLastAttributor();
-		$cont =  	
-	 	 '<div class="forum_content_listitem forum_thread">' 	
+		return  	
+	 	 	  '<div class="forum_content_listitem forum_thread">' 	
 			.	'<a href="'.$tlink.'">'
 			. 		'<h3 class="topic">'
 			. 			$thread->getTopic()
@@ -71,13 +71,12 @@
 			. 	'</div>' 
 			. '</div>';
 
-		return $cont;
 	}
 	function threadlinkPagButton($thread, $index){
 		return '<a class="clickable" href="' . getDisplayThreadLink($thread, $index) . '">' . $index . '</a>';
 	}
 	function threadInnerPag(ForumThread $thread){
-		$cont = '<div class="threadlink_pagination">';
+		$cont = '';
 
 		$maxPages = count::maxPagesThread($thread);
 		$paginterval = readSettings("pag_max_interval_threadlink");
@@ -99,7 +98,10 @@
 		for(;$i <= $maxPages; $i++){
 			$cont .= threadlinkPagButton($thread, $i);
 		}
-		return $cont . '</div>';
+		return 
+			  '<div class="threadlink_pagination">'
+			. 	$cont 
+			. '</div>';
 	}
 
 ?>
