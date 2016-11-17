@@ -53,7 +53,7 @@
 	 * list of admin tools
 	 */
 	function adminMenu(){
-		return '<ul>'
+		return '<ul id="adminmenu_list">'
 			
 			. 	listitem('<a href="'.$GLOBALS['post_page'] .'?op=news">post news</a>')
 			. '</ul>';
