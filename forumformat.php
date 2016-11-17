@@ -180,7 +180,7 @@
 	 */
 	function replyButton($thread){
 		return 
-			'<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?t='.$thread->getPrimaryKey().'">reply</a>';
+			'<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?op=reply&t='.$thread->getPrimaryKey().'">reply</a>';
 
 	}
 	/**
@@ -189,7 +189,7 @@
 	 * @return button as html string
 	 */
 	function newThreadButton($subject){
-		return '<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?s='.$subject->getPrimaryKey().'">new thread</a>';
+		return '<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?op=createthread&s='.$subject->getPrimaryKey().'">new thread</a>';
 	}
 
 
