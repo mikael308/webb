@@ -87,6 +87,34 @@
 			}
 			return False;
 		}
+		/**
+		 * persist news to database
+		 * @param news news instance to persist
+		 * @return true if persist was successful
+		 */
+		public static function news(News $news){
+			$db_conn = connect();
+			if($db_conn){
+				echo 'persisting author ' . $news->getAuthorPK();
+				$query = "INSERT INTO " . $GLOBALS['dbtable_news']
+				. " (author, title, message, created) "
+						. " VALUES("
+						. "'" . $news->getAuthorPK() . "',"
+						. "'" . $news->getTitle() . "', "
+						. "'" . $news->getMessage() . "', "
+						. "'now()');";
+
+				$res = pg_query($db_conn, $query);
+				if($res){
+					pg_free_result($res);
+					return True;
+						
+				} else {
+					echo pg_last_error($db_conn);
+				}
+			}
+			return False;
+		}
 	} # ! PERSIST
 
 
