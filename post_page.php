@@ -173,7 +173,7 @@
 
 		$user = getAuthorizedUser();
 		$thread = new ForumThread($topic);
-		$thread->setSubject($subj);
+		$thread->setSubjectFK($subj->getPrimaryKey());
 		$timestamp = date($GLOBALS['timestamp_format']); # now
 		
 		$post = new ForumPost();
