@@ -57,7 +57,7 @@
 	function newsfeedView(News $newsfeed){
 		return '<div class="newsfeed">'
 			. '<h2 class="title">' . $newsfeed->getTitle() . '</h2>'
-			. '<div class="created">' . $newsfeed->getCreated() . '</div>'
+			. '<div class="created">' . formatDateTime($newsfeed->getCreated()) . '</div>'
 			. '<div class="message">' . $newsfeed->getMessage() . '</div>'
 			. '<div class="author">' . $newsfeed->getAuthor()->getName() . '</div>'
 
