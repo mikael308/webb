@@ -44,7 +44,9 @@
 	restrictedToAuthorized($GLOBALS['index_page']);
 	
 		
-	
+	/*
+	 * listens for submissions from forms on this page
+	 */
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
 		if(isset($_POST['create_forumthread'])){
 			createThread();
@@ -249,6 +251,14 @@
 		}
 		
 	}
+	
+	/* *************************************
+	 * 
+	 *  VIEWS to operate on database
+	 * 
+	 * *************************************/
+	
+	/**
 	 * get a view to reply to post
 	 * @return form as html string
 	 */
