@@ -54,6 +54,8 @@
 			postReply();
 		} elseif (isset($_POST['update_post'])){
 			updatePost();
+		} elseif(isset($_POST['delete_post'])){
+			deletePost();
 		} elseif(isset($_POST['create_news'])){
 			createNews();
 		}
@@ -224,6 +226,18 @@
 		
 	}
 	/**
+	 * delete post from database
+	 */
+	function deletePost(){
+		$post = read::forumPost($_POST['post']);
+		$thread = $post->getThread();
+		if (delete::forumPost($post)){
+			# redirect to thread page
+			$page = isset($_POST['p']) ? $_POST['p'] : NULL;
+			header("Location: " . getThreadPageLink($thread, $page));
+			exit();	
+		}		
+	}
 	/**
 	 * create news and persist to database from post indexes\n
 	 * on successful creation redirects to index page,
