@@ -67,13 +67,14 @@
 			if($db_conn){
 				$banned_val = $user->isBanned() ? "TRUE" : "FALSE";
 				
+				$crypt_passw = crypt($passw,$GLOBALS['crypt_salt']);
 				$query = "INSERT INTO " . $GLOBALS['dbtable_forumusers'] 
 					. " (name, email, role, banned, password, registered) "
 					. " VALUES('".$user->getName()."',"
 					. "'" . $user->getEmail() . "', "
 					. "'" . $user->getRole() . "',"
 					. "'" . $banned_val . "', " 
-					. "'" . $passw . "', "
+					. "'" . $crypt_passw . "', "
 					. "'" . $user->getRegistered() . "');";
 				
 				$res = pg_query($db_conn, $query);

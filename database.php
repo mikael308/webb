@@ -20,6 +20,8 @@
 	spl_autoload_register(function($class) {
 		include 'classes/' . $class . '.class.php';
 	});
+	# password crypt salt
+	$GLOBALS['crypt_salt'] = 'd4';
 	
 	$GLOBALS['schema'] = "proj";
 	$GLOBALS['dbtable_forumusers'] = $GLOBALS['schema'] . ".forumusers";
@@ -58,10 +60,12 @@
 		
 		$db_conn = connect();
 		if($db_conn){
-		
+			
+			$crypt_passw = crypt($password,$GLOBALS['crypt_salt']);
+			
 			$query = "SELECT fuser.password, fuser.name "
 				. " FROM " . $GLOBALS['dbtable_forumusers'] . " AS fuser "
-				. " WHERE name= '". $userPK ."' AND password = '". $password ."';";
+				. " WHERE name= '". $userPK ."' AND password = '". $crypt_passw ."';";
 			
 			$res = pg_query($db_conn, $query);
 			if($res){ # query OK
