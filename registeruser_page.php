@@ -204,9 +204,9 @@
 				return;
 			}
 			
-			if(persistForumUser($user, $passw)){
+			if(persist::forumUser($user, $passw)){
 				# user is registered in database
-				$user = readForumUser($user->getPrimaryKey());
+				$user = read::forumUser($user->getPrimaryKey());
 				$_SESSION['authorized_user'] = $user;
 				$linkref = $GLOBALS['user_page'] . '?u=' . $user->getPrimaryKey();
 				header("Location: " . $linkref);
