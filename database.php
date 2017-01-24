@@ -87,7 +87,7 @@
 				}
 				pg_free_result($res);
 			} else {
-				echo pg_last_error($db_conn);
+				#echo pg_last_error($db_conn);
 			}
 
 		} else {
@@ -155,7 +155,7 @@
 				return $users;
 				
 			} else {
-				echo pg_last_error($db_conn);
+				#echo pg_last_error($db_conn);
 			}
 		}
 		return NULL;
@@ -192,7 +192,7 @@
 				return $posts;
 				
 			} else {
-				echo pg_last_error($db_conn);
+				#echo pg_last_error($db_conn);
 			}
 		}
 		return NULL;
