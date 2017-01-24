@@ -57,7 +57,11 @@
 <?php	
 
 	echo getMainHeadContent();
-	echo setTitle($view_user->getName());
+	if($view_user != NULL){
+		echo setTitle($view_user->getName());
+	} else {
+		echo setTitle("could not find user");
+	}
 	echo getStylesheet("viewuser.css");
 ;?>	
 </head>
