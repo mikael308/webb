@@ -4,7 +4,98 @@
 	 * read entries from database
 	 * @author Mikael Holmbom
 	 */
+
 	class read{
+		/**
+		 * filter between database entry row and dataaccessobjects\n
+		 * validates database value
+		 * @param in value read from database entry
+		 * @return valid string
+		 */
+		private static function clean($in){
+			return htmlspecialchars($in);
+		}
+		/**
+		 * translate database row to ForumThread
+		 * @param data database row
+		 * @return ForumThread of data
+		 */
+		private static function toThread($data){
+			$thread = new ForumThread(read::clean($data->topic));
+			$thread->setId(read::clean($data->id));
+			$thread->setSubjectFK(read::clean($data->subject));
+			
+			return $thread;
+		}
+		/**
+		 * translate database row to ForumSubject
+		 * @param data database row
+		 * @return ForumSubject of data
+		 */
+		private static function toSubject($data){
+			$subj = new ForumSubject();
+			$subj->setId(read::clean($data->id));
+			$subj->setTopic(read::clean($data->topic));
+			$subj->setSubtitle(read::clean($data->subtitle));
+			
+			return $subj;
+		}
+		/**
+		 * translate database row to Role
+		 * @param data database row
+		 * @return Role of data
+		 */
+		private static function toRole($data){
+			return new Role(read::clean($data->id), 
+				read::clean($data->title));
+		}
+		/**
+		 * translate database row to News
+		 * @param data database row
+		 * @return News of data
+		 */
+		private static function toNews($data){
+			$news = new News();
+			$news->setId(read::clean($data->id));
+			$news->setAuthorPK(read::clean($data->author));
+			$news->setTitle(read::clean($data->title));
+			$news->setMessage(read::clean($data->message));
+			$news->setCreated(read::clean($data->created));
+			
+			return $news;
+		}
+		/**
+		 * translate database row to ForumPost
+		 * @param data database row
+		 * @return ForumPost of data
+		 */
+		private static function toPost($data){
+			$post = new ForumPost();
+			$post->setId(read::clean($data->id));
+			$post->setAuthorFK(read::clean($data->author));
+			$post->setMessage(read::clean($data->message));
+			$post->setCreated(read::clean($data->created));
+			$post->setEdited(read::clean($data->edited));
+			$post->setThreadFK(read::clean($data->thread));
+			
+			return $post;
+		}
+		/**
+		 * translate database row to ForumUser
+		 * @param data database row
+		 * @return ForumUser of data
+		 */
+		private static function toUser($data){
+			$user = new ForumUser();
+			$user->setName(read::clean($data->name));
+			$user->setEmail(read::clean(crypt($data->email,$GLOBALS['crypt_salt'])));
+			$user->setRole(read::clean($data->title));
+			$user->setRegistered(read::clean($data->registered));
+			$user->setBanned($data->banned === 't' ? 1:0);
+
+			return $user; 
+		}
+		
 		/**
 		 * read role with specific id\n
 		 * @param id 
