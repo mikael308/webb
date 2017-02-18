@@ -149,7 +149,7 @@
 					for($i = 0; $i < pg_num_rows($res); $i++){
 						$subjs[] = read::toSubject(pg_fetch_object($res, $i));
 					}
-									
+						
 					pg_free_result($res);			
 				}
 			}
@@ -229,7 +229,7 @@
 		* @param thread_id the id of the thread to read
 		*/
 		public static function postsFromThread($thread_id){
-			$post_arr = array( );
+			$post_arr = array();
 			$db_conn = connect();
 			if ($db_conn){
 				$query = "SELECT post.id "
