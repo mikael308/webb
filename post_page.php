@@ -109,12 +109,17 @@
 				case 'reply':
 					if(get_index('t') != NULL){
 						echo postReplyView();
+					} else {
+						echo errorMessage("invalid thread");
 					}
 					break;
 				case 'createthread':
 					$_SESSION['s'] = $_GET['s']; #TODO till session??? subject
-					echo createThreadView();
-		
+					if(get_index('s') != NULL){
+						echo createThreadView();
+					} else {
+						echo errorMessage("invalid subject");
+					}
 					break;
 				case 'news':
 					if(getAuthorizedUser()->isAdmin()){
