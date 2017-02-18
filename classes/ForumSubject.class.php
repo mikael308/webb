@@ -1,5 +1,7 @@
 <?php
 
+	require_once "database_read.php";
+
 /**
  * defines forumsubject entry
  * 
@@ -67,7 +69,13 @@ class ForumSubject extends DataAccessObject {
 	public function getPrimaryKey(){
 		return $this->id;
 	}
-	
+	/**
+	 * this subjects threads
+	 * @return threads as array
+	 */
+	public function getThreads(){
+		return read::threadsOfSubject($this->getPrimaryKey());
+	}
 }
 
 ?>
