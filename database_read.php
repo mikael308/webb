@@ -157,20 +157,8 @@
 		}
 		/**
 		 * read requested subject from database
-		 * @param subject_id id of requested subject
 		 * @return requested forumsubject, if not found NULL is returned 
 		 */
-		public static function subject($subject_id){
-			if($subject_id == NULL)
-				return NULL;
-			
-			$res = read::subjects(" WHERE subject.id='" . $subject_id . "'");
-			if($res != NULL){
-				return $res[0];
-			}
-	
-			return NULL;
-		}
 		public static function threadsOfSubject($subject_id){
 			$resThreadArr = array();
 			$db_conn = connect();
