@@ -23,7 +23,7 @@
 			substr($post->getMessage(), 0, $maxlen) . ' ... ' :
 			$post->getMessage();
 
-		$p =  count::postPageIndex($post->getPrimaryKey());
+		$p = count::postPageIndex($post->getPrimaryKey());
 		$t = $post->getThread();
 
 		$author = $post->getAuthor();
