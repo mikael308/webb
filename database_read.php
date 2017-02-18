@@ -264,14 +264,6 @@
 		}
 	
 		/**
-		* read user from database with specific id
-		* @param user_id id of user to read
-		* @return user as ForumUser instance, if no user could be found: return NULL 
-		*/
-		public static function forumUser($user_id){
-			return read::forumUsers("fuser.name='" . $user_id . "'")[0];
-		}
-		/**
 		 * read forumusers from database
 		 * @param whereclause specify query
 		 * @return array of forumusers results from database
