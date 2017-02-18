@@ -85,9 +85,8 @@
 					echo getAdminTools();
 				}
 			} else {
-				echo '<p>user was not found</p>';
-			}
-					
+				echo errorMessage('user was not found');
+			}		
 			
 		?>
 	</main>
