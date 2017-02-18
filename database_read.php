@@ -322,7 +322,7 @@
 		public static function creator($thread_fk){
 			if($thread_fk == NULL || $thread_fk == "") return NULL;
 			
-			$user = NULL; # the creator
+			$creator = NULL;
 			
 			$db_conn = connect();
 			if ($db_conn){
@@ -341,15 +341,14 @@
 						$data = pg_fetch_object($res, 0);
 					
 						if($data != NULL){
-							$user = read::forumUser($data->author);	
+							$creator = read::forumUser($data->author);	
 						}
 					}
 					
 					pg_free_result($res);
 				}
-				
 			}
-			return $user;
+			return $creator;
 		}
 		/**
 		 * get the last attributor of param thread
