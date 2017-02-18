@@ -27,6 +27,7 @@
 		}
 
 	}
+	
 	/**
 	 * get forum content view format
 	 * @param breadrcrum current breadcrum
@@ -47,6 +48,7 @@
 		. 	$pag
 		. '</article>';
 	}
+	
 	/**
 	 * display the content of a forumthread
 	 * @param thread the thread to 
@@ -75,6 +77,7 @@
 			replyButton($thread),
 			$pag);
 	}
+	
 	/**
 	 * display the content of a forumsubject
 	 * @param subject the subject containing threads to display
@@ -101,6 +104,7 @@
 			"",
 			$pag);
 	}
+
 	/**
 	 * display main forum content
 	 * @return main forum content as html
@@ -181,8 +185,8 @@
 	function replyButton($thread){
 		return 
 			'<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?op=reply&t='.$thread->getPrimaryKey().'">reply</a>';
-
 	}
+
 	/**
 	 * get a button to add thread to subject
 	 * @param subject the subject to add thread to
