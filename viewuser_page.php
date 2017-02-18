@@ -29,7 +29,7 @@
 	}
 	
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		$user = read::forumUser($_POST['u']);
+		$user = read::forumUser($_POST['u'])[0];
 		
 		if($_POST['update_user']){
 			# SET NEW ATTRS

@@ -21,7 +21,7 @@
 
 		switch($index){
 			case "thread": 		return displayThreadContent(read::thread($indexValue), $page);
-			case "subject":		return displaySubjectContent(read::subject($indexValue), $page);
+			case "subject":		return displaySubjectContent(read::subjects($indexValue)[0], $page);
 			case "main":		return displayMainContent();
 			default:			return errorMessage("page request error");
 		}

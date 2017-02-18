@@ -36,7 +36,7 @@
 	$title = "forum";
 	$topic = NULL;
 	if(get_index("s") != NULL){
-		$topic = read::subject(get_index("s"));
+		$topic = read::subjects(get_index("s"))[0];
 	} elseif (get_index("t") != NULL){
 		$topic = read::thread(get_index("t"));
 	}
