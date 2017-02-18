@@ -14,7 +14,7 @@
 
 	/**
 	 *
-	 *
+	 * search result for ForumPost type
 	 */
 	function searchresPost(ForumPost $post){
 
@@ -40,7 +40,7 @@
 	}
 	/**
 	 *
-	 *
+	 * search result for ForumUser type
 	 */
 	function searchresForumUser(ForumUser $user){
 		$cont = '<div class="name">'. $user->getName() .'</div>'
