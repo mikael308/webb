@@ -34,15 +34,15 @@
 	echo getStylesheet("forum.css");
 	# TITLE 
 	$title = "forum";
-	$targ = NULL;
+	$topic = NULL;
 	if(get_index("s") != NULL){
-		$targ = read::subject(get_index("s"));
+		$topic = read::subject(get_index("s"));
 	} elseif (get_index("t") != NULL){
-		$targ = read::thread(get_index("t"));
+		$topic = read::thread(get_index("t"));
 	}
 
-	if($targ != NULL)
-			$title .= ":" . $targ->getTopic();
+	if($topic != NULL)
+			$title .= ":" . $topic->getTopic();
 	echo setTitle($title);
 
 ;?>	
