@@ -19,7 +19,7 @@
 		if ($page == NULL || $page == "") 
 			return errorMessage("invalid page");
 
-		$threads 	= read::threads(" WHERE thread.subject=" . $subject->getPrimaryKey());
+		$threads 	= $subject->getThreads();
 	
 		$tpp 		= (int) readSettings("threads_per_page");
 		$i 			= ($tpp * ($page-1)); # start offset
