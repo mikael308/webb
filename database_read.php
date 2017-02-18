@@ -182,6 +182,33 @@
 			}
 			return $resThreadArr;
 		}
+		
+		/**
+		 * read a specific thread from database
+		 * @param thread_id id of thread to read
+		 * @return the first found row in database, if no result was found NULL is returned
+		 */
+		public static function thread($thread_id){
+			$thread = NULL;
+			
+			$db_conn = connect();
+			if ($db_conn){
+				$query = " SELECT thread.id, thread.subject, thread.topic "
+					. " FROM " . $GLOBALS['dbtable_forumthreads'] . " AS thread "
+					. " WHERE thread.id=$1 "
+					. " ;";
+				
+				$res = pg_query_params($db_conn, $query, array($thread_id));
+				if ($res){
+					if(pg_num_rows($res) > 0){
+						$thread = read::toThread(pg_fetch_object($res, 0));
+					}
+					
+					pg_free_result($res);
+				}
+			}
+			return $thread;
+		}
 		/**
 		 * read news from database
 		 * @param whereclause specify query
