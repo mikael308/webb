@@ -65,9 +65,10 @@
 			
 			$query = "SELECT fuser.password, fuser.name "
 				. " FROM " . $GLOBALS['dbtable_forumusers'] . " AS fuser "
-				. " WHERE name= '". $userPK ."' AND password = '". $crypt_passw ."';";
-			
-			$res = pg_query($db_conn, $query);
+				. " WHERE name= $1;";
+
+				
+			$res = pg_query_params($db_conn, $query, array($userPK));
 			if($res){ # query OK
 				
 				if (pg_num_rows($res) == 1){ # found 1 matching result
@@ -133,12 +134,9 @@
 	function searchForumUser($user_id){
 		$db_conn = connect();
 		if($db_conn){
-			$query = "SELECT fuser.name "
-			 . " FROM ".$GLOBALS['dbtable_forumusers']." AS fuser "
-			 . " LEFT JOIN ".$GLOBALS['dbtable_roles']." ON fuser.role=roles.id "
-			 . " WHERE fuser.name LIKE '%" . $user_id . "%';";
-			
-			$res = pg_query($db_conn, $query);
+			$query = "SELECT * FROM proj.get_user($1);";
+
+			$res = pg_query_params($db_conn, $query, array("%".$user_id."%"));
 			if($res){
 				$num_rows = pg_num_rows($res);
 				if($num_rows == 0) return NULL;
@@ -171,10 +169,9 @@
 		$db_conn = connect();
 		if($db_conn){
 			$query = "SELECT post.id "
-			 . " FROM ".$GLOBALS['dbtable_forumposts']." AS post "
-			 . " WHERE post.message LIKE '%" . $post_msg . "%';";
+			 . " FROM proj.get_post($1) AS post;";
 			
-			$res = pg_query($db_conn, $query);
+			$res = pg_query_params($db_conn, $query, array("%".$post_msg."%"));
 			if($res){
 				$num_rows = pg_num_rows($res);
 				if($num_rows == 0) return NULL;
