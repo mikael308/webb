@@ -61,8 +61,6 @@
 		if ($p == NULL || $p == "") 
 			return errorMessage("invalid page");
 
-		$subject = $thread->getSubject();
-
 		$pag = pagination(
 			$p, 
 			(int) readSettings("pag_max_interval"),
@@ -70,7 +68,7 @@
 			$GLOBALS['forum_page'] . "?t=" . $thread->getPrimaryKey());
 
 		return forumViewFormat(
-			getBreadcrum($subject, $thread),
+			getBreadcrum($thread->getSubject(), $thread),
 			$thread->getTopic(),
 			"",
 			forumContentListPosts($thread, $p),
