@@ -25,15 +25,6 @@
 	logoutListener();
 	restrictedToAuthorized($GLOBALS['register_page'] );
 	
-	/**
-	 * index of request variables
-	 */
-	$requestIndex = array(
-		"page" => "p",
-		"subject" => "s",
-		"thread" => "t"
-	);
-	
 ?>
 
 <html>
@@ -44,12 +35,12 @@
 	# TITLE 
 	$title = "forum";
 	$targ = NULL;
-	if(issetGet("subject")){
-		$targ = read::subject(get("subject"));
-		
-	} elseif(issetGet("thread")){
-		$targ = read::thread(get("thread"));
+	if(get_index("s") != NULL){
+		$targ = read::subject(get_index("s"));
+	} elseif (get_index("t") != NULL){
+		$targ = read::thread(get_index("t"));
 	}
+
 	if($targ != NULL)
 			$title .= ":" . $targ->getTopic();
 	echo setTitle($title);
@@ -67,20 +58,18 @@
 		<?php
 		
 			$index 		= 'main';
-			$indexVal 	= '';
-			
-			if(issetGet("thread")){
+			$index_val 	= '';
+
+			if (isset($_GET['t'])){
 				$index 		= "thread";
-				$indexVal 	= get("thread");
-			
-			} elseif (issetGet("subject")){
+				$index_val 	= get_index("t");
+			} elseif (isset($_GET["s"])){
 				$index 		= "subject";
-				$indexVal 	= get("subject");
-			}
-			
-			echo forum($index, $indexVal, get("page"));
-			
-			
+				$index_val 	= get_index("s");
+			} 
+
+			echo forum($index, $index_val, get_index("p"));
+						
 		
 		?>
 

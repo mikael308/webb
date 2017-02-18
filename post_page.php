@@ -107,7 +107,7 @@
 		if(isset($_GET['op'])) {
 			switch($_GET['op']){
 				case 'reply':
-					if(isset($_GET['t'])){
+					if(get_index('t') != NULL){
 						echo postReplyView();
 					}
 					break;
@@ -160,8 +160,8 @@
 		#TODO get as clean input???
 		$topic = $_POST['forumthread_topic'];
 		$msg = $_POST['forumpost_message'];
-		if(! isset($_SESSION['s'])){
-			echo 'ERROR could not read subject';
+		if(get_index("s") == NULL){
+			echo errorMessage('could not read subject');
 		}
 		
 		$subj = read::subject($_SESSION['s']);
@@ -289,7 +289,7 @@
 	 * @return form as html string
 	 */
 	function postReplyView(){
-		$thread = read::thread($_GET['t']);
+		$thread = read::thread(get_index('t'));
 		return '<h3>reply to thread: ' . $thread->getTopic() . '</h3>'
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 			. 	'<table>'

@@ -13,18 +13,19 @@
 	#
 	###########################
 
+
+
 	/**
-	 * get value from request GET\n
-	 * scope using this must declare variable $requestIndex
+	 * get index value from request GET\n
+	 * param must be >= 0
 	 * @param index return value from GET request 
 	 * @return 
 	 */
-	function get($index){
-		global $requestIndex;
-		$key = $requestIndex[$index];
-				
+	function get_index($key){
 		if(isset($_GET[$key])){
-			return $_GET[$key];
+			if(preg_match("/^[0-9]*$/", $_GET[$key])){
+				return $_GET[$key];
+			}
 		}
 		return NULL;
 	}
