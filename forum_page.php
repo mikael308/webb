@@ -70,7 +70,6 @@
 
 			echo forum($index, $index_val, get_index("p"));
 						
-		
 		?>
 
 	</main>
