@@ -112,8 +112,7 @@
 				$res = pg_query($db_conn, $query);
 				if ($res){
 					if (pg_num_rows($res) == 1){
-						$data = pg_fetch_object($res);
-						$resRole = new Role($data->id, $data->title);
+						$resRole = read::toRole(pg_fetch_object($res));
 					}
 					
 					pg_free_result($res);			
@@ -140,14 +139,7 @@
 	
 					$subjs = array();
 					for($i = 0; $i < pg_num_rows($res); $i++){
-						$data = pg_fetch_object($res, $i);
-	
-						$subj = new ForumSubject();
-						$subj->setId($data->id);
-						$subj->setTopic($data->topic);
-						$subj->setSubtitle($data->subtitle);
-	
-						$subjs[] = $subj;
+						$subjs[] = read::toSubject(pg_fetch_object($res, $i));
 					}
 									
 					pg_free_result($res);			
@@ -193,13 +185,7 @@
 					$n_row = pg_num_rows($res);
 	
 					for ($i = 0; $i < $n_row; $i++){
-						$data = pg_fetch_object($res, $i);
-						
-						$thread = new ForumThread($data->topic);
-						$thread->setId($data->id);
-						$thread->setSubjectFK($data->subject);
-												
-						$resThreadArr[] = $thread;
+						$resThreadArr[] = read::toThread(pg_fetch_object($res, $i));
 					}
 					
 					pg_free_result($res);
@@ -228,15 +214,7 @@
 				if ($res){
 					$n_rows = pg_num_rows($res);
 					for ($i = 0; $i < $n_rows; $i++){
-						$data = pg_fetch_object($res, $i);
-						
-						$news = new News();
-						$news->setId($data->id);
-						$news->setAuthorPK($data->author);
-						$news->setTitle($data->title);
-						$news->setMessage($data->message);
-						$news->setCreated($data->created);
-						$news_arr[] = $news;
+						$news_arr[] = read::toNews(pg_fetch_object($res, $i));
 					}
 					pg_free_result($res);
 				}
@@ -276,9 +254,7 @@
 					for ($i = 0; $i < $n_rows; $i++){
 						$data = pg_fetch_object($res, $i);
 	
-						$post = read::forumPost($data->id);
-						
-						$post_arr[] = $post;
+						$post_arr[] = read::forumPost($data->id);
 					}
 					pg_free_result($res);
 				}
@@ -301,16 +277,8 @@
 					
 				$res = pg_query($db_conn, $query);
 				if($res){
-					$data = pg_fetch_object($res);
-											
-					$post = new ForumPost();
-					$post->setId($data->id);
-					$post->setAuthorFK($data->author);
-					$post->setMessage($data->message);
-					$post->setCreated($data->created);
-					$post->setEdited($data->edited);
-					$post->setThreadFK($data->thread);
-					
+					$post = read::toPost(pg_fetch_object($res));
+	
 					pg_free_result($res);
 				}
 			}
@@ -345,29 +313,15 @@
 				if($res){
 					if(pg_num_rows($res) == 0) return NULL;
 					
-					$users = array();
-					for($i = 0; $i < pg_num_rows($res); $i++){
-						$data = pg_fetch_object($res, $i);
-						
-						$user = new ForumUser();
-						$user->setName($data->name);
-						$user->setEmail($data->email);
-						$user->setRole($data->title);
-						$user->setRegistered($data->registered);
-						$user->setBanned($data->banned === 't' ? 1:0);
+					$user = read::toUser(pg_fetch_object($res, 0));
 	
-						$users[] = $user;
-					}
-					
 					pg_free_result($res);
-					
-					return $users;
 					
 				} else {
 					echo pg_last_error($db_conn);
 				}
 			}
-			return NULL;
+			return $user;
 		}
 		/**
 		 * read the creator of forumthread\n
