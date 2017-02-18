@@ -70,7 +70,7 @@ class ForumThread extends DataAccessObject {
 	 * @return this threads subject
 	 */
 	public function getSubject(){
-		return read::subject($this->getSubjectFK());
+		return read::subjects($this->getSubjectFK())[0];
 	}
 	/**
 	 * @return last attributor of this thread
