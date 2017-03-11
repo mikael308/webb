@@ -100,21 +100,18 @@
 		/**
 		 * get the amount of pages in subject
 		 * @param subject count this subjects pages
+		 * @throws RuntimeException on failed query
 		 * @return amount of pages
 		 */
 		public static function maxPagesSubject(ForumSubject $subject){
-			try{
-				$query =
+			$query =
 				" FROM " . $GLOBALS['dbtable_forumthreads']
 				. " WHERE subject='" . $subject->getPrimaryKey() . "'"
 				. ";";
-				$n_threads 		= count::query($query);
-				$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
-				return $max_pages;
-			} catch(Exception $e){
-				return 0;
-			}
-		
+			$n_threads 		= count::query($query);
+			$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
+			
+			return $max_pages;
 		}
 	} # ! COUNT
 
