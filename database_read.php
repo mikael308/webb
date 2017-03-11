@@ -98,6 +98,7 @@
 		
 		/**
 		 * read role with specific id\n
+		 * @throws RuntimeException on failed query
 		 * @param id 
 		 */
 		public static function role($id){
@@ -125,6 +126,7 @@
 		/**
 		* read all subjects
 		* @param spec specify query 
+		* @throws RuntimeException on failed query
 		* @return array of search result 
 		*/	
 		public static function subjects($subject_id = NULL){
@@ -161,6 +163,7 @@
 		}
 		/**
 		 * read requested subject from database
+		 * @throws RuntimeException on failed query
 		 * @return requested forumsubject, if not found NULL is returned 
 		 */
 		public static function threadsOfSubject($subject_id){
@@ -192,6 +195,7 @@
 		/**
 		 * read a specific thread from database
 		 * @param thread_id id of thread to read
+		 * @throws RuntimeException on failed query
 		 * @return the first found row in database, if no result was found NULL is returned
 		 */
 		public static function thread($thread_id){
@@ -220,6 +224,7 @@
 		/**
 		 * read news from database
 		 * @param whereclause specify query
+		 * @throws RuntimeException on failed query
 		 * @return array of news instances matching query
 		 */
 		public static function news($whereclause = NULL){
@@ -251,6 +256,7 @@
 		/**
 		* read posts related to thread with id as param from database
 		* ordered by created attr
+		* @throws RuntimeException on failed query
 		* @param thread_id the id of the thread to read
 		*/
 		public static function postsFromThread($thread_id){
@@ -281,6 +287,7 @@
 		/**
 		 * read a specific forumpost from database\n 
 		 * @param post_id id of forumpost to read
+		 * @throws RuntimeException on failed query
 		 * @return forumpost object. If requested forumpost was not found, NULL is returned\n
 		 */
 		public static function forumPost($post_id){
@@ -307,6 +314,7 @@
 		/**
 		 * read forumusers from database
 		 * @param whereclause specify query
+		 * @throws RuntimeException on failed query
 		 * @return array of forumusers results from database
 		 */
 		public static function forumUser($user_id){
@@ -338,6 +346,7 @@
 		 * read the creator of forumthread\n
 		 * creator is defined as the first post of a thread
 		 * @param thread primary key of thread to find the creator of
+		 * @throws RuntimeException on failed query
 		 * @return the creator as ForumUser, if no creator was found NULL is returned
 		 */
 		public static function creator($thread_fk){
@@ -376,6 +385,7 @@
 		/**
 		 * get the last attributor of param thread
 		 * @param thread_pk primary key of requested thread
+		 * @throws RuntimeException on failed query
 		 * @return last attributor of thread as ForumUser
 		 */
 		public static function lastAttributor($thread_pk){

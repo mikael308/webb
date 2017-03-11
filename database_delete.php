@@ -6,6 +6,7 @@
 		/**
 		 * delete forumuser matching with param user
 		 * @param user forumuser to delete
+		 * @throws RuntimeException on failed query
 		 * @return True if user was successfully deleted
 		 */
 		public static function forumUser(ForumUser $user){
@@ -28,6 +29,7 @@
 		 * deletes forumpost from database
 		 *
 		 * @param post post to delete
+		 * @throws RuntimeException on failed query
 		 * @return True if deletion was successful
 		 */
 		public static function forumPost(ForumPost $post){

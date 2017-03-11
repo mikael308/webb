@@ -6,6 +6,7 @@
 	class count{
 		/**
 		 * count the number of forumthreads created by specific user
+		 * @throws RuntimeException on failed query
 		 * @param user the specific user
 		 */
 		public static function forumThreads(ForumUser $user){
@@ -33,6 +34,7 @@
 		}
 		/**
 		 * count the number of forumposts created by specific user
+		 * @throws RuntimeException on failed query
 		 * @param user the specific user
 		 */
 		public static function forumPosts(ForumUser $user){
@@ -46,6 +48,7 @@
 		/**
 		 * get the index of post in thread ordered by created attribute
 		 * @param post_pk primary key to request post
+		 * @throws RuntimeException on failed query
 		 * @return post index
 		 */
 		public static function postPageIndex($post_pk){
@@ -63,6 +66,7 @@
 		/**
 		 * count results from database query
 		 * @param unknown $query the query defining from and where sql statements
+		 * @throws RuntimeException on failed query
 		 * @return num rows from query result|NULL
 		 */
 		public static function query($query){
@@ -85,6 +89,7 @@
 		/**
 		 * get the amount of pages in thread
 		 * @param thread count this threads pages
+		 * @throws RuntimeException on failed query
 		 * @param amount of pages
 		 */
 		public static function maxPagesThread(ForumThread $thread){

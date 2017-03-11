@@ -5,6 +5,7 @@
 		/**
 		 * update forumser
 		 * @param user the user to update
+		 * @throws RuntimeException on failed query
 		 * @return True if the user was updated successfully
 		 */
 		public static function forumUser(ForumUser $user){
@@ -32,6 +33,7 @@
 		/**
 		 * update existring forumpost
 		 * @param post the post to update
+		 * @throws RuntimeException on failed query
 		 * @return True if update was successful 
 		 */
 		public static function forumPost(ForumPost $post){
