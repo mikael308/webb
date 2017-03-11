@@ -162,7 +162,6 @@
 	* create a thread with POST arguments
 	*/
 	function createThread(){
-		#TODO get as clean input???
 		$topic = $_POST['forumthread_topic'];
 		$msg = $_POST['forumpost_message'];
 		if(get_index("s") == NULL){
