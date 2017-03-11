@@ -74,18 +74,20 @@
 	<main>
 		<?php
 			$user = getAuthorizedUser();
-			
-			if($_SERVER["REQUEST_METHOD"] == "GET"){
-				handleGetOp();
-	
-			} else if($_SERVER["REQUEST_METHOD"] == "POST"){
-				if(isset($_POST['edit_post'])){					
-					echo updatePostView();
-	
-				} else {
-					echo errorMessage("unknown post");
+			try{
+				if($_SERVER["REQUEST_METHOD"] == "GET"){
+					handleGetOp();
+		
+				} else if($_SERVER["REQUEST_METHOD"] == "POST"){
+					if(isset($_POST['edit_post'])){					
+						echo updatePostView();
+		
+					} else {
+						echo errorMessage("unknown post");
+					}
 				}
-			}
+			} catch(RuntimeException $e){
+				echo $e->message;
 			
 
 		?>

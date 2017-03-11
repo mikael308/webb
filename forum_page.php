@@ -35,10 +35,14 @@
 	# TITLE 
 	$title = "forum";
 	$topic = NULL;
-	if(get_index("s") != NULL){
-		$topic = read::subjects(get_index("s"))[0];
-	} elseif (get_index("t") != NULL){
-		$topic = read::thread(get_index("t"));
+	try{
+		if(get_index("s") != NULL){
+			$topic = read::subjects(get_index("s"))[0];
+		} elseif (get_index("t") != NULL){
+			$topic = read::thread(get_index("t"));
+		}
+	} catch(RuntimeException $e){
+		
 	}
 
 	if($topic != NULL)

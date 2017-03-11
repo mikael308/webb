@@ -27,29 +27,31 @@
 	function getReqUser(){
 		return getReq("u");
 	}
-	
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		$user = read::forumUser($_POST['u'])[0];
-		
-		if($_POST['update_user']){
-			# SET NEW ATTRS
-			$b = null;
-			if(isset($_POST['update_user_banned']))
-				$b = $_POST['update_user_banned'] == "on" ? 1 : 0;
-			else
-				$b = 0;
+	try{
+		if($_SERVER["REQUEST_METHOD"] == "POST"){
+			$user = read::forumUser($_POST['u'])[0];
 			
-			$user->setBanned($b);
+			if($_POST['update_user']){
+				# SET NEW ATTRS
+				$b = null;
+				if(isset($_POST['update_user_banned']))
+					$b = $_POST['update_user_banned'] == "on" ? 1 : 0;
+				else
+					$b = 0;
+				
+				$user->setBanned($b);
+				
+				update::forumUser($user);
+			}
 			
-			update::forumUser($user);
+			$_GET['u'] = $user->getPrimaryKey();
+
 		}
 		
-		$_GET['u'] = $user->getPrimaryKey();
-
+		$view_user = read::forumUser(getReqUser());
+	} catch(RuntimeException $e){
+		echo "could not display user";
 	}
-	
-	$view_user = read::forumUser(getReqUser());
-
 ?>
 
 <html>
