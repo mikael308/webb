@@ -116,6 +116,8 @@
 					}
 					
 					pg_free_result($res);			
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $resRole;
@@ -151,6 +153,8 @@
 					}
 						
 					pg_free_result($res);			
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $subjs;
@@ -178,6 +182,8 @@
 					}
 					
 					pg_free_result($res);
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $resThreadArr;
@@ -205,6 +211,8 @@
 					}
 					
 					pg_free_result($res);
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $thread;
@@ -233,6 +241,8 @@
 						$news_arr[] = read::toNews(pg_fetch_object($res, $i));
 					}
 					pg_free_result($res);
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $news_arr;
@@ -262,6 +272,8 @@
 						$post_arr[] = read::forumPost($data->id);
 					}
 					pg_free_result($res);
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $post_arr;
@@ -285,6 +297,8 @@
 					$post = read::toPost(pg_fetch_object($res));
 	
 					pg_free_result($res);
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $post;
@@ -315,7 +329,7 @@
 					pg_free_result($res);
 					
 				} else {
-					echo pg_last_error($db_conn);
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $user;
@@ -353,6 +367,8 @@
 					}
 					
 					pg_free_result($res);
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return $creator;
@@ -379,6 +395,8 @@
 						$data = pg_fetch_object($res, 0);
 						$user = read::forumUser($data->author);
 					}
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			

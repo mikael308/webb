@@ -75,6 +75,8 @@
 					pg_free_result($res);
 		
 					return $num;
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return NULL;

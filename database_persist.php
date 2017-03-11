@@ -23,7 +23,7 @@
 					return True;
 					
 				} else {
-					echo pg_last_error($db_conn);
+                    throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return False;
@@ -52,7 +52,7 @@
 					return $resThread;
 					
 				} else {
-					echo pg_last_error($db_conn);
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return NULL;
@@ -83,7 +83,7 @@
 					return True;
 					
 				} else {
-					echo pg_last_error($db_conn);
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return False;
@@ -111,7 +111,7 @@
 					return True;
 						
 				} else {
-					echo pg_last_error($db_conn);
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return False;

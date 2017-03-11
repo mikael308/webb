@@ -23,6 +23,8 @@
 				if($res){
 					pg_free_result($res);
 					return True;	
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return False;
@@ -45,6 +47,8 @@
 				if($res){
 					pg_free_result($res);
 					return True;	
+				} else {
+					throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return False;
