@@ -40,7 +40,7 @@
 			. " WHERE author='" . $user->getPrimaryKey() . "'"
 					. " ;";
 		
-					return count::query($query);
+			return count::query($query);
 		}
 
 		/**
