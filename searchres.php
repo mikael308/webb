@@ -8,9 +8,8 @@
  */
 	
 	require_once "pageref.php";
-	require_once "database.php";
 	require_once "settings.php";
-	require_once "display_format.php";
+	require_once "./database/database.php";
 
 	/**
 	 *

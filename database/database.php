@@ -9,12 +9,12 @@
  * @version 1.0
  */
 
-	require_once "database_read.php";
-	require_once "database_update.php";
-	require_once "database_delete.php";
-	require_once "database_persist.php";
-	require_once "database_count.php";
-	require_once "settings.php";
+	require_once "read.php";
+	require_once "update.php";
+	require_once "delete.php";
+	require_once "persist.php";
+	require_once "count.php";
+	require_once "./config/settings.php";
 	
 	# autoload classes
 	spl_autoload_register(function($class) {
@@ -61,7 +61,7 @@
 		$db_conn = connect();
 		if($db_conn){
 			
-			$crypt_passw = crypt($password,$GLOBALS['crypt_salt']);
+			
 			
 			$query = "SELECT fuser.password, fuser.name "
 				. " FROM " . $GLOBALS['dbtable_forumusers'] . " AS fuser "
@@ -74,14 +74,18 @@
 				if (pg_num_rows($res) == 1){ # found 1 matching result
 					$data = pg_fetch_object($res, 0);
 					
-					$user = read::forumUser($data->name);
-					
-					if($user->isBanned()){
-						$retVal = -2;
-					} else {
-						$retVal = 1;
-						$_SESSION['authorized_user'] = $user;
-					}
+					#$crypt_inpassw = crypt($password,$GLOBALS['crypt_salt']);
+					#if(hash_equals($data->password, crypt(password, $data->password))){ # successful login
+						$user = read::forumUser($data->name);
+						
+						if($user->isBanned()){
+							$retVal = -2;
+						} else {
+							$retVal = 1;
+							$_SESSION['authorized_user'] = $user;
+						}
+					#}
+			
 					
 				} else {
 					$retVal = -1;
@@ -93,7 +97,6 @@
 
 		} else {
 			#TODO errormsg
-
 		}
 	
 		return $retVal;
@@ -173,6 +176,7 @@
 			
 			$res = pg_query_params($db_conn, $query, array("%".$post_msg."%"));
 			if($res){
+				echo 'klaatu<br>';
 				$num_rows = pg_num_rows($res);
 				if($num_rows == 0) return NULL;
 				
@@ -181,7 +185,7 @@
 					$data = pg_fetch_object($res, $i);
 					$post = read::forumPost($data->id);
 					
-					$posts[] = $post;				
+					$posts[] = $post;
 				}
 				
 				pg_free_result($res);

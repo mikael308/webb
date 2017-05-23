@@ -35,7 +35,8 @@
 	
 	require_once "pageref.php";
 	require_once "sections.php";
-	require_once "database.php";
+	require_once "./database/database.php";
+	require_once "./database/read.php";
 	require_once "listeners.php";
 	require_once "settings.php";
 	require_once "display_format.php";
