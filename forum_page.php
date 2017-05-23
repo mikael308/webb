@@ -10,12 +10,12 @@
 		require_once 'classes/' . $class . '.class.php';
 	});
 	
-	require_once "pageref.php";
+	require_once "./config/pageref.php";
 	require_once "sections.php";
 	require_once "./database/database.php";
 	require_once "listeners.php";
-	require_once "settings.php";
 	require_once "./format/display.php";
+	require_once "./config/settings.php";
 	require_once "./format/forum.php";
 	require_once "./format/forum_main.php";
 	require_once "./format/forum_subject.php";

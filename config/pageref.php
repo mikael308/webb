@@ -12,5 +12,6 @@
 	$GLOBALS['user_page'] = "viewuser_page.php";
 	$GLOBALS['about_page'] = "about_page.php";
 	$GLOBALS['register_page'] = "registeruser_page.php";
+	$GLOBALS['contact_page'] = "contact_page.php";
 
 ?>

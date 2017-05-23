@@ -13,7 +13,7 @@
 		include 'classes/' . $class . '.class.php';
 	});
 	
-	require_once "pageref.php";
+	require_once "./config/pageref.php";
 	require_once "sections.php";
 	require_once "listeners.php";
 	

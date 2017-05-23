@@ -9,7 +9,7 @@
  * @version 1.0
  */
  
- 	require_once "pageref.php";
+ 	require_once "./config/pageref.php";
 	require_once "sections.php";
 	require_once "./database/database.php";
 	require_once "./format/display.php";	
