@@ -40,6 +40,7 @@
 	require_once "listeners.php";
 	require_once "./config/settings.php";
 	require_once "./format/display.php";
+	require_once "./security/helper.php";
 
 	startSession();
 	restrictedToAuthorized($GLOBALS['index_page']);
@@ -161,12 +162,13 @@
 			
 		return $GLOBALS['forum_page'] . '?t='. $thread->getId() . '&p=' . $pageIdx; 
 	}
+
 	/**
 	* create a thread with POST arguments
 	*/
 	function createThread(){
 		$topic = $_POST['forumthread_topic'];
-		$msg = $_POST['forumpost_message'];
+		$msg = cleanupMessage($_POST['forumpost_message']);
 		if(get_index("s") == NULL){
 			echo errorMessage('could not read subject');
 		}
@@ -200,7 +202,7 @@
 	* redirects to forums last page
 	*/
 	function postReply(){
-		$msg = $_POST['forumpost_message'];
+		$msg = cleanupMessage($_POST['forumpost_message']);
 		$thread = read::thread($_POST['thread']);
 		
 		$post = new ForumPost();
@@ -218,7 +220,7 @@
 	 * redirects to forums page of edited post
 	 */
 	function updatePost(){
-		$newmsg = $_POST['forumpost_message'];
+		$newmsg = cleanupMessage($_POST['forumpost_message']);
 		$post = read::forumPost($_POST['post']);
 		$post->setMessage($newmsg);
 		
@@ -252,7 +254,7 @@
 	 */
 	function createNews(){
 		$title = $_POST['news_title'];
-		$msg = $_POST['news_message'];
+		$msg = cleanupMessage($_POST['news_message']);
 		
 		$news = new News();
 		
