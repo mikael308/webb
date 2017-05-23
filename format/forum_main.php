@@ -4,7 +4,7 @@
  * @author Mikael Holmbom
  */
 
-	require_once "pageref.php";
+	require_once "./config/pageref.php";
 
 	/**
 	 * display list of subjects

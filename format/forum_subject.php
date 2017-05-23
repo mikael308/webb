@@ -4,8 +4,8 @@
  * @author Mikael Holmbom
  */
 
-	require_once "forumformat.php";
-	require_once "display_format.php";
+	require_once "forum.php";
+	require_once "display.php";
 
 	/**
 	 * display list of links to threads related to subject

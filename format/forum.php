@@ -6,8 +6,8 @@
  * @author Mikael Holmbom
  */
 
-	require_once "pageref.php";
-	require_once "display_format.php";
+	require_once "./config/pageref.php";
+	require_once "display.php";
 
 
 	/**

@@ -14,12 +14,12 @@
 	require_once "sections.php";
 	require_once "./database/database.php";
 	require_once "listeners.php";
-	require_once "display_format.php";
 	require_once "settings.php";
-	require_once "forumformat.php";
-	require_once "forumformat_main.php";
-	require_once "forumformat_subject.php";
-	require_once "forumformat_thread.php";
+	require_once "./format/display.php";
+	require_once "./format/forum.php";
+	require_once "./format/forum_main.php";
+	require_once "./format/forum_subject.php";
+	require_once "./format/forum_thread.php";
 	
 	startSession();
 	logoutListener();

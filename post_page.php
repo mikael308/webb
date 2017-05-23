@@ -39,8 +39,8 @@
 	require_once "./database/read.php";
 	require_once "listeners.php";
 	require_once "settings.php";
-	require_once "display_format.php";
-	
+	require_once "./format/display.php";
+
 	startSession();
 	restrictedToAuthorized($GLOBALS['index_page']);
 	

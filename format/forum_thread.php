@@ -4,9 +4,9 @@
  * @author Mikael Holmbom
  */
 
-	require_once "pageref.php";
- 	require_once "forumformat.php";
-	require_once "listeners.php";
+	require_once "./config/pageref.php";
+ 	require_once "forum.php";
+	require_once "./listeners.php";
 
 	/**
 	 * display forumcontent list of posts
