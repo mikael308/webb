@@ -7,7 +7,7 @@
 
 	require_once "./config/pageref.php";
 	require_once "./session/authorization.php";
-	require_once "./session/reuests.php";
+	require_once "./session/requests.php";
 
 	/**
 	 * starts session if not already active
