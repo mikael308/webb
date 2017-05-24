@@ -13,6 +13,7 @@
 	require_once "./sections/main.php";
 	require_once "./database/database.php";
 	require_once "./format/display.php";	
+	require_once "./session/listeners.php";	
 	
 	startSession();
 	logoutListener(); 

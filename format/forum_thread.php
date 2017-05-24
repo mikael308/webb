@@ -6,7 +6,7 @@
 
 	require_once "./config/pageref.php";
  	require_once "forum.php";
-	require_once "./listeners.php";
+	require_once "./session/listeners.php";
 
 	/**
 	 * display forumcontent list of posts
