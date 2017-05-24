@@ -6,6 +6,7 @@
 
 	require_once "forum.php";
 	require_once "display.php";
+	require_once "message.php";
 
 	/**
 	 * display list of links to threads related to subject
