@@ -1,5 +1,9 @@
 <?php
 
+	require_once "./database/database.php";
+
+	autoloadDAO();
+	
 	/**
 	 * read entries from database
 	 * @author Mikael Holmbom

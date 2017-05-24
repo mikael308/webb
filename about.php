@@ -8,14 +8,11 @@
 	@author Mikael Holmbom
 */
 
-	# autoload classes
-	spl_autoload_register(function($class) {
-		include 'classes/' . $class . '.class.php';
-	});
-	
+	require_once "./database/database.php";
 	require_once "sections.php";
 	require_once "listeners.php";
 	
+	autoloadDAO();
 	startSession();
 
 

@@ -14,12 +14,9 @@
 	require_once "listeners.php";
 	require_once "./format/display.php";
 	
-	# autoload classes
-	spl_autoload_register(function($class) {
-		include 'classes/' . $class . '.class.php';
-	});
-
+	autoloadDAO();
 	startSession();
+	
 	if(loginListener()){
 		header("Location: " . $GLOBALS['index_page']);
 		exit();

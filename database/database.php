@@ -15,11 +15,7 @@
 	require_once "persist.php";
 	require_once "count.php";
 	require_once "./config/settings.php";
-	
-	# autoload classes
-	spl_autoload_register(function($class) {
-		include 'classes/' . $class . '.class.php';
-	});
+
 	# password crypt salt
 	$GLOBALS['crypt_salt'] = 'd4';
 	
@@ -30,6 +26,13 @@
 	$GLOBALS['dbtable_forumposts'] = $GLOBALS['schema'] . ".forumposts";
 	$GLOBALS['dbtable_roles'] = $GLOBALS['schema'] . ".roles";
 	$GLOBALS['dbtable_news'] = $GLOBALS['schema'] . ".news";
+	
+	function autoloadDAO(){
+		# autoload classes
+		spl_autoload_register(function($class) {
+			include './database/dao/' . $class . '.class.php';
+		});
+	}
 	
 
 	/**

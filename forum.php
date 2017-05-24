@@ -5,10 +5,7 @@
  * @version 1.0
  */
 
-	# autoload classes
-	spl_autoload_register(function($class) {
-		require_once 'classes/' . $class . '.class.php';
-	});
+
 	
 	require_once "./config/pageref.php";
 	require_once "sections.php";
@@ -21,6 +18,7 @@
 	require_once "./format/forum_subject.php";
 	require_once "./format/forum_thread.php";
 	
+	autoloadDAO();
 	startSession();
 	logoutListener();
 	restrictedToAuthorized($GLOBALS['register_page'] );

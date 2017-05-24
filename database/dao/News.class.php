@@ -1,6 +1,6 @@
 <?php
 
-require_once 'classes/DataAccessObject.class.php';
+require_once './database/dao/DataAccessObject.class.php';
 require_once "./database/read.php";
 
 /**

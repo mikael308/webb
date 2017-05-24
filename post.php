@@ -28,11 +28,6 @@
  * @version 1.0
  */	
 
-	# autoload classes
-	spl_autoload_register(function($class) {
-		include 'classes/' . $class . '.class.php';
-	});
-	
 	require_once "./config/pageref.php";
 	require_once "sections.php";
 	require_once "./database/database.php";
@@ -42,6 +37,7 @@
 	require_once "./format/display.php";
 	require_once "./security/helper.php";
 
+	autoloadDAO();
 	startSession();
 	restrictedToAuthorized($GLOBALS['index_page']);
 	
