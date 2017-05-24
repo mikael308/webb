@@ -14,9 +14,9 @@
  */
 
 	require_once "./sections/main.php";
+	require_once "./sections/format/display.php";
 	require_once "./database/database.php";
 	require_once "./session/main.php";	
-	require_once "./format/display.php";
 	
 	startSession();
 

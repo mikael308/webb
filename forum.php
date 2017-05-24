@@ -7,14 +7,14 @@
 
 	require_once "./config/pageref.php";
 	require_once "./sections/main.php";
+	require_once "./sections/format/display.php";
 	require_once "./database/database.php";
 	require_once "./session/main.php";	
-	require_once "./format/display.php";
 	require_once "./config/settings.php";
-	require_once "./format/forum.php";
-	require_once "./format/forum_main.php";
-	require_once "./format/forum_subject.php";
-	require_once "./format/forum_thread.php";
+	require_once "./sections/format/forum.php";
+	require_once "./sections/format/forum_main.php";
+	require_once "./sections/format/forum_subject.php";
+	require_once "./sections/format/forum_thread.php";
 	
 	autoloadDAO();
 	startSession();
