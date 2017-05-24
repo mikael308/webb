@@ -78,6 +78,7 @@
 		$reslist = "";
 		$suggest = "";
 
+		# determine the type of the search
 		switch($searchType){
 			case "post":
 				$reslist = searchPost($searchstr);
