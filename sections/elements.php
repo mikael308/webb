@@ -1,0 +1,70 @@
+<?php
+	/**
+	 * AUTHORIZATION helper functions
+	 *
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
+
+	/**
+	 * get a icon button
+	 * @param icon the icon title
+	 * @param attrs extra attributes added to icon element
+	 * @return icon button as html
+	 */
+	function getIconButton($icon, $attrs = ""){
+		return '<i id="'.$icon.'_btn" class="clickable material-icons" '.$attrs.'>'.$icon.'</i>';
+	}
+	/**
+	 * get a navigation button
+	 * @param href reference link
+	 * @param text the text of the button
+	 */
+	function getNavButton($href, $text){
+		return '<a class="button btn_nav" href="'.$href.'">'.$text.'</a>';
+	}
+
+	/**
+	 * 
+	 * @param unknown $target the target element to react as dropdown button 
+	 * @param unknown $listitems 
+	 * @return string
+	 */
+	function dropDownList($target, $listitems){
+		$ddlist = "";
+		foreach($listitems as $label => $link){
+			$ddlist .= '<a href="' . $link . '">' . $label . '</a>';
+		}
+		
+		return '<div class="dropdown">'
+			. $target
+			.	'<div class="dropdown-content">'
+			.		$ddlist
+			.	'</div>'
+			. '</div>';
+	}
+	function getSidePanel(){
+		return searchSidePanel();
+	}
+	
+	/**
+	 * get searchsidepanel as hidden. to open, see searchsidepanel.js
+	 * @return search sidepanel as html
+	 */
+	function searchSidePanel(){
+		$res_cont = getAuthorizedUser() != NULL ? 
+					'<div id="searchres"></div>' :
+					'<div><a href="'.$GLOBALS['register_page'] .'">register to search forum</a></div>';
+		
+		return '<div id="search_sidepanel" class="sidepanel">'
+				. '<a href="javascript:void(0)" class="clickable closebtn" onclick="closeSearchPanel()">&times;</a>'
+				. '<h2>search</h2>'
+				. '<div class="sidepanel_content">'
+				. 	getSearchForm()
+				. 	$res_cont
+				. '</div>'
+			. '</div>';
+	}
+	
+
+?>
