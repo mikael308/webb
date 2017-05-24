@@ -8,6 +8,7 @@
 	require_once "./config/pageref.php";
 	require_once "./sections/main.php";
 	require_once "./sections/views.php";
+	require_once "./sections/dateformat.php";
 	require_once "./sections/forum/main.php";
 	require_once "./sections/forum/overview.php";
 	require_once "./sections/forum/subject.php";
