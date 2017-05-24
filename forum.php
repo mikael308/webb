@@ -8,13 +8,13 @@
 	require_once "./config/pageref.php";
 	require_once "./sections/main.php";
 	require_once "./sections/format/main.php";
+	require_once "./sections/forum/main.php";
+	require_once "./sections/forum/overview.php";
+	require_once "./sections/forum/subject.php";
+	require_once "./sections/forum/thread.php";
 	require_once "./database/database.php";
 	require_once "./session/main.php";	
 	require_once "./config/settings.php";
-	require_once "./sections/format/forum.php";
-	require_once "./sections/format/forum_main.php";
-	require_once "./sections/format/forum_subject.php";
-	require_once "./sections/format/forum_thread.php";
 	
 	autoloadDAO();
 	startSession();

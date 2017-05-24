@@ -5,7 +5,7 @@
  */
 
 	require_once "./config/pageref.php";
- 	require_once "forum.php";
+ 	require_once "./sections/forum/main.php";
 	require_once "./session/main.php";	
 
 	/**

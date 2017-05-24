@@ -4,9 +4,9 @@
  * @author Mikael Holmbom
  */
 
-	require_once "forum.php";
-	require_once "main.php";
-	require_once "message.php";
+	require_once "./sections/forum/main.php";
+	require_once "./sections/format/main.php";
+	require_once "./sections/format/message.php";
 
 	/**
 	 * display list of links to threads related to subject
