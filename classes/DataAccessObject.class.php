@@ -1,6 +1,6 @@
 <?php
 
-require_once "database.php";
+require_once "./database/database.php";
 
 /**
  * abstract class defining a object from database

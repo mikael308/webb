@@ -1,6 +1,6 @@
 <?php
 
-	require_once "database_read.php";
+	require_once "./database/read.php";
 
 /**
  * defines forumsubject entry

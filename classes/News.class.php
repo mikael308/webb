@@ -1,7 +1,7 @@
 <?php
 
 require_once 'classes/DataAccessObject.class.php';
-require_once "database_read.php";
+require_once "./database/read.php";
 
 /**
  * Programvaruteknik,	Webbprogrammering 7.5hp
