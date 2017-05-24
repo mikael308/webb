@@ -7,7 +7,7 @@
  */
 
 	require_once "./config/pageref.php";
-	require_once "display.php";
+	require_once "main.php";
 
 
 	/**

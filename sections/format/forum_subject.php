@@ -5,7 +5,7 @@
  */
 
 	require_once "forum.php";
-	require_once "display.php";
+	require_once "main.php";
 	require_once "message.php";
 
 	/**

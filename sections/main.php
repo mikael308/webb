@@ -9,7 +9,7 @@
 	 */
 
 	require_once "./config/pageref.php";
-	require_once "./sections/format/display.php";
+	require_once "./sections/format/main.php";
 	require_once "./sections/elements.php";
 	require_once "./sections/helpers.php";
 	require_once "./sections/authorization.php";
