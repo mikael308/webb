@@ -15,6 +15,8 @@
 	/**
 	 *
 	 * search result for ForumPost type
+	 * @param post the search result
+	 * @return searchresult as html
 	 */
 	function searchresPost(ForumPost $post){
 
@@ -41,6 +43,8 @@
 	/**
 	 *
 	 * search result for ForumUser type
+	 * @param user 
+	 * @return rearsch result as html
 	 */
 	function searchresForumUser(ForumUser $user){
 		$cont = '<div class="name">'. $user->getName() .'</div>'
@@ -54,7 +58,11 @@
 			. '</a>'
 			;
 	}
-
+	/**
+	 * get data as searchres listitem
+	 * @param data listitem data
+	 * @return li as html
+	 */
 	function search_li($data){
 		return '<li class="searchres_item">'. $data .'</li>';
 	}
