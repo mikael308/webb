@@ -100,31 +100,6 @@
 	function formatDateTime($datetimestamp){
 		return substr($datetimestamp, 0, 19);
 	}
-	/**
-	 * generate a element that shows tooltip when hover
-	 * @param target the target element to display a tooltip
-	 * @param tooltip the tooltip text
-	 * @return tooltip element as html
-	 */
-	function toolTip($target, $tooltip){
-		return '<div class="tooltip">'
-			. 	'<span class="tooltiptext">' . $tooltip . '</span>'
-			.	$target
-			. '</div>';
-		
-	}
-	/**
-	 * generate a switchbutton form input
-	 * @param unknown $name name of input
-	 * @param unknown $checked set the preset state of switchbutton
-	 * @return string html
-	 */
-	function switchButton($name, $checked){
-		return "<label class='switch'>"
-  				. "<input type='checkbox' ".($checked?"checked":"unchecked")." name='".$name."'>"
-  				. "<div class='slider'></div>"
-			. 	"</label>";
-	}
 
 
 
