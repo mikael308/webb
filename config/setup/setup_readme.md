@@ -1,4 +1,4 @@
-#setup database
+# setup database
 to setup the database, do one of the following
 ## shellscript
 1. run ```bash setup.sh```
