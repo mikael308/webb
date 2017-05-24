@@ -5,8 +5,6 @@
  * @version 1.0
  */
 
-
-	
 	require_once "./config/pageref.php";
 	require_once "./sections/main.php";
 	require_once "./database/database.php";
@@ -43,8 +41,9 @@
 		
 	}
 
-	if($topic != NULL)
+	if($topic != NULL){
 			$title .= ":" . $topic->getTopic();
+    }
 	echo setTitle($title);
 
 ;?>	
