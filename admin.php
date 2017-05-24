@@ -10,7 +10,7 @@
 
 	require_once "./database/database.php";
 	require_once "./config/pageref.php";
-	require_once "sections.php";
+	require_once "./sections/sections.php";
 	require_once "listeners.php";
 	
 	autoloadDAO();

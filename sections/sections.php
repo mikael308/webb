@@ -90,9 +90,16 @@
 	function getMainFooterContent(){
 		return
 			'<hr>'
+			. getFooterLinks()
 			. getScript("dropdownlist.js")
 			. '<p>&copy; Mikael Holmbom ' . date("Y") . '</p>'
 			. '<p>Webbprogrammering, 7.5hp, Mittuniversitetet</p>';
+	}
+	function getFooterLinks(){
+		return '<ul id="footerlinks">'
+			. '<li>' . '<a href="'.$GLOBALS['about_page'].'?d=about">about</a>' . '</li>'
+			. '<li>' . '<a href="'. $GLOBALS['contact_page'] .'">contact us</a>' . '</li>'
+		 . '</ul>';
 	}
 	/**
 	 * get the navigation content
