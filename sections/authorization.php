@@ -72,24 +72,5 @@
 				. '</form>';
 	}
 	
-	/**
-	 * display data as table row
-	 * @param rowdata data to display
-	 */
-	function tr($rowdata){
-		return '<tr>'.$rowdata.'</tr>';
-	}
-	/**
-	 * display data as table data
-	 * @param data data to display
-	 */
-	function td($data){
-		return '<td>'.$data.'</td>';
-	}
-
-
-
-
-
 
 ?>
