@@ -9,7 +9,7 @@
 */
 
 	require_once "./database/database.php";
-	require_once "./sections/sections.php";
+	require_once "./sections/main.php";
 	require_once "listeners.php";
 	
 	autoloadDAO();
