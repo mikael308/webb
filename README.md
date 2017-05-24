@@ -5,9 +5,9 @@ simple forum to handle
 for demonstration see doc/presentation.ogv
 ## setup
 ### spec
-php7.0
-apache2
-postgresql
+- php7.0
+- apache2
+- postgresql
 
 to setup database, see config/setup/setup_readme.md
 
