@@ -4,15 +4,11 @@
  * config script used to setup forumusers in database
  */
 
-
+require_once "./database/database.php";
 require_once "./database/persist.php";
-require_once "./config/pageref.php";
-require_once "./format/display.php";
 
-	# autoload classes
-	spl_autoload_register(function($class) {
-		include 'classes/' . $class . '.class.php';
-	});
+autoloadDAO();
+
 
 $tom = new ForumUser();
 $tom->setName('tom');
@@ -21,15 +17,12 @@ $tom->setRole(1);
 $tom->setBanned(False);
 $tom->setRegistered(date($GLOBALS['timestamp_format']));
 
-#persist::forumUser($tom, 'abc');
-
 $tim = new ForumUser();
 $tim->setName('tim');
 $tim->setEmail('t@gmail.com');
 $tim->setRole(0);
 $tim->setBanned(False);
 $tim->setRegistered(date($GLOBALS['timestamp_format']));
-
 
 $mik = new ForumUser();
 $mik->setName('mikael');
@@ -43,11 +36,12 @@ if(persist::forumUser($tom, 'abc') &&
 	persist::forumUser($tim, 'hej') && 
 	persist::forumUser($mik, 'asd')){
 
-	header("Location: index.php");
+	echo "setup users successful\n";
 	exit();
 	
 } else{
 	echo pg_last_error($db_conn);
+    echo "See setup_readme.md for information on setup db\n";
 }
 
 
