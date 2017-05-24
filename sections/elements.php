@@ -25,7 +25,9 @@
 	}
 
 	/**
-	 * 
+	 * get a dropdownlist<br>
+	 * dropdown reacts on target click<br>
+	 * to activate dropdown add js/dropdownlist.js
 	 * @param unknown $target the target element to react as dropdown button 
 	 * @param unknown $listitems 
 	 * @return string
@@ -48,7 +50,7 @@
 	}
 	
 	/**
-	 * get searchsidepanel as hidden. to open, see searchsidepanel.js
+	 * get searchsidepanel as hidden. to open: see searchsidepanel.js
 	 * @return search sidepanel as html
 	 */
 	function searchSidePanel(){
