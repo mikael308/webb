@@ -61,8 +61,7 @@
 			'<hr>'
 			. getFooterLinks()
 			. getScript("dropdownlist.js")
-			. '<p>&copy; Mikael Holmbom ' . date("Y") . '</p>'
-			. '<p>Webbprogrammering, 7.5hp, Mittuniversitetet</p>';
+			. '<p>&copy; Mikael Holmbom ' . date("Y") . '</p>';
 	}
 	function getFooterLinks(){
 		return '<ul id="footerlinks">'

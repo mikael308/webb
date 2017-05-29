@@ -2,10 +2,6 @@
 <faqs 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1.0">
 	<faq>
-		<question>course?</question>
-		<answer>webbprogrammering, 7.5hp</answer>
-	</faq>
-	<faq>
 		<question>klatu verada ..?</question>
 		<answer>nikto!</answer>
 	</faq>
