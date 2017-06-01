@@ -55,12 +55,14 @@
 		if(isset($_SESSION['registeruser_errmsg'])){
 			echo '<p id="registeruser_errmsg">' . $_SESSION['registeruser_errmsg'] . '</p>';	
 		}
-		
+		# register article
 		echo 
 			'<article id="register">'
 				. getRegisterUserForm()
 				. getValidPasswordHint()
 			. '</article>';
+
+		# login article if already member
 		echo 
 			'<article id="login">'
 				. '<p id="login_h">already a member?</p>'
