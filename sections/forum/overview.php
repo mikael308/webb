@@ -32,6 +32,7 @@
 		$cont = 
 			  '<div class="forum_content_listitem forum_subject">' 	
 			. 	'<a href="'.$GLOBALS['forum_page'] .'?s='.$subject->getPrimaryKey().'&p=1">'
+			# gui information displayed about subject
 			. 		'<div class="topic">'.$subject->getTopic().'</div>'
 			.		'<div class="info">'
 			.			'<div class="subtitle">'.$subject->getSubtitle().'</div>'
