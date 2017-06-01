@@ -76,8 +76,6 @@
 			.		tooltip($deletePostForm, "delete post")
 			.	'</div>'
 		. '</div>';
-		
-		
 	}
 	
 	function editable($post){
