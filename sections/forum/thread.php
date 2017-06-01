@@ -88,8 +88,8 @@
 			return True;
 		}
 		
-		if($authUser->getName() == $post->getAuthor()->getName()){
 		# if user is author of message
+		if($authUser->getPrimaryKey() == $post->getAuthor()->getPrimaryKey()){
 			$a = date($GLOBALS['timestamp_format']);
 			$b = $post->getCreated();
 		
