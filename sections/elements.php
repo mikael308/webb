@@ -92,7 +92,18 @@
   				. "<div class='slider'></div>"
 			. 	"</label>";
 	}
-
+	/**
+	 * @return data formated as tr html element
+	 */
+	function tr($data, $class="", $id=""){
+		return "<tr id='$id' class='$class'>$data</tr>";
+	}
+	/**
+	 * @return data formated as td html element
+	 */
+	function td($data, $class="", $id=""){
+		return "<td id='$id' class='$class'>$data</td>";
+	}
 	
 
 ?>
