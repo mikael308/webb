@@ -215,29 +215,35 @@
 	function validUser($name, $email, $passw, $passw_conf){
 	
 		if (str_replace(" ", "", $name) == ""){
-			$_SESSION['registeruser_errmsg'] = "name cannot be empty";			
+			$_SESSION['registeruser_errmsg'] 
+				= "name cannot be empty";			
 			return False;
 			
 		} elseif (str_replace(" ", "", $email) == ""){
-			$_SESSION['registeruser_errmsg'] = "email cannot be empty";			
+			$_SESSION['registeruser_errmsg'] 
+				= "email cannot be empty";			
 			return False;
 			
 		} elseif (str_replace(" ", "", $passw) == ""
 		|| str_replace(" ", "", $passw_conf) == ""){
-		 	$_SESSION['registeruser_errmsg'] = "password cannot be empty";			
+		 	$_SESSION['registeruser_errmsg'] 
+		 		= "password cannot be empty";			
 			return False;
 			
 		} elseif (str_replace(" ", "", $passw_conf) == ""){
-			$_SESSION['registeruser_errmsg'] = "password confirmation cannot be empty";			
+			$_SESSION['registeruser_errmsg'] 
+				= "password confirmation cannot be empty";			
 			return False;
 		}
 		
 		if (! validPassword($passw)){
-			$_SESSION['registeruser_errmsg'] = "password not valid";
+			$_SESSION['registeruser_errmsg'] 
+				= "password not valid";
 			 return False;
 		}
 		if ($passw != $passw_conf){
-			 $_SESSION['registeruser_errmsg'] = "passwords not equal";
+			 $_SESSION['registeruser_errmsg'] 
+			 	= "passwords not equal";
 			 return False;
 		}
 		
