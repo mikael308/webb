@@ -79,12 +79,14 @@
 	}
 	
 	function editable($post){
-		if($post == null)
+		if($post == null){
 			return False;
+		}
 		
 		$authUser = getAuthorizedUser();
-		if($authUser->isAdmin() || $authUser->isModerator())
+		if($authUser->isAdmin() || $authUser->isModerator()){
 			return True;
+		}
 		
 		# if users message and created within 15min
 		if($authUser->getName() == $post->getAuthor()->getName()){
@@ -92,9 +94,9 @@
 			$b = $post->getCreated();
 		
 			$diff = strtotime($a) - strtotime($b);
-			if($diff < (60 * 15))
+			if($diff < (60 * 15)){
 				return True;
-		
+			}
 			
 		}
 		
