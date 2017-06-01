@@ -36,13 +36,16 @@
 	 * @return title as html
 	 */
 	function setTitle($subtitle = NULL){
-		$s = '<title>';
+		$s = '';
 		if($subtitle != NULL && $subtitle != ""){
 			$s .= $subtitle . " | ";
 		}
 		$s .='webbprogrammering-projekt';
 		
-		return $s .'</title>';
+		return 
+			'<title>'
+			. $s 
+			. '</title>';
 	}
 	
 
