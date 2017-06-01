@@ -69,7 +69,7 @@
 				$index 		= "subject";
 				$index_val 	= get_index("s");
 			} 
-
+			# display the forum
 			echo forum($index, $index_val, get_index("p"));
 						
 		?>
