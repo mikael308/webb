@@ -80,10 +80,3 @@
 	</footer>
 </body>
 </html>
-<?php
-
-
-
-
-
-?>
