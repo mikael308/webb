@@ -19,7 +19,6 @@
 	function getAuthorizationContent(){
 		$cont = "";
 		
-		$cont .= '<div id="authorizationsection">';
 		# if user is not auhtorized
 		if(! isset($_SESSION['authorized_user'])){
 			$cont .= getLoginForm()
@@ -29,9 +28,9 @@
 			#$cont .= getLogoutForm();
 		}
 	
-		$cont .= '</div>';
-	
-		return $cont;
+		return '<div id="authorizationsection">'
+			. $cont
+			. '</div>';
 	}
 	/**
 	 * get link to registration content
