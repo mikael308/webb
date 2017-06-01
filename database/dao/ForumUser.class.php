@@ -61,7 +61,7 @@ class ForumUser extends DataAccessObject {
 		return $this->registered;
 	}
 	/**
-	 * get this private key
+	 * get this primary key
 	 */
 	public function getPrimaryKey(){
 		return $this->getName();
