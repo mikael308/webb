@@ -115,9 +115,6 @@
 		
 	}
 
-
-
-
 	/**
 	 * get valid passwordhint div
 	 */
@@ -134,7 +131,6 @@
 		. '</div>';
 		
 	}
-
 
 	/**
 	* determine if password is valid
@@ -175,7 +171,6 @@
 		return True;
 	}
 
-	
 	/**
 	 * if post user is valid send persistrequest to database
 	 */
