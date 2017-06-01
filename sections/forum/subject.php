@@ -15,10 +15,12 @@
 	 * @return content as html string
 	 */
 	function forumContentListThreads($subject, $page){
-		if ($subject == NULL) 
+		if ($subject == NULL){
 			return errorMessage("could not display subject");
-		if ($page == NULL || $page == "") 
+		}
+		if ($page == NULL || $page == ""){
 			return errorMessage("invalid page");
+		}
 
 		$threads 	= $subject->getThreads();
 	
