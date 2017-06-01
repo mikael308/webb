@@ -1,5 +1,4 @@
 <?php
-
 	
 	/**
 	 * format used for displaying timestamps
@@ -21,8 +20,5 @@
 	function formatDateTime($datetimestamp){
 		return substr($datetimestamp, 0, 19);
 	}
-
-
-
 
 ?>
