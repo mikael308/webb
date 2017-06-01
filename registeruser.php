@@ -85,8 +85,10 @@
 	 */
 	function getRegisterUserForm(){
 		#preset values
-		$pre_name = isset($_SESSION['input_name']) ? $pre_name = $_SESSION['input_name'] : "" ;
-		$pre_email = isset($_SESSION['input_email']) ? $pre_email = $_SESSION['input_email'] : ""; 
+		$pre_name = isset($_SESSION['input_name']) ?
+		 $_SESSION['input_name'] : "" ;
+		$pre_email = isset($_SESSION['input_email']) ?
+		 $_SESSION['input_email'] : ""; 
 		
 		return 
 		'<div id="user_reg_table">'
