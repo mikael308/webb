@@ -88,12 +88,13 @@
 			return True;
 		}
 		
-		# if users message and created within 15min
 		if($authUser->getName() == $post->getAuthor()->getName()){
+		# if user is author of message
 			$a = date($GLOBALS['timestamp_format']);
 			$b = $post->getCreated();
 		
 			$diff = strtotime($a) - strtotime($b);
+			# if message was created within past 15min
 			if($diff < (60 * 15)){
 				return True;
 			}
