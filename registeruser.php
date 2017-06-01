@@ -214,6 +214,9 @@
 	 */
 	function validUser($name, $email, $passw, $passw_conf){
 	
+		# validate input fields
+		##########################
+		
 		if (str_replace(" ", "", $name) == ""){
 			$_SESSION['registeruser_errmsg'] 
 				= "name cannot be empty";			
@@ -235,7 +238,10 @@
 				= "password confirmation cannot be empty";			
 			return False;
 		}
-		
+
+		# validate password
+		#####################
+
 		if (! validPassword($passw)){
 			$_SESSION['registeruser_errmsg'] 
 				= "password not valid";
