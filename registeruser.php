@@ -193,7 +193,7 @@
 			$user = new ForumUser();
 			$user->setName($name);
 			$user->setEmail($email);
-			$user->setRole(2);
+			$user->setRole(2); # set to user role
 			$user->setBanned(False);
 			$user->setRegistered(date($GLOBALS['timestamp_format']));
 			
@@ -203,7 +203,7 @@
 			}
 			
 			if(persist::forumUser($user, $passw)){
-				# user is registered in database
+				# user is successfully registered in database
 				$user = read::forumUser($user->getPrimaryKey());
 				$_SESSION['authorized_user'] = $user;
 				$linkref = $GLOBALS['user_page'] . '?u=' . $user->getPrimaryKey();
