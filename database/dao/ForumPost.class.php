@@ -3,6 +3,7 @@
 require_once './database/dao/DataAccessObject.class.php';
 
 /**
+ * defines a post in a thread
  *
  * @author Mikael Holmbom
  * @version 1.0
