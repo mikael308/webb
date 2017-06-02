@@ -36,6 +36,8 @@
 		$cont = "";
 		# iterate over posts 
 		# from i to maxpage interval or end of thread
+		$max_i = min($maxlim, $n_posts);
+		for (; $i < $max_i; $i++){
 			$cont .= forumPostView($forumpost_arr[$i]);
 		}
 		return $cont;
