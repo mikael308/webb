@@ -172,8 +172,9 @@
 		$pagIdxBtns = "";
 		for(; $i <= $maxlim; $i++){
 			$class = "";
-			if($i == $currentPage)
+			if($i == $currentPage){
 				$class = " pag_button_current";
+			}
 			$pagIdxBtns .= pagButton($class, $link."&p=".$i, $i);
 		}
 		
