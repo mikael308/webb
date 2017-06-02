@@ -103,30 +103,34 @@
 
 function getAdminTools(){
 	global $view_user;
-	$cont = "<div class='header'>admin tools</div>";
+
+	# the user settings is concerning
+	$hiddenuser_row = 
+		'<input type="hidden" name="u" value="' . $view_user->getPrimaryKey() . '" />';
 	
-	# POST FORM
-	$cont .= '<form id="admintools" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-			. 	'<input type="hidden" name="u" value="' . $view_user->getPrimaryKey() . '" />';
-	
-	
-	$cont .=
-			"<table>" 
-			. tr( # BANN USER
-				td("<label>banned user</label>")
-				.td(toolTip(switchButton("update_user_banned", $view_user->isBanned()),
-					"user is currently: " . ($view_user->isBanned()?"true":"false") ))
-				)
-			;
+	# BANN USER setting
+	$bannuser_tooltip = "user is currently: " 
+		. ($view_user->isBanned()? "true" : "false");
+	$bannuser_row = tr( 
+				td('<label>banned user</label>')
+				.td(toolTip(switchButton("update_user_banned", 
+					$view_user->isBanned()),
+					$bannuser_tooltip)));
 	
 	# SAVE BUTTON
 	$submit = '<input type="submit" id="submit" class="icon_button material-icons" value="save" name="update_user">';
+	$submit_row = tr(td("").td(toolTip($submit, "save changes")));
 
-	$cont .= tr(td("").td(toolTip($submit, "save changes")));
-	$cont .= "</table>";
-	$cont .= '</form>';
-	
-	return '<div id="admin_tools">' . $cont . '</div>';
+	return '<div id="admin_tools">' 
+	. '<div class="header">admin tools</div>'
+	. 	'<form id="admintools" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
+	. 		'<table>' 
+	. 		$hiddenuser_row
+	. 		$bannuser_row
+	. 		$submit_row
+	. 		'</table>'
+	. 	'</form>'
+	. '</div>';
 }
 
 ?>
