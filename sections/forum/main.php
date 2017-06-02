@@ -17,7 +17,7 @@
 	 * @param page the page to view
 	 * @return content as html string
 	 */
-	function forum($index, $indexValue, $page){
+	function forum($index, $indexValue=NULL, $page=NULL){
 
 		switch($index){
 			case "thread": 		return displayThreadContent(read::thread($indexValue), $page);
