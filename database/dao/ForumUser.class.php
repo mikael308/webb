@@ -3,7 +3,7 @@
 require_once './database/dao/DataAccessObject.class.php';
 
 /**
- * Programvaruteknik,	Webbprogrammering 7.5hp
+ * defines a user of the forum
  *
  * @author Mikael Holmbom
  * @version 1.0
