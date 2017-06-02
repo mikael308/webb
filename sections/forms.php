@@ -7,7 +7,7 @@
 
 	/**
 	 * get form for client searching in database
-	 *
+	 * @return as html
 	 */
 	function getSearchForm(){
 
