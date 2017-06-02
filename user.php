@@ -119,7 +119,9 @@ function getAdminTools(){
 	
 	# SAVE BUTTON
 	$submit = '<input type="submit" id="submit" class="icon_button material-icons" value="save" name="update_user">';
-	$submit_row = tr(td("").td(toolTip($submit, "save changes")));
+	$submit_row = tr(
+		td("")
+		.td(toolTip($submit, "save changes")));
 
 	return '<div id="admin_tools">' 
 	. '<div class="header">admin tools</div>'
