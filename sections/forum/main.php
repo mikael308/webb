@@ -20,10 +20,16 @@
 	function forum($index, $indexValue=NULL, $page=NULL){
 
 		switch($index){
-			case "thread": 		return displayThreadContent(read::thread($indexValue), $page);
-			case "subject":		return displaySubjectContent(read::subjects($indexValue)[0], $page);
-			case "main":		return displayMainContent();
-			default:			return errorMessage("page request error");
+			case "thread": 		
+				return displayThreadContent(read::thread($indexValue), 
+					$page);
+			case "subject":		
+				return displaySubjectContent(read::subjects($indexValue)[0],
+				 $page);
+			case "main":		
+				return displayMainContent();
+			default:			
+				return errorMessage("page request error");
 		}
 
 	}
@@ -42,9 +48,15 @@
 		'<article id="forum_content">'
 		.	$breadcrum
 		. 	'<h2>' . $header . '</h2>'
-		. 	'<div id="forum_top_bts" class="button_panel">'.$top_bts . '</div>'
-		. 	'<div id="forum_content_list">'. $forumcontlist .'</div>'
-		.	'<div id="forum_bottom_bts" class="button_panel">'. $bottom_bts .'</div>'
+		. 	'<div id="forum_top_bts" class="button_panel">'
+		.		$top_bts 
+		. 	'</div>'
+		. 	'<div id="forum_content_list">'
+		. 		$forumcontlist 
+		.	'</div>'
+		.	'<div id="forum_bottom_bts" class="button_panel">'
+		. 		$bottom_bts 
+		.	'</div>'
 		. 	$pag
 		. '</article>';
 	}
