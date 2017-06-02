@@ -22,6 +22,7 @@
 	 * * meta charset
 	 * * link
 	 * * title
+	 * @return as html
 	 */
 	function getMainHeadContent(){
 		return
@@ -40,6 +41,7 @@
 	/**
 	 * get the main header content
 	 * displays navigation content
+	 * @return as html
 	 */
 	function getMainHeaderContent(){
 		return 
@@ -55,6 +57,7 @@
 	 * get the main footer content\n
 	 * displaying:
 	 * * copyright
+	 * @return as html
 	 */
 	function getMainFooterContent(){
 		return
@@ -71,6 +74,7 @@
 	}
 	/**
 	 * get the navigation content
+	 * @return as html
 	 */
 	function getNavContent(){
 		$user = getAuthorizedUser();
@@ -96,6 +100,7 @@
 
 	/**
 	 * get meta navigation content
+	 * @return as html
 	 */
 	function getMetaNav(){
 		return '<div id="meta_nav">'
@@ -108,6 +113,7 @@
 	}
 	/**
 	 * get the subnavigation content
+	 * @return as html
 	 */
 	function getSubNavContent(){
 		$listitems = '';
@@ -131,6 +137,7 @@
 	 * generate breadcrum links to current subject and thread
 	 * @param subject the current subject
 	 * @param thread the current thread
+	 * @return as html
 	 */
 	function getBreadcrum(ForumSubject $subject = NULL, ForumThread $thread = NULL){
 		function getBreadcrumLink($link, $title){
