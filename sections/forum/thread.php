@@ -77,11 +77,11 @@
 			.	'</div>'
 		. '</div>';
 	}
-	function editable($post){
 	/**
 	 * determine if current authorized user can edit param post
 	 * @return True if post can be edited by current authorized user
 	 */
+	function editable(ForumPost $post){
 		if($post == null){
 			return False;
 		}
