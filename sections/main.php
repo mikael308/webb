@@ -72,8 +72,8 @@
 	 */
 	function getFooterLinks(){
 		return '<ul id="footerlinks">'
-			. '<li>' . '<a href="'.$GLOBALS['about_page'].'?d=about">about</a>' . '</li>'
-			. '<li>' . '<a href="'. $GLOBALS['contact_page'] .'">contact us</a>' . '</li>'
+			. listitem( '<a href="'.$GLOBALS['about_page'].'?d=about">about</a>' )
+			. listitem( '<a href="'. $GLOBALS['contact_page'] .'">contact us</a>' )
 		 . '</ul>';
 	}
 	/**
@@ -82,17 +82,22 @@
 	 */
 	function getNavContent(){
 		$user = getAuthorizedUser();
-		$authorizedUserId = $user != NULL ? $user->getPrimaryKey() : "";
+		$authorizedUserId = $user != NULL ?
+			$user->getPrimaryKey() : "";
 		
 		$listitems = 
-			 	listitem(getNavButton($GLOBALS['index_page'] , 'start'))
-			. 	listitem(getNavButton($GLOBALS['forum_page'] , 'forum'))
-			. 	listitem(getNavButton($GLOBALS['user_page'] .'?u=' . $authorizedUserId, 'my page'));
+			listitem(getNavButton($GLOBALS['index_page'],
+			 		'start'))
+			. listitem(getNavButton($GLOBALS['forum_page'],
+					'forum'))
+			. listitem(getNavButton($GLOBALS['user_page'] .'?u=' . $authorizedUserId,
+					'my page'));
 		
 		$user = getAuthorizedUser();
 		if($user != NULL 
 			&& $user->isAdmin()){
-			$listitems .= getNavButton($GLOBALS['admin_page'] , "admin");
+			$listitems .= getNavButton($GLOBALS['admin_page'], 
+				"admin");
 		}
 		
 		return '<nav>'
