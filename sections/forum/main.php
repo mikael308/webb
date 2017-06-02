@@ -21,11 +21,13 @@
 
 		switch($index){
 			case "thread": 		
-				return displayThreadContent(read::thread($indexValue), 
+				return displayThreadContent(
+					read::thread($indexValue), 
 					$page);
 			case "subject":		
-				return displaySubjectContent(read::subjects($indexValue)[0],
-				 $page);
+				return displaySubjectContent(
+					read::subjects($indexValue)[0],
+					$page);
 			case "main":		
 				return displayMainContent();
 			default:			
@@ -153,7 +155,8 @@
 		$left_offset 	= $currentPage - $pageWidth;
 		$right_offset 	= $currentPage + $pageWidth;
 
-		# expand the upper or lower interval if cur page is in beginning or end of page list length
+		# expand the upper or lower interval if current page
+		# is in beginning or end of page list length
 		if($left_offset < 1){
 			$right_offset = min($n_pages, ($right_offset+ abs($left_offset-1)));
 		}
@@ -179,17 +182,21 @@
 		
 		return
 			'<div id="pag_nav">'
-			. 	pagButton("pag_button_dir", 
+			. 	pagButton(
+					"pag_button_dir", 
 					$link."&p=1",				
 					"<i id='pag_first' class='material-icons'>first_page</i>") 
-			. 	pagButton("pag_button_dir", 
+			. 	pagButton(
+					"pag_button_dir", 
 					$link."&p=".$prevPage,	
 					"<i id='pag_prev'  class='material-icons'>navigate_before</i>")
 			. 	$pagIdxBtns
-			. 	pagButton("pag_button_dir", 
+			. 	pagButton(
+					"pag_button_dir", 
 					$link."&p=".$nextPage,	
 					"<i id='pag_next'  class='material-icons'>navigate_next</i>")
-		 	. 	pagButton("pag_button_dir", 
+		 	. 	pagButton(
+		 			"pag_button_dir", 
 		 			$link."&p=".$n_pages,		
 		 			"<i id='pag_last'  class='material-icons'>last_page</i>")
 			. '</div>';
@@ -213,8 +220,5 @@
 	function newThreadButton($subject){
 		return '<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?op=createthread&s='.$subject->getPrimaryKey().'">new thread</a>';
 	}
-
-
-
 
 ?>
