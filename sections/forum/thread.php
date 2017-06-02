@@ -34,7 +34,8 @@
 			return infoMessage("subject contains no threads");
 
 		$cont = "";
-		for (; $i < $maxlim && $i < $n_posts; $i++){
+		# iterate over posts 
+		# from i to maxpage interval or end of thread
 			$cont .= forumPostView($forumpost_arr[$i]);
 		}
 		return $cont;
