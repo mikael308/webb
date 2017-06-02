@@ -14,7 +14,7 @@
 	 * gets authorization forms
 	 * if not logged in: returns login form, 
 	 * if already authorized: return logout form
-	 * @return div containing authorization content
+	 * @return div containing authorization content as html
 	 */
 	function getAuthorizationContent(){
 		$cont = "";
@@ -34,6 +34,7 @@
 	}
 	/**
 	 * get link to registration content
+	 * @return as html
 	 */
 	function getRegisterContent(){
 		return '<span><a href="'. $GLOBALS['register_page']. '">register here!</a></span>';
@@ -63,6 +64,7 @@
 	}
 	/**
 	 * get form used for logout current user
+	 * @return as html
 	 */
 	function getLogoutForm(){
 		return 
