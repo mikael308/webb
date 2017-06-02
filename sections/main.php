@@ -66,6 +66,10 @@
 			. getScript("dropdownlist.js")
 			. '<p>&copy; Mikael Holmbom ' . date("Y") . '</p>';
 	}
+	/**
+	 * get list of footer links
+	 * @return as html
+	 */
 	function getFooterLinks(){
 		return '<ul id="footerlinks">'
 			. '<li>' . '<a href="'.$GLOBALS['about_page'].'?d=about">about</a>' . '</li>'
