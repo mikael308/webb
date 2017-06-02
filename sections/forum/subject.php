@@ -37,7 +37,10 @@
 			return infoMessage("subject contains no threads");
 		
 		$cont = "";
-		for (; $i < $maxlim && $i < $n_threads; $i++){
+		# iterate over threads 
+		# from i to maxpage interval or end of subject
+		$max_i = min($maxlim, $n_threads);
+		for (; $i < $max_i; $i++){
 			$cont .= threadLinkView($threads[$i]);
 		}
 	
