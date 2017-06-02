@@ -108,15 +108,19 @@ function getAdminTools(){
 	$hiddenuser_row = 
 		'<input type="hidden" name="u" value="' . $view_user->getPrimaryKey() . '" />';
 	
-	# BANN USER setting
-	$bannuser_tooltip = "user is currently: " 
-		. ($view_user->isBanned()? "true" : "false");
-	$bannuser_row = tr( 
-				td('<label>banned user</label>')
-				.td(toolTip(switchButton("update_user_banned", 
-					$view_user->isBanned()),
-					$bannuser_tooltip)));
-	
+	$bannuser_row="";
+	if(! $view_user->isAdmin()){
+		# BANN USER setting
+		$bannuser_tooltip = "user is currently: " 
+			. ($view_user->isBanned()? "true" : "false");
+		$bannuser_row = tr( 
+					td('<label>banned user</label>')
+					.td(
+						toolTip(switchButton("update_user_banned", 
+						$view_user->isBanned()),
+						$bannuser_tooltip)));
+	}
+
 	# SAVE BUTTON
 	$submit = '<input type="submit" id="submit" class="icon_button material-icons" value="save" name="update_user">';
 	$submit_row = tr(
