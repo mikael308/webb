@@ -109,6 +109,13 @@
 		
 		return False;
 	}
+	/**
+	 * get form used for editing ForumPost message<br>
+	 * contains:<br>
+	 * submit button (go to edit view)
+	 * @param post post to edit
+	 * @return form as html
+	 */
 	function editMessageForm(ForumPost $post){
 		return
 			'<form class="edit_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
@@ -119,7 +126,13 @@
 			.		'<input type="submit" class="icon_button material-icons" value="edit" name="edit_post"></input>'
 			. '</form>';
 	}
-	
+	/**
+	 * get form used for deleting ForumPost<br>
+	 * contains:<br>
+	 * submit delete button
+	 * @param post post to delete
+	 * @return form as html
+	 */
 	function deletePostForm(ForumPost $post){
 		return
 			'<form class="delete_post" name="" method="POST" action="'.htmlspecialchars($GLOBALS['post_page'] ).'" >'
