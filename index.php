@@ -56,7 +56,9 @@
 		?>
 	</main>
 	<footer>
-		<?php			echo getMainFooterContent();		?>
+		<?php
+			echo getMainFooterContent();
+		?>
 	</footer>
 </body>
 </html>
