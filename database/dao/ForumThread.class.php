@@ -1,6 +1,7 @@
 <?php
 
 require_once './database/dao/DataAccessObject.class.php';
+require_once "./config/settings.php";
 
 /**
  * represents a thread in forum 
@@ -98,6 +99,14 @@ class ForumThread extends DataAccessObject {
 	 */
 	function postsSize(){
 		return sizeof($this->getPosts());
+	}
+	/**
+	 * get the index of the current last page containing posts
+	 * index is affected by the setting: posts_per_page
+	 * @return page index as integer
+	 */
+	function getLastPageIndex(){
+		return ceil($this->postsSize() / readSettings("posts_per_page"));
 	}
 
 }
