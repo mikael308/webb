@@ -92,7 +92,13 @@ class ForumThread extends DataAccessObject {
 	public function getPosts(){
 		return Read::postsFromThread($this->getPrimaryKey());
 	}
-
+	/**
+	 * get current amount of posts
+	 * @return amount of posts
+	 */
+	function postsSize(){
+		return sizeof($this->getPosts());
+	}
 
 }
 
