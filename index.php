@@ -81,9 +81,11 @@ function newsFeed(){
 			. '</article>';
 	}
 
-	return '<div id="newsfeed">'
-			. $s
-			. '</div>';
+	return
+		'<div id="newsfeed">'
+		. $s
+		. '</div>';
+}
 /**
  * get latest threads as aside section
  * @return latestthreads section as aside html
