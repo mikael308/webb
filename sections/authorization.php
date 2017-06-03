@@ -48,7 +48,9 @@
 	 * 
 	 */
 	function getLoginForm(){
-		$errmsg = isset($_SESSION['login_errmsg']) ? $_SESSION['login_errmsg'] : "";
+		$errmsg = isset($_SESSION['login_errmsg']) ? 
+			$_SESSION['login_errmsg'] : "";
+		
 		return
 			'<div>'
 			.'<form id="loginform" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" >'
