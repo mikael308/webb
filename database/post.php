@@ -78,16 +78,17 @@
 	*/
 	function postReply(){
 		$msg = cleanupMessage($_POST['forumpost_message']);
-		$thread = Read::thread($_POST['thread']);
+		$thread_fk = $_POST['thread'];
 
 		$post = new ForumPost();
+		$post->setThreadFK($thread_fk);
 		$post->setAuthorFK(getAuthorizedUser()->getPrimaryKey());
 		$post->setMessage($msg);
 
-		Persist::forumPost($thread, $post);
+		Persist::forumPost($post);
 
 		# redirect to thread page
-		header("Location: " . getThreadPageLink($thread));
+		header("Location: " . getThreadPageLink($post->getThread()));
 		exit();
 	}
 	/**

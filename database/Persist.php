@@ -8,8 +8,8 @@
 		 * @param post the post to persist
 		 * @return True if post was inserted in database successfully
 		 */
-		public static function forumPost(ForumThread $thread, ForumPost $post){
-			
+		public static function forumPost(ForumPost $post){
+
 			$db_conn = connect();
 			if($db_conn){
 				$query = "INSERT INTO " . $GLOBALS['dbtable_forumposts'] 
