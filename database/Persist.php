@@ -1,8 +1,7 @@
 <?php
 
 
-
-	class persist{
+	class Persist{
 		/**
 		 * persist forumpost to database
 		 * @param thread containing thread
@@ -117,6 +116,5 @@
 			return False;
 		}
 	} # ! PERSIST
-
 
 ?>

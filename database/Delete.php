@@ -1,8 +1,7 @@
 <?php
 
 
-
-	class delete{
+	class Delete{
 		/**
 		 * delete forumuser matching with param user
 		 * @param user forumuser to delete

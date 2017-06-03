@@ -1,9 +1,11 @@
 <?php
-
-
-
+	/**
+	 * 
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 	
-	class count{
+	class Count{
 		/**
 		 * count the number of forumthreads created by specific user
 		 * @throws RuntimeException on failed query
@@ -54,7 +56,7 @@
 		public static function postPageIndex($post_pk){
 			$query = 
 				 " FROM " . $GLOBALS['dbtable_forumposts']
-				. " WHERE thread='". read::forumPost($post_pk)->getThread()->getPrimaryKey() ."' "
+				. " WHERE thread='". Read::forumPost($post_pk)->getThread()->getPrimaryKey() ."' "
 				. " AND created <= ( "
 				. 		" SELECT created "
 				. 		" FROM " . $GLOBALS['dbtable_forumposts']
@@ -97,7 +99,7 @@
 				" FROM " . $GLOBALS['dbtable_forumposts']
 				. " WHERE thread='" . $thread->getPrimaryKey() ."'"
 				.";";
-			$n_posts 		= count::query($query);
+			$n_posts 		= Count::query($query);
 			$max_pages		= ceil($n_posts / readSettings("posts_per_page"));
 			return $max_pages;
 		
@@ -113,7 +115,7 @@
 				" FROM " . $GLOBALS['dbtable_forumthreads']
 				. " WHERE subject='" . $subject->getPrimaryKey() . "'"
 				. ";";
-			$n_threads 		= count::query($query);
+			$n_threads 		= Count::query($query);
 			$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
 			
 			return $max_pages;
