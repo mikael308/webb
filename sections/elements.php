@@ -93,6 +93,15 @@
 			. 	"</label>";
 	}
 	/**
+	 * 
+	 * @return data as table html element
+	 */
+	function table($data, $class="", $id=""){
+		return "<table id='$id' class='$class'>"
+			. $data
+			. "</table>";
+	}
+	/**
 	 * @return data formated as tr html element
 	 */
 	function tr($data, $class="", $id=""){
