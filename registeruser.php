@@ -122,17 +122,17 @@
 	 * get valid passwordhint div
 	 */
 	function getValidPasswordHint(){
-		return 
-		'<div id="valid_password_hint">'
-		. '<fieldset>'
-		. '<legend>valid password</legend>'
-			. '<ul>'
-				. '<li class="valid_password_hint_rule" id="password_length">at least 6 characters</li>'
-				. '<li class="valid_password_hint_rule" id="password_content">contain digits, upper and lowercase letters and special character (!._-)</li>'
-			. '</ul>'
-		. '</fieldset>'
-		. '</div>';
-		
+		return
+			'<div id="valid_password_hint">'
+			. '<fieldset>'
+			. '<legend>valid password</legend>'
+				. '<ul>'
+					. '<li class="valid_password_hint_rule" id="password_length">at least 6 characters</li>'
+					. '<li class="valid_password_hint_rule" id="password_content">contain digits, upper and lowercase letters and special character (!._-)</li>'
+				. '</ul>'
+			. '</fieldset>'
+			. '</div>';
+
 	}
 
 	/**
