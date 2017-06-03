@@ -3,8 +3,9 @@
 /**
  *	admin page
  *
- *	can only be accessed if $_SESSION['authorized_user'] is set and role is "admin"
- *	
+ *	can only be accessed if $_SESSION['authorized_user'] is set
+ *  and role is "admin"
+ *
  *	@author Mikael Holmbom
  */
 
