@@ -1,9 +1,12 @@
 # setup database
 to setup the database, do one of the following
 ## shellscript
-1. run ```bash setup.sh```
+1. in root, run ```bash config/setup/setup.sh```
 ## manual setup
-1. setup_tables.sql
-2. setup_users.php
-3. init_vals.sql
+run the following scripts
+1. ./config/setup/setup_tables.sql
+2. ./config/setup/init_roles.sql
+3. ./config/setup/setup_users.php
+4. ./config/setup/init_vals.sql
+5. ./config/setup/setup_storedprocedures.sql
 
