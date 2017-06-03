@@ -1,4 +1,5 @@
-
+@import url("main.css");
+@import url("colorscheme_main.css");
 
 #newsfeed article {
 	margin: 20px;
