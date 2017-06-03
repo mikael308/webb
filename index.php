@@ -51,6 +51,7 @@
 	</aside>
 	<main>
 		<?php
+	 		echo asideLatestThreads();
 			echo newsFeed();
 
 		?>
