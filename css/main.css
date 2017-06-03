@@ -1,13 +1,13 @@
+@import url("colorscheme_main.css");
+@import url("elements.css");
 
 html {
-	background-color: #CCCCCC;
 	font-family: sans-serif;
 	text-align: left;
 	width: 80%;
 	margin: auto;
 	min-width: 580px;
 	max-width: 1160px;
-
 }
 
 header {
@@ -29,7 +29,6 @@ nav #page_nav li{
 }
 nav #page_nav{
 	
-
 }
 
 nav #meta_nav {
@@ -45,46 +44,9 @@ hr{
 	padding:0;
 }
 
-.parallellogram{
-	transform: skew(-20deg); 
-    -o-transform: skew(-20deg); 
-    -moz-transform: skew(-20deg); 
-    -webkit-transform: skew(-20deg);
-}
-
-.button {
-	background-color: #CACAEF;
-	border: 3px solid #0A0ACF;
-	border-radius: 8px;
-	color: black;
-	padding: 9px 15px;
-
-	text-align: center;
-	text-decoration: none;
-	word-wrap: break-word;
-	display: inline-block;
-	font-size: 16px;
-	cursor: pointer;
-}
-.button:hover{
-	background-color: #E4E4EF;
-	border: 4px solid #CACACF;
-}
-
-.icon_button{
-	background-color: transparent;
-	border:none;
-}
-.icon_button:hover{
-	color: red;
-	cursor: pointer;
-}
-
 .btn_nav {
-	background-color: #5050EF;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	color:white;
 	border-radius: 10px 10px 0 0;
 	padding: 14px 8px 4px;
 	margin-left: 4px;
@@ -92,21 +54,12 @@ hr{
 	min-width: 90px;
 	
 }
-.btn_nav:hover{
-	background-color: #7575EF;
-	border: 4px solid #7070EF;
-}
 
-.btn_nav > a:hover{
-	background-color: rgb(200, 210, 210);
-}
 #subnav{
-
 	height: 50px;
 }
 #subnav > ul{
 	margin-top:0;
-	
 }
 #subnav > ul > li{
 	vertical-align: top;
@@ -151,16 +104,13 @@ main article{
 
 body{
 	overflow:auto;
-	background-color: white; 
-	padding: 4px 16px;
+	padding: 4px 46px;
 	border-radius: 5px;
 	margin: 8px 0 64px;
 
 }
 
-#login_errmsg{
-	color: red;
-}
+
 
 footer {
 	text-align: center;
@@ -180,14 +130,7 @@ footer {
 /* std button attributes */
 #meta_nav i{
 	font-size:32px;
-	color: #666;
 }
-#meta_nav i:hover{
-	color:#AAA;
-}
-
-
-
 
 .clickable{
 	
@@ -195,7 +138,6 @@ footer {
 }
 .clickable:hover{
 	cursor: pointer;
-	color:red;
 }
 
 .button_panel{
