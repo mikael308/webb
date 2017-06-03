@@ -1,7 +1,7 @@
 # webb
 simple forum to handle 
 * subjects, threads and users with different roles
-* searchfuntion for authorized users
+* searchfunction for authorized users
 for demonstration see doc/presentation.ogv
 ## spec
 - php7.0
