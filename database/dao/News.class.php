@@ -42,7 +42,7 @@ class News extends DataAccessObject {
 	function getAuthor(){
 		return $this->getAuthorPK() == NULL ?
 			NULL:
-			read::forumUser($this->getAuthorPK());
+			Read::forumUser($this->getAuthorPK());
 
 	}
 	function getTitle(){

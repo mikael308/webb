@@ -189,8 +189,8 @@
 					$n_rows = pg_num_rows($res);
 					for ($i = 0; $i < $n_rows; $i++){
 						$data = pg_fetch_object($res, $i);
-	
-						$post_arr[] = read::forumPost($data->id);
+
+						$post_arr[] = Read::forumPost($data->id);
 					}
 					pg_free_result($res);
 				} else {
@@ -286,7 +286,7 @@
 						$data = pg_fetch_object($res, 0);
 					
 						if($data != NULL){
-							$creator = read::forumUser($data->author);	
+							$creator = Read::forumUser($data->author);
 						}
 					}
 					
@@ -318,7 +318,7 @@
 				if($res){
 					if(pg_num_rows($res) > 0){
 						$data = pg_fetch_object($res, 0);
-						$user = Parse::forumUser($data->author);
+						$user = Read::forumUser($data->author);
 					}
 				} else {
 					throw new RuntimeException(pg_last_error($db_conn));

@@ -70,27 +70,27 @@ class ForumThread extends DataAccessObject {
 	 * @return this threads subject
 	 */
 	public function getSubject(){
-		return read::subjects($this->getSubjectFK())[0];
+		return Read::subjects($this->getSubjectFK())[0];
 	}
 	/**
 	 * @return last attributor of this thread
 	 */
 	public function getLastAttributor(){
-		return read::lastAttributor($this->getPrimaryKey());
+		return Read::lastAttributor($this->getPrimaryKey());
 	}
 	/**
 	 * 
 	 * @return the cretor of this thread
 	 */
 	public function getCreator() {
-		return read::creator($this->getPrimaryKey());
+		return Read::creator($this->getPrimaryKey());
 	}
 	/**
 	 * get posts contained in this thread
 	 * @return forumpost[]
 	 */
 	public function getPosts(){
-		return read::postsFromThread($this->getPrimaryKey());
+		return Read::postsFromThread($this->getPrimaryKey());
 	}
 
 

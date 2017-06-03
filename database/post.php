@@ -11,7 +11,7 @@
 	require_once "./sections/views.php";
 	require_once "./sections/dateformat.php";
 	require_once "./database/database.php";
-	require_once "./database/read.php";
+	require_once "./database/Read.php";
 	require_once "./session/main.php";	
 	require_once "./config/settings.php";
 	require_once "./security/helper.php";
@@ -29,7 +29,7 @@
 	 */
 	function getThreadPageLink(ForumThread $thread, $pageIdx = NULL){
 		$posts_per_page = readSettings("posts_per_page");
-		$n_posts = count(read::postsFromThread($thread->getId()));
+		$n_posts = count(Read::postsFromThread($thread->getId()));
 		$last_page = ceil($n_posts / $posts_per_page);
 		
 		if($pageIdx == NULL || $pageIdx > $last_page)
@@ -47,26 +47,26 @@
 		if(get_index("s") == NULL){
 			echo errorMessage('could not read subject');
 		}
-		
-		$subj = read::subject($_SESSION['s']);
+
+		$subj = Read::subjects($_SESSION['s'])[0];
 		$_SESSION['s'] = NULL;
-		
+
 		#TODO validate topic and msg
 
 		$user = getAuthorizedUser();
 		$thread = new ForumThread($topic);
 		$thread->setSubjectFK($subj->getPrimaryKey());
 		$timestamp = date($GLOBALS['timestamp_format']); # now
-		
+
 		$post = new ForumPost();
 		$post->setAuthorFK($user->getPrimaryKey());
 		$post->setMessage($msg);
 		$post->setCreated($timestamp);
-					
+
 		# database
-		$thread = persist::forumThread($thread, $post);
-		persist::forumPost($thread, $post);
-		
+		$thread = Persist::forumThread($thread, $post);
+		Persist::forumPost($thread, $post);
+
 		# redirect to thread page
 		$link = getThreadPageLink($thread, 1);
 		header("Location: " . $link);
@@ -78,14 +78,14 @@
 	*/
 	function postReply(){
 		$msg = cleanupMessage($_POST['forumpost_message']);
-		$thread = read::thread($_POST['thread']);
-		
+		$thread = Read::thread($_POST['thread']);
+
 		$post = new ForumPost();
 		$post->setAuthorFK(getAuthorizedUser()->getPrimaryKey());
 		$post->setMessage($msg);
-		
-		persist::forumPost($thread, $post);
-		
+
+		Persist::forumPost($thread, $post);
+
 		# redirect to thread page
 		header("Location: " . getThreadPageLink($thread));
 		exit();
@@ -96,11 +96,11 @@
 	 */
 	function updatePost(){
 		$newmsg = cleanupMessage($_POST['forumpost_message']);
-		$post = read::forumPost($_POST['post']);
+		$post = Read::forumPost($_POST['post']);
 		$post->setMessage($newmsg);
-		
-		update::forumPost($post);
-		
+
+		Update::forumPost($post);
+
 		# redirect to thread page
 		$p = isset($_POST['p']) ? $_POST['p'] : 1; 
 		$pageLink = getThreadPageLink($post->getThread(), $p);
@@ -113,9 +113,9 @@
 	 * delete post from database
 	 */
 	function deletePost(){
-		$post = read::forumPost($_POST['post']);
+		$post = Read::forumPost($_POST['post']);
 		$thread = $post->getThread();
-		if (delete::forumPost($post)){
+		if (Delete::forumPost($post)){
 			# redirect to thread page
 			$page = isset($_POST['p']) ? $_POST['p'] : NULL;
 			header("Location: " . getThreadPageLink($thread, $page));
@@ -136,8 +136,8 @@
 		$news->setAuthorPK(getAuthorizedUser()->getPrimaryKey());
 		$news->setTitle($title);
 		$news->setMessage($msg);
-		
-		if(persist::news($news)){
+
+		if(Persist::news($news)){
 			header("Location: " . $GLOBALS['index_page']);
 			exit();
 		} else {

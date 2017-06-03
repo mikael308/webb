@@ -79,8 +79,8 @@
 					
 					#$crypt_inpassw = crypt($password,$GLOBALS['crypt_salt']);
 					#if(hash_equals($data->password, crypt(password, $data->password))){ # successful login
-						$user = read::forumUser($data->name);
-						
+						$user = Read::forumUser($data->name);
+
 						if($user->isBanned()){
 							$retVal = -2;
 						} else {
@@ -150,8 +150,8 @@
 				$users = array();
 				for ($i = 0; $i < $num_rows; $i++){
 					$data = pg_fetch_object($res, $i);
-					$users[] = read::forumuser($data->name);
-					
+					$users[] = Read::forumuser($data->name);
+
 				}
 				
 				pg_free_result($res);
@@ -186,8 +186,8 @@
 				$posts = array();
 				for ($i = 0; $i < $num_rows; $i++){
 					$data = pg_fetch_object($res, $i);
-					$post = read::forumPost($data->id);
-					
+					$post = Read::forumPost($data->id);
+
 					$posts[] = $post;
 				}
 				

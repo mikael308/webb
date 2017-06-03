@@ -74,7 +74,7 @@ class ForumSubject extends DataAccessObject {
 	 * @return threads as array
 	 */
 	public function getThreads(){
-		return read::threadsOfSubject($this->getPrimaryKey());
+		return Read::threadsOfSubject($this->getPrimaryKey());
 	}
 }
 

@@ -84,7 +84,7 @@ class ForumPost extends DataAccessObject{
 	public function getThread(){
 		if($this->getThreadFK() == NULL) return NULL;
 		
-		return read::thread($this->getThreadFK());
+		return Read::thread($this->getThreadFK());
 	}
 	/**
 	 * get the author of this post
@@ -93,7 +93,7 @@ class ForumPost extends DataAccessObject{
 	public function getAuthor(){
 		if($this->getAuthorFK() == NULL) return NULL;
 		
-		return read::forumUser($this->getAuthorFK());
+		return Read::forumUser($this->getAuthorFK());
 	}
 
 }
