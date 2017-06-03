@@ -32,10 +32,41 @@ $mik->setRole(2);
 $mik->setBanned(False);
 $mik->setRegistered(date($GLOBALS['timestamp_format']));
 
+$hil = new ForumUser();
+$hil->setName('hilda');
+$hil->setEmail('hilda@gmail.com');
+$hil->setRole(0);
+$hil->setBanned(False);
+$hil->setRegistered(date($GLOBALS['timestamp_format']));
 
-if(persist::forumUser($tom, 'abc') &&
-	persist::forumUser($tim, 'hej') && 
-	persist::forumUser($mik, 'asd')){
+$bern = new ForumUser();
+$bern->setName('bernhardt');
+$bern->setEmail('bernhardt@gmail.com');
+$bern->setRole(2);
+$bern->setBanned(False);
+$bern->setRegistered(date($GLOBALS['timestamp_format']));
+
+$klaatu = new ForumUser();
+$klaatu->setName('klaatu');
+$klaatu->setEmail('klaatu@gmail.com');
+$klaatu->setRole(2);
+$klaatu->setBanned(False);
+$klaatu->setRegistered(date($GLOBALS['timestamp_format']));
+
+$hel = new ForumUser();
+$hel->setName('helen');
+$hel->setEmail('helen@gmail.com');
+$hel->setRole(2);
+$hel->setBanned(False);
+$hel->setRegistered(date($GLOBALS['timestamp_format']));
+
+if(Persist::forumUser($tom, 'abc') &&
+	Persist::forumUser($tim, 'hej') && 
+	Persist::forumUser($mik, 'asd') &&
+	Persist::forumUser($hil, 'hhh') &&
+	Persist::forumUser($hel, 'hhh') &&
+	Persist::forumUser($bern, 'bbb') &&
+	Persist::forumUser($klaatu, 'k')){
 
 	echo "setup users successful\n";
 	exit();
