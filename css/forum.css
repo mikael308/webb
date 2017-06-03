@@ -1,10 +1,13 @@
+@import url("main.css");
+@import url("colorscheme_main.css");
+@import url("colorscheme_forum.css");
+@import url("pagination.css");
 
 #forum_content{
 	
 }
 
 #forum_content_list{
-	
 	margin-top: 8px;
 	margin-bottom: 20px;
 	margin-left: 10px;
@@ -14,13 +17,7 @@
 .forum_content_listitem{
 	min-height: 0;
 	margin-bottom: 8px;
-	border: 2px solid #5A5ACF;	
-	border-radius: 6px;
 	
-}
-.forum_content_listitem:hover{
-	border: 2px solid #DADAF5;
-	box-shadow: 5px 5px 5px #CCC;
 }
 
 .forum_content_listitem  a{
@@ -28,7 +25,6 @@
 
 }
 .forum_content_listitem .topic:hover{
-	color:red;
 	text-decoration: underline;
 }
 
@@ -37,7 +33,6 @@
 }
 
 .forum_content_listitem .topic{
-	color:black;
 	margin-left: 8px;
 	margin-top: 3px;
 	margin-bottom: 0;
@@ -64,49 +59,8 @@
 
 
 /*******************************************
-	SUBJECTS
- *******************************************/
-
-.forum_subject {
-	background-color: #CACACA; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #CACACA, #F0F0F0); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #CACACA, #F0F0F0); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #CACACA, #F0F0F0); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #CACACA, #F0F0F0); /* Standard syntax */
-	
-}
-
-.forum_subject:hover{
-	background-color: #E0E0E0; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #E0E0E0, #F9F9F9); /* Standard syntax */
-	
-}
-
-
-/*******************************************
 	THREADS
 ********************************************/
-
-.forum_thread{
-	background-color: #C0C0DB; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #C0C0DB, #F0F0F0); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #C0C0DB, #F0F0F0); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #C0C0DB, #F0F0F0); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #C0C0DB, #F0F0F0); /* Standard syntax */
-
-}
-.forum_thread:hover{
-	background-color: #E0E0E3; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #E0E0E3, #EFEFF9); /* Standard syntax */
-
-}
-
 
 .forum_thread > .info > div{
 	display: inline-block;
@@ -131,15 +85,9 @@
 
 .forum_post{
 	display: flex;
-	background-color: rgb(255,255,225);
 	padding: 0px;
 	border-radius: 5px;
 	border-style: ridge;
-}
-
-.forum_post:hover{
-	border: 2px solid #5A5ACF;	
-	box-shadow: none;
 }
 
 /*		FORUMPOST AUTHOR SECTION
@@ -153,14 +101,11 @@
 	
 	padding: 0 5px 0 0;
 	min-width: 14%;
-	border-width: 0 1px 0 0;
-	border-style: solid;
 	
 }
 /* the author of posts name label */
 .forum_post .author .name a{
 	font-weight: bold;
-	color:black;
 	text-decoration: none;
 }
 
@@ -223,87 +168,13 @@
 #breadcrum .breadcrum_link{
 	margin: 4px 6px;
 	padding: 0px 20px;
-
-	border: 2px solid #8080EF;
-	background-color: #A0A0EF; /* std value*/
-	background: -webkit-linear-gradient(left top, #A0A0EF, #D6E6EF); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #A0A0EF, #D6E6EF); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #A0A0EF, #D6E6EF); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #A0A0EF, #D6E6EF); /* Standard syntax */
-
-	color: black;
-	text-align: center;
-	text-decoration: none;
-	font-size: 14px;
 	
-}
-#breadcrum .breadcrum_link:hover{
-	border: 2px solid #E0E0EF;
-	background-color: #BEBEEF; /* std value*/
-	background: -webkit-linear-gradient(left top, #BEBEEF, #DEEEEF); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #BEBEEF, #DEEEEF); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #BEBEEF, #DEEEEF); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #BEBEEF, #DEEEEF); /* Standard syntax */
-
 }
 
 /**************************************
 	PAGINATION FORUMPOST
 ***************************************/
 
-}
-.link{
-	float:left;
-	margin: 0 4px;
-}
-
-#pag_nav{
-	font-size: 20px;
-	margin-top: 10px;
-	width:100%;
-	height: 50px;
-	overflow: auto;
-}
-
-#pag_nav i {
-	font-size: inherit;
-	align-content: center;
-	margin:auto;
-	
-}
-
-#pag_nav > a {
-	margin:auto 10px;
-	text-decoration: none;
-	text-align: center;
-
-	float:left;
-}
-
-.pag_button{
-	padding: 2px;
-	color: white;
-	min-width:26px;
-	min-height:20px;
-	border-radius: 10px;
-	background-color: #66F;
-	border: solid 1px #009;
-	
-}
-
-.pag_button:hover{
-	background-color: #99F;
-	border-radius: 10px;
-	box-shadow: 0 0 4px #AAA ;
-}
-
-.pag_button_current{
-	background-color: #99A;
-}
-
-.pag_button_dir{
-
-}
 
 
 /****************************
