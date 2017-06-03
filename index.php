@@ -50,11 +50,9 @@
 	<main>
 		<?php
 			$user = getAuthorizedUser();
-	 		
-			echo '<div id="newsfeed">'
-					. getNewsFeed()
-				. '</div>';
-		
+
+			echo newsFeed();
+
 		?>
 	</main>
 	<footer>
@@ -65,17 +63,23 @@
 
 <?php
 /**
- * get newsfeed as html string ordered descending on created attribute
+ * @return newsfeed as html string
+ * ordered descending on created attribute
  */
-function getNewsFeed(){
+function newsFeed(){
 	$s = "";
 	$arr = Read::news(" ORDER BY news.created DESC ");
 
-	foreach($arr as $news)
-		$s .= '<article>' . newsfeedView($news) . '</article>';
+	foreach($arr as $news){
+		$s .=
+			'<article>'
+			. 	newsfeedView($news)
+			. '</article>';
+	}
 
-
-	return $s;
+	return '<div id="newsfeed">'
+			. $s
+			. '</div>';
 }
 
 
