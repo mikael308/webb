@@ -84,10 +84,15 @@ function newsFeed(){
 	return '<div id="newsfeed">'
 			. $s
 			. '</div>';
+/**
+ * get latest threads as aside section
+ * @return latestthreads section as aside html
+ */
+function asideLatestThreads(){
+	return
+		'<aside>'
+		. 	displayLatestThreads(2)
+		. '</aside>';
 }
 
-
 ?>
-
-
-
