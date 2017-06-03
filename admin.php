@@ -53,8 +53,10 @@
 	 */
 	function adminMenu(){
 		return '<ul id="adminmenu_list">'
-			
-			. 	listitem('<a class="button" href="'.$GLOBALS['post_page'] .'?op=news">post news</a>')
+			. 	listitem(
+						'<a class="button" href="'.$GLOBALS['post_page']
+							.'?op=news">post news</a>'
+					)
 			. '</ul>';
 	}
 
