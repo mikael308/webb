@@ -12,17 +12,22 @@
 
 			$db_conn = connect();
 			if($db_conn){
-				$query = "INSERT INTO " . $GLOBALS['dbtable_forumposts'] 
+				$query = "INSERT INTO " . $GLOBALS['dbtable_forumposts']
 					. " (author, thread, message, created) "
-					. " VALUES('".$post->getAuthor()->getPrimaryKey()."','".$thread->getId()."','".$post->getMessage()."', now());";
-					
+					. " VALUES('".$post->getAuthor()->getPrimaryKey()
+					.		"','"
+					.		$post->getThreadFK()
+					.		"','"
+					.		$post->getMessage()
+					.		"', now());";
+
 				$res = pg_query($db_conn, $query);
 				if($res){
 					pg_free_result($res);
 					return True;
-					
+
 				} else {
-                    throw new RuntimeException(pg_last_error($db_conn));
+        	throw new RuntimeException(pg_last_error($db_conn));
 				}
 			}
 			return False;
