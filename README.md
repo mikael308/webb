@@ -11,7 +11,7 @@ for demonstration see doc/presentation.ogv
 ## setup database
 to setup the database, do one of the following
 ### shellscript
-1. in root, run ```bash config/setup/setup.sh```
+in root, run ```bash config/setup/setup.sh```
 ### manual setup
 run the following scripts
 1. ./config/setup/setup_tables.sql
