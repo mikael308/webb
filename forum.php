@@ -14,7 +14,8 @@
 	require_once "./sections/forum/subject.php";
 	require_once "./sections/forum/thread.php";
 	require_once "./database/database.php";
-	require_once "./session/main.php";	
+	require_once "./session/authorization.php";
+	require_once "./session/requests.php";
 	require_once "./config/settings.php";
 	
 	autoloadDAO();

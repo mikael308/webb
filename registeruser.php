@@ -13,11 +13,12 @@
 	require_once "./sections/views.php";
 	require_once "./sections/elements.php";
 	require_once "./database/database.php";
-	require_once "./session/main.php";	
-	
+	require_once "./session/authorization.php";
+	require_once "./session/main.php";
+
 	autoloadDAO();
 	startSession();
-	
+
 	if(loginListener()){
 		header("Location: " . $GLOBALS['index_page']);
 		exit();

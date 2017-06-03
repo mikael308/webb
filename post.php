@@ -36,7 +36,9 @@
 	require_once "./database/database.php";
 	require_once "./database/read.php";
 	require_once "./database/post.php";
-	require_once "./session/main.php";	
+	require_once "./session/authorization.php";
+	require_once "./session/main.php";
+	require_once "./session/requests.php";
 	require_once "./config/settings.php";
 	require_once "./security/helper.php";
 
