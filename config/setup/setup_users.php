@@ -5,7 +5,8 @@
  */
 
 require_once "./database/database.php";
-require_once "./database/persist.php";
+require_once "./database/Persist.php";
+require_once "./sections/dateformat.php";
 
 autoloadDAO();
 
