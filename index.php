@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <?php
-/**
- * index page\n
- * available for non-auhtorized users\n
- * functions: 
- * <ul>
- * <li>newsfeed</li>
- * <li>login</li>
- * <li>link to register new user</li>
- * </ul>
- * @author Mikael Holmbom
- * @version 1.0
- */
+	/**
+	 * index page\n
+	 * available for non-auhtorized users\n
+	 * functions:
+	 * <ul>
+	 * <li>newsfeed</li>
+	 * <li>login</li>
+	 * <li>link to register new user</li>
+	 * </ul>
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 
 	require_once "./sections/main.php";
 	require_once "./sections/views.php";
