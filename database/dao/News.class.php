@@ -1,7 +1,7 @@
 <?php
 
 require_once './database/dao/DataAccessObject.class.php';
-require_once "./database/read.php";
+require_once "./database/Read.php";
 
 /**
  * Programvaruteknik,	Webbprogrammering 7.5hp
