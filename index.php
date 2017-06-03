@@ -51,8 +51,6 @@
 	</aside>
 	<main>
 		<?php
-			$user = getAuthorizedUser();
-
 			echo newsFeed();
 
 		?>
