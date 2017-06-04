@@ -156,18 +156,20 @@
 					. '<a class="clickable breadcrum_link" href="'.$link.'">'.$title.'</a>'
 				.'</div>';
 		}
-		
-		$cont = '<div id="breadcrum">'
-				. getBreadcrumLink($GLOBALS['forum_page'], "main");
+
+		$cont = getBreadcrumLink($GLOBALS['forum_page'], "main");
 		if($subject != NULL){
 			$cont .= getBreadcrumLink($GLOBALS['forum_page'] ."?s=".$subject->getPrimaryKey()."&p=1", $subject->getTopic());
 		}
 		if($thread != NULL){
 			$cont .= getBreadcrumLink($GLOBALS['forum_page'] ."?t=".$thread->getPrimaryKey()."&p=1", $thread->getTopic());
 		}
-		$cont .= '</div>';
-		return $cont;
-	}	
-	
-	
+
+		return
+			'<div id="breadcrum">'
+			. 	$cont
+			. '</div>';
+	}
+
+
 ?>
