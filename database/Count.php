@@ -79,8 +79,8 @@
 				if($res){
 					$num = pg_fetch_object($res)->count;
 					pg_free_result($res);
-		
-					return $num;
+
+					return (int) $num;
 				} else {
 					throw new RuntimeException(pg_last_error($db_conn));
 				}
