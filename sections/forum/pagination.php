@@ -75,10 +75,12 @@
 
 		 		return
 		 			'<div id="pag_nav">'
+					.'<ul>'
 		 			. 	Pagination::navButtonLeft($link, $currentPage)
 		 			. 	$pagIdxBtns
 		 			. 	Pagination::navButtonRight($link, $currentPage, $maxlim, $max_pages)
-		 			. '</div>';
+					. '</ul>'
+					. '</div>';
 		 	}
 
 			/**
@@ -90,9 +92,11 @@
 		 	 */
 		 	private function pagButton($link, $idx, $class=""){
 		 		return
-		 			'<a class="pag_button pag_button_dir '.$class.'" href="'. $link . '">'
+				'<li>'
+		 		.	'<a class="pag_button pag_button_dir '.$class.'" href="'. $link . '">'
 		 		.		$idx
-		 		. '</a>';
+		 		. '</a>'
+				. '</li>';
 		 	}
 
 		 	/**
