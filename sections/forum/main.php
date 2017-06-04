@@ -75,11 +75,10 @@
 		if ($p == NULL || $p == "") 
 			return errorMessage("invalid page");
 
-		$pag = pagination(
-			$p, 
-			(int) readSettings("pag_max_interval"),
-			Count::maxPagesThread($thread),
-			$GLOBALS['forum_page'] . "?t=" . $thread->getPrimaryKey());
+		$pag = Pagination::generateThread(
+			$thread,
+			$p
+		);
 
 		return forumViewFormat(
 			getBreadcrum($thread->getSubject(), $thread),
@@ -102,11 +101,10 @@
 		if ($p == NULL || $p == "") 
 			return errorMessage("invalid page");
 
-		$pag = pagination(
-			$p, 
-			(int) readSettings("pag_max_interval"), 
-			Count::maxPagesSubject($subject),
-			$GLOBALS['forum_page'] . "?s=" . $subject->getPrimaryKey());
+		$pag = Pagination::generateSubject(
+			$subject,
+			$p
+		);
 
 		return forumViewFormat(
 			getBreadcrum($subject, NULL),
