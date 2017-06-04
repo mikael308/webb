@@ -1,0 +1,16 @@
+/**
+ * authorization stylesheet
+ * 
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+#login_button {
+	padding-top:2px;
+	padding-bottom:2px;
+}
+
+#logout_button {
+	padding-top:2px;
+	padding-bottom:2px;
+}
