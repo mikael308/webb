@@ -1,5 +1,5 @@
 @import url("main.css");
-@import url("colorscheme_forum.css");
+@import url("colorschemes/forum_green.css");
 @import url("pagination.css");
 
 #forum_content{
