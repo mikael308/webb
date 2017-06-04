@@ -62,8 +62,7 @@
 	 */
 	function getMainFooterContent(){
 		return
-			'<hr>'
-			. getFooterLinks()
+			getFooterLinks()
 			. getScript("dropdownlist.js")
 			. '<p>&copy; Mikael Holmbom ' . date("Y") . '</p>';
 	}
