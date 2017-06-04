@@ -34,6 +34,7 @@
 	require_once "./sections/views.php";
 	require_once "./sections/post.php";
 	require_once "./sections/dateformat.php";
+	require_once "./sections/messages.php";
 	require_once "./database/database.php";
 	require_once "./database/post.php";
 	require_once "./session/authorization.php";
