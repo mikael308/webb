@@ -54,11 +54,12 @@
 		
 		$editMessageForm = editable($post) ? editMessageForm($post) : "";
 		$deletePostForm = editable($post) ? deletePostForm($post) : "";
-		
-		$edited = ($post->getEdited() != NULL && $post->getCreated() != $post->getEdited()) ? 
-			'<div class="edited">edited: ' . formatDateTime($post->getEdited()) . '</div>' 
-			: ""; 
-		
+
+		$edited =
+			($post->getEdited() != NULL && $post->getCreated() != $post->getEdited()) ?
+			'<div class="edited">edited: ' . formatDateTime($post->getEdited()) . '</div>'
+			: "";
+
 		$author = $post->getAuthor();
 
 		return '<div class="forum_content_listitem forum_post">'
