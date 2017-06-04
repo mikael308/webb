@@ -47,7 +47,7 @@ header{
 
 .btn_nav:hover{
 	background-color: #CFEFCF;
-/*	border: 4px solid #7070EF;*/
+	border: 0;
 	color:black;
 }
 
