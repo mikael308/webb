@@ -15,7 +15,7 @@ VALUES
 (1, 'kokbok'),
 (2, 'klaatu'),
 (2, 'pigeon'),
-(2, 'seagul');
+(2, 'seagull');
 
 INSERT INTO proj.forumposts (author, thread, message, created)
 VALUES
