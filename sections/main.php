@@ -29,13 +29,11 @@
 			'<meta charset="utf-8">'
 			. getScript("searchsidepanel.js")
 			. getScript("searchdatabase.js")
-			
-			. getStylesheet("main.css")
 			. getStylesheet("msg.css")
 			. getStylesheet("search.css")
 			. getStylesheet("widgets.css")
 			. '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">';
-			
+
 	}
 
 	/**
