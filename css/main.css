@@ -73,6 +73,11 @@ hr {
 	min-width: 860px;
 }
 
+nav {
+	margin: 0 auto;
+	max-width: 1200px;
+}
+
 #subnav {
 	margin:0 10%;
 }
