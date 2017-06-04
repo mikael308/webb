@@ -8,7 +8,7 @@
 
 	require_once "./config/pageref.php";
 	require_once "./sections/views.php";
-
+	require_once "./sections/forum/pagination.php";
 
 	/**
 	 * facade function generating forum content 
