@@ -68,7 +68,7 @@ hr{
 }
 
 #subnav{
-	height: 50px;
+	margin:0 10%;
 }
 
 #subnav > ul{
