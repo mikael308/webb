@@ -24,7 +24,7 @@
 	<?php 
 		echo getMainHeadContent();
 		echo getStyleSheet("widgets.css");
-		
+		echo getStyleSheet("about.css");
 		echo setTitle("about");
 	?>
 </head>
