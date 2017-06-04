@@ -23,8 +23,8 @@
 <head>
 	<?php 
 		echo getMainHeadContent();
-		echo getStyleSheet("widgets.css");
-		echo getStyleSheet("about.css");
+		echo getStylesheet("widgets.css");
+		echo getStylesheet("about.css");
 		echo setTitle("about");
 	?>
 </head>
