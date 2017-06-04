@@ -69,7 +69,8 @@
 		 			if($i == $currentPage){
 		 				$class = " pag_button_current";
 		 			}
-		 			$pagIdxBtns .= Pagination::pagButton($link."&p=".$i, $i, $class);
+		 			$pagIdxBtns .=
+						Pagination::pagButton($link."&p=".$i, $i, $class);
 		 		}
 
 		 		return
