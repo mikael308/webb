@@ -19,20 +19,22 @@ header{
 	color: #EFE;
 }
 
-
 .icon_button{
 	background-color: transparent;
 	border:none;
 }
+
 .icon_button:hover{
 	color: red;
 	cursor: pointer;
 }
+
 .btn_nav{
 	background-color: #C8F4C8;
 	border:0;
 	color: #333;
 }
+
 .btn_nav:hover{
 	background-color: #CFEFCF;
 /*	border: 4px solid #7070EF;*/
@@ -51,6 +53,7 @@ header{
 	font-size:32px;
 	color: #666;
 }
+
 #meta_nav i:hover{
 	color:#AAA;
 }
@@ -58,5 +61,3 @@ header{
 .clickable:hover{
 	color:red;
 }
-
-
