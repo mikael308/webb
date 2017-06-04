@@ -4,20 +4,20 @@
 html {
 	font-family: sans-serif;
 	text-align: left;
-	width: 80%;
-	margin: auto;
-	min-width: 580px;
-	max-width: 1160px;
+}
+
+body{
+	overflow:auto;
+	margin: 0px 0 64px;
+
 }
 
 header {
-	padding-top: 4px;
-	padding-bottom: 10px;
-
+	margin: 0 auto;
+	min-width: 800px;
 }
 
 nav {
-	margin-top: 25px;
 	padding-left: 8px;
 	margin-bottom: 0;
 }
@@ -103,31 +103,22 @@ hr{
 }
 
 aside{
-	width: 300px;
-	max-width: 500px;
-	float:left;
+
 }
 
 main {
+	width:90%;
+	min-width: 480px;
+	max-width: 1180px;*/
+	min-height: 420px;
 	overflow:auto;
-	margin: 0 46px;
-	min-height: 380px;
-
+	margin: 0 auto;
+	overflow:auto;
 }
 
 main article{
 	margin:auto;	
 }
-
-body{
-	overflow:auto;
-	padding: 4px 46px;
-	border-radius: 5px;
-	margin: 8px 0 64px;
-
-}
-
-
 
 footer {
 	text-align: center;
