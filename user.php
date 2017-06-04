@@ -67,8 +67,8 @@
 	} else {
 		echo setTitle("could not find user");
 	}
-	echo getStylesheet("viewuser.css");
-;?>	
+	echo getStyleSheet("user.css");
+;?>
 </head>
 <body>
 	<header>
