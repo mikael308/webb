@@ -1,20 +1,18 @@
+@import url("colorscheme_pagination.css");
 
 .pag_button{
-	background: #AAF;
-	border-radius: 10px;
+	font-size: 90%;
 	padding: 2px;
 	min-width:26px;
 	min-height:20px;
-	
 }
 
 .pag_button:hover{
-	background-color: #99F;
-	box-shadow: 0 0 4px #AAA ;
+
 }
 
 .pag_button_current{
-	background-color: #99A;
+
 }
 
 .link{
