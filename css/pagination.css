@@ -22,24 +22,25 @@
 
 #pag_nav{
 	font-size: 20px;
-	margin-top: 10px;
-	width:100%;
+	margin: 10px auto 0;
 	height: 50px;
-	overflow: auto;
+	width:50%;
 }
 
 #pag_nav i {
 	font-size: inherit;
 	align-content: center;
-	margin:auto;
-	
+	display: inline-block;
+}
+#pag_nav ul {
+	list-style-type: none;
+
 }
 
-#pag_nav > a {
+#pag_nav  a {
 	margin:auto 10px;
 	text-decoration: none;
 	text-align: center;
-
 	float:left;
 }
 
