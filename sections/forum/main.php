@@ -22,11 +22,11 @@
 		switch($index){
 			case "thread": 		
 				return displayThreadContent(
-					read::thread($indexValue), 
+					Read::thread($indexValue),
 					$page);
 			case "subject":		
 				return displaySubjectContent(
-					read::subjects($indexValue)[0],
+					Read::subjects($indexValue)[0],
 					$page);
 			case "main":		
 				return displayMainContent();
@@ -78,7 +78,7 @@
 		$pag = pagination(
 			$p, 
 			(int) readSettings("pag_max_interval"),
-			count::maxPagesThread($thread), 
+			Count::maxPagesThread($thread),
 			$GLOBALS['forum_page'] . "?t=" . $thread->getPrimaryKey());
 
 		return forumViewFormat(
@@ -105,7 +105,7 @@
 		$pag = pagination(
 			$p, 
 			(int) readSettings("pag_max_interval"), 
-			count::maxPagesSubject($subject),
+			Count::maxPagesSubject($subject),
 			$GLOBALS['forum_page'] . "?s=" . $subject->getPrimaryKey());
 
 		return forumViewFormat(
