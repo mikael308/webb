@@ -69,6 +69,10 @@ hr {
 	display: inline-block;
 }
 
+#logo {
+	min-width: 860px;
+}
+
 #subnav {
 	margin:0 10%;
 }
