@@ -18,7 +18,8 @@
 			. '</a>';
 	}
 
-	function displayLatestThreads(int $amount){
+	function displayLatestThreads(){
+		$amount = (int) readSettings("n_latest_threads");
 		$threadscont="";
 		$threads=Extract::latestThreads($amount);
 		foreach($threads as $thread){
