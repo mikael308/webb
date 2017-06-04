@@ -21,13 +21,13 @@
 			return errorMessage("invalid page");
 	
 		$n_postsPerPage = readSettings("posts_per_page");
-		$i 				= ($page -1) * $n_postsPerPage; # start offset
+		$i = ($page -1) * $n_postsPerPage; # start offset
 
-		$forumpost_arr 	= read::postsFromThread($thread->getPrimaryKey());
-		$maxlim 		= ($n_postsPerPage + $i);
-		$n_posts 		= count($forumpost_arr);
-		$max_pages		= count::maxPagesThread($thread);
-		
+		$forumpost_arr = Read::postsFromThread($thread->getPrimaryKey());
+		$maxlim = ($n_postsPerPage + $i);
+		$n_posts = count($forumpost_arr);
+		$max_pages = Count::maxPagesThread($thread);
+
 		if($page < 1 || $page > $max_pages)
 			return errorMessage("invalid page number");
 		if($n_posts < 1)
