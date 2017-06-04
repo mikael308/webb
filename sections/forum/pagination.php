@@ -1,9 +1,16 @@
 <?php
 
-	function pagButton($class, $link, $idx){
+	/**
+	 * get pagination button
+	 * @param $link ref
+	 * @param $idx index
+	 * @param $class optional class
+	 * @return button as html
+	 */
+	function pagButton($link, $idx, $class=""){
 		return
-			'<a class="pag_button '.$class.'" href="'. $link . '">'
-		.	$idx
+			'<a class="pag_button pag_button_dir '.$class.'" href="'. $link . '">'
+		.		$idx
 		. '</a>';
 	}
 
