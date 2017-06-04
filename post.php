@@ -72,7 +72,10 @@
 </head>
 <body>
 	<header>
-		<?php echo getMainHeaderContent(); ?>
+		<?php
+			echo getMainHeaderContent();
+			echo getStylesheet("post.css");
+		?>
 	</header>
 	<main>
 		<?php
