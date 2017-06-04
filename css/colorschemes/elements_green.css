@@ -1,0 +1,18 @@
+/**
+ * COLORSCHEME
+ * green
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+.button{
+	background-color: #686;
+	border: 3px solid #575;
+	border-radius: 8px;
+	color: #EFE;
+}
+
+.button:hover{
+	background-color: #797;
+	border: 3px solid #686;
+}

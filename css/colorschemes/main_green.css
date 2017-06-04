@@ -1,9 +1,18 @@
+/**
+ * COLORSCHEME
+ * green
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
 html{
 	background-color: #FAFAFA;
 }
+
 body{
 	background-color: white; 
 }
+
 header{
 
 }
@@ -11,6 +20,7 @@ header{
 #topheader{
 	background-color: #686;
 }
+
 #topheader > div {
 	max-width: 860px;
 }
@@ -48,6 +58,7 @@ header{
 #login_errmsg{
 	color: red;
 }
+
 /* std button attributes */
 #meta_nav i{
 	font-size:32px;
