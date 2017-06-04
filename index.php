@@ -40,22 +40,21 @@
 	<header>
 		<?php
 			echo getMainHeaderContent();
-			
+
 		?>
 	</header>
-	<aside>
-		<?php
-		
-			echo getAuthorizationContent();
-		?>
-	</aside>
 	<main>
 		<?php
-	 		echo asideLatestThreads();
 			echo newsFeed();
 
 		?>
 	</main>
+	<aside>
+		<?php
+			echo getAuthorizationContent();
+			echo displayLatestThreads(2);
+		?>
+	</aside>
 	<footer>
 		<?php
 			echo getMainFooterContent();
@@ -84,16 +83,7 @@ function newsFeed(){
 		'<div id="newsfeed">'
 		. $s
 		. '</div>';
-}
-/**
- * get latest threads as aside section
- * @return latestthreads section as aside html
- */
-function asideLatestThreads(){
-	return
-		'<aside>'
-		. 	displayLatestThreads(2)
-		. '</aside>';
+
 }
 
 ?>
