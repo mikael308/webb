@@ -73,7 +73,7 @@
 	function getLogoutForm(){
 		return 
 				'<form id="logoutform" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-				.	'<input type="submit" class="btn" value="logout"	name="logout">'
+				.	'<input type="submit" id="logout_button" class="button" value="logout"	name="logout">'
 				. '</form>';
 	}
 	
