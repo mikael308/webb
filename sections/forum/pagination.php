@@ -52,7 +52,7 @@
 			if($i == $currentPage){
 				$class = " pag_button_current";
 			}
-			$pagIdxBtns .= pagButton($class, $link."&p=".$i, $i);
+			$pagIdxBtns .= pagButton($link."&p=".$i, $i, $class);
 		}
 
 		$prevPage 	= max($currentPage-1, 1);
@@ -61,20 +61,16 @@
 		return
 			'<div id="pag_nav">'
 			. 	pagButton(
-					"pag_button_dir",
 					$link."&p=1",
 					"<i id='pag_first' class='material-icons'>first_page</i>")
 			. 	pagButton(
-					"pag_button_dir",
 					$link."&p=".$prevPage,
 					"<i id='pag_prev'  class='material-icons'>navigate_before</i>")
 			. 	$pagIdxBtns
 			. 	pagButton(
-					"pag_button_dir",
 					$link."&p=".$nextPage,
 					"<i id='pag_next'  class='material-icons'>navigate_next</i>")
 		 	. 	pagButton(
-		 			"pag_button_dir",
 		 			$link."&p=".$n_pages,
 		 			"<i id='pag_last'  class='material-icons'>last_page</i>")
 			. '</div>';
