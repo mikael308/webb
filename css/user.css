@@ -1,16 +1,18 @@
-#userinfo{
+#userinfo {
 	float:left;
 }
-#userinfo .userinfo_label{
+
+#userinfo .userinfo_label {
 	font-weight: bold;
 }
-#admin_tools{
+
+#admin_tools {
 	float:right;
 	border:solid 1px black;
 	padding: 10px;
 }
 
-#admin_tools .header{
+#admin_tools .header {
 	font-weight: bold;
 	text-transform: capitalize;
 }
