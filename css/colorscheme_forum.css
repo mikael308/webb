@@ -89,17 +89,14 @@
 	border-width: medium;
 }
 
-
 #breadcrum .breadcrum_link{
-	border: 2px solid #80EF80;
-	background-color: #C0EFC0; /* std value*/
-
-	color: #131;
+	border: 2px solid #8A8;
+	background-color: #575;
 	text-decoration: none;
-	
+	color: #EFE;
 }
+
 #breadcrum .breadcrum_link:hover{
-	border: 2px solid #E0EFE0;
-	background-color: #BEEFBE; /* std value*/
-	color:black;
+	border: 2px solid #8A8;
+	background-color: #797;
 }

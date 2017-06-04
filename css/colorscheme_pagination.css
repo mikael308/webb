@@ -1,16 +1,16 @@
 
 .pag_button{
-	background: #BDB;
+	background-color: #686;
 	border-radius: 10px;
-	color: #040;
+	color: #EFE;
 }
 
 .pag_button:hover{
-	background-color: #CFC;
+	background-color: #8A8;
 	box-shadow: 0 0 4px #AAA ;
 }
 
 .pag_button_current{
-	background-color: #BCB;
-	border: 1px solid #363;
+	background-color: #464;
+	border: 1px solid #575;
 }
