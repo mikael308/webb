@@ -98,7 +98,7 @@ class ForumThread extends DataAccessObject {
 	 * @return amount of posts
 	 */
 	function postsSize(){
-		return sizeof($this->getPosts());
+		return Count::postsBy($this);
 	}
 	/**
 	 * get the index of the current last page containing posts
