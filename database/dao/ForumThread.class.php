@@ -109,6 +109,13 @@ class ForumThread extends DataAccessObject {
 		return ceil($this->postsSize() / readSettings("posts_per_page"));
 	}
 
+	/**
+	 * @return this threads last post
+	 */
+	function getLastPost(){
+		return $this->getPosts()[($this->postsSize()-1)];
+	}
+
 }
 
 ?>
