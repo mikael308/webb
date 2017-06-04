@@ -1,5 +1,6 @@
 @import url("colorschemes/main_green.css");
 @import url("elements.css");
+@import url("authorization.css");
 
 html {
 	font-family: sans-serif;
