@@ -4,6 +4,8 @@
  * @version 1.0
  */
 
+@import url("main.css");
+
 #adminmenu_list{
 	list-style-type: none;
 }
