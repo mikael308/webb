@@ -20,13 +20,12 @@ nav {
 	margin-top: 25px;
 	padding-left: 8px;
 	margin-bottom: 0;
-		
 }
 
 nav #page_nav li{
 	display: inline-block;
-
 }
+
 nav #page_nav{
 	
 }
@@ -71,9 +70,11 @@ hr{
 #subnav{
 	height: 50px;
 }
+
 #subnav > ul{
 	margin-top:0;
 }
+
 #subnav > ul > li{
 	vertical-align: top;
 	
@@ -83,13 +84,16 @@ hr{
 	text-decoration: none;
 	list-style-type: none;
 }
+
 #subnav > ul > #metanav_li{
 	float:right;
 	margin-right: 50px;
 }
+
 #subnav > #username_label {
 	
 }
+
 #subnav > #username_label > a{
 	text-decoration: none;
 }
@@ -137,9 +141,11 @@ footer {
 #meta_nav a{
 	
 }
+
 #meta_nav > div{
 	display: inline-block;
 }
+
 /* std button attributes */
 #meta_nav i{
 	font-size:32px;
@@ -149,6 +155,7 @@ footer {
 	
 
 }
+
 .clickable:hover{
 	cursor: pointer;
 }
@@ -156,8 +163,7 @@ footer {
 .button_panel{
 	overflow: auto;
 }
+
 .button_panel > .button{
 	margin-right: 10px;
 }
-
-
