@@ -1,13 +1,12 @@
 @import url("pagination.css");
 
 .forum_content_listitem{
-	border: 2px solid #5A5ACF;	
+	padding: 1px;
 	border-radius: 6px;
 	
 }
 .forum_content_listitem:hover{
-	border: 2px solid #DADAF5;
-	box-shadow: 5px 5px 5px #CCC;
+
 }
 .forum_content_listitem .topic:hover{
 	color:red;
@@ -31,11 +30,11 @@
 }
 
 .forum_subject:hover{
-	background-color: #E0E0E0; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #E0E0E0, #F9F9F9); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #E0E0E0, #F9F9F9); /* Standard syntax */
+	background-color: #D0E0D0; /* std value*/
+	background: -webkit-linear-gradient(bottom right, #D0E0D0, #F9F9F9); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #D0E0D0, #F9F9F9); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #D0E0D0, #F9F9F9); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #D0E0D0, #F9F9F9); /* Standard syntax */
 	
 }
 
@@ -45,19 +44,19 @@
 ********************************************/
 
 .forum_thread{
-	background-color: #C0C0DB; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #C0C0DB, #F0F0F0); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #C0C0DB, #F0F0F0); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #C0C0DB, #F0F0F0); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #C0C0DB, #F0F0F0); /* Standard syntax */
+	background-color: #C0C8C0; /* std value*/
+	background: -webkit-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #C0C8C0, #F0F0F0); /* Standard syntax */
 
 }
 .forum_thread:hover{
-	background-color: #E0E0E3; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #E0E0E3, #EFEFF9); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #E0E0E3, #EFEFF9); /* Standard syntax */
+	background-color: #E0E3E0; /* std value*/
+	background: -webkit-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #E0E3E0, #EFEFF9); /* Standard syntax */
 
 }
 
@@ -67,11 +66,11 @@
 *********************************************/
 
 .forum_post{
-	background-color: #FFE;
+	background-color: #FFFFF3;
 }
 
 .forum_post:hover{
-	border: 2px solid #5A5ACF;	
+	/*border: 2px solid #5A5ACF;	*/
 	box-shadow: none;
 }
 
@@ -92,23 +91,15 @@
 
 
 #breadcrum .breadcrum_link{
-	border: 2px solid #8080EF;
-	background-color: #A0A0EF; /* std value*/
-	background: -webkit-linear-gradient(left top, #A0A0EF, #D6E6EF); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #A0A0EF, #D6E6EF); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #A0A0EF, #D6E6EF); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #A0A0EF, #D6E6EF); /* Standard syntax */
+	border: 2px solid #80EF80;
+	background-color: #C0EFC0; /* std value*/
 
-	color: black;
+	color: #131;
 	text-decoration: none;
 	
 }
 #breadcrum .breadcrum_link:hover{
-	border: 2px solid #E0E0EF;
-	background-color: #BEBEEF; /* std value*/
-	background: -webkit-linear-gradient(left top, #BEBEEF, #DEEEEF); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #BEBEEF, #DEEEEF); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #BEBEEF, #DEEEEF); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #BEBEEF, #DEEEEF); /* Standard syntax */
-
+	border: 2px solid #E0EFE0;
+	background-color: #BEEFBE; /* std value*/
+	color:black;
 }

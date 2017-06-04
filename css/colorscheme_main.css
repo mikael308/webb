@@ -1,21 +1,25 @@
 html{
-	background-color: #ECECEC;
+	background-color: #FAFAFA;
 }
 body{
 	background-color: white; 
 }
+header{
+
+}
+
+#topheader{
+	background-color: #686;
+}
+#topheader > div {
+	max-width: 860px;
+}
+
+#topheader h1 {
+	color: #EFE;
+}
 
 
-.button{
-	background-color: #CACAEF;
-	color:black;
-	border: 3px solid #0A0ACF;
-	border-radius: 8px;
-}
-.button:hover{
-	background-color: #E4E4EF;
-	border: 4px solid #CACACF;
-}
 .icon_button{
 	background-color: transparent;
 	border:none;
@@ -25,12 +29,14 @@ body{
 	cursor: pointer;
 }
 .btn_nav{
-	background-color: #5050EF;
-	color:white;
+	/*background-color: #5050EF;*/
+	border:0;
+	color: #444;
 }
 .btn_nav:hover{
-	background-color: #7575EF;
-	border: 4px solid #7070EF;
+	/*background-color: #7575EF;*/
+/*	border: 4px solid #7070EF;*/
+	color:black;
 }
 
 .btn_nav > a:hover{
