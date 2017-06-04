@@ -52,7 +52,20 @@ hr{
 	margin-left: 4px;
 	margin-right: 4px;
 	min-width: 90px;
-	
+}
+
+#topheader{
+	padding-left: 60px;
+
+}
+#topheader a {
+	text-decoration: none;
+}
+#topheader > div{
+	margin: 0 10%;	
+	text-transform: uppercase;
+	color:black;
+	display: inline-block;
 }
 
 #subnav{
