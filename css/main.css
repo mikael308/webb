@@ -7,10 +7,9 @@ html {
 	text-align: left;
 }
 
-body{
+body {
 	overflow:auto;
 	margin: 0px 0 64px;
-
 }
 
 header {
@@ -23,11 +22,11 @@ nav {
 	margin-bottom: 0;
 }
 
-nav #page_nav li{
+nav #page_nav li {
 	display: inline-block;
 }
 
-nav #page_nav{
+nav #page_nav {
 	
 }
 
@@ -37,7 +36,7 @@ nav #meta_nav {
 	float:right;
 }
 
-hr{
+hr {
 	position:relative;
 	top:-8px;
 	margin:0 0px;
@@ -48,35 +47,37 @@ hr{
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	border-radius: 10px 10px 0 0;
-	padding: 14px 8px 4px;
+	padding: 14px 12px 4px;
 	margin-left: 4px;
 	margin-right: 4px;
 	min-width: 90px;
 }
 
-#topheader{
+#topheader {
 	padding-left: 60px;
 
 }
+
 #topheader a {
 	text-decoration: none;
 }
-#topheader > div{
+
+#topheader > div {
 	margin: 0 10%;	
 	text-transform: uppercase;
 	color:black;
 	display: inline-block;
 }
 
-#subnav{
+#subnav {
 	margin:0 10%;
 }
 
-#subnav > ul{
+#subnav > ul {
 	margin-top:0;
 }
 
-#subnav > ul > li{
+#subnav > ul > li {
 	vertical-align: top;
 	
 	margin-top:0;
@@ -86,7 +87,7 @@ hr{
 	list-style-type: none;
 }
 
-#subnav > ul > #metanav_li{
+#subnav > ul > #metanav_li {
 	float:right;
 	margin-right: 50px;
 }
@@ -95,15 +96,15 @@ hr{
 	
 }
 
-#subnav > #username_label > a{
+#subnav > #username_label > a {
 	text-decoration: none;
 }
 
-#meta_nav > a{
+#meta_nav > a {
 	display: inline-block;
 }
 
-aside{
+aside {
 
 }
 
@@ -117,7 +118,7 @@ main {
 	overflow:auto;
 }
 
-main article{
+main article {
 	margin:auto;	
 }
 
@@ -130,32 +131,31 @@ footer {
 /******************
  * META_NAV
  *******************/
-#meta_nav a{
+#meta_nav a {
 	
 }
 
-#meta_nav > div{
+#meta_nav > div {
 	display: inline-block;
 }
 
 /* std button attributes */
-#meta_nav i{
+#meta_nav i {
 	font-size:32px;
 }
 
-.clickable{
+.clickable {
 	
-
 }
 
-.clickable:hover{
+.clickable:hover {
 	cursor: pointer;
 }
 
-.button_panel{
+.button_panel {
 	overflow: auto;
 }
 
-.button_panel > .button{
+.button_panel > .button {
 	margin-right: 10px;
 }
