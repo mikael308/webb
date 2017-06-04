@@ -117,8 +117,21 @@
 				. ";";
 			$n_threads 		= Count::query($query);
 			$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
-			
+
 			return $max_pages;
+		}
+
+		/**
+		 * get the amount of posts in param thread
+		 * @return as number of posts
+		 */
+		public static function postsBy(ForumThread $thread){
+			$query =
+				" FROM " . $GLOBALS['dbtable_forumposts'] . " AS p "
+				. " WHERE p.thread='".$thread->getPrimaryKey()."'"
+				. ";";
+
+				return Count::query($query);
 		}
 	} # ! COUNT
 
