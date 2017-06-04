@@ -1,3 +1,9 @@
+/**
+ * stylesheet used by pagination elements
+ *
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
 @import url("colorschemes/pagination_green.css");
 
 .pag_button{
