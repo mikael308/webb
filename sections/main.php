@@ -42,13 +42,16 @@
 	 * @return as html
 	 */
 	function getMainHeaderContent(){
-		return 
-			'<h1 id="main_header">Webbprogrammering-projekt</h1>'
-			. getNavContent()
-			. '<hr>'
+		return
+			'<div id="topheader">'
+			. '<div id="logo">'
+			.		'<a href="'.$GLOBALS['index_page'].'"><h1 id="main_header">Webb</h1></a>'
+			. '</div>'
+			. 	getNavContent()
+			. '</div>'
 			. getSubNavContent()
 			. getSidePanel();
-			
+
 	}
 
 	/**
