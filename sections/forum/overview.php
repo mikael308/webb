@@ -13,7 +13,7 @@
 	 * @return content as html string
 	 */
 	function forumContentListSubjects($subjects){
-		$cont = '';
+		$cont = "";
 
 		foreach($subjects as $subject){
 			$cont .= forumSubjectView($subject);
@@ -30,16 +30,16 @@
 		if ($subject == NULL) 
 			return errorMessage("could not display subject");
 
-		$cont = 
-			  '<div class="forum_content_listitem forum_subject">' 	
-			. 	'<a href="'.$GLOBALS['forum_page'] .'?s='.$subject->getPrimaryKey().'&p=1">'
+		$cont =
+			  "<div class='forum_content_listitem forum_subject'>"
+			. 	"<a href='".$GLOBALS["forum_page"] ."?s=".$subject->getPrimaryKey()."&p=1'>"
 			# gui information displayed about subject
-			. 		'<div class="topic">'.$subject->getTopic().'</div>'
-			.		'<div class="info">'
-			.			'<div class="subtitle">'.$subject->getSubtitle().'</div>'
-			. 		'</div>' 
-			. 	'</a>'
-			. '</div>';
+			. 		"<div class='topic'>".$subject->getTopic()."</div>"
+			.		"<div class='info'>"
+			.			"<div class='subtitle'>".$subject->getSubtitle()."</div>"
+			. 		"</div>"
+			. 	"</a>"
+			. "</div>";
 
 		return $cont;
 	}

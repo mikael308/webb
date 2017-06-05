@@ -20,24 +20,24 @@
 		$cont = "";
 		
 		# if user is not auhtorized
-		if(! isset($_SESSION['authorized_user'])){
+		if(! isset($_SESSION["authorized_user"])){
 			$cont .= getLoginForm()
 					. getRegisterContent();
 			
 		} else {
 			#$cont .= getLogoutForm();
 		}
-	
-		return '<div id="authorizationsection">'
+
+		return "<div id='authorizationsection'>"
 			. $cont
-			. '</div>';
+			. "</div>";
 	}
 	/**
 	 * get link to registration content
 	 * @return as html
 	 */
 	function getRegisterContent(){
-		return '<span><a href="'. $GLOBALS['register_page']. '">register here!</a></span>';
+		return "<span><a href='". $GLOBALS["register_page"]. "'>register here!</a></span>";
 	}
 	/**
 	 * form with fields:
@@ -48,22 +48,22 @@
 	 * 
 	 */
 	function getLoginForm(){
-		$errmsg = isset($_SESSION['login_errmsg']) ? 
-			$_SESSION['login_errmsg'] : "";
-		
+		$errmsg = isset($_SESSION["login_errmsg"]) ?
+			$_SESSION["login_errmsg"] : "";
+
 		return
-			'<div>'
-			.'<form id="loginform" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'" >'
-				.	'<div><span id="login_errmsg"> ' 
-				. 		$errmsg 
-				. 	'</span></div>'
-				.	'<label for="input_username">username</label><br>'
-				.	'<input type="text" id="input_username" name="input_username" ><br>'
-				.	'<label for="input_password">password</label><br>'
-				.	'<input type="password" id="input_password" name="input_password"><br>'
-				.	'<input type="submit" class="btn" value="login" name="login"><br>'
-			.'</form>'
-			.'</div>';
+			"<div>"
+			."<form id='loginform' method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."' >"
+				.	"<div><span id='login_errmsg'> "
+				. 		$errmsg
+				. 	"</span></div>"
+				.	"<label for='input_username'>username</label><br>"
+				.	"<input type='text' id='input_username' name='input_username' ><br>"
+				.	"<label for='input_password'>password</label><br>"
+				.	"<input type='password' id='input_password' name='input_password'><br>"
+				.	"<input type='submit' class='btn' value='login' name='login'><br>"
+			."</form>"
+			."</div>";
 
 	}
 	/**
@@ -71,11 +71,11 @@
 	 * @return as html
 	 */
 	function getLogoutForm(){
-		return 
-				'<form id="logoutform" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-				.	'<input type="submit" id="logout_button" class="button" value="logout"	name="logout">'
-				. '</form>';
+		return
+				"<form id='logoutform' method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
+				.	"<input type='submit' id='logout_button' class='button' value='logout'	name='logout'>"
+				. "</form>";
 	}
-	
+
 
 ?>

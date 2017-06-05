@@ -21,8 +21,8 @@
 	autoloadDAO();
 	startSession();
 	logoutListener();
-	restrictedToAuthorized($GLOBALS['register_page'] );
-	
+	restrictedToAuthorized($GLOBALS["register_page"] );
+
 ?>
 
 <html>
@@ -59,11 +59,11 @@
 	</header>
 	<main>
 		<?php
-		
-			$index 		= 'main';
-			$index_val 	= '';
 
-			if (isset($_GET['t'])){
+			$index 		= "main";
+			$index_val 	= "";
+
+			if (isset($_GET["t"])){
 				$index = "thread";
 				$index_val = get_index("t");
 			} elseif (isset($_GET["s"])){

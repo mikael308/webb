@@ -19,7 +19,7 @@
 
 	startSession();
 	logoutListener(); 
-	restrictedToAuthorized($GLOBALS['register_page'] );
+	restrictedToAuthorized($GLOBALS["register_page"] );
 
 	function getReq($index){
 		if(isset($_GET[$index])){
@@ -33,12 +33,12 @@
 	try{
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$user = read::forumUser($_POST['u']);
-			
-			if($_POST['update_user']){
+
+			if($_POST["update_user"]){
 				# SET NEW ATTRS
 				$b = null;
-				if(isset($_POST['update_user_banned']))
-					$b = $_POST['update_user_banned'] == "on" ? 1 : 0;
+				if(isset($_POST["update_user_banned"]))
+					$b = $_POST["update_user_banned"] == "on" ? 1 : 0;
 				else
 					$b = 0;
 				
@@ -46,8 +46,8 @@
 				
 				update::forumUser($user);
 			}
-			
-			$_GET['u'] = $user->getPrimaryKey();
+
+			$_GET["u"] = $user->getPrimaryKey();
 
 		}
 		
@@ -82,7 +82,7 @@
 		
 			if($view_user != NULL){
 				echo getUserInfo($view_user);
-				$authorized_user = $_SESSION['authorized_user'];
+				$authorized_user = $_SESSION["authorized_user"];
 				if($authorized_user->isAdmin()
 					|| ($authorized_user->isModerator() 
 						&& (!$view_user->isAdmin() || $view_user->isModerator()))
@@ -90,9 +90,9 @@
 					echo getAdminTools();
 				}
 			} else {
-				echo errorMessage('user was not found');
-			}		
-			
+				echo errorMessage("user was not found");
+			}
+
 		?>
 	</main>
 	<footer>
@@ -106,16 +106,16 @@ function getAdminTools(){
 	global $view_user;
 
 	# the user settings is concerning
-	$hiddenuser_row = 
-		'<input type="hidden" name="u" value="' . $view_user->getPrimaryKey() . '" />';
-	
+	$hiddenuser_row =
+		"<input type='hidden' name='u' value='" . $view_user->getPrimaryKey() . "' />";
+
 	$bannuser_row="";
 	if(! $view_user->isAdmin()){
 		# BANN USER setting
 		$bannuser_tooltip = "user is currently: " 
 			. ($view_user->isBanned()? "true" : "false");
-		$bannuser_row = tr( 
-					td('<label>banned user</label>')
+		$bannuser_row = tr(
+					td("<label>banned user</label>")
 					.td(
 						toolTip(switchButton("update_user_banned", 
 						$view_user->isBanned()),
@@ -123,21 +123,21 @@ function getAdminTools(){
 	}
 
 	# SAVE BUTTON
-	$submit = '<input type="submit" id="submit" class="icon_button material-icons" value="save" name="update_user">';
+	$submit = "<input type='submit' id='submit' class='icon_button material-icons' value='save' name='update_user'>";
 	$submit_row = tr(
 		td("")
 		.td(toolTip($submit, "save changes")));
 
-	return '<div id="admin_tools">' 
-	. '<div class="header">admin tools</div>'
-	. 	'<form id="admintools" method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
-	. 		'<table>' 
+	return "<div id='admin_tools'>"
+	. "<div class='header'>admin tools</div>"
+	. 	"<form id='admintools' method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
+	. 		"<table>"
 	. 		$hiddenuser_row
 	. 		$bannuser_row
 	. 		$submit_row
-	. 		'</table>'
-	. 	'</form>'
-	. '</div>';
+	. 		"</table>"
+	. 	"</form>"
+	. "</div>";
 }
 
 ?>

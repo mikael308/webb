@@ -51,15 +51,15 @@
 	 * listens for submissions from forms on this page
 	 */
 	if($_SERVER["REQUEST_METHOD"] == "POST"){
-		if(isset($_POST['create_forumthread'])){
+		if(isset($_POST["create_forumthread"])){
 			createThread();
-		} elseif (isset($_POST['post_reply'])){
+		} elseif (isset($_POST["post_reply"])){
 			postReply();
-		} elseif (isset($_POST['update_post'])){
+		} elseif (isset($_POST["update_post"])){
 			updatePost();
-		} elseif(isset($_POST['delete_post'])){
+		} elseif(isset($_POST["delete_post"])){
 			deletePost();
-		} elseif(isset($_POST['create_news'])){
+		} elseif(isset($_POST["create_news"])){
 			createNews();
 		}
 	}
@@ -86,7 +86,7 @@
 					handleGetOp();
 		
 				} else if($_SERVER["REQUEST_METHOD"] == "POST"){
-					if(isset($_POST['edit_post'])){					
+					if(isset($_POST["edit_post"])){
 						echo updatePostView();
 		
 					} else {
@@ -113,24 +113,24 @@
 	 */
 	function handleGetOp(){
 
-		if(isset($_GET['op'])) {
-			switch($_GET['op']){
-				case 'reply':
-					if(get_index('t') != NULL){
+		if(isset($_GET["op"])) {
+			switch($_GET["op"]){
+				case "reply":
+					if(get_index("t") != NULL){
 						echo postReplyView();
 					} else {
 						echo errorMessage("invalid thread");
 					}
 					break;
-				case 'createthread':
-					$_SESSION['s'] = $_GET['s']; #TODO till session??? subject
-					if(get_index('s') != NULL){
+				case "createthread":
+					$_SESSION["s"] = $_GET["s"]; #TODO till session??? subject
+					if(get_index("s") != NULL){
 						echo createThreadView();
 					} else {
 						echo errorMessage("invalid subject");
 					}
 					break;
-				case 'news':
+				case "news":
 					if(getAuthorizedUser()->isAdmin()){
 						echo createNewsView();
 					} else {

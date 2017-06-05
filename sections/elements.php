@@ -13,9 +13,9 @@
 	 * @return icon button as html
 	 */
 	function getIconButton($icon, $attrs = ""){
-		return '<i id="'.$icon.'_btn" class="clickable material-icons" '.$attrs.'>'
+		return "<i id='".$icon."_btn' class='clickable material-icons' ".$attrs.">"
 			. 	$icon
-			. '</i>';
+			. "</i>";
 	}
 	/**
 	 * get a navigation button
@@ -23,9 +23,9 @@
 	 * @param $text the text of the button
 	 */
 	function getNavButton($href, $text){
-		return '<a class="button btn_nav" href="'.$href.'">'
+		return "<a class='button btn_nav' href='".$href."'>"
 			. 	$text
-			. '</a>';
+			. "</a>";
 	}
 
 	/**
@@ -41,17 +41,17 @@
 		$ddlist = "";
 		foreach($listitems as $label => $link){
 			$ddlist .=
-				'<a href="' . $link . '">'
+				"<a href='" . $link . "'>"
 				. 	$label
-				. '</a>';
+				. "</a>";
 		}
 
 		return "<div id='$id' class='dropdown'>"
 			. 	$target
-			.		'<div class="dropdown-content">'
+			.		"<div class='dropdown-content'>"
 			.			$ddlist
-			.		'</div>'
-			. '</div>';
+			.		"</div>"
+			. "</div>";
 	}
 	function getSidePanel(){
 		return searchSidePanel();
@@ -62,18 +62,18 @@
 	 * @return search sidepanel as html
 	 */
 	function searchSidePanel(){
-		$res_cont = getAuthorizedUser() != NULL ? 
-					'<div id="searchres"></div>' :
-					'<div><a href="'.$GLOBALS['register_page'] .'">register to search forum</a></div>';
-		
-		return '<div id="search_sidepanel" class="sidepanel">'
-				. '<a href="javascript:void(0)" class="clickable closebtn" onclick="closeSearchPanel()">&times;</a>'
-				. '<h2>search</h2>'
-				. '<div class="sidepanel_content">'
+		$res_cont = getAuthorizedUser() != NULL ?
+					"<div id='searchres'></div>" :
+					"<div><a href='".$GLOBALS["register_page"] ."'>register to search forum</a></div>";
+
+		return "<div id='search_sidepanel' class='sidepanel'>"
+				. "<a href='javascript:void(0)' class='clickable closebtn' onclick='closeSearchPanel()'>&times;</a>"
+				. "<h2>search</h2>"
+				. "<div class='sidepanel_content'>"
 				. 	getSearchForm()
 				. 	$res_cont
-				. '</div>'
-			. '</div>';
+				. "</div>"
+			. "</div>";
 	}
 	/**
 	 * generate a element that shows tooltip when hover
@@ -82,11 +82,11 @@
 	 * @return tooltip element as html
 	 */
 	function toolTip($target, $tooltip){
-		return '<div class="tooltip">'
-			. 	'<span class="tooltiptext">' . $tooltip . '</span>'
+		return "<div class='tooltip'>"
+			. 	"<span class='tooltiptext'>" . $tooltip . "</span>"
 			.	$target
-			. '</div>';
-		
+			. "</div>";
+
 	}
 	/**
 	 * generate a switchbutton form input

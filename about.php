@@ -34,10 +34,10 @@
 	</header>
 	<main>
 		<?php
-			echo '<p>about page</p>';
-			
-			if(isset($_GET['d'])){
-				switch($_GET['d']){
+			echo "<p>about page</p>";
+
+			if(isset($_GET["d"])){
+				switch($_GET["d"]){
 					case "faq":
 						echo faqContent();
 						break;
@@ -63,20 +63,20 @@
 <?php
 
 	function aboutContent(){
-		return '<p>this explains the reason for this page</p>';
+		return "<p>this explains the reason for this page</p>";
 	}
-	
+
 	function faqContent(){
 		$xml = simplexml_load_file("res/faq.xml") or die("could not load faq");
-		
-		$cont = '<div id="faq">';		
+
+		$cont = "<div id='faq'>";		
 		foreach($xml->children() as $x){
-			$cont .= '<button class="accordion">'.$x->question.'</button>'
-				. '<div class="panel">'
-				. 	'<p>' . $x->answer . '</p>'
-				. '</div>';
+			$cont .= "<button class='accordion'>".$x->question."</button>"
+				. "<div class='panel'>"
+				. 	"<p>" . $x->answer . "</p>"
+				. "</div>";
 		}
-		$cont .= '</div>';
+		$cont .= "</div>";
 		return $cont;
 	}
 

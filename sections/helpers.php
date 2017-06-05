@@ -11,7 +11,7 @@
 	 * @return stylesheet link as html
 	 */
 	function getStylesheet($filename){
-		return '<link rel="stylesheet" href="./css/'.$filename.'" >';
+		return "<link rel='stylesheet' href='./css/".$filename."' >";
 	}
 	/**
 	 * get script link to file
@@ -19,7 +19,7 @@
 	 * @return script link as html
 	 */
 	function getScript($filename){
-		return '<script type="text/javascript" src="./js/'.$filename.'" ></script>';	
+		return "<script type='text/javascript' src='./js/".$filename."' ></script>";
 	}
 	/**
 	 * generate listitem 
@@ -27,7 +27,7 @@
 	 * @return listitem as html
 	 */
 	function listitem($listitem){
-		return '<li>' . $listitem . '</li>';
+		return "<li>" . $listitem . "</li>";
 	}
 	/**
 	 * set the title of current page
@@ -36,16 +36,16 @@
 	 * @return title as html
 	 */
 	function setTitle($subtitle = NULL){
-		$s = '';
+		$s = "";
 		if($subtitle != NULL && $subtitle != ""){
 			$s .= $subtitle . " | ";
 		}
-		$s .='webbprogrammering-projekt';
-		
-		return 
-			'<title>'
-			. $s 
-			. '</title>';
+		$s .= "webbprogrammering-projekt";
+
+		return
+			"<title>"
+			. 	$s
+			. "</title>";
 	}
 	
 

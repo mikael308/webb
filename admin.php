@@ -36,7 +36,7 @@
 	</header>
 	<main>
 		<?php
-			echo '<h2>admin page</h2>';
+			echo "<h2>admin page</h2>";
 			echo adminMenu();
 		?>
 	</main>
@@ -52,12 +52,12 @@
 	 * list of admin tools
 	 */
 	function adminMenu(){
-		return '<ul id="adminmenu_list">'
+		return "<ul id='adminmenu_list'>"
 			. 	listitem(
-						'<a class="button" href="'.$GLOBALS['post_page']
-							.'?op=news">post news</a>'
+						"<a class='button' href='".$GLOBALS["post_page"]
+							."?op=news'>post news</a>"
 					)
-			. '</ul>';
+			. "</ul>";
 	}
 
 ?>
