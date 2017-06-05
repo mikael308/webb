@@ -6,6 +6,8 @@
  */
 
 	require_once "./config/pageref.php";
+	require_once "./config/settings.php";
+	require_once "./database/database.php";
 	require_once "./sections/main.php";
 	require_once "./sections/views.php";
 	require_once "./sections/dateformat.php";
@@ -13,11 +15,9 @@
 	require_once "./sections/forum/overview.php";
 	require_once "./sections/forum/subject.php";
 	require_once "./sections/forum/thread.php";
-	require_once "./database/database.php";
 	require_once "./session/authorization.php";
 	require_once "./session/requests.php";
-	require_once "./config/settings.php";
-	
+
 	autoloadDAO();
 	startSession();
 	logoutListener();

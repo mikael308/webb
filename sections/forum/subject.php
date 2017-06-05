@@ -5,8 +5,8 @@
  */
 
 	require_once "./sections/forum/main.php";
-	require_once "./sections/views.php";
 	require_once "./sections/messages.php";
+	require_once "./sections/views.php";
 
 	/**
 	 * display list of links to threads related to subject

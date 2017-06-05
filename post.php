@@ -30,17 +30,17 @@
 
 	require_once "./config/pageref.php";
 	require_once "./config/settings.php";
-	require_once "./sections/main.php";
-	require_once "./sections/views.php";
-	require_once "./sections/post.php";
-	require_once "./sections/dateformat.php";
-	require_once "./sections/messages.php";
 	require_once "./database/database.php";
 	require_once "./database/post.php";
+	require_once "./sections/dateformat.php";
+	require_once "./sections/main.php";
+	require_once "./sections/messages.php";
+	require_once "./sections/post.php";
+	require_once "./sections/views.php";
+	require_once "./security/helper.php";
 	require_once "./session/authorization.php";
 	require_once "./session/main.php";
 	require_once "./session/requests.php";
-	require_once "./security/helper.php";
 
 	autoloadDAO();
 	startSession();

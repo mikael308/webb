@@ -4,7 +4,10 @@
 	 * @author Mikael Holmbom
 	 * @version 1.0
 	 */
+
 	require_once "sections/elements.php";
+
+
 	/**
 	 * get form for client searching in database
 	 * @return as html

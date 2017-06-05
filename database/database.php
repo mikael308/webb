@@ -9,11 +9,11 @@
  * @version 1.0
  */
 
+ 	require_once "Count.php";
+ 	require_once "Delete.php";
+	require_once "Persist.php";
 	require_once "Read.php";
 	require_once "Update.php";
-	require_once "Delete.php";
-	require_once "Persist.php";
-	require_once "Count.php";
 	require_once "./config/settings.php";
 
 	# password crypt salt

@@ -8,11 +8,11 @@
 	 */
 
 	require_once "./config/pageref.php";
-	require_once "./sections/views.php";
-	require_once "./sections/elements.php";
-	require_once "./sections/helpers.php";
 	require_once "./sections/authorization.php";
+	require_once "./sections/elements.php";
 	require_once "./sections/forms.php";
+	require_once "./sections/helpers.php";
+	require_once "./sections/views.php";
 
 
 	/**

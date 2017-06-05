@@ -13,12 +13,12 @@
 	 * @version 1.0
 	 */
 
+	require_once "./database/database.php";
 	require_once "./sections/main.php";
 	require_once "./sections/views.php";
-	require_once "./database/database.php";
+	require_once "./sections/forum/information.php";
 	require_once "./session/authorization.php";
 	require_once "./session/main.php";
-	require_once "./sections/forum/information.php";
 
 	startSession();
 

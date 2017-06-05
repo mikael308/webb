@@ -6,10 +6,10 @@
  * @author Mikael Holmbom
  * @version 1.0
  */
-	
+
 	require_once "./config/pageref.php";
-	require_once "./database/database.php";
 	require_once "./config/settings.php";
+	require_once "./database/database.php";
 	require_once "./sections/views.php";
 
 	/**
