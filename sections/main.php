@@ -33,7 +33,6 @@
 			. getStylesheet("search.css")
 			. getStylesheet("widgets.css")
 			. '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">';
-
 	}
 
 	/**
@@ -87,7 +86,8 @@
 	 * @return as html
 	 */
 	function getFooterLinks(){
-		return '<ul id="footerlinks">'
+		return
+			'<ul id="footerlinks">'
 			. listitem(
 					'<a href="'.$GLOBALS['about_page'].'?d=about">'
 					. 	'about'
@@ -112,13 +112,16 @@
 		$listitems =
 			listitem(
 				getNavButton($GLOBALS['index_page'],
-			 	'start'))
+			 	'start')
+			)
 			. listitem(
 				getNavButton($GLOBALS['forum_page'],
-				'forum'))
+				'forum')
+			)
 			. listitem(
 				getNavButton($GLOBALS['user_page'] .'?u=' . $authorizedUserId,
-				'my page'));
+				'my page')
+			);
 
 		$user = getAuthorizedUser();
 		if($user != NULL && $user->isAdmin()){
@@ -126,8 +129,9 @@
 				$GLOBALS['admin_page'],
 				"admin");
 		}
-		
-		return '<nav>'
+
+		return
+			'<nav>'
 			. 	'<ul id="page_nav">'
 			.		$listitems
 			. 	'</ul>'
@@ -152,6 +156,7 @@
 				'my page' => getDisplayUserLink($user->getPrimaryKey()),
 				'logout' => $GLOBALS['about_page'] . '?d=about'
 			);
+
 		return
 			dropDownList(
 				$dropdown_btn,
@@ -198,13 +203,11 @@
 	 * @return as html
 	 */
 	function getSubNavContent(){
-
 		return '<div id="subnav">'
 			. '<ul>'
 			. 	"<li id='metanav_li'>" . getMetaNav() . "</li>"
 			. 	'</ul>'
 			. '</div>';
-
 	}
 
 
