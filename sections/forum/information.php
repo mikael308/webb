@@ -8,6 +8,7 @@
 	require_once "./database/Extract.php";
 	require_once "./sections/forum/main.php";
 	require_once "./sections/views.php";
+	require_once "./session/authorization.php";
 
 
 	/**
@@ -57,6 +58,10 @@
 	 * @return as html
 	 */
 	function displayLatestThreads(){
+		if(! userIsAuthorized()){
+			return "";
+		}
+
 		$amount = (int) readSettings("n_latest_threads");
 		$threadscont = "";
 		$threads = Extract::latestThreads($amount);
