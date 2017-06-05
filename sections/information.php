@@ -24,7 +24,7 @@
 	 * get a summary view of a threads latest post
 	 * @return as html
 	 */
-	function threadView(ForumThread $thread){
+	function threadsLatestPostView(ForumThread $thread){
 		return
 			'<div class="latestThreadViewRef">'
 			. '<a href="forum.php?t='.$thread->getId().'&p='.$thread->getLastPageIndex().'" >'
