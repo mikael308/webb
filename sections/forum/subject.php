@@ -98,32 +98,57 @@
 	function threadlinkPagButton($thread, $index){
 		return '<a class="clickable" href="' . getDisplayThreadLink($thread, $index) . '">' . $index . '</a>';
 	}
-	function threadInnerPag(ForumThread $thread){
-		$cont = '';
 
-		$maxPages = count::maxPagesThread($thread);
-		$paginterval = readSettings("pag_max_interval_threadlink");
-		$maxlim = min($maxPages, $paginterval);
+	/**
+	 * get pagination links to
+	 * @return list of pagination links
+	 */
+	function getStartEndPags($thread, $pagInterval){
+		if($thread == NULL)
+			return "";
+		$maxPages = Count::maxPagesThread($thread);
+		$maxlim = min($maxPages, $pagInterval);
+
+		$pags = array();
+
 		$i = 1;
 		# beginning indexes
 		for(; $i <= $maxlim; $i++){
-			$cont .= threadlinkPagButton($thread, $i);
+			$pags[$i] = threadlinkPagButton($thread, $i);
 		}
-		
+
+		# get the end offset
 		$end_offset = ($maxPages - $paginterval) +1;
 		if($i < $end_offset){
 			$i = $end_offset;
 		}
-		if($maxPages > ($paginterval * 2)){ # mid part
-			$cont .= " ... ";
-		}
 		# ending indexes
 		for(;$i <= $maxPages; $i++){
-			$cont .= threadlinkPagButton($thread, $i);
+			$pags[$i] = threadlinkPagButton($thread, $i);
 		}
-		return 
+		return $pags;
+	}
+
+	function threadInnerPag(ForumThread $thread){
+		$cont = '';
+		
+		$pagInterval = readSettings("pag_max_interval_threadlink");
+
+		$lastPagIdx = 0;
+		$pags = getStartEndPags($thread, $pagInterval);
+		foreach($pags as $i => $pag){
+			if($i != ($lastPagIdx+1)){
+				# previous page was not current (index -1)
+				# add a mark for stepping in index
+				$cont .= " ... ";
+			}
+			$lastPagIdx=$i;
+			$cont .= $pag;
+		}
+
+		return
 			  '<div class="threadlink_pagination">'
-			. 	$cont 
+			. 	$cont
 			. '</div>';
 	}
 
