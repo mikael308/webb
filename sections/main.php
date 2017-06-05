@@ -26,13 +26,13 @@
 	 */
 	function getMainHeadContent(){
 		return
-			'<meta charset="utf-8">'
+			"<meta charset='utf-8'>"
 			. getScript("searchsidepanel.js")
 			. getScript("searchdatabase.js")
 			. getStylesheet("message.css")
 			. getStylesheet("search.css")
 			. getStylesheet("widgets.css")
-			. '<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">';
+			. "<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>";
 	}
 
 	/**
@@ -43,26 +43,26 @@
 	function getMainHeaderContent(){
 		# forum website logo
 		$logo =
-			'<div id="logo">'
-			.		'<a href="'.$GLOBALS['index_page'].'">'
-			.			'<h1 id="main_header">'
-			.				'Webb'
-			.			'</h1>'
-			.		'</a>'
-			. '</div>';
+			"<div id='logo'>"
+			.		"<a href='".$GLOBALS["index_page"]."'>"
+			.			"<h1 id='main_header'>"
+			.				"Webb"
+			.			"</h1>"
+			.		"</a>"
+			. "</div>";
 		# top (main) part of the header
 		$topheader =
-			'<div id="topheader">'
+			"<div id='topheader'>"
 			. 		$logo
 			. 		getNavContent()
-			. 	'</div>';
+			. 	"</div>";
 
 		return
-			'<div id="header_content">'
+			"<div id='header_content'>"
 			. 	$topheader
 			. 	getSubNavContent()
 			. 	getSidePanel()
-			. '</div>';
+			. "</div>";
 
 	}
 
@@ -74,12 +74,12 @@
 	 */
 	function getMainFooterContent(){
 		return
-			'<div id="footer_content">'
+			"<div id='footer_content'>"
 			. 	getFooterLinks()
-			. 	'<hr/>'
+			. 	"<hr/>"
 			. 	getScript("dropdownlist.js")
-			. 	'<p>&copy; Mikael Holmbom ' . date("Y") . '</p>'
-			. '</div>';
+			. 	"<p>&copy; Mikael Holmbom " . date("Y") . "</p>"
+			. "</div>";
 	}
 	/**
 	 * get list of footer links
@@ -87,18 +87,18 @@
 	 */
 	function getFooterLinks(){
 		return
-			'<ul id="footerlinks">'
-			. listitem(
-					'<a href="'.$GLOBALS['about_page'].'?d=about">'
-					. 	'about'
-					. '</a>'
+			"<ul id='footerlinks'>"
+				. listitem(
+					"<a href='".$GLOBALS["about_page"]."?d=about'>"
+					. 	"about"
+					. "</a>"
 				)
-			. listitem(
-					'<a href="'. $GLOBALS['contact_page'] .'">'
-					. 	'contact us'
-					. '</a>'
+				. listitem(
+					"<a href='". $GLOBALS["contact_page"] ."'>"
+					. 	"contact us"
+					. "</a>"
 				)
-		 . '</ul>';
+		 . "</ul>";
 	}
 	/**
 	 * get the navigation content
@@ -111,31 +111,32 @@
 
 		$listitems =
 			listitem(
-				getNavButton($GLOBALS['index_page'],
-			 	'start')
+				getNavButton($GLOBALS["index_page"],
+			 	"start")
 			)
 			. listitem(
-				getNavButton($GLOBALS['forum_page'],
-				'forum')
+				getNavButton($GLOBALS["forum_page"],
+				"forum")
 			)
 			. listitem(
-				getNavButton($GLOBALS['user_page'] .'?u=' . $authorizedUserId,
-				'my page')
+				getNavButton($GLOBALS["user_page"] ."?u=" . $authorizedUserId,
+				"my page")
 			);
 
 		$user = getAuthorizedUser();
 		if($user != NULL && $user->isAdmin()){
 			$listitems .= getNavButton(
-				$GLOBALS['admin_page'],
+				$GLOBALS["admin_page"],
 				"admin");
 		}
 
 		return
-			'<nav>'
-			. 	'<ul id="page_nav">'
-			.		$listitems
-			. 	'</ul>'
-			. '</nav>';
+			"<nav>"
+			. 	"<ul id='page_nav'>"
+			.			$listitems
+			. 	"</ul>"
+			. 	getUserNav($user)
+			. "</nav>";
 	}
 	/**
 	 * get user navigation list
@@ -153,8 +154,8 @@
 			.	"</div>";
 		$dropdown_list =
 			array(
-				'my page' => getDisplayUserLink($user->getPrimaryKey()),
-				'logout' => $GLOBALS['about_page'] . '?d=about'
+				"my page" => getDisplayUserLink($user->getPrimaryKey()),
+				"logout" => $GLOBALS["about_page"] . "?d=about"
 			);
 
 		return
@@ -180,8 +181,8 @@
 				"faq" => $GLOBALS['about_page'] . "?d=faq",
 				"about" => $GLOBALS['about_page'] . "?d=about"
 			);
-			
-		return '<div id="meta_nav">'
+
+		return "<div id='meta_nav'>"
 			. toolTip(
 					dropDownList(
 						$dropdown_btn,
@@ -191,23 +192,23 @@
 				)
 			. toolTip(
 					getIconButton(
-						'search',
-						'onclick="openSearchPanel()"'
+						"search",
+						"onclick='openSearchPanel()'"
 					),
-					'search'
+					"search"
 				)
-			. '</div>';
+			. "</div>";
 	}
 	/**
 	 * get the subnavigation content
 	 * @return as html
 	 */
 	function getSubNavContent(){
-		return '<div id="subnav">'
-			. '<ul>'
+		return "<div id='subnav'>"
+			. "<ul>"
 			. 	"<li id='metanav_li'>" . getMetaNav() . "</li>"
-			. 	'</ul>'
-			. '</div>';
+			. 	"</ul>"
+			. "</div>";
 	}
 
 

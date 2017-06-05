@@ -34,23 +34,23 @@
 		$maxlength = 65;
 		$lastAuthor = $thread->getLastAttributor();
 		return
-			'<div class="latestThreadViewRef">'
-			. 	'<a href="'.getDisplayThreadLink($thread, 1).'">'
-			.			'<div class="topic">'
+			"<div class='latestThreadViewRef'>"
+			. 	"<a href='".getDisplayThreadLink($thread, 1)."'>"
+			.			"<div class='topic'>"
 			.				textToLength($thread->getTopic(), $maxlength)
-			.			'</div>'
-			.		'</a>'
-			. 	'<a href="'.getDisplayThreadLink($thread, $thread->getLastPageIndex()).'">'
-			.			'<div class="message">'
+			.			"</div>"
+			.		"</a>"
+			. 	"<a href='".getDisplayThreadLink($thread, $thread->getLastPageIndex())."'>"
+			.			"<div class='message'>"
 			.				textToLength($thread->getLastPost()->getMessage(), $maxlength)
-			.			'</div>'
-			.		'</a>'
-			. 	'<a href="'.getDisplayUserLink($lastAuthor->getPrimaryKey()).'">'
-			.			'<div class="author">'
+			.			"</div>"
+			.		"</a>"
+			. 	"<a href='".getDisplayUserLink($lastAuthor->getPrimaryKey())."'>"
+			.			"<div class='author'>"
 			.			textToLength($lastAuthor->getName(), $maxlength)
-			.			'</div>'
-			. 	'</a>'
-			. '</div>';
+			.			"</div>"
+			. 	"</a>"
+			. "</div>";
 	}
 	/**
 	 * get div of latests posts per thread
@@ -70,10 +70,10 @@
 		}
 
 		return
-			'<div id="latestThreads">'
-			. '<h1>latest posts</h1>'
+			"<div id='latestThreads'>"
+			. "<h1>latest posts</h1>"
 			. 	$threadscont
-			. '</div>';
+			. "</div>";
 
 	}
 

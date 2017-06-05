@@ -47,21 +47,21 @@
 	 * @return content as html string
 	 */
 	function forumViewFormat($breadcrum, $header, $top_bts, $forumcontlist, $bottom_bts, $pag){
-		return 
-		'<article id="forum_content">'
+		return
+		"<article id='forum_content'>"
 		.	$breadcrum
-		. 	'<h2>' . $header . '</h2>'
-		. 	'<div id="forum_top_bts" class="button_panel">'
-		.		$top_bts 
-		. 	'</div>'
-		. 	'<div id="forum_content_list">'
-		. 		$forumcontlist 
-		.	'</div>'
-		.	'<div id="forum_bottom_bts" class="button_panel">'
-		. 		$bottom_bts 
-		.	'</div>'
+		. 	"<h2>" . $header . "</h2>"
+		. 	"<div id='forum_top_bts' class='button_panel'>"
+		.		$top_bts
+		. 	"</div>"
+		. 	"<div id='forum_content_list'>"
+		. 		$forumcontlist
+		.	"</div>"
+		.	"<div id='forum_bottom_bts' class='button_panel'>"
+		. 		$bottom_bts
+		.	"</div>"
 		. 	$pag
-		. '</article>';
+		. "</article>";
 	}
 	
 	/**
@@ -137,8 +137,8 @@
 	 * @return content as html string
 	 */
 	function replyButton($thread){
-		return 
-			'<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?op=reply&t='.$thread->getPrimaryKey().'">reply</a>';
+		return
+			"<a class='button forum_button' href='".$GLOBALS["post_page"] ."?op=reply&t=".$thread->getPrimaryKey()."'>reply</a>";
 	}
 
 	/**
@@ -147,9 +147,9 @@
 	 * @return button as html string
 	 */
 	function newThreadButton($subject){
-		return '<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?op=createthread&s='.$subject->getPrimaryKey().'">new thread</a>';
+		return "<a class='button forum_button' href='".$GLOBALS["post_page"] ."?op=createthread&s=".$subject->getPrimaryKey()."'>new thread</a>";
 	}
-	
+
 	/**
 	 * get url link to thread page
 	 * @param thread the thread
@@ -157,7 +157,7 @@
 	 * @return link url as string
 	 */
 	function getDisplayThreadLink(ForumThread $thread, $page){
-		return $GLOBALS['forum_page'] . "?t=" . $thread->getId() . "&p=" . $page;
+		return $GLOBALS["forum_page"] . "?t=" . $thread->getId() . "&p=" . $page;
 	}
 
 ?>

@@ -56,13 +56,13 @@
 					case 1: # successful login
 						return True;
 					case 0:
-						$_SESSION['login_errmsg'] = "could not connect to database";
+						$_SESSION["login_errmsg"] = "could not connect to database";
 						break;
 					case -1:
-						$_SESSION['login_errmsg'] = "could not login, wrong username or password";
+						$_SESSION["login_errmsg"] = "could not login, wrong username or password";
 						break;
 					case -2:
-						$_SESSION['login_errmsg'] = "could not login, user is banned";
+						$_SESSION["login_errmsg"] = "could not login, user is banned";
 						break;
 				}
 				
@@ -77,12 +77,12 @@
 	function logoutListener(){
 		if($_SERVER["REQUEST_METHOD"] == "POST"){
 			$authUser = getAuthorizedUser();
-			if (isset($_POST['logout'])){
-				
+			if (isset($_POST["logout"])){
+
 				if($authUser != NULL)
-					$_SESSION['authorized_user'] = NULL;
-				
-				header("Location: " . $GLOBALS['index_page']);
+					$_SESSION["authorized_user"] = NULL;
+
+				header("Location: " . $GLOBALS["index_page"]);
 				exit();
 			}
 		}
@@ -91,8 +91,8 @@
 	 * get this sessions authorized user
 	 */
 	function getAuthorizedUser(){
-		if(isset($_SESSION['authorized_user'])){
-			return $_SESSION['authorized_user'];	
+		if(isset($_SESSION["authorized_user"])){
+			return $_SESSION["authorized_user"];
 		}
 		return NULL;
 	}

@@ -25,20 +25,27 @@
 			substr($post->getMessage(), 0, $maxlen) . ' ... ' :
 			$post->getMessage();
 
-		$p = count::postPageIndex($post->getPrimaryKey());
+		$p = Count::postPageIndex($post->getPrimaryKey());
 		$t = $post->getThread();
 
 		$author = $post->getAuthor();
 
 		return
-
-			  '<a href="'. getDisplayThreadLink($t,$p) .'"><div class="post main">'. $label .'</div>'
-			. '</a>'
-			. '<div class="post extra">'
-			.	'<div class="author">author: <a href="'. getDisplayUserLink($author->getPrimaryKey()) .'">'. $author->getName() .'</a></div>'
-			.	'<div class="topic" >topic: <a href="'.getDisplayThreadLink($t,1).'">' . $t->getTopic() .'</a><div>'
-			. '</div>'
-			;
+			  "<a href='". getDisplayThreadLink($t, $p) ."'>"
+			.		"<div class='post main'>"
+			. 		$label
+			.		"</div>"
+			. "</a>"
+			. "<div class='post extra'>"
+			.		"<div class='author'>"
+			.			"author: <a href='". getDisplayUserLink($author->getPrimaryKey()) ."'>"
+			. 			$author->getName() .	"</a>"
+			.		"</div>"
+			.		"<div class='topic' >"
+			.			"topic: <a href='".getDisplayThreadLink($t, 1)."'>"
+			. 			$t->getTopic() ."</a>"
+			.		"<div>"
+			. "</div>";
 	}
 	/**
 	 *
@@ -47,15 +54,15 @@
 	 * @return rearsch result as html
 	 */
 	function searchresForumUser(ForumUser $user){
-		$cont = '<div class="name">'. $user->getName() .'</div>'
-			. '<div class="role">'. $user->getRole() . '</div>';
+		$cont = "<div class='name'>". $user->getName() ."</div>"
+			. "<div class='role'>". $user->getRole() . "</div>";
 
 		return
-		 	  '<a href="'.$GLOBALS['user_page'] .'?u=' . $user->getPrimaryKey() . '" class="user main">'
-		 	. 	'<div class="user extra">'
+		 	  "<a href='".$GLOBALS["user_page"] ."?u=" . $user->getPrimaryKey() . "' class='user main'>"
+		 	. 	"<div class='user extra'>"
 			.		$cont
-			. 	'</div>'
-			. '</a>'
+			. 	"</div>"
+			. "</a>"
 			;
 	}
 	/**
@@ -64,15 +71,15 @@
 	 * @return li as html
 	 */
 	function search_li($data){
-		return '<li class="searchres_item">'. $data .'</li>';
+		return "<li class='searchres_item'>". $data ."</li>";
 	}
 
 
-	$searchstr = $_REQUEST['id'];
-	$searchType = $_REQUEST['type'];
+	$searchstr = $_REQUEST["id"];
+	$searchType = $_REQUEST["type"];
 
-	$nothingfoundres = '<li class="searchres_item">no results</li>';
-	
+	$nothingfoundres = "<li class='searchres_item'>no results</li>";
+
 	$suggest = "";
 	if ($searchstr != ""){
 		$reslist = "";
@@ -101,12 +108,12 @@
 				}
 			break;
 		}
-	} 
-	
-	echo $suggest == "" ? "" : 
-		  '<ul id="searchres_list">'
+	}
+
+	echo $suggest == "" ? "" :
+		  "<ul id='searchres_list'>"
 		.	 $suggest
-		 .'</ul>';
+		 ."</ul>";
 
 
 

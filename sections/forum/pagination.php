@@ -15,7 +15,7 @@
 		  * @return as html
 			*/
 		 public static function generateSubject(ForumSubject $subject, $currentPage) {
-			 $link = $GLOBALS['forum_page'] . "?s=" . $subject->getPrimaryKey();
+			 $link = $GLOBALS["forum_page"] . "?s=" . $subject->getPrimaryKey();
 			 $max_pages = Count::maxPagesSubject($subject);
 			 return Pagination::generate(
 				 $subject->getPrimaryKey(),
@@ -32,7 +32,7 @@
  		  * @return as html
  			*/
 		 public static function generateThread(ForumThread $thread, $currentPage) {
-			 $link = $GLOBALS['forum_page'] . "?t=" . $thread->getPrimaryKey();
+			 $link = $GLOBALS["forum_page"] . "?t=" . $thread->getPrimaryKey();
 			 $max_pages = Count::maxPagesThread($thread);
 			 return Pagination::generate(
 				 $thread->getPrimaryKey(),
@@ -74,13 +74,13 @@
 		 		}
 
 		 		return
-		 			'<div id="pag_nav">'
-					.'<ul>'
+		 			"<div id='pag_nav'>"
+					."<ul>"
 		 			. 	Pagination::navButtonLeft($link, $currentPage)
 		 			. 	$pagIdxBtns
 		 			. 	Pagination::navButtonRight($link, $currentPage, $maxlim, $max_pages)
-					. '</ul>'
-					. '</div>';
+					. "</ul>"
+					. "</div>";
 		 	}
 
 			/**
@@ -92,11 +92,11 @@
 		 	 */
 		 	private function pagButton($link, $idx, $class=""){
 		 		return
-				'<li>'
-		 		.	'<a class="pag_button pag_button_dir '.$class.'" href="'. $link . '">'
+				"<li>"
+		 		.	"<a class='pag_button pag_button_dir ".$class."' href='". $link . "'>"
 		 		.		$idx
-		 		. '</a>'
-				. '</li>';
+		 		. "</a>"
+				. "</li>";
 		 	}
 
 		 	/**

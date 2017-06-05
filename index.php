@@ -23,7 +23,7 @@
 	startSession();
 
 	# listen for login submit
-	$_SESSION['login_errmsg'] = "";
+	$_SESSION["login_errmsg"] = "";
 	authorizationListener();
 
 	
@@ -76,15 +76,15 @@ function newsFeed(){
 
 	foreach($arr as $news){
 		$s .=
-			'<article>'
+			"<article>"
 			. 	newsfeedView($news)
-			. '</article>';
+			. "</article>";
 	}
 
 	return
-		'<div id="newsfeed">'
+		"<div id='newsfeed'>"
 		. $s
-		. '</div>';
+		. "</div>";
 
 }
 

@@ -13,10 +13,10 @@
 	 * @return error message as html string
 	 */
 	function errorMessage($message){
-		return '<p class="err_msg msg">'
-			. '<strong class="msg_header">error</strong> '
+		return "<p class='err_msg msg'>"
+			. "<strong class='msg_header'>error</strong> "
 			. $message
-			. '</p>';
+			. "</p>";
 	}
 	/**
 	 * get a info message
@@ -24,10 +24,10 @@
 	 * @return info message as html string
 	 */
 	function infoMessage($message){
-		return '<p class="info_msg msg">'
-			. '<strong class="msg_header">info</strong> '
+		return "<p class='info_msg msg'>"
+			. "<strong class='msg_header'>info</strong> "
 			. $message
-			. '</p>';
+			. "</p>";
 	}
 
 ?>

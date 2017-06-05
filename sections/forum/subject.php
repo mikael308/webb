@@ -111,7 +111,7 @@
 	 * @return as html
 	 */
 	function threadlinkPagButton($thread, $index){
-		return '<a class="clickable" href="' . getDisplayThreadLink($thread, $index) . '">' . $index . '</a>';
+		return "<a class='clickable' href='" . getDisplayThreadLink($thread, $index) . "'>" . $index . "</a>";
 	}
 
 	/**
@@ -145,8 +145,8 @@
 	}
 
 	function threadInnerPag(ForumThread $thread){
-		$cont = '';
-		
+		$cont = "";
+
 		$pagInterval = readSettings("pag_max_interval_threadlink");
 
 		$lastPagIdx = 0;
@@ -162,9 +162,9 @@
 		}
 
 		return
-			  '<div class="threadlink_pagination">'
+			  "<div class='threadlink_pagination'>"
 			. 	$cont
-			. '</div>';
+			. "</div>";
 	}
 
 ?>
