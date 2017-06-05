@@ -115,8 +115,9 @@
 				" FROM " . $GLOBALS['dbtable_forumthreads']
 				. " WHERE subject='" . $subject->getPrimaryKey() . "'"
 				. ";";
-			$n_threads 		= Count::query($query);
-			$max_pages		= ceil($n_threads / readSettings("threads_per_page"));
+
+			$n_threads = Count::query($query);
+			$max_pages = ceil($n_threads / readSettings("threads_per_page"));
 
 			return $max_pages;
 		}
