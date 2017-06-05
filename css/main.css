@@ -136,6 +136,11 @@ footer {
 	padding-bottom: 110px;
 }
 
+#footer_content {
+	margin: 0 auto;
+	max-width: 890px;
+}
+
 /******************
  * META_NAV
  *******************/
