@@ -43,11 +43,12 @@
 
 	function displayLatestThreads(){
 		$amount = (int) readSettings("n_latest_threads");
-		$threadscont="";
-		$threads=Extract::latestThreads($amount);
+		$threadscont = "";
+		$threads = Extract::latestThreads($amount);
 		foreach($threads as $thread){
 			$threadscont .= threadsLatestPostView($thread);
 		}
+
 		return
 			'<div id="latestThreads">'
 			. 	$threadscont
