@@ -17,8 +17,8 @@
 	}
 	/**
 	 * get a navigation button
-	 * @param href reference link
-	 * @param text the text of the button
+	 * @param $href reference link
+	 * @param $text the text of the button
 	 */
 	function getNavButton($href, $text){
 		return '<a class="button btn_nav" href="'.$href.'">'.$text.'</a>';
