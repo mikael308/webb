@@ -53,7 +53,7 @@
 	 * @param thread the thread to display
 	 * @return content as html string
 	 */
-	function threadLinkView(ForumThread $thread){
+	function threadLinkView($thread){
 		if ($thread == NULL)
 			return errorMessage("thread could not be displayed: invalid thread");
 
