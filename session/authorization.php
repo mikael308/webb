@@ -98,5 +98,12 @@
 		return NULL;
 	}
 
+	/**
+	 * @return true if current user is authorized
+	 */
+	function userIsAuthorized(){
+		return getAuthorizedUser() != NULL;
+	}
+
 
 ?>
