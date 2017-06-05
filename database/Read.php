@@ -8,6 +8,7 @@
 	/**
 	 * read entries from database
 	 * @author Mikael Holmbom
+	 * @version 1.0
 	 */
 	class Read{
 		
