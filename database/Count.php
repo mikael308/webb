@@ -1,10 +1,10 @@
 <?php
+
 	/**
 	 * 
 	 * @author Mikael Holmbom
 	 * @version 1.0
 	 */
-	
 	class Count{
 		/**
 		 * count the number of forumthreads created by specific user
