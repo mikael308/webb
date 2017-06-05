@@ -47,7 +47,13 @@ nav #page_nav {
 	vertical-align: middle;
 }
 
-#user_nav div:hover {
+#user_nav .dropbtn {
+	min-width: 35px;
+	padding: 10px;
+}
+
+#user_nav:hover div,
+#user_nav:hover i {
 	color: #CDC;
 }
 
