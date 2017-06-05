@@ -43,7 +43,9 @@ class ForumThread extends DataAccessObject {
 	public function getTopic(){
 		return $this->topic;
 	}
-
+	/**
+	 *get this primary key
+	 */
 	public function getPrimaryKey(){
 		return $this->getId();
 	}
