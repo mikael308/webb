@@ -121,15 +121,20 @@
 		if($user == NULL)
 			return "";
 
+		$dropdown_btn =
+			"<div class='dropbtn clickable'>"
+			.		$user->getName()
+			.		"<i class='dropbtn material-icons clickable'>expand_more</i>"
+			.	"</div>";
+		$dropdown_list =
+			array(
+				'my page' => getDisplayUserLink($user->getPrimaryKey()),
+				'logout' => $GLOBALS['about_page'] . '?d=about'
+			);
 		return
 			dropDownList(
-				'<div class="dropbtn clickable">'
-				.		$user->getName()
-				.	'</div>',
-				array(
-					'my page' => getDisplayUserLink($user->getPrimaryKey()),
-					'logout' => $GLOBALS['about_page'] . '?d=about'
-				),
+				$dropdown_btn,
+				$dropdown_list,
 				"user_nav"
 			);
 	}
