@@ -118,7 +118,7 @@
 		}
 
 		# get the end offset
-		$end_offset = ($maxPages - $paginterval) +1;
+		$end_offset = ($maxPages - $pagInterval) +1;
 		if($i < $end_offset){
 			$i = $end_offset;
 		}
