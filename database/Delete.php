@@ -1,6 +1,10 @@
 <?php
 
-
+	/**
+	 * delete data from database
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 	class Delete{
 		/**
 		 * delete forumuser matching with param user
