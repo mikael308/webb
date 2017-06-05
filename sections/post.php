@@ -6,8 +6,8 @@
 	 */
 	function getForumThreadtopicRow(){
 		return
-		td('<label for="forumthread_topic">topic</label>')
-		. td('<input type="text" name="forumthread_topic" autofocus required >');
+			td('<label for="forumthread_topic">topic</label>')
+			. td('<input type="text" name="forumthread_topic" autofocus required >');
 	}
 	/**
 	 * get form to create forumpost as string
@@ -15,7 +15,11 @@
 	function getCreateForumPostMessageRow($value = ""){
 		return
 			td('<label for="forumpost_message">message</label>')
-			. td('<textarea rows="5" cols="40" name="forumpost_message" autofocus required />'.$value.'</textarea>');
+			. td(
+				'<textarea rows="5" cols="40" name="forumpost_message" autofocus required />'
+				. 	$value
+				. '</textarea>'
+			);
 	}
 	/**
 	 * get a view to reply to post
@@ -23,7 +27,8 @@
 	 */
 	function postReplyView(){
 		$thread = read::thread(get_index('t'));
-		return '<h3>reply to thread: ' . $thread->getTopic() . '</h3>'
+		return
+			'<h3>reply to thread: ' . $thread->getTopic() . '</h3>'
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 			. 	'<table>'
 			. 		'<input type="hidden" name="thread" value="'.$thread->getId().'" /> '
@@ -80,14 +85,20 @@
 			. '<form method="POST" action="'.htmlspecialchars($_SERVER["PHP_SELF"]).'">'
 			.	'<table>'
 					# news TITLE
-			.		tr(td('<label for="news_title">title</label>')
-						. td('<input type="text" name="news_title" />'))
+			.		tr(
+						td('<label for="news_title">title</label>')
+						. td('<input type="text" name="news_title" />')
+					)
 					# news MESSAGE
-			.		tr(td('<label for="news_message">message</label>')
-						. td('<textarea rows="5" cols="40" name="news_message" ></textarea>'))
+			.		tr(
+						td('<label for="news_message">message</label>')
+						. td('<textarea rows="5" cols="40" name="news_message" ></textarea>')
+					)
 					# SUBMIT BUTTON
-			.		tr(td('')
-						. td('<input type="submit" name="create_news" value="create" />'))
+			.		tr(
+						td('')
+						. td('<input type="submit" name="create_news" value="create" />')
+					)
 	 		.	'</table>'
 			. '</form>';
 	}
