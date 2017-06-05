@@ -1,18 +1,19 @@
 <?php
-	/**
-	 * parse data from database to dataaccess object instances
-	 *
-	 * @author Mikael Holmbom
-	 * @version 1.0
-	 */
 
 	require_once "./database/database.php";
 	require_once "./database/Read.php";
 	require_once "./database/dao/ForumSubject.class.php";
 	require_once "./database/dao/ForumThread.class.php";
 
+
 	autoloadDAO();
 
+	/**
+	 * parse data from database to dataaccess object instances
+	 *
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 	class Parse{
 
 		/**
