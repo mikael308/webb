@@ -90,6 +90,11 @@
 			. '</div>';
 
 	}
+
+	/**
+	 * get simple thread pagination link
+	 * @return as html
+	 */
 	function threadlinkPagButton($thread, $index){
 		return '<a class="clickable" href="' . getDisplayThreadLink($thread, $index) . '">' . $index . '</a>';
 	}
