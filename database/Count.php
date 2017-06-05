@@ -112,8 +112,8 @@
 		 */
 		public static function maxPagesSubject(ForumSubject $subject){
 			$query =
-				" FROM " . $GLOBALS['dbtable_forumthreads']
-				. " WHERE subject='" . $subject->getPrimaryKey() . "'"
+				" FROM " . $GLOBALS['dbtable_forumthreads'] . " AS t "
+				. " WHERE t.subject='" . $subject->getPrimaryKey() . "'"
 				. ";";
 
 			$n_threads = Count::query($query);
