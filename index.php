@@ -18,7 +18,7 @@
 	require_once "./database/database.php";
 	require_once "./session/authorization.php";
 	require_once "./session/main.php";
-	require_once "./sections/information.php";
+	require_once "./sections/forum/information.php";
 
 	startSession();
 
