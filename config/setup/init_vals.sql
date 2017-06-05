@@ -13,7 +13,7 @@ VALUES
 INSERT INTO proj.forumthreads (subject, topic)
 VALUES
 (1, 'kokbok'),
-(2, 'klaatu'),
+(2, 'destroy the world'),
 (2, 'pigeon'),
 (2, 'seagull');
 
