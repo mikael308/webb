@@ -31,11 +31,12 @@
 		$n_threads 	= count($threads);
 		$max_pages 	= Count::maxPagesSubject($subject);
 
-		if($i > $max_pages)
-			return errorMessage("invalid page number");
 		if($n_threads < 1)
 			return infoMessage("subject contains no threads");
-		
+		if( $page < 1 || $page > $max_pages)
+			return errorMessage("invalid pagenumber");
+
+
 		$cont = "";
 		# iterate over threads 
 		# from i to maxpage interval or end of subject
