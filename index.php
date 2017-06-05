@@ -44,18 +44,19 @@
 
 		?>
 	</header>
-	<main>
-		<?php
-			echo newsFeed();
+		<main>
+			<?php
+				echo newsFeed();
 
-		?>
-	</main>
-	<aside>
-		<?php
-			echo getAuthorizationContent();
-			echo displayLatestThreads(2);
-		?>
-	</aside>
+			?>
+			<aside>
+				<?php
+					echo getAuthorizationContent();
+					echo displayLatestThreads();
+				?>
+			</aside>
+		</main>
+
 	<footer>
 		<?php
 			echo getMainFooterContent();
