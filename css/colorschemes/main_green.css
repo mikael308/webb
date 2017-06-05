@@ -17,6 +17,16 @@ header{
 
 }
 
+footer {
+	border-top: 3px solid #666;
+	background-color: #6C746C;
+	color: #FDFDFD;
+}
+
+footer a {
+	color: #F0F0F0;
+}
+
 #topheader{
 	background-color: #686;
 }
