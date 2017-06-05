@@ -1,4 +1,9 @@
 <?php
+	/**
+	 * sections used for posting to database
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 
 
 	/**
