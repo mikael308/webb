@@ -112,6 +112,27 @@
 			. 	'</ul>'
 			. '</nav>';
 	}
+	/**
+	 * get user navigation list
+	 * if user is null empty string is returned
+	 * @return as html
+	 */
+	function getUserNav(ForumUser $user){
+		if($user == NULL)
+			return "";
+
+		return
+			dropDownList(
+				'<div class="dropbtn clickable">'
+				.		$user->getName()
+				.	'</div>',
+				array(
+					'my page' => getDisplayUserLink($user->getPrimaryKey()),
+					'logout' => $GLOBALS['about_page'] . '?d=about'
+				),
+				"user_nav"
+			);
+	}
 
 	/**
 	 * get meta navigation content
