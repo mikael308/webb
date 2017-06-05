@@ -34,6 +34,7 @@
 		/**
 		 * persist forumthread to database
 		 * @param thread forumthread to persist
+		 * @return the persisted thread with id
 		 */
 		public static function forumThread(ForumThread $thread){
 			$resThread = null;
