@@ -46,7 +46,7 @@
 		$threadscont="";
 		$threads=Extract::latestThreads($amount);
 		foreach($threads as $thread){
-			$threadscont .= threadView($thread);
+			$threadscont .= threadsLatestPostView($thread);
 		}
 		return
 			'<div id="latestThreads">'
