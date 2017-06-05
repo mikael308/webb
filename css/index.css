@@ -46,3 +46,26 @@
 #newsfeed article .created{
 	font-size: 80%;
 }
+
+#latestThreads {
+	border: 2px solid black;
+	border-radius: 7px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	display: inline-block;
+	padding: 20px;
+	width:100%;
+}
+
+#latestThreads a {
+	text-decoration: none;
+	color:black;
+
+}
+
+.latestThreadViewRef {
+	border: 1px solid black;
+	
+	margin-bottom: 4px;
+	padding: 4px 8px;
+}
