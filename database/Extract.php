@@ -1,10 +1,10 @@
 <?php
-/**
- * extract data from database
- * @author Mikael Holmbom
- * @version 1.0
- */
 
+	/**
+	 * extract data from database
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 	class Extract{
 
 		static function latestThreads(int $amount){
