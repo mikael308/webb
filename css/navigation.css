@@ -1,0 +1,112 @@
+/**
+ * stylesheet for navigation elements 
+ *
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+nav {
+	margin-bottom: 0;
+	margin: 0 auto;
+	width: 82%;
+}
+
+.btn_nav {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-radius: 10px 10px 0 0;
+	padding: 14px 12px 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	min-width: 90px;
+}
+
+/******************
+ * PAGE_NAV
+ *******************/
+
+nav #page_nav li {
+	display: inline-block;
+}
+
+nav #page_nav {
+	display: inline-block;
+	margin-bottom:0;
+}
+
+
+/******************
+ * USER_NAV
+ *******************/
+
+#user_nav {
+	color: #EFE;
+	float:right;
+	vertical-align: middle;
+}
+
+#user_nav div:hover {
+	color: #CDC;
+}
+
+
+/******************
+ * META_NAV
+ *******************/
+#meta_nav a {
+	
+}
+
+#meta_nav > div {
+	display: inline-block;
+}
+
+/* std button attributes */
+#meta_nav i {
+	font-size:32px;
+}
+
+nav #meta_nav {
+	margin: auto 20px;
+	margin-left: 40px;
+	float:right;
+}
+
+#meta_nav > a {
+	display: inline-block;
+}
+
+
+/******************
+ * SUB_NAV
+ *******************/
+
+#subnav {
+	margin:0 10%;
+}
+
+#subnav > ul {
+	margin-top:0;
+}
+
+#subnav > ul > li {
+	vertical-align: top;
+	margin-top:0;
+	margin-right:16px;
+	display: inline-block;
+	text-decoration: none;
+	list-style-type: none;
+}
+
+#subnav > ul > #metanav_li {
+	float:right;
+	margin-right: 50px;
+}
+
+#subnav > #username_label {
+	
+}
+
+#subnav > #username_label > a {
+	text-decoration: none;
+}

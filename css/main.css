@@ -1,6 +1,7 @@
 @import url("elements.css");
 @import url("authorization.css");
 @import url("colorschemes/main_green.css");
+@import url("navigation.css");
 
 html {
 	font-family: sans-serif;
@@ -14,42 +15,15 @@ body {
 header {
 	margin: 0 auto;
 	min-width: 800px;
-}
-
-nav {
-	padding-left: 8px;
-	margin-bottom: 0;
-}
-
-nav #page_nav li {
-	display: inline-block;
-}
-
-nav #page_nav {
 	
 }
 
-nav #meta_nav {
-	margin: auto 20px;
-	margin-left: 40px;
-	float:right;
-}
 
 hr {
 	position:relative;
 	top:-8px;
 	margin:0 0px;
 	padding:0;
-}
-
-.btn_nav {
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	border-radius: 10px 10px 0 0;
-	padding: 14px 12px 4px;
-	margin-left: 4px;
-	margin-right: 4px;
-	min-width: 90px;
 }
 
 #topheader {
@@ -70,45 +44,6 @@ hr {
 
 #logo {
 	min-width: 860px;
-}
-
-nav {
-	margin: 0 auto;
-	max-width: 1200px;
-}
-
-#subnav {
-	margin:0 10%;
-}
-
-#subnav > ul {
-	margin-top:0;
-}
-
-#subnav > ul > li {
-	vertical-align: top;
-	margin-top:0;
-	margin-right:16px;
-	display: inline-block;
-	text-decoration: none;
-	list-style-type: none;
-}
-
-#subnav > ul > #metanav_li {
-	float:right;
-	margin-right: 50px;
-}
-
-#subnav > #username_label {
-	
-}
-
-#subnav > #username_label > a {
-	text-decoration: none;
-}
-
-#meta_nav > a {
-	display: inline-block;
 }
 
 aside {
@@ -138,22 +73,6 @@ footer {
 #footer_content {
 	margin: 0 auto;
 	max-width: 890px;
-}
-
-/******************
- * META_NAV
- *******************/
-#meta_nav a {
-	
-}
-
-#meta_nav > div {
-	display: inline-block;
-}
-
-/* std button attributes */
-#meta_nav i {
-	font-size:32px;
 }
 
 .clickable {
