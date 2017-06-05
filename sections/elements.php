@@ -13,7 +13,9 @@
 	 * @return icon button as html
 	 */
 	function getIconButton($icon, $attrs = ""){
-		return '<i id="'.$icon.'_btn" class="clickable material-icons" '.$attrs.'>'.$icon.'</i>';
+		return '<i id="'.$icon.'_btn" class="clickable material-icons" '.$attrs.'>'
+			. 	$icon
+			. '</i>';
 	}
 	/**
 	 * get a navigation button
@@ -21,7 +23,9 @@
 	 * @param $text the text of the button
 	 */
 	function getNavButton($href, $text){
-		return '<a class="button btn_nav" href="'.$href.'">'.$text.'</a>';
+		return '<a class="button btn_nav" href="'.$href.'">'
+			. 	$text
+			. '</a>';
 	}
 
 	/**
