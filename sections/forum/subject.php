@@ -60,8 +60,19 @@
 		$tlink = getDisplayThreadLink($thread, 1);
 		$creator = $thread->getCreator();
 		$lastAttr = $thread->getLastAttributor();
-		return  	
-	 	 	  '<div class="forum_content_listitem forum_thread">' 	
+		$refCreator = "";
+		$nameCreator = "";
+		$refLastAttr = "";
+		$nameLastAttr = "";
+		if($creator != NULL && $lastAttr != NULL){#($creator == NULL || $lastAttr == NULL){
+			$nameCreator = $creator->getName();
+			$refCreator = getDisplayUserLink($creator->getPrimaryKey());
+			$nameLastAttr = $lastAttr->getName();
+			$refCreator = getDisplayUserLink($lastAttr->getPrimaryKey());
+		}
+
+		return
+	 	 	  '<div class="forum_content_listitem forum_thread">'
 			.	'<a href="'.$tlink.'">'
 			. 		'<h3 class="topic">'
 			. 			$thread->getTopic()
@@ -69,8 +80,8 @@
 			. 	'</a>'			
 			.	'<div class="info">'
 			.		'<div class="authors">'
-			.			'<div class="creator">created by: <a class="clickable" href="'.getDisplayUserLink($creator->getPrimaryKey()).'">'.$creator->getName().'</a></div>'
-			.			'<div class="lastAttributor">last: <a class="clickable" href="'.getDisplayUserLink($lastAttr->getPrimaryKey()).'">'.$lastAttr->getName().'</a></div>'
+			.			'<div class="creator">created by: <a class="clickable" href="$refCreator">'.$nameCreator.'</a></div>'
+			.			'<div class="lastAttributor">last: <a class="clickable" href="$refLastAttr">'.$nameLastAttr.'</a></div>'
 			.		'</div>'
 			.		'<div class="indexlink"><div class="label">index:</div>'
 			.			threadInnerPag($thread)
