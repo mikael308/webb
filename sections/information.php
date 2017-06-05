@@ -20,15 +20,25 @@
 		return substr($text, 0, $max)."...";
 	}
 
+	/**
+	 * get a summary view of a threads latest post
+	 * @return as html
+	 */
 	function threadView(ForumThread $thread){
 		return
-			'<a href="forum.php?t='.$thread->getId().'&p='.$thread->getLastPageIndex().'" >'
-			. '<div>'
-			.		$thread->getTopic()
-			. " : "
-			. 	$thread->getLastAttributor()->getName()
-			. '</div>'
-			. '</a>';
+			'<div class="latestThreadViewRef">'
+			. '<a href="forum.php?t='.$thread->getId().'&p='.$thread->getLastPageIndex().'" >'
+			. 	'<div class="topic">'
+			.			textToLength($thread->getTopic(), 8)
+			. 	'</div>'
+			. 	'<div class="message">'
+			.			textToLength($thread->getLastPost()->getMessage(), 8)
+			. 	'</div>'
+			. 	'<div class="author">'
+			. 		textParser($thread->getLastAttributor()->getName(), 14)
+			. 	'</div>'
+			. '</a>'
+			. '</div>';
 	}
 
 	function displayLatestThreads(){
