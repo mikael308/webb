@@ -6,6 +6,8 @@
 	 */
 
 	require_once "./database/Extract.php";
+	require_once "./sections/forum/main.php";
+	require_once "./sections/views.php";
 
 
 	/**
@@ -25,19 +27,28 @@
 	 * @return as html
 	 */
 	function threadsLatestPostView(ForumThread $thread){
+		if($thread == NULL){
+			return "";
+		}
+		$maxlength = 40;
+		$lastAuthor = $thread->getLastAttributor();
 		return
 			'<div class="latestThreadViewRef">'
-			. '<a href="forum.php?t='.$thread->getId().'&p='.$thread->getLastPageIndex().'" >'
-			. 	'<div class="topic">'
-			.			textToLength($thread->getTopic(), 8)
-			. 	'</div>'
-			. 	'<div class="message">'
-			.			textToLength($thread->getLastPost()->getMessage(), 8)
-			. 	'</div>'
-			. 	'<div class="author">'
-			. 		textToLength($thread->getLastAttributor()->getName(), 14)
-			. 	'</div>'
-			. '</a>'
+			. 	'<a href="'.getDisplayThreadLink($thread, 1).'">'
+			.			'<div class="topic">'
+			.				textToLength($thread->getTopic(), $maxlength)
+			.			'</div>'
+			.		'</a>'
+			. 	'<a href="'.getDisplayThreadLink($thread, $thread->getLastPageIndex()).'">'
+			.			'<div class="message">'
+			.				textToLength($thread->getLastPost()->getMessage(), $maxlength)
+			.			'</div>'
+			.		'</a>'
+			. 	'<a href="'.getDisplayUserLink($lastAuthor->getPrimaryKey()).'">'
+			.			'<div class="author">'
+			.			textToLength($lastAuthor->getName(), $maxlength)
+			.			'</div>'
+			. 	'</a>'
 			. '</div>';
 	}
 	/**
