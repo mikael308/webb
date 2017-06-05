@@ -64,15 +64,19 @@
 			$index_val 	= '';
 
 			if (isset($_GET['t'])){
-				$index 		= "thread";
-				$index_val 	= get_index("t");
+				$index = "thread";
+				$index_val = get_index("t");
 			} elseif (isset($_GET["s"])){
-				$index 		= "subject";
-				$index_val 	= get_index("s");
-			} 
+				$index = "subject";
+				$index_val = get_index("s");
+			}
 			# display the forum
-			echo forum($index, $index_val, get_index("p"));
-						
+			echo forum(
+				$index,
+				$index_val,
+				get_index("p")
+			);
+
 		?>
 
 	</main>
