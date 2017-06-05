@@ -33,6 +33,7 @@
 	<?php
 		echo getMainHeadContent();
 		echo getStylesheet("index.css");
+		echo getStylesheet("information.css");
 		echo setTitle("");
 	?>
 </head>
