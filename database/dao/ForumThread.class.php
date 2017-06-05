@@ -38,6 +38,12 @@ class ForumThread extends DataAccessObject {
 		return $this->subject_fk;
 	}
 	/**
+	 * get creator foreign key
+	 */
+	public function getCreatorFK(){
+		return $this->creator_fk;
+	}
+	/**
 	 * get this topic
 	 */
 	public function getTopic(){
