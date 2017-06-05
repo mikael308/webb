@@ -28,17 +28,18 @@
 	 * get a dropdownlist<br>
 	 * dropdown reacts on target click<br>
 	 * to activate dropdown add js/dropdownlist.js
-	 * @param unknown $target the target element to react as dropdown button 
-	 * @param unknown $listitems 
+	 * @param $target the target element to react as dropdown button
+	 * @param $listitems
+	 * @param $id optional id of main element
 	 * @return string
 	 */
-	function dropDownList($target, $listitems){
+	function dropDownList($target, $listitems, $id=""){
 		$ddlist = "";
 		foreach($listitems as $label => $link){
 			$ddlist .= '<a href="' . $link . '">' . $label . '</a>';
 		}
-		
-		return '<div class="dropdown">'
+
+		return "<div id='$id' class='dropdown'>"
 			. $target
 			.	'<div class="dropdown-content">'
 			.		$ddlist
