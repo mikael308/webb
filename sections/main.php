@@ -87,15 +87,18 @@
 		$user = getAuthorizedUser();
 		$authorizedUserId = $user != NULL ?
 			$user->getPrimaryKey() : "";
-		
-		$listitems = 
-			listitem(getNavButton($GLOBALS['index_page'],
-			 		'start'))
-			. listitem(getNavButton($GLOBALS['forum_page'],
-					'forum'))
-			. listitem(getNavButton($GLOBALS['user_page'] .'?u=' . $authorizedUserId,
-					'my page'));
-		
+
+		$listitems =
+			listitem(
+				getNavButton($GLOBALS['index_page'],
+			 	'start'))
+			. listitem(
+				getNavButton($GLOBALS['forum_page'],
+				'forum'))
+			. listitem(
+				getNavButton($GLOBALS['user_page'] .'?u=' . $authorizedUserId,
+				'my page'));
+
 		$user = getAuthorizedUser();
 		if($user != NULL && $user->isAdmin()){
 			$listitems .= getNavButton(
