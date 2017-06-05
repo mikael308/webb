@@ -177,13 +177,11 @@
 	 * @return as html
 	 */
 	function getSubNavContent(){
-		$listitems = '';
 
 		return '<div id="subnav">'
 			. '<ul>'
-			.	$listitems
-			. "<li id='metanav_li'>" . getMetaNav() . "</li>"
-			. '</ul>'
+			. 	"<li id='metanav_li'>" . getMetaNav() . "</li>"
+			. 	'</ul>'
 			. '</div>';
 
 	}
