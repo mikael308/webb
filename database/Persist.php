@@ -14,10 +14,9 @@
 			if($db_conn){
 				$query = "INSERT INTO " . $GLOBALS['dbtable_forumposts']
 					. " (author, thread, message, created) "
-					. " VALUES('".$post->getAuthor()->getPrimaryKey()
-					.		"','"
-					.		$post->getThreadFK()
-					.		"','"
+					. " VALUES('"
+					.		$post->getAuthor()->getPrimaryKey() .	"','"
+					.		$post->getThreadFK() . "','"
 					.		$post->getMessage()
 					.		"', now());";
 
