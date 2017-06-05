@@ -40,7 +40,11 @@
 			. '</a>'
 			. '</div>';
 	}
-
+	/**
+	 * get div of latests posts per thread
+	 * the amount of displayed threads defined in settings n_latest_threads
+	 * @return as html
+	 */
 	function displayLatestThreads(){
 		$amount = (int) readSettings("n_latest_threads");
 		$threadscont = "";
