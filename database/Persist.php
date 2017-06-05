@@ -1,6 +1,10 @@
 <?php
 
-
+	/**
+	 * persist data to database
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 	class Persist{
 		/**
 		 * persist forumpost to database
