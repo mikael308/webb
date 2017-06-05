@@ -71,6 +71,7 @@
 
 		return
 			'<div id="latestThreads">'
+			. '<h1>latest posts</h1>'
 			. 	$threadscont
 			. '</div>';
 
