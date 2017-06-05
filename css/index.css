@@ -6,6 +6,11 @@
 
 @import url("main.css");
 
+#newsfeed {
+	width:60%;
+	float:left;
+}
+
 #newsfeed article {
 	margin: 20px;
 	padding: 6px;
