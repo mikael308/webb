@@ -40,10 +40,11 @@
 		 * @param user the specific user
 		 */
 		public static function forumPosts(ForumUser $user){
-			$query = " FROM " . $GLOBALS['dbtable_forumposts']
-			. " WHERE author='" . $user->getPrimaryKey() . "'"
-					. " ;";
-		
+			$query =
+				" FROM " . $GLOBALS['dbtable_forumposts']
+				. " WHERE author='" . $user->getPrimaryKey() . "'"
+				. " ;";
+
 			return count::query($query);
 		}
 
