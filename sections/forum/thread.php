@@ -28,7 +28,7 @@
 		$forumpost_arr = Read::postsFromThread($thread->getPrimaryKey());
 		# upper limit of pages
 		$maxlim = ($n_postsPerPage + $i);
-		$n_posts = count($forumpost_arr);
+		$n_posts = $thread->postsSize();
 		$max_pages = Count::maxPagesThread($thread);
 
 		if($page < 1 || $page > $max_pages)
