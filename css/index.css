@@ -47,6 +47,11 @@
 	font-size: 80%;
 }
 
+aside {
+	/*float:left;*/
+	display: inline-block;
+}
+
 #latestThreads {
 	border: 2px solid black;
 	border-radius: 7px;
