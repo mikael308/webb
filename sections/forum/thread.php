@@ -20,10 +20,13 @@
 		if ($page == NULL || $page == "") 
 			return errorMessage("invalid page");
 	
+
+		# start offset
 		$n_postsPerPage = readSettings("posts_per_page");
-		$i = ($page -1) * $n_postsPerPage; # start offset
+		$i = ($page -1) * $n_postsPerPage;
 
 		$forumpost_arr = Read::postsFromThread($thread->getPrimaryKey());
+		# upper limit of pages
 		$maxlim = ($n_postsPerPage + $i);
 		$n_posts = count($forumpost_arr);
 		$max_pages = Count::maxPagesThread($thread);
