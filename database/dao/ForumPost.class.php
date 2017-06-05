@@ -26,9 +26,6 @@ class ForumPost extends DataAccessObject{
 	
 	
 	/**
-	 * @param author
-	 * @param message
-	 * @param created
 	 */
 	public function __construct(){
 		
