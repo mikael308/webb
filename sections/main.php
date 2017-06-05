@@ -1,5 +1,4 @@
 <?php
-
 	/**
 	 *  
 	 * helper functions containing dynamic std sections of website
@@ -14,6 +13,7 @@
 	require_once "./sections/helpers.php";
 	require_once "./sections/authorization.php";
 	require_once "./sections/forms.php";
+
 
 	/**
 	 * get main head content
