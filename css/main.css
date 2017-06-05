@@ -8,8 +8,7 @@ html {
 }
 
 body {
-	overflow:auto;
-	margin: 0px 0 64px;
+	margin:0;
 }
 
 header {
