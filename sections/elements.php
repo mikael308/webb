@@ -40,14 +40,17 @@
 	function dropDownList($target, $listitems, $id=""){
 		$ddlist = "";
 		foreach($listitems as $label => $link){
-			$ddlist .= '<a href="' . $link . '">' . $label . '</a>';
+			$ddlist .=
+				'<a href="' . $link . '">'
+				. 	$label
+				. '</a>';
 		}
 
 		return "<div id='$id' class='dropdown'>"
-			. $target
-			.	'<div class="dropdown-content">'
-			.		$ddlist
-			.	'</div>'
+			. 	$target
+			.		'<div class="dropdown-content">'
+			.			$ddlist
+			.		'</div>'
 			. '</div>';
 	}
 	function getSidePanel(){
