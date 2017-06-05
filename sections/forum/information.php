@@ -35,7 +35,7 @@
 			.			textToLength($thread->getLastPost()->getMessage(), 8)
 			. 	'</div>'
 			. 	'<div class="author">'
-			. 		textParser($thread->getLastAttributor()->getName(), 14)
+			. 		textToLength($thread->getLastAttributor()->getName(), 14)
 			. 	'</div>'
 			. '</a>'
 			. '</div>';
