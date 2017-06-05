@@ -1,6 +1,10 @@
 <?php
 
-
+	/**
+	 * update data in database
+	 * @author Mikael Holmbom
+	 * @version 1.0
+ 	 */
 	class update{
 		/**
 		 * update forumser
