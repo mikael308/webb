@@ -11,6 +11,7 @@
 	require_once "./config/settings.php";
 	require_once "./database/database.php";
 	require_once "./sections/views.php";
+	require_once "./sections/forum/main.php";
 
 	/**
 	 *
