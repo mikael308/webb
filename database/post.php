@@ -64,8 +64,9 @@
 		$post->setCreated($timestamp);
 
 		# database
-		$thread = Persist::forumThread($thread, $post);
-		Persist::forumPost($thread, $post);
+		$thread = Persist::forumThread($thread);
+		$post->setThreadFK($thread->getPrimaryKey());
+		Persist::forumPost($post);
 
 		# redirect to thread page
 		$link = getThreadPageLink($thread, 1);
