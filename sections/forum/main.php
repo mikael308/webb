@@ -8,6 +8,7 @@
 
 	require_once "./config/pageref.php";
 	require_once "./sections/views.php";
+	require_once "./sections/forum/breadcrum.php";
 	require_once "./sections/forum/pagination.php";
 
 	/**
