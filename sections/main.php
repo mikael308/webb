@@ -156,13 +156,6 @@
 	 */
 	function getSubNavContent(){
 		$listitems = '';
-		$user = getAuthorizedUser();
-		if($user != NULL){
-			logoutListener();
-			$listitems .=
-				  listitem(getLogoutForm())
-				. listitem("<div id='username_label'>you're logged in as <a href='".$GLOBALS['user_page'] ."?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>");
-		}
 
 		return '<div id="subnav">'
 			. '<ul>'
