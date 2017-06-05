@@ -7,6 +7,19 @@
 
 	require_once "./database/Extract.php";
 
+
+	/**
+	 * format string to a maxlength
+	 * @param text the text to format
+	 * @param max max string length
+	 * @return formatted string
+	 */
+	function textToLength($text, $max){
+		if(strlen($text) <= $max)
+			return $text;
+		return substr($text, 0, $max)."...";
+	}
+
 	function threadView(ForumThread $thread){
 		return
 			'<a href="forum.php?t='.$thread->getId().'&p='.$thread->getLastPageIndex().'" >'
