@@ -31,7 +31,7 @@
 		if($thread == NULL){
 			return "";
 		}
-		$maxlength = 40;
+		$maxlength = 65;
 		$lastAuthor = $thread->getLastAttributor();
 		return
 			'<div class="latestThreadViewRef">'
