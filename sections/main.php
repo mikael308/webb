@@ -139,11 +139,11 @@
 				  listitem(getLogoutForm())
 				. listitem("<div id='username_label'>you're logged in as <a href='".$GLOBALS['user_page'] ."?u=".$user->getPrimaryKey()."'>" . $user->getName() . "</a></div>");
 		}
-		$listitems .= "<li id='metanav_li'>" . getMetaNav() . "</li>";
-		
+
 		return '<div id="subnav">'
 			. '<ul>'
 			.	$listitems
+			. "<li id='metanav_li'>" . getMetaNav() . "</li>"
 			. '</ul>'
 			. '</div>';
 
