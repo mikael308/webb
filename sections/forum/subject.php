@@ -54,8 +54,8 @@
 	 * @return content as html string
 	 */
 	function threadLinkView(ForumThread $thread){
-		if ($thread == NULL) 
-			return errorMessage("thread could not be displayed");
+		if ($thread == NULL)
+			return errorMessage("thread could not be displayed: invalid thread");
 
 		$tlink = getDisplayThreadLink($thread, 1);
 		$creator = $thread->getCreator();
