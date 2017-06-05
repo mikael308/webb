@@ -14,7 +14,7 @@ body{
 }
 
 header{
-
+	background-color: #686;
 }
 
 footer {
@@ -28,7 +28,7 @@ footer a {
 }
 
 #topheader{
-	background-color: #686;
+	
 }
 
 #topheader > div {
