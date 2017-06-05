@@ -42,15 +42,28 @@
 	 * @return as html
 	 */
 	function getMainHeaderContent(){
-		return
+		# forum website logo
+		$logo =
+			'<div id="logo">'
+			.		'<a href="'.$GLOBALS['index_page'].'">'
+			.			'<h1 id="main_header">'
+			.				'Webb'
+			.			'</h1>'
+			.		'</a>'
+			. '</div>';
+		# top (main) part of the header
+		$topheader =
 			'<div id="topheader">'
-			. '<div id="logo">'
-			.		'<a href="'.$GLOBALS['index_page'].'"><h1 id="main_header">Webb</h1></a>'
-			. '</div>'
-			. 	getNavContent()
-			. '</div>'
-			. getSubNavContent()
-			. getSidePanel();
+			. 		$logo
+			. 		getNavContent()
+			. 	'</div>';
+
+		return
+			'<div id="header_content">'
+			. 	$topheader
+			. 	getSubNavContent()
+			. 	getSidePanel()
+			. '</div>';
 
 	}
 
