@@ -97,9 +97,9 @@
 					'my page'));
 		
 		$user = getAuthorizedUser();
-		if($user != NULL 
-			&& $user->isAdmin()){
-			$listitems .= getNavButton($GLOBALS['admin_page'], 
+		if($user != NULL && $user->isAdmin()){
+			$listitems .= getNavButton(
+				$GLOBALS['admin_page'],
 				"admin");
 		}
 		
