@@ -117,7 +117,7 @@
 	 * if user is null empty string is returned
 	 * @return as html
 	 */
-	function getUserNav(ForumUser $user){
+	function getUserNav($user){
 		if($user == NULL)
 			return "";
 
