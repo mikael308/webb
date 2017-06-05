@@ -64,6 +64,7 @@
 		return
 			'<div id="footer_content">'
 			. 	getFooterLinks()
+			. 	'<hr/>'
 			. 	getScript("dropdownlist.js")
 			. 	'<p>&copy; Mikael Holmbom ' . date("Y") . '</p>'
 			. '</div>';
