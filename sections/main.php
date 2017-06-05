@@ -112,6 +112,9 @@
 
 	/**
 	 * get meta navigation content
+	 * contains navigation commands:
+	 * * about
+	 * * search
 	 * @return as html
 	 */
 	function getMetaNav(){
