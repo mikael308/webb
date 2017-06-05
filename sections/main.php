@@ -75,8 +75,16 @@
 	 */
 	function getFooterLinks(){
 		return '<ul id="footerlinks">'
-			. listitem( '<a href="'.$GLOBALS['about_page'].'?d=about">about</a>' )
-			. listitem( '<a href="'. $GLOBALS['contact_page'] .'">contact us</a>' )
+			. listitem(
+					'<a href="'.$GLOBALS['about_page'].'?d=about">'
+					. 	'about'
+					. '</a>'
+				)
+			. listitem(
+					'<a href="'. $GLOBALS['contact_page'] .'">'
+					. 	'contact us'
+					. '</a>'
+				)
 		 . '</ul>';
 	}
 	/**
