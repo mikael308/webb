@@ -29,7 +29,7 @@
 		
 		$maxlim 	= ($tpp + $i); # end offset
 		$n_threads 	= count($threads);
-		$max_pages 	= count::maxPagesSubject($subject);
+		$max_pages 	= Count::maxPagesSubject($subject);
 
 		if($i > $max_pages)
 			return errorMessage("invalid page number");
