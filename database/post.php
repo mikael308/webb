@@ -1,10 +1,10 @@
 
 <?php
-/**
- *
- * @author Mikael Holmbom
- * @version 1.0
- */	
+	/**
+	 * facade functions used for working with database
+	 * @author Mikael Holmbom
+	 * @version 1.0
+ 	 */
 
 	require_once "./config/pageref.php";
 	require_once "./sections/main.php";
