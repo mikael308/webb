@@ -12,15 +12,7 @@
 	
 	startSession();
 
-	/**
-	 * get url link to thread page 
-	 * @param thread the thread 
-	 * @param page the index page of the link
-	 * @return link url as string
-	 */
-	function getDisplayThreadLink(ForumThread $thread, $page){
-		return $GLOBALS['forum_page'] . "?t=" . $thread->getId() . "&p=" . $page;
-	}
+
 	/**
 	 * get a url to view user page
 	 * @param forumuser_pk primary key of the user to display

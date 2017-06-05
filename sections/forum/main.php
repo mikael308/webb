@@ -148,5 +148,15 @@
 	function newThreadButton($subject){
 		return '<a class="button forum_button" href="'.$GLOBALS['post_page'] .'?op=createthread&s='.$subject->getPrimaryKey().'">new thread</a>';
 	}
+	
+	/**
+	 * get url link to thread page
+	 * @param thread the thread
+	 * @param page the index page of the link
+	 * @return link url as string
+	 */
+	function getDisplayThreadLink(ForumThread $thread, $page){
+		return $GLOBALS['forum_page'] . "?t=" . $thread->getId() . "&p=" . $page;
+	}
 
 ?>
