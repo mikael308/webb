@@ -35,9 +35,9 @@
 	$topic = NULL;
 	try{
 		if(get_index("s") != NULL){
-			$topic = read::subjects(get_index("s"))[0];
+			$topic = Read::subjects(get_index("s"))[0];
 		} elseif (get_index("t") != NULL){
-			$topic = read::thread(get_index("t"));
+			$topic = Read::thread(get_index("t"));
 		}
 	} catch(RuntimeException $e){
 		
