@@ -62,9 +62,11 @@
 	 */
 	function getMainFooterContent(){
 		return
-			getFooterLinks()
-			. getScript("dropdownlist.js")
-			. '<p>&copy; Mikael Holmbom ' . date("Y") . '</p>';
+			'<div id="footer_content">'
+			. 	getFooterLinks()
+			. 	getScript("dropdownlist.js")
+			. 	'<p>&copy; Mikael Holmbom ' . date("Y") . '</p>'
+			. '</div>';
 	}
 	/**
 	 * get list of footer links
