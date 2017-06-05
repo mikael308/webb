@@ -31,10 +31,10 @@
 		$n_posts = $thread->postsSize();
 		$max_pages = Count::maxPagesThread($thread);
 
+		if($n_posts < 1)
+			return infoMessage("thread contains no posts");
 		if($page < 1 || $page > $max_pages)
 			return errorMessage("invalid page number");
-		if($n_posts < 1)
-			return infoMessage("subject contains no threads");
 
 		$cont = "";
 		# iterate over posts 
