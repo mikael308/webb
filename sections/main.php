@@ -174,28 +174,34 @@
 	 * @return as html
 	 */
 	function getMetaNav(){
-		$dropdown_btn =
+		$dropdown_btn_about =
 			"<i class='dropbtn material-icons clickable'>info_outline</i>";
-		$dropdown_list =
+		$dropdown_list_about =
 			array(
 				"faq" => $GLOBALS['about_page'] . "?d=faq",
 				"about" => $GLOBALS['about_page'] . "?d=about"
 			);
 
-		return "<div id='meta_nav'>"
-			. toolTip(
-					dropDownList(
-						$dropdown_btn,
-						$dropdown_list
-					),
-					"about"
+		return
+			"<div id='meta_nav'>"
+			. "<ul>"
+			. listitem(
+					toolTip(
+						dropDownList(
+							$dropdown_btn_about,
+							$dropdown_list_about
+						),
+						"about"
+					)
 				)
-			. toolTip(
-					getIconButton(
-						"search",
-						"onclick='openSearchPanel()'"
-					),
-					"search"
+			. listitem(
+					toolTip(
+						getIconButton(
+							"search",
+							"onclick='openSearchPanel()'"
+						),
+						"search"
+					)
 				)
 			. "</div>";
 	}
