@@ -20,10 +20,9 @@ header ul{
 	/* remove all std padding & margin for lists */
 	padding: 0;
 	margin: 0;
-	display: inline-block;
 }
 
-ul li {
+header  ul li {
 	display: inline-block;
 }
 
