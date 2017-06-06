@@ -30,23 +30,9 @@
 <?php	
 	echo getMainHeadContent();
 	echo getStylesheet("forum.css");
-	# TITLE 
-	$title = "forum";
-	$topic = NULL;
-	try{
-		if(get_index("s") != NULL){
-			$topic = Read::subjects(get_index("s"))[0];
-		} elseif (get_index("t") != NULL){
-			$topic = Read::thread(get_index("t"));
-		}
-	} catch(RuntimeException $e){
-		
-	}
 
-	if($topic != NULL){
-			$title .= ":" . $topic->getTopic();
-    }
-	echo setTitle($title);
+	# read from request and set topic name as this title
+	echo readTitle();
 
 ;?>	
 </head>
@@ -84,7 +70,31 @@
 
 	</main>
 	<footer>
-		<?php echo getMainFooterContent(); ?>
+		<?php
+			echo getMainFooterContent();
+		?>
 	</footer>
 </body>
 </html>
+<?php
+
+	function readTitle(){
+		$title = "forum";
+		$topic = NULL;
+		try{
+			if(get_index("s") != NULL){
+				$topic = Read::subjects(get_index("s"))[0];
+			} elseif (get_index("t") != NULL){
+				$topic = Read::thread(get_index("t"));
+			}
+		} catch(RuntimeException $e){
+
+		}
+
+		if($topic != NULL){
+				$title .= ":" . $topic->getTopic();
+	    }
+		return setTitle($title);
+	}
+
+ ?>
