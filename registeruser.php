@@ -3,7 +3,7 @@
 /**
  * page used for register new users
  * this page has permitted access to non-authorized users
- * 
+ *
  * @author Mikael Holmbom
  * @version 1.0
  */
@@ -29,19 +29,19 @@
 		# listen for user register post
 		if(isset($_POST["user_register"])){
 			register();
-			
+
 		}
 	}
 
 
-?>	
+?>
 <html>
 <head>
 <?php
 	echo getMainHeadContent();
 	echo getScript("validpasswordhint.js");
 	echo setTitle("register");
-	
+
 ?>
 </head>
 <body>
@@ -71,7 +71,7 @@
 			."</article>";
 
 	?>
-		
+
 	</main>
 	<footer>
 	<?php
@@ -143,7 +143,7 @@
 	function validPassword($password){
 		if(validLength($password)
 			&& validContent($password)){
-			return True;	
+			return True;
 		}
 		return False;
 	}
@@ -169,7 +169,7 @@
 				|| preg_match("/[A-Z]/", $password) == 0
 				|| preg_match("/[0-9]/", $password) == 0
 				|| preg_match("/[\\.!_\\-]/", $password) == 0){
-			return False;			
+			return False;
 		}
 		return True;
 	}
@@ -216,26 +216,26 @@
 	 * @return True if valid
 	 */
 	function validUser($name, $email, $passw, $passw_conf){
-	
+
 		# validate input fields
 		##########################
-		
+
 		if (str_replace(" ", "", $name) == ""){
 			$_SESSION["registeruser_errmsg"]
 				= "name cannot be empty";
 			return False;
-			
+
 		} elseif (str_replace(" ", "", $email) == ""){
 			$_SESSION["registeruser_errmsg"]
 				= "email cannot be empty";
 			return False;
-			
+
 		} elseif (str_replace(" ", "", $passw) == ""
 		|| str_replace(" ", "", $passw_conf) == ""){
 		 	$_SESSION["registeruser_errmsg"]
 		 		= "password cannot be empty";
 			return False;
-			
+
 		} elseif (str_replace(" ", "", $passw_conf) == ""){
 			$_SESSION["registeruser_errmsg"]
 				= "password confirmation cannot be empty";
@@ -255,20 +255,20 @@
 			 	= "passwords not equal";
 			 return False;
 		}
-		
+
 		return True;
 	}
-	
+
 	/**
 	 * cleans string\n
-	 * meaning translate htmlspecial chars, slashes and initial or ending whitespaces  
+	 * meaning translate htmlspecial chars, slashes and initial or ending whitespaces
 	 * @return the clean string
-	 */ 				
+	 */
 	function clean_input($data){
 		$data = trim($data);
 		$data = stripslashes($data);
 		$data = htmlspecialchars($data);
-	
+
 		return $data;
 	}
 

@@ -5,25 +5,25 @@
 	 * @author Mikael Holmbom
 	 * @version 1.0
 	 */
-	
+
 	require_once "./config/pageref.php";
 	require_once "./sections/views.php";
 
-	
+
 	/**
 	 * gets authorization forms
-	 * if not logged in: returns login form, 
+	 * if not logged in: returns login form,
 	 * if already authorized: return logout form
 	 * @return div containing authorization content as html
 	 */
 	function getAuthorizationContent(){
 		$cont = "";
-		
+
 		# if user is not auhtorized
 		if(! isset($_SESSION["authorized_user"])){
 			$cont .= getLoginForm()
 					. getRegisterContent();
-			
+
 		} else {
 			#$cont .= getLogoutForm();
 		}
@@ -51,7 +51,7 @@
 	 * 			input_password 	(password)
 	 * submit button:
 	 * 			login	(submit)
-	 * 
+	 *
 	 */
 	function getLoginForm(){
 		$errmsg = isset($_SESSION["login_errmsg"]) ?

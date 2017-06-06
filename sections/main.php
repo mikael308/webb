@@ -1,8 +1,8 @@
 <?php
 	/**
-	 *  
+	 *
 	 * helper functions containing dynamic std sections of website
-	 * 
+	 *
 	 * @author Mikael Holmbom: miho1202
 	 * @version 1.0
 	 */
@@ -218,6 +218,7 @@
 			"<div id='sub_nav'>"
 			. 	getMetaNav()
 			.	"</div>";
+
 	}
 
 
