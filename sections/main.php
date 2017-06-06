@@ -117,16 +117,19 @@
 		$user = getAuthorizedUser();
 		$pagenavitems =
 			listitem(
-				getNavButton($GLOBALS["index_page"],
-			 	"start")
+				getNavButton(
+					$GLOBALS["index_page"],
+			 		"start")
 			)
 			. listitem(
-				getNavButton($GLOBALS["forum_page"],
-				"forum")
+				getNavButton(
+					$GLOBALS["forum_page"],
+					"forum")
 			)
 			. listitem(
-				getNavButton($GLOBALS["user_page"] ."?u=" . $authorizedUserId,
-				"my page")
+				getNavButton(
+					getDisplayUserLink($user->getPrimaryKey()),
+					"my page")
 			);
 
 		if($user != NULL && $user->isAdmin()){
