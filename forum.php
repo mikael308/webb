@@ -60,9 +60,12 @@
 	<main>
 		<?php
 
-			$index 		= "main";
-			$index_val 	= "";
+			# preset index settings
+			# if no index is set in request: show main
+			$index = "main";
+			$index_val = "";
 
+			# read thread/subject index
 			if (isset($_GET["t"])){
 				$index = "thread";
 				$index_val = get_index("t");
