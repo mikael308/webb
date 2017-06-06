@@ -1,0 +1,53 @@
+/**
+ * COLORSCHEME
+ * green
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+
+
+.btn_nav{
+	background-color: #C8F4C8;
+	border:0;
+	color: #333;
+}
+
+.btn_nav:hover{
+	background-color: #CFEFCF;
+	border: 0;
+	color:black;
+}
+
+.btn_nav > a:hover{
+	background-color: rgb(200, 210, 210);
+}
+
+
+/******************
+ * USER_NAV
+ * navigation section for user content
+ *******************/
+
+#user_nav {
+	color: #EFE;
+}
+
+#user_nav:hover div,
+#user_nav:hover i {
+	color: #CDC;
+}
+
+
+/******************
+ * META_NAV
+ *******************/
+
+#meta_nav i{
+	font-size:32px;
+	color: #666;
+}
+
+#meta_nav i:hover{
+	color:#AAA;
+}
