@@ -49,19 +49,18 @@
 			.			"</h1>"
 			.		"</a>"
 			. "</div>";
-		# top (main) part of the header
-		$topheader =
-			"<div id='topheader'>"
-			. 		$logo
-			. 		getNavContent()
-			. 	"</div>";
 
 		return
-			"<div id='header_content'>"
-			. 	$topheader
+			"<div id='banner'>"
+			.	"<div id='header_content'>"
+			. 		$logo
+			. 		getNavContent()
+			. 	"</div>"
+			. "</div>"
+			. "<div id='subheader_content'>"
 			. 	getSubNavContent()
-			. 	getSidePanel()
-			. "</div>";
+			. "</div>"
+			. getSidePanel();
 
 	}
 
