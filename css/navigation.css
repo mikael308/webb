@@ -9,13 +9,27 @@
 nav {
 	margin-bottom: 0;
 	margin: 0 auto;
-	width: 82%;
+	width: 92%;
+	text-align: left;
+	/*display: inline-block;*/
+}
+
+header ul{
+	/* remove all std padding & margin for lists */
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+}
+
+ul li {
+	display: inline-block;
 }
 
 .btn_nav {
+	/* buttons used to navigate pages */
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	border-radius: 10px 10px 0 0;
+	border-radius: 7px 7px 2px 2px;
 	padding: 14px 12px 4px;
 	margin-left: 4px;
 	margin-right: 4px;
@@ -25,63 +39,35 @@ nav {
 
 /******************
  * PAGE_NAV
+ * navigation on website pages
  *******************/
-
+/*
 nav #page_nav li {
 	display: inline-block;
-}
-
-nav #page_nav {
+}*/
+/*
+nav #page_nav,
+nav #user_nav {
 	display: inline-block;
 	margin-bottom:0;
 }
-
+*/
 
 /******************
  * USER_NAV
+ * navigation section for user content
  *******************/
 
 #user_nav {
-	color: #EFE;
-	float:right;
+	text-transform: none;
+	float: right;
 	vertical-align: middle;
 }
 
-#user_nav .dropbtn {
+#user_dropdown {
 	min-width: 35px;
-	padding: 10px;
-}
-
-#user_nav:hover div,
-#user_nav:hover i {
-	color: #CDC;
-}
-
-
-/******************
- * META_NAV
- *******************/
-#meta_nav a {
-	
-}
-
-#meta_nav > div {
-	display: inline-block;
-}
-
-/* std button attributes */
-#meta_nav i {
-	font-size:32px;
-}
-
-nav #meta_nav {
-	margin: auto 20px;
-	margin-left: 40px;
-	float:right;
-}
-
-#meta_nav > a {
-	display: inline-block;
+	padding: 10px 10px 0px;/* no bottom padding */
+	margin: 0;
 }
 
 
@@ -89,32 +75,27 @@ nav #meta_nav {
  * SUB_NAV
  *******************/
 
-#subnav {
-	margin:0 10%;
-}
-
-#subnav > ul {
-	margin-top:0;
-}
-
-#subnav > ul > li {
-	vertical-align: top;
-	margin-top:0;
-	margin-right:16px;
-	display: inline-block;
-	text-decoration: none;
-	list-style-type: none;
-}
-
-#subnav > ul > #metanav_li {
-	float:right;
-	margin-right: 50px;
-}
-
-#subnav > #username_label {
+#sub_nav {
+	margin: 0 auto;
+	/*width: 82%;*/
 	
 }
 
-#subnav > #username_label > a {
-	text-decoration: none;
+#sub_nav * {
+	margin-left: 2px;
+}
+
+
+/******************
+ * META_NAV
+ *******************/
+ 
+#meta_nav {
+	text-align: right;
+	float:right;
+} 
+
+/* std button attributes */
+#meta_nav i {
+	font-size:32px;
 }
