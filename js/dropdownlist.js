@@ -7,6 +7,24 @@
  * @author Mikael Holmbom
  */
 
+/**
+ * close all opened dropdown-content lists
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+function closeAllDropdownlists(){
+	var ddContents = 
+		document
+		.getElementsByClassName("dropdown-content");
+
+	for(var j = 0; j < ddContents.length; j++){
+		var ddc = ddContents[j];
+
+		if (ddc.style.display != "none")
+			ddc.style.display = "none";
+	}
+}
+
 
 var ddbtns = document.getElementsByClassName("dropbtn");
 
