@@ -188,8 +188,7 @@
 			);
 
 		return
-			"<div id='meta_nav'>"
-			. "<ul>"
+			"<ul id='meta_nav'>"
 			. listitem(
 					toolTip(
 						dropDownList(
@@ -208,7 +207,7 @@
 						"search"
 					)
 				)
-			. "</div>";
+			. "</ul>";
 	}
 	/**
 	 * get the subnavigation content
