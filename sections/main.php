@@ -140,7 +140,7 @@
 		}
 
 		return
-			"<ul id='pag_nav'>"
+			"<ul id='page_nav'>"
 			. 	$pagenavitems
 			. "</ul>";
 	}
