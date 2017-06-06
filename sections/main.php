@@ -104,11 +104,18 @@
 	 * @return as html
 	 */
 	function getNavContent(){
-		$user = getAuthorizedUser();
-		$authorizedUserId = $user != NULL ?
-			$user->getPrimaryKey() : "";
+		return
+			"<nav>"
+			. 	getPageNav()
+			.		"<ul id='user_nav'>"
+			. 		listitem(getUserNav(getAuthorizedUser()))
+			.		"</ul>"
+			. "</nav>";
+	}
 
-		$listitems =
+	function getPageNav(){
+		$user = getAuthorizedUser();
+		$pagenavitems =
 			listitem(
 				getNavButton($GLOBALS["index_page"],
 			 	"start")
@@ -122,20 +129,17 @@
 				"my page")
 			);
 
-		$user = getAuthorizedUser();
 		if($user != NULL && $user->isAdmin()){
-			$listitems .= getNavButton(
-				$GLOBALS["admin_page"],
-				"admin");
+			$pagenavitems .=
+				getNavButton(
+					$GLOBALS["admin_page"],
+					"admin");
 		}
 
 		return
-			"<nav>"
-			. 	"<ul id='page_nav'>"
-			.			$listitems
-			. 	"</ul>"
-			. 	getUserNav($user)
-			. "</nav>";
+			"<ul id='pag_nav'>"
+			. 	$pagenavitems
+			. "</ul>";
 	}
 	/**
 	 * get user navigation list
