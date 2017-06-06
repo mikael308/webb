@@ -28,8 +28,9 @@
 			#$cont .= getLogoutForm();
 		}
 
-		return "<div id='authorizationsection'>"
-			. $cont
+		return
+			"<div id='authorizationsection'>"
+			. 	$cont
 			. "</div>";
 	}
 	/**
@@ -37,7 +38,12 @@
 	 * @return as html
 	 */
 	function getRegisterContent(){
-		return "<span><a href='". $GLOBALS["register_page"]. "'>register here!</a></span>";
+		return
+			"<span>"
+			.		"<a href='". $GLOBALS["register_page"]. "'>"
+			.			"register here!"
+			.		"</a>"
+			.	"</span>";
 	}
 	/**
 	 * form with fields:
