@@ -215,9 +215,9 @@
 	 */
 	function getSubNavContent(){
 		return
-			"<div id='subnav'>"
+			"<div id='sub_nav'>"
 			. 	getMetaNav()
-			. "</div>";
+			.	"</div>";
 	}
 
 
