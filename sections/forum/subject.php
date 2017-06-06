@@ -22,14 +22,14 @@
 			return errorMessage("invalid page");
 		}
 
-		$threads 	= $subject->getThreads();
-	
-		$tpp 		= (int) readSettings("threads_per_page");
-		$i 			= ($tpp * ($page-1)); # start offset
-		
-		$maxlim 	= ($tpp + $i); # end offset
-		$n_threads 	= count($threads);
-		$max_pages 	= Count::maxPagesSubject($subject);
+		$threads = $subject->getThreads();
+
+		$tpp = (int) readSettings("threads_per_page");
+		$i = ($tpp * ($page-1)); # start offset
+
+		$maxlim = ($tpp + $i); # end offset
+		$n_threads = count($threads);
+		$max_pages = Count::maxPagesSubject($subject);
 
 		if($n_threads < 1)
 			return infoMessage("subject contains no threads");
@@ -111,7 +111,9 @@
 	 * @return as html
 	 */
 	function threadlinkPagButton($thread, $index){
-		return "<a class='clickable' href='" . getDisplayThreadLink($thread, $index) . "'>" . $index . "</a>";
+		return "<a class='clickable' href='" . getDisplayThreadLink($thread, $index) . "'>"
+			. 	$index
+			. "</a>";
 	}
 
 	/**
