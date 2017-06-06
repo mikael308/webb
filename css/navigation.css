@@ -42,17 +42,7 @@ header  ul li {
  * PAGE_NAV
  * navigation on website pages
  *******************/
-/*
-nav #page_nav li {
-	display: inline-block;
-}*/
-/*
-nav #page_nav,
-nav #user_nav {
-	display: inline-block;
-	margin-bottom:0;
-}
-*/
+
 
 /******************
  * USER_NAV
