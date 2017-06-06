@@ -31,19 +31,21 @@ var ddbtns = document.getElementsByClassName("dropbtn");
 for(var i = 0; i < ddbtns.length; i++){
 
 	ddbtns[i].onclick = function(){
-		var cont =  this.parentNode.parentNode.getElementsByClassName("dropdown-content")[0];
+		closeAllDropdownlists();
+
+		var cont =  
+			this.parentNode
+			.parentNode
+			.getElementsByClassName("dropdown-content")[0];
 
 		cont.style.display = "inherit";
-		// listen for outside click to close dropdown-content
+		// listen for window click outside opened dropdown-content
+		//  to close all opened dropdownlists
 		window.onclick = function(event) {
 			if (!event.target.matches('.dropbtn')) {
-				var ddc = document.getElementsByClassName("dropdown-content")[0];
+				closeAllDropdownlists();
 				
-				if(ddc.style.display != "none")
-					ddc.style.display = "none";
-
 			}
 		}
 	}
 }
-
