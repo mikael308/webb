@@ -28,6 +28,7 @@
 			"<meta charset='utf-8'>"
 			. getScript("searchsidepanel.js")
 			. getScript("searchdatabase.js")
+			. getStylesheet("main.css")
 			. getStylesheet("message.css")
 			. getStylesheet("search.css")
 			. getStylesheet("widgets.css")
