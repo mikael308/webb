@@ -24,7 +24,9 @@
     	)
     	. listitem(
     		getNavButton(
-    			getDisplayUserLink($user->getPrimaryKey()),
+    			getDisplayUserLink(
+            $user == NULL ? "" : $user->getPrimaryKey()
+          ),
     			"my page")
     	);
 
