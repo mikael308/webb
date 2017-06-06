@@ -167,7 +167,7 @@
 			dropDownList(
 				$dropdown_btn,
 				$dropdown_list,
-				"user_nav"
+				"user_dropdown"
 			);
 	}
 
