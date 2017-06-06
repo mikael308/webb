@@ -16,13 +16,6 @@ header {
 	
 }
 
-#header_content {
-	/*display: inline-block;*/
-	margin: 0 auto;
-	max-width: 1200px;
-	min-width: 960px;
-}
-
 hr {
 	position:relative;
 	top:-8px;
@@ -30,24 +23,31 @@ hr {
 	padding:0;
 }
 
-#topheader {
-	margin: 0 auto;
-	/*padding-left: 60px;*/
-
+#banner {
+	display: block;
+	text-transform: uppercase;
 }
 
-#topheader a {
+#banner a {
 	text-decoration: none;
 }
 
-#topheader > div {
-	margin: 0 10%;	
-	text-transform: uppercase;
-	color:black;
-	display: inline-block;
+#header_content,
+#subheader_content {
+	/*text-align: center;*/
+	/*display: inline-block;*/
+	margin: 0 auto;
+	max-width: 1200px;
+	min-width: 760px;
+}
+
+#subheader_content {
+	margin-top: 7px;
+	margin-bottom: 10px;
 }
 
 #logo {
+	text-align:left;
 	min-width: 860px;
 }
 
@@ -60,7 +60,7 @@ main {
 	min-width: 480px;
 	max-width: 1180px;
 	min-height: 420px;
-	overflow:auto;
+	/*overflow:auto;*/
 	margin: 40px auto;
 }
 
