@@ -210,10 +210,9 @@
 	 * @return as html
 	 */
 	function getSubNavContent(){
-		return "<div id='subnav'>"
-			. "<ul>"
-			. 	"<li id='metanav_li'>" . getMetaNav() . "</li>"
-			. 	"</ul>"
+		return
+			"<div id='subnav'>"
+			. 	getMetaNav()
 			. "</div>";
 	}
 
