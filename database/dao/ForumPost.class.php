@@ -72,7 +72,16 @@ class ForumPost extends DataAccessObject{
 		$this->thread_fk = $thread_fk;
 	}
 
-	# DATABASE 
+	/**
+	 * @return true if this post have been edited after it was created
+	 */
+	public function isEdited(){
+		return
+			$this->getEdited() != NULL
+			&& $this->getEdited() != $this->getCreated();
+	}
+
+	# DATABASE
 	####################
 	
 	/**
