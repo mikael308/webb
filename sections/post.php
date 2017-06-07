@@ -29,7 +29,8 @@
 			);
 	}
 	/**
-	 * get a view to reply to post
+	 * get a form view to reply to post
+	 * request index T: PK of thread to reply to
 	 * @return form as html string
 	 */
 	function postReplyView(){
@@ -38,10 +39,13 @@
 			"<h3>reply to thread: " . $thread->getTopic() . "</h3>"
 			. "<form method='POST' action='".htmlspecialchars($_SERVER["PHP_SELF"])."'>"
 			. 	"<table>"
+			# hidden
 			. 		"<input type='hidden' name='thread' value='".$thread->getId()."' /> "
-			.		tr(getCreateForumPostMessageRow())
-			.		tr(td("")
-						.td("<input type='submit' value='post' name='post_reply'>"))
+			# clean message input
+			.			tr(getCreateForumPostMessageRow())
+			# submit
+			.			tr(td("")
+							.td("<input type='submit' value='post' name='post_reply'>"))
 			. 	"</table>"
 			. "</form>";
 	}
@@ -53,8 +57,10 @@
 		return "<h3>create forum thread </h3>"
 			. "<form method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
 			. 	"<table>"
-			.		tr(getForumThreadtopicRow())
-			.		tr(getCreateForumPostMessageRow())
+			# clean input
+			.			tr(getForumThreadtopicRow())
+			.			tr(getCreateForumPostMessageRow())
+			# submit
 			. 		tr(td("")
 						. td("<input type='submit' value='create' name=create_forumthread>"))
 			. 	"</table>"
@@ -62,26 +68,36 @@
 	}
 	/**
 	 * get a view to update post
+	 * request index post: the post PK to update
 	 * @return form as html string
 	 */
 	function updatePostView(){
-		if(! isset($_POST["msg"]) || ! isset($_POST["post"])){
+		if(! isset($_GET["post"])){
 			return errorMessage("could not update post");
 		}
 
-		$post = read::forumPost($_POST["post"]);
-		$thread = $post->getThread();
+		$post = Read::forumPost($_GET["post"]);
+		# post must exist or user have authority to edit
+		if($post == NULL || ! editable($post)){
+			return errorMessage("could not update post");
+		}
 
-		return "<h3>edit " . $thread->getTopic()."</h3>"
+		return
+			"<h3>edit " . $thread->getThread()->getTopic() . "</h3>"
 			. "<table>"
-			. "<form method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
-			.	"<input type='hidden' name='post' value='" . $_POST["post"] . "' >"
-			.	"<input type='hidden' name='p' value='" . $_POST["p"] . "' >"
-			.	tr(getCreateForumPostMessageRow($_POST["msg"]))
-			.	tr(td("")
-					. td("<input type='submit' value='post' name='update_post'>"))
-			. "</table>"
-			. "</form>";
+			. 	"<form method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
+			# hidden values
+			.			"<input type='hidden' name='post' value='" . $post->getPrimaryKey() . "' >"
+			.			"<input type='hidden' name='p' value='" . $_GET["p"] . "' >"
+			.			"<input type='hidden' name='op' value='edit'>"
+			# post message
+			.			tr(getCreateForumPostMessageRow($post->getMessage()))
+			# submit
+			.			tr(
+							td("")
+							. td("<input type='submit' value='post' name='update_post'>"))
+			. "</form>"
+			. "</table>";
 	}
 	/**
 	 * newsview\n get a form to post and create news
