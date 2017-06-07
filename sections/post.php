@@ -5,6 +5,8 @@
 	 * @version 1.0
 	 */
 
+	 require_once "./database/post.php";
+
 
 	/**
 	 * get form to create forumthread as html string
