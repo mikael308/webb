@@ -89,11 +89,11 @@
 		}
 
 		return
-			"<div id='latestThreads'>"
-			. "<h1>latest posts</h1>"
-			. 	$threadscont
-			. "</div>";
-
+			infopanel(
+				"infopanel_latestthreads",
+				"latest posts",
+				$threadscont
+			);
 	}
 
 ?>
