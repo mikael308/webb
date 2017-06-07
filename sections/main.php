@@ -86,20 +86,24 @@
 	 * @return as html
 	 */
 	function getFooterLinks(){
+		function asFooterCol($listitems){
+			return "<ul class='footer_col'>$listitems</ul>";
+		}
+
 		return
-			"<ul id='footerlinks'>"
-				. listitem(
-					"<a href='".$GLOBALS["about_page"]."?d=about'>"
-					. 	"about"
-					. "</a>"
+			"<div id='footerlinks'>"
+				# left footer column
+				. asFooterCol(
+					listitem("<a href='".$GLOBALS["about_page"]."?d=about'>about</a>")
+					. listitem("<a href='".$GLOBALS["contact_page"]."?d=about'>contact us</a>")
 				)
-				. listitem(
-					"<a href='". $GLOBALS["contact_page"] ."'>"
-					. 	"contact us"
-					. "</a>"
-				)
-		 . "</ul>";
+			# right footer column
+			. asFooterCol(
+				listitem("<a href='". $GLOBALS["index_page"] ."'>footbook link</a>")
+				. listitem("<a href='". $GLOBALS["index_page"] ."'>tritter link</a>")
+		 	)
+		 . "</div>";
 	}
-	
+
 
 ?>

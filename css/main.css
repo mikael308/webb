@@ -84,6 +84,10 @@ footer li {
 	max-width: 890px;
 }
 
+.footer_col {
+	display: inline-block;
+}
+
 .clickable {
 	
 }
