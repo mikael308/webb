@@ -116,27 +116,16 @@
 		if(isset($_GET["op"])) {
 			switch($_GET["op"]){
 				case "reply":
-					if(get_index("t") != NULL){
-						echo postReplyView();
-					} else {
-						echo errorMessage("invalid thread");
-					}
+					echo postReplyView();
 					break;
 				case "createthread":
-					$_SESSION["s"] = $_GET["s"]; #TODO till session??? subject
-					if(get_index("s") != NULL){
-						echo createThreadView();
-					} else {
-						echo errorMessage("invalid subject");
-					}
+					echo createThreadView();
 					break;
 				case "news":
-					if(getAuthorizedUser()->isAdmin()){
-						echo createNewsView();
-					} else {
-						echo errorMessage("access denied: admin only");
-					}
-						
+					echo createNewsView();
+					break;
+				case "edit":
+					echo updatePostView();
 					break;
 				default:
 					echo errorMessage("unknown operation");

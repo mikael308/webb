@@ -34,6 +34,10 @@
 	 * @return form as html string
 	 */
 	function postReplyView(){
+		if(get_index("t") == NULL){
+			return errorMessage("invalid thread");
+		}
+
 		$thread = Read::thread(get_index("t"));
 		return
 			"<h3>reply to thread: " . $thread->getTopic() . "</h3>"
@@ -54,6 +58,10 @@
 	 * @return form as html string
 	 */
 	function createThreadView(){
+		if(get_index("s") == NULL){
+			return errorMessage("invalid subject");
+		}
+		
 		return "<h3>create forum thread </h3>"
 			. "<form method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
 			. 	"<table>"
