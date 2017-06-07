@@ -97,7 +97,6 @@
 		return
 			"<form class='edit_post' name=' method='POST' action='".htmlspecialchars($GLOBALS["post_page"] )."' >"
 			.		"<input type='hidden' name='post' value='" . $post->getPrimaryKey() . "' />"
-			.		"<input type='hidden' name='msg' value='" . $post->getMessage() . "' />"
 			# the page index to redirect after edit
 			.		"<input type='hidden' name='p' value='" . $_GET["p"] . "' />"
 			.		"<input type='submit' class='icon_button material-icons' value='edit_post' name='op'></input>"
