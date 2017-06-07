@@ -1,0 +1,18 @@
+/**
+ * COLORSCHEME
+ * green
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+#newsfeed article {
+	border: 3px solid black;
+	border-radius: 10px;
+	border-style: inset;
+	
+	background-color: #FFFFAA; /* std value*/
+	background: -webkit-linear-gradient(left top, #FFFFDD, #FFFFEE); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #FFFFDD, #FFFFEE); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #FFFFDD, #FFFFEE); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #FFFFDD, #FFFFEE); /* Standard syntax */
+}
