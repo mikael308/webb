@@ -33,7 +33,7 @@
 	 * @return form as html string
 	 */
 	function postReplyView(){
-		$thread = read::thread(get_index("t"));
+		$thread = Read::thread(get_index("t"));
 		return
 			"<h3>reply to thread: " . $thread->getTopic() . "</h3>"
 			. "<form method='POST' action='".htmlspecialchars($_SERVER["PHP_SELF"])."'>"
