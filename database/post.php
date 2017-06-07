@@ -145,9 +145,39 @@
 		} else {
 			echo errorMessage("could not create news");
 		}
-		
+
 	}
-	
+
+	/**
+	 * determine if current authorized user can edit param post
+	 * @return True if post can be edited by current authorized user
+	 */
+	function editable(ForumPost $post){
+		if($post == null){
+			return False;
+		}
+
+		$authUser = getAuthorizedUser();
+		if($authUser->isAdmin() || $authUser->isModerator()){
+			return True;
+		}
+
+		# if user is author of message
+		if($authUser->getPrimaryKey() == $post->getAuthor()->getPrimaryKey()){
+			$a = date($GLOBALS["timestamp_format"]);
+			$b = $post->getCreated();
+
+			$diff = strtotime($a) - strtotime($b);
+			# if message was created within past 15min
+			if($diff < (60 * 15)){
+				return True;
+			}
+
+		}
+
+		return False;
+	}
+
 
 
 ?>
