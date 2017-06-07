@@ -73,6 +73,8 @@
 
 .forum_post{
 	background-color: #FFFFF3;
+	border-radius: 5px;
+	border-style: ridge;
 }
 
 .forum_post:hover{

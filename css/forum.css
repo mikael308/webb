@@ -86,8 +86,6 @@
 .forum_post{
 	display: flex;
 	padding: 0px;
-	border-radius: 5px;
-	border-style: ridge;
 }
 
 /*		FORUMPOST AUTHOR SECTION
@@ -132,7 +130,6 @@
 	position: relative;
 	flex: 1;
 	padding: 10px 0;
-	border-width: medium;
 }
 .forum_post .message{
 	margin-left:12px;

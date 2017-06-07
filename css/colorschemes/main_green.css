@@ -26,7 +26,9 @@ footer {
 footer a {
 	color: #F0F0F0;
 }
-
+#logo a{
+	color: #E3F5E3;
+}
 #banner {
 	background-color: #686;
 }
