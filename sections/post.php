@@ -91,7 +91,7 @@
 		}
 
 		return
-			"<h3>edit " . $thread->getThread()->getTopic() . "</h3>"
+			"<h3>edit post from thread: " . $post->getThread()->getTopic() . "</h3>"
 			. "<table>"
 			. 	"<form method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
 			# hidden values
