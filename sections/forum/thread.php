@@ -133,9 +133,11 @@
 	 */
 	function deletePostForm(ForumPost $post){
 		return
-			"<form class='delete_post' "
+			getScript("confirmation.js")
+			. "<form class='delete_post' "
 			.		" method='POST' "
 			.		" action='".htmlspecialchars($GLOBALS["post_page"] )."' "
+			.		" onSubmit='return confirmation();' "
 			.		">"
 			# the post to delete
 			.		"<input type='hidden' name='post' value='" . $post->getPrimaryKey() . "' />"
