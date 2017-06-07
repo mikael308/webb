@@ -118,7 +118,7 @@
 				case "news":
 					echo createNewsView();
 					break;
-				case "edit":
+				case "edit_post":
 					echo updatePostView();
 					break;
 				default:

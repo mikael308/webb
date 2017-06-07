@@ -100,7 +100,7 @@
 			.		"<input type='hidden' name='msg' value='" . $post->getMessage() . "' />"
 			# the page index to redirect after edit
 			.		"<input type='hidden' name='p' value='" . $_GET["p"] . "' />"
-			.		"<input type='submit' class='icon_button material-icons' value='edit' name='edit_post'></input>"
+			.		"<input type='submit' class='icon_button material-icons' value='edit_post' name='op'></input>"
 			. "</form>";
 	}
 	/**
