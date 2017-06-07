@@ -110,5 +110,43 @@
     	. "</ul>";
   }
 
+  /**
+   * get the navigation content
+   * @return as html
+   */
+  function getNavContent(){
+    return
+      "<nav>"
+      .   getPageNav()
+      .   "<ul id='user_nav'>"
+      .     listitem(getUserNav(getAuthorizedUser()))
+      .   "</ul>"
+      . "</nav>";
+  }
+
+  /**
+   * get the subnavigation content
+   * @return as html
+   */
+  function getSubNavContent(){
+    return
+      "<div id='sub_nav'>"
+      .     getSubNavLeft()
+      .     getMetaNav()
+      . "</div>";
+  }
+
+  /**
+   * get subnav aligned to the left
+   * @return as html
+   */
+  function getSubNavLeft(){
+    return
+      "<ul id='sub_nav_left'>"
+      .   "<li>"
+      .   "</li>"
+      . "</ul>";
+  }
+
 
 ?>

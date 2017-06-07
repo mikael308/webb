@@ -100,31 +100,6 @@
 				)
 		 . "</ul>";
 	}
-	/**
-	 * get the navigation content
-	 * @return as html
-	 */
-	function getNavContent(){
-		return
-			"<nav>"
-			. 	getPageNav()
-			.		"<ul id='user_nav'>"
-			. 		listitem(getUserNav(getAuthorizedUser()))
-			.		"</ul>"
-			. "</nav>";
-	}
-
-	/**
-	 * get the subnavigation content
-	 * @return as html
-	 */
-	function getSubNavContent(){
-		return
-			"<div id='sub_nav'>"
-			. 	getMetaNav()
-			.	"</div>";
-
-	}
-
+	
 
 ?>
