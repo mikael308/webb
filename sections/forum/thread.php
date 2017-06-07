@@ -62,7 +62,7 @@
 
 		# if the post was edited after it was created
 		$edited =
-			($post->getEdited() != NULL && $post->getCreated() != $post->getEdited()) ?
+			$post->isEdited() ?
 			"<div class='edited'>edited: " . formatDateTime($post->getEdited()) . "</div>"
 			: "";
 
