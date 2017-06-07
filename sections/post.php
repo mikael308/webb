@@ -97,7 +97,6 @@
 			# hidden values
 			.			"<input type='hidden' name='post' value='" . $post->getPrimaryKey() . "' >"
 			.			"<input type='hidden' name='p' value='" . $_GET["p"] . "' >"
-			.			"<input type='hidden' name='op' value='edit'>"
 			# post message
 			.			tr(getCreateForumPostMessageRow($post->getMessage()))
 			# submit
