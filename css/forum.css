@@ -96,10 +96,8 @@
 /* author section in forum post */
 .forum_post .author{
 	text-align: center;
-	
 	padding: 0 5px 0 0;
 	min-width: 14%;
-	
 }
 /* the author of posts name label */
 .forum_post .author .name a{
