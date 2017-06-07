@@ -55,10 +55,12 @@
 	function forumPostView(ForumPost $post){
 		if ($post == NULL) 
 			return errorMessage("could not display post");
-		
+
+		# buttons for optionpanel of the postview
 		$editMessageForm = editable($post) ? editMessageForm($post) : "";
 		$deletePostForm = editable($post) ? deletePostForm($post) : "";
 
+		# if the post was edited after it was created
 		$edited =
 			($post->getEdited() != NULL && $post->getCreated() != $post->getEdited()) ?
 			"<div class='edited'>edited: " . formatDateTime($post->getEdited()) . "</div>"
@@ -68,6 +70,7 @@
 
 		return
 		"<div class='forum_content_listitem forum_post'>"
+			# information about the author of the post
 			. "<div class='author'>"
 				. "<div class='name'>"
 				.		"<a href='".$GLOBALS["user_page"] ."?u=".$author->getPrimaryKey()."'>"
@@ -81,6 +84,7 @@
 				.		formatDate($author->getRegistered())
 				.	"</div>"
 			. "</div>"
+			# the actual post message
 			. "<div class='post'>"
 				. "<div class='message'>"
 				. 	$post->getMessage()
