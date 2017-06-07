@@ -2,25 +2,19 @@
 <?php
 /**
  * page used to create forumthread or forumpost\n
- * the GET variable has index of op
- * 	<ul>
- * 	<li>
- * 		<h1>reply</h1> reply to a existing thread\n must contain GET attr: 
- * 		<table>
- * 			<tr><th>t</th><td>the thread PK to reply to</td><tr>
- * 		</table>
- * 	</li>
- * 	<li>
- * 		<h1>createthread</h1> create a new thread to a subject\n must contain GET attr:
- * 		<table>
- * 			<tr><th>s</th><td>the post PK to reply to</td><tr>
- * 		</table>
- * 	</li>
- * 	<li> 
- * 		<h1>news</h1> create a news article. user must be admin
- * 	</li>
- * </ul>
- * 
+ * RESTRICTED to authorized user
+ *
+ * the GET variable has index of op:
+ * 	# reply : reply to existing thread\n
+ *					must include GET attr:
+ *						- t: the thread PK to reply to
+ * # createthread : create a new thread to a subject\n
+ *					must include GET attr:
+ *						- s: the subject to add thread to
+ * # news : create a news article. user must be admin
+ * # edit_post : edit a existing post\n
+ *					must include GET attr:\n
+ *						- the PK of post to edit
  *
  * @author Mikael Holmbom
  * @version 1.0
