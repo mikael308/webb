@@ -1,33 +1,45 @@
+/**
+ * stylesheet for information elements 
+ *
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
 
-#latestThreads {
-	border: 2px solid black;
-	margin-bottom: 10px;
-	display: inline-block;
-	padding: 2px 12px 6px;
-	max-width: 300px;
-	/*width:100%;*/
-	background-color: #E2F6E2;
+@import url("colorschemes/information_green.css");
+
+
+#infopanel_latestthreads {
+
 }
 
-#latestThreads h1 {
-	font-size: 14px;
+.infopanel_banner {
+	padding: 6px;
+	margin: 0;
 }
 
-#latestThreads a {
+.infopanel_banner {
+	font-size: 94%;
+	letter-spacing: 1px;
+}
+
+.infopanel_content {
+	margin: 3px 4px;	
+}
+
+.infopanel_content a {
+	color: black;
 	text-decoration: none;
-	color:black;
 }
 
-#latestThreads a:hover {
-	color:red;
-}
+
+
+/*************
+ *	CONCRETE infopanels
+ *************/
 
 .latestThreadViewRef {
-	background-color: white;
-	border: 1px solid black;
-	
-	margin-bottom: 4px;
-	padding: 4px 8px;
+	margin-bottom: 8px;
+	padding: 4px 5px 6px;
 }
 
 .latestThreadViewRef .topic {
