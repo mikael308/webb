@@ -100,7 +100,6 @@
 			. 	"<form method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
 			# hidden values
 			.			"<input type='hidden' name='post' value='" . $post->getPrimaryKey() . "' >"
-			.			"<input type='hidden' name='p' value='" . $_GET["p"] . "' >"
 			# post message
 			.			tr(getCreateForumPostMessageRow($post->getMessage()))
 			# submit
