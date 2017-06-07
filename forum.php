@@ -1,10 +1,10 @@
-<!DOCTYPE html>
 <?php
-/**
- * @author Mikael Holmbom	
- * @version 1.0
- */
+	/**
+	* @author Mikael Holmbom
+	* @version 1.0
+	*/
 
+	require_once "Page.php";
 	require_once "./config/pageref.php";
 	require_once "./config/settings.php";
 	require_once "./database/database.php";
@@ -19,74 +19,68 @@
 	require_once "./session/authorization.php";
 	require_once "./session/requests.php";
 
-	autoloadDAO();
-	startSession();
+
 	logoutListener();
 	restrictedToAuthorized($GLOBALS["register_page"] );
+	$page = new Page();
 
-?>
 
-<html>
-<head>
-<?php	
-	echo getMainHeadContent();
-	echo getStylesheet("forum.css");
-	echo getStylesheet("information.css");
+	# HEAD
+	##########################
+	$page->setHead(
+		getStylesheet("forum.css")
+		.getStylesheet("information.css")
+		# read from request and set topic name as this title
+		.readTitle()
+	);
+	# HEADER
+	##########################
+	$page->setHeader(
+		""
+	);
 
-	# read from request and set topic name as this title
-	echo readTitle();
+	# MAIN
+	##########################
+	$mainContent ="";
+	# preset index settings
+	# if no index is set in request: show main
+	$index = "main";
+	$index_val = "";
 
-;?>	
-</head>
-<body>
-	<header>
-		<?php 
-			echo getMainHeaderContent();
-			
-		 ?>
-	</header>
-	<main>
-		<?php
+	# read thread/subject index
+	if (isset($_GET["t"])){
+		$index = "thread";
+		$index_val = get_index("t");
+	} elseif (isset($_GET["s"])){
+		$index = "subject";
+		$index_val = get_index("s");
+	}
+	# display the forum
+	$mainContent .=
+		forum(
+			$index,
+			$index_val,
+			get_index("p")
+		);
+	switch($index){
+		case "main":
+		$mainContent .=
+			"<aside>"
+			. 	displayLatestThreads()
+			. "</aside>";
 
-			# preset index settings
-			# if no index is set in request: show main
-			$index = "main";
-			$index_val = "";
+		break;
+	}
+	$page->setMain($mainContent);
 
-			# read thread/subject index
-			if (isset($_GET["t"])){
-				$index = "thread";
-				$index_val = get_index("t");
-			} elseif (isset($_GET["s"])){
-				$index = "subject";
-				$index_val = get_index("s");
-			}
-			# display the forum
-			echo forum(
-				$index,
-				$index_val,
-				get_index("p")
-			);
-			switch($index){
-				case "main":
-				echo
-					"<aside>"
-					. 	displayLatestThreads()
-					. "</aside>";
+	echo $page->toHtml();
 
-				break;
-			}
-		?>
 
-	</main>
-	<footer>
-		<?php
-			echo getMainFooterContent();
-		?>
-	</footer>
-</body>
-</html>
-<?php
+
+
+	######################################
+	# page functions
+	#####################################
 
 	function readTitle(){
 		$title = "forum";
@@ -103,7 +97,7 @@
 
 		if($topic != NULL){
 				$title .= ":" . $topic->getTopic();
-	    }
+		}
 		return setTitle($title);
 	}
 

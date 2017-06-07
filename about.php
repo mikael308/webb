@@ -1,66 +1,69 @@
-<!DOCTYPE html>
 <?php
-/**
- *	admin page
- *
- *	can only be accessed if $_SESSION['authorized_user'] is set
- *  and role is "admin"
- *
- *	@author Mikael Holmbom
- */
+	/**
+	 *	about page
+	 *
+	 *
+	 *	@author Mikael Holmbom
+	 *	@version 1.0
+	 */
 
+	require_once "Page.php";
 	require_once "./database/database.php";
-	require_once "./sections/main.php";
 	require_once "./session/authorization.php";
 	require_once "./session/main.php";
 
-	autoloadDAO();
-	startSession();
+
+	$page = new Page();
+
+	# HEAD
+	##########################
+	$page->setHead(
+		getStylesheet("widgets.css")
+		. getStylesheet("about.css")
+		. setTitle("about")
+	);
+
+	# HEADER
+	##########################
+	$page->setHeader(
+		""
+	);
+
+	# MAIN
+	##########################
+	$mainContent = "<p>about page</p>";
+
+	if(isset($_GET["d"])){
+		switch($_GET["d"]){
+			case "faq":
+				$mainContent .= faqContent();
+			break;
+			case "about":
+				$mainContent .= aboutContent();
+			break;
+		}
+	} else { # the default page content
+		$mainContent .= aboutContent();
+	}
+
+	$page->setMain(
+		$mainContent
+	);
+
+	# FOOTER
+	##########################
+	$page->setFooter(
+		getScript("accordion.js")
+	);
+
+	echo $page->toHtml();
 
 
-?>
-<html>
-<head>
-	<?php 
-		echo getMainHeadContent();
-		echo getStylesheet("widgets.css");
-		echo getStylesheet("about.css");
-		echo setTitle("about");
-	?>
-</head>
-<body>
-	<header>
-		<?php echo getMainHeaderContent(); ?>
-	</header>
-	<main>
-		<?php
-			echo "<p>about page</p>";
 
-			if(isset($_GET["d"])){
-				switch($_GET["d"]){
-					case "faq":
-						echo faqContent();
-						break;
-					case "about":
-						echo aboutContent();
-						break;
-				}
-			} else { # the default page content
-				echo aboutContent();
-			}
-			
-		
-		?>
-	</main>
-	<footer>
-		<?php 
-			echo getScript("accordion.js");
-			echo getMainFooterContent(); 
-		?>
-	</footer>
-</body>
-</html>
-<?php
+
+	######################################
+	# page functions
+	#####################################
 
 	function aboutContent(){
 		return "<p>this explains the reason for this page</p>";
@@ -69,15 +72,16 @@
 	function faqContent(){
 		$xml = simplexml_load_file("res/faq.xml") or die("could not load faq");
 
-		$cont = "<div id='faq'>";		
+		$cont = "<div id='faq'>";
 		foreach($xml->children() as $x){
 			$cont .= "<button class='accordion'>".$x->question."</button>"
-				. "<div class='panel'>"
-				. 	"<p>" . $x->answer . "</p>"
-				. "</div>";
+			. "<div class='panel'>"
+			. 	"<p>" . $x->answer . "</p>"
+			. "</div>";
 		}
 		$cont .= "</div>";
 		return $cont;
 	}
 
-?>
+
+ ?>

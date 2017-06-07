@@ -1,25 +1,25 @@
-<!DOCTYPE html>
 <?php
-/**
- * page used to create forumthread or forumpost\n
- * RESTRICTED to authorized user
- *
- * the GET variable has index of op:
- * 	# reply : reply to existing thread\n
- *					must include GET attr:
- *						- t: the thread PK to reply to
- * # createthread : create a new thread to a subject\n
- *					must include GET attr:
- *						- s: the subject to add thread to
- * # news : create a news article. user must be admin
- * # edit_post : edit a existing post\n
- *					must include GET attr:\n
- *						- the PK of post to edit
- *
- * @author Mikael Holmbom
- * @version 1.0
- */	
+	/**
+	 * page used to create forumthread or forumpost\n
+	 * RESTRICTED to authorized user
+	 *
+	 * the GET variable has index of op:
+	 * 	# reply : reply to existing thread\n
+	 *					must include GET attr:
+	 *						- t: the thread PK to reply to
+	 * # createthread : create a new thread to a subject\n
+	 *					must include GET attr:
+	 *						- s: the subject to add thread to
+	 * # news : create a news article. user must be admin
+	 * # edit_post : edit a existing post\n
+	 *					must include GET attr:\n
+	 *						- the PK of post to edit
+	 *
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 
+	require_once "Page.php";
 	require_once "./config/pageref.php";
 	require_once "./config/settings.php";
 	require_once "./database/database.php";
@@ -37,8 +37,8 @@
 	autoloadDAO();
 	startSession();
 	restrictedToAuthorized($GLOBALS['index_page']);
-	
-		
+
+
 	/*
 	 * listens for submissions from forms on this page
 	 */
@@ -56,44 +56,55 @@
 		}
 	}
 
-?>
 
-<html>
-<head>
-<?php	echo getMainHeadContent();?>	
-</head>
-<body>
-	<header>
-		<?php
-			echo getMainHeaderContent();
-			echo getStylesheet("post.css");
-		?>
-	</header>
-	<main>
-		<?php
-			$user = getAuthorizedUser();
-		
-			try{
-				if($_SERVER["REQUEST_METHOD"] == "GET"){
-					handleGetOp();
-		
-				} else if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-				}
-			} catch(RuntimeException $e){
-				echo errorMessage("could not handle request");
-				#echo $e->message;
-			}
 
-		?>
+	$page = new Page();
 
-	</main>
-	<footer>
-		<?php echo getMainFooterContent(); ?>
-	</footer>
-</body>
-</html>
-<?php
+	# HEAD
+	##########################
+	$page->setHead(
+		getStylesheet("post.css")
+	);
+	# HEADER
+	##########################
+	$page->setHeader(
+
+	);
+	# MAIN
+	##########################
+	$mainContent = "";
+	$user = getAuthorizedUser();
+
+	try{
+		if($_SERVER["REQUEST_METHOD"] == "GET"){
+			$mainContent .= handleGetOp();
+
+		} else if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+		}
+	} catch(RuntimeException $e){
+		$mainContent .= errorMessage("could not handle request");
+		#$mainContent .= $e->message;
+	}
+
+	$page->setMain(
+		$mainContent
+	);
+	# FOOTER
+	##########################
+	$page->setFooter(
+
+	);
+
+	echo $page->toHtml();
+
+
+
+
+	#####################################
+	# page functions
+	#####################################
 
 	/**
 	 * handle get variable op
@@ -104,30 +115,27 @@
 		if(isset($_GET["op"])) {
 			switch($_GET["op"]){
 				case "reply":
-					echo postReplyView();
+					return postReplyView();
 					break;
 				case "createthread":
-					echo createThreadView();
+					return createThreadView();
 					break;
 				case "news":
-					echo createNewsView();
+					return createNewsView();
 					break;
 				case "edit_post":
-					echo updatePostView();
+					return updatePostView();
 					break;
 				default:
-					echo errorMessage("unknown operation");
-					return False;
+					return errorMessage("unknown operation");
 					break;
 			} # ! switch op
-			return True;
 
 		} else {
 			# ! isset GET op
-			echo errorMessage("invalid operation");
+			return errorMessage("invalid operation");
 		}
 
-		return True;
 	}
 
 

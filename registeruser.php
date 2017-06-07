@@ -1,13 +1,13 @@
-<!DOCTYPE html>
 <?php
-/**
- * page used for register new users
- * this page has permitted access to non-authorized users
- *
- * @author Mikael Holmbom
- * @version 1.0
- */
+	/**
+	 * page used for register new users
+	 * this page has permitted access to non-authorized users
+	 *
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 
+	require_once "Page.php";
 	require_once "./config/pageref.php";
 	require_once "./database/database.php";
 	require_once "./sections/elements.php";
@@ -34,53 +34,56 @@
 	}
 
 
-?>
-<html>
-<head>
-<?php
-	echo getMainHeadContent();
-	echo getScript("validpasswordhint.js");
-	echo setTitle("register");
+	$page = new Page();
 
-?>
-</head>
-<body>
-	<header>
-	<?php
-		echo getMainHeaderContent();
-		echo getStylesheet("register_user.css");
-	?>
-	</header>
-	<main>
-	<?php
-		if(isset($_SESSION["registeruser_errmsg"])){
-			echo "<p id='registeruser_errmsg'>" . $_SESSION["registeruser_errmsg"] . "</p>";
-		}
-		# register article
-		echo
-			"<article id='register'>"
-				. getRegisterUserForm()
-				. getValidPasswordHint()
-			. "</article>";
+	# HEAD
+	##########################
+	$page->setHead(
+		getScript("validpasswordhint.js")
+		. setTitle("register")
+		. getStylesheet("register_user.css")
+	);
+	# HEADER
+	##########################
+	$page->setHeader(
 
-		# login article if already member
-		echo
-			"<article id='login'>"
-				. "<p id='login_h'>already a member?</p>"
-				. getLoginForm()
-			."</article>";
+	);
+	# MAIN
+	##########################
+	$mainContent = "";
+	if(isset($_SESSION["registeruser_errmsg"])){
+		$mainContent .= "<p id='registeruser_errmsg'>" . $_SESSION["registeruser_errmsg"] . "</p>";
+	}
+	# register article
+	$mainContent .=
+		"<article id='register'>"
+			. getRegisterUserForm()
+			. getValidPasswordHint()
+		. "</article>";
 
-	?>
+	# login article if already member
+	$mainContent .=
+		"<article id='login'>"
+			. "<p id='login_h'>already a member?</p>"
+			. getLoginForm()
+		."</article>";
+	$page->setMain(
+		$mainContent
+	);
+	# FOOTER
+	##########################
+	$page->setFooter(
 
-	</main>
-	<footer>
-	<?php
-		echo getMainFooterContent();
-	?>
-	</footer>
-</body>
-</html>
-<?php
+	);
+
+	echo $page->toHtml();
+
+
+
+
+	#####################################
+	# page functions
+	#####################################
 
 	/**
 	 * get form used as to register user\n
