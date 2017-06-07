@@ -15,22 +15,21 @@
 .infopanel_banner {
 	padding: 6px;
 	margin: 0;
-}
-
-.infopanel_banner {
 	font-size: 94%;
 	letter-spacing: 1px;
 }
 
+.infopanel h1 {
+	padding-left: 8px;
+}
+
 .infopanel_content {
-	margin: 3px 4px;	
+	margin: 0px 0px;
 }
 
 .infopanel_content a {
-	color: black;
 	text-decoration: none;
 }
-
 
 
 /*************
@@ -38,8 +37,8 @@
  *************/
 
 .latestThreadViewRef {
-	margin-bottom: 8px;
-	padding: 4px 5px 6px;
+	margin-top: 5px;
+	padding: 5px 10px 6px;
 }
 
 .latestThreadViewRef .topic {
@@ -48,8 +47,8 @@
 }
 
 .latestThreadViewRef .message {
-	margin-left: 3px;
-	margin-bottom: 6px;
+	padding-left: 3px;
+	padding-bottom: 6px;
 	min-height: 30px;
 	font-size: 80%;	
 }
