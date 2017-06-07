@@ -30,7 +30,8 @@
 	}
 	/**
 	 * get a form view to reply to post
-	 * request index T: PK of thread to reply to
+	 * must include GET attr:
+	 * 	- t: the thread PK to reply to
 	 * @return form as html string
 	 */
 	function postReplyView(){
@@ -54,14 +55,16 @@
 			. "</form>";
 	}
 	/**
-	 * get a view to create view
+	 * get a view to create view\n
+	 * must include GET attr:\n
+	 * 	- s: the subject to add thread to
 	 * @return form as html string
 	 */
 	function createThreadView(){
 		if(get_index("s") == NULL){
 			return errorMessage("invalid subject");
 		}
-		
+
 		return "<h3>create forum thread </h3>"
 			. "<form method='POST' action='".htmlspecialchars($_SERVER['PHP_SELF'])."'>"
 			. 	"<table>"
@@ -75,8 +78,9 @@
 			. "</form>";
 	}
 	/**
-	 * get a view to update post
-	 * request index post: the post PK to update
+	 * get a view to update post\n
+	 * must include GET attr:\n
+	 * 	- the PK of post to edit
 	 * @return form as html string
 	 */
 	function updatePostView(){
@@ -107,8 +111,10 @@
 			. "</table>";
 	}
 	/**
-	 * newsview\n get a form to post and create news
-	 * @return string as form
+	 * newsview\n
+	 * get a form to post and create news
+	 *
+	 * @return form as html
 	 */
 	function createNewsView(){
 		return "<h3>create newsfeed</h3>"
