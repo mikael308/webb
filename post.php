@@ -8,14 +8,12 @@
  * 		<h1>reply</h1> reply to a existing thread\n must contain GET attr: 
  * 		<table>
  * 			<tr><th>t</th><td>the thread PK to reply to</td><tr>
- * 			<tr><th>p</th><td>the page index to redirect back to</td><tr>
  * 		</table>
  * 	</li>
  * 	<li>
  * 		<h1>createthread</h1> create a new thread to a subject\n must contain GET attr:
  * 		<table>
  * 			<tr><th>s</th><td>the post PK to reply to</td><tr>
- * 			<tr><th>p</th><td>the page index to redirect back to</td><tr>
  * 		</table>
  * 	</li>
  * 	<li> 
