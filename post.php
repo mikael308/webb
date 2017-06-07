@@ -133,9 +133,12 @@
 					break;
 			} # ! switch op
 			return True;
-				
-		} # ! isset GET op
-		
+
+		} else {
+			# ! isset GET op
+			echo errorMessage("invalid operation");
+		}
+
 		return True;
 	}
 
