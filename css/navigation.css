@@ -13,17 +13,15 @@ nav {
 	margin: 0 auto;
 	width: 92%;
 	text-align: left;
-	/*display: inline-block;*/
+	display: inline-block;
 }
 
-header ul{
+header ul,
+header  ul li {
+	display: inline-block;
 	/* remove all std padding & margin for lists */
 	padding: 0;
 	margin: 0;
-}
-
-header  ul li {
-	display: inline-block;
 }
 
 .btn_nav {
