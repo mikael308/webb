@@ -12,6 +12,25 @@
 
 
 	/**
+	 * get information as infopanel
+	 * @param id section id
+	 * @param banner the top section
+	 * @param content lower section
+	 * @return as html
+	 */
+	function infopanel($id, $banner, $content){
+		return
+			"<div id='$id' class='infopanel'>"
+			.	"<h1 class='infopanel_banner'>"
+			.		$banner
+			.	"</h1>"
+			.	"<div class='infopanel_content'>"
+			.		$content
+			.	"</div>"
+			. "</div>";
+	}
+
+	/**
 	 * format string to a maxlength
 	 * @param text the text to format
 	 * @param max max string length
