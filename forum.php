@@ -24,8 +24,6 @@
 	restrictedToAuthorized($GLOBALS["register_page"] );
 	$page = new Page();
 
-<<<<<<< HEAD
-
 	# HEAD
 	##########################
 	$page->setHead(
