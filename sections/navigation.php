@@ -34,7 +34,8 @@
     	$pagenavitems .=
     		getNavButton(
     			$GLOBALS["admin_page"],
-    			"admin");
+    			"admin"
+        );
     }
 
     return
