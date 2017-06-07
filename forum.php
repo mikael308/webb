@@ -11,6 +11,7 @@
 	require_once "./sections/main.php";
 	require_once "./sections/views.php";
 	require_once "./sections/dateformat.php";
+	require_once "./sections/forum/information.php";
 	require_once "./sections/forum/main.php";
 	require_once "./sections/forum/overview.php";
 	require_once "./sections/forum/subject.php";
@@ -65,7 +66,15 @@
 				$index_val,
 				get_index("p")
 			);
+			switch($index){
+				case "main":
+				echo
+					"<aside>"
+					. 	displayLatestThreads()
+					. "</aside>";
 
+				break;
+			}
 		?>
 
 	</main>
