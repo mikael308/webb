@@ -133,7 +133,10 @@
 	 */
 	function deletePostForm(ForumPost $post){
 		return
-			"<form class='delete_post' method='POST' action='".htmlspecialchars($GLOBALS["post_page"] )."' >"
+			"<form class='delete_post' "
+			.		" method='POST' "
+			.		" action='".htmlspecialchars($GLOBALS["post_page"] )."' "
+			.		">"
 			# the post to delete
 			.		"<input type='hidden' name='post' value='" . $post->getPrimaryKey() . "' />"
 			# the page index to redirect after deletion
