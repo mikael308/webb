@@ -1,11 +1,11 @@
 <?php
-/**
- * use request 'id' for searchstring \n
- * echos list of links to users that match with searchstring\n
- * max amount of results displayed set in settings.md as var searchres_user_amount
- * @author Mikael Holmbom
- * @version 1.0
- */
+	/**
+	 * use request 'id' for searchstring \n
+	 * echos list of links to users that match with searchstring\n
+	 * max amount of results displayed set in settings.md as var searchres_user_amount
+	 * @author Mikael Holmbom
+	 * @version 1.0
+	 */
 
 	require_once "./config/pageref.php";
 	require_once "./config/settings.php";
@@ -112,7 +112,7 @@
 	}
 
 	echo $suggest == "" ? "" :
-		  "<ul id='searchres_list'>"
+		"<ul id='searchres_list'>"
 		.	 $suggest
 		 ."</ul>";
 
