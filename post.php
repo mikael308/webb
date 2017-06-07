@@ -87,7 +87,8 @@
 
 				}
 			} catch(RuntimeException $e){
-				echo $e->message;
+				echo errorMessage("could not handle request");
+				#echo $e->message;
 			}
 
 		?>
