@@ -66,22 +66,40 @@
 
 		$author = $post->getAuthor();
 
-		return "<div class='forum_content_listitem forum_post'>"
+		return
+		"<div class='forum_content_listitem forum_post'>"
 			. "<div class='author'>"
-				. "<div class='name'><a href='".$GLOBALS["user_page"] ."?u=".$author->getPrimaryKey()."'>" . $author->getName() . "</a></div>"
-				. "<div class='role'>" . $author->getRole() . "</div>"
-				. "<div class='registered'>registered<br>".formatDate($author->getRegistered())."</div>"
+				. "<div class='name'>"
+				.		"<a href='".$GLOBALS["user_page"] ."?u=".$author->getPrimaryKey()."'>"
+				. 		$author->getName()
+				. 	"</a>"
+				.	"</div>"
+				. "<div class='role'>"
+				. 	$author->getRole()
+				. "</div>"
+				. "<div class='registered'>registered<br>"
+				.		formatDate($author->getRegistered())
+				.	"</div>"
 			. "</div>"
 			. "<div class='post'>"
-				. "<div class='message'>" . $post->getMessage() . "</div>"
+				. "<div class='message'>"
+				. 	$post->getMessage()
+				. "</div>"
 				. "<div class='dates'>"
 				. 	"<div class='created'>created: " . formatDateTime($post->getCreated()) . "</div>"
 				. 	$edited
 				. "</div>"
 			. "</div>"
-			. 	"<div class='option_panel'>"
-			.		tooltip($editMessageForm, 'edit post')
-			.		tooltip($deletePostForm, 'delete post')
+
+			. "<div class='option_panel'>"
+			.		tooltip(
+						$editMessageForm,
+						'edit post'
+					)
+			.		tooltip(
+						$deletePostForm,
+						'delete post'
+					)
 			.	"</div>"
 		. "</div>";
 	}
