@@ -19,7 +19,7 @@ header  ul li {
 	display: inline-block;
 	/* remove all std padding & margin for lists */
 	padding: 0;
-	margin: 0;
+	margin-bottom: 0;
 }
 
 .btn_nav {
