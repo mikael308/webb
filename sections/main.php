@@ -29,8 +29,11 @@
 			"<meta charset='utf-8'>"
 			. getScript("searchsidepanel.js")
 			. getScript("searchdatabase.js")
+			. getStylesheet("authorization.css")
+			. getStylesheet("elements.css")
 			. getStylesheet("main.css")
 			. getStylesheet("message.css")
+			. getStylesheet("navigation.css")
 			. getStylesheet("search.css")
 			. getStylesheet("widgets.css")
 			. "<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>";

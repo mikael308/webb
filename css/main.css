@@ -1,7 +1,5 @@
-@import url("elements.css");
-@import url("authorization.css");
+
 @import url("colorschemes/main_green.css");
-@import url("navigation.css");
 
 html {
 	font-family: sans-serif;
