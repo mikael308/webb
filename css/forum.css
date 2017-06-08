@@ -9,8 +9,10 @@
 @import url("colorschemes/forum_green.css");
 @import url("pagination.css");
 
+
+/* main article holding forum content */
 #forum_content{
-	
+	overflow: hidden;
 }
 
 #forum_content_list{
