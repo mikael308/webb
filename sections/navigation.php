@@ -48,7 +48,7 @@
   * if user is null empty string is returned
   * @return as html
   */
-  function getUserNav($user){
+  function getUserNav($user=NULL){
     if($user == NULL)
     	return "";
 
