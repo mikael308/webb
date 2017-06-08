@@ -56,6 +56,13 @@ header  ul li {
 	margin: 0;
 }
 
+#banner .dropdown-content {
+	/* required to show inside of 'overflow hidden div' (banner) */
+	position: fixed;
+	top:auto;
+	right: auto;
+}
+
 
 /******************
  * SUB_NAV
