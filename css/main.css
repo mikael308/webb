@@ -24,8 +24,8 @@ hr {
 }
 
 #banner {
-	display: block;
 	text-transform: uppercase;
+	overflow: hidden;
 }
 
 #banner a {
