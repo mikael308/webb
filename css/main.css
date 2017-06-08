@@ -62,7 +62,7 @@ main {
 	max-width: 1180px;
 	min-height: 420px;
 	/*overflow:auto;*/
-	margin: 40px auto;
+	margin: 0px auto;
 }
 
 main article {
