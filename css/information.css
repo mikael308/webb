@@ -46,9 +46,8 @@
 }
 
 .latestThreadViewRef .message {
-	padding-left: 3px;
-	padding-bottom: 6px;
-	min-height: 30px;
+	padding-left: 2px;
+	padding-bottom: 4px;
 	font-size: 80%;	
 }
 
