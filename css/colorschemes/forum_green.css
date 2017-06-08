@@ -11,12 +11,15 @@
 	border-radius: 6px;
 	
 }
+
 .forum_content_listitem:hover{
 
 }
+
 .forum_content_listitem .topic:hover{
-	color:red;
+	/*color:red;*/
 }
+
 .forum_content_listitem .topic{
 	color:black;
 }
@@ -32,7 +35,6 @@
 	background: -o-linear-gradient(bottom right, #CACACA, #F0F0F0); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(bottom right, #CACACA, #F0F0F0); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(to bottom right, #CACACA, #F0F0F0); /* Standard syntax */
-	
 }
 
 .forum_subject:hover{
@@ -41,70 +43,4 @@
 	background: -o-linear-gradient(bottom right, #D0E0D0, #F9F9F9); /* For Opera 11.1 to 12.0 */
 	background: -moz-linear-gradient(bottom right, #D0E0D0, #F9F9F9); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(to bottom right, #D0E0D0, #F9F9F9); /* Standard syntax */
-	
-}
-
-
-/*******************************************
-	THREADS
-********************************************/
-
-.forum_thread{
-	background-color: #C0C8C0; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #C0C8C0, #F0F0F0); /* Standard syntax */
-
-}
-.forum_thread:hover{
-	background-color: #E0E3E0; /* std value*/
-	background: -webkit-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Firefox 3.6 to 15 */
-	background: linear-gradient(to bottom right, #E0E3E0, #EFEFF9); /* Standard syntax */
-
-}
-
-
-/********************************************
-	POSTS
-*********************************************/
-
-.forum_post{
-	background-color: #FFFFF3;
-	border-radius: 5px;
-	border-style: ridge;
-}
-
-.forum_post:hover{
-	/*border: 2px solid #5A5ACF;	*/
-	box-shadow: none;
-}
-
-/* author section in forum post */
-.forum_post .author{
-	border-width: 0 1px 0 0;
-	border-style: solid;
-	
-}
-/* the author of posts name label */
-.forum_post .author .name a{
-	color:black;
-}
-
-.forum_post .post{
-	border-width: medium;
-}
-
-#breadcrum .breadcrum_link{
-	border: 2px solid #8A8;
-	background-color: #575;
-	text-decoration: none;
-	color: #EFE;
-}
-
-#breadcrum .breadcrum_link:hover{
-	border: 2px solid #8A8;
-	background-color: #797;
 }

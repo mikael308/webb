@@ -1,0 +1,30 @@
+/**
+ * stylesheet for forum subjects page.
+ * contains style for the content of a subject: links to threads
+ *
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+@import url("colorschemes/forum_subject_green.css");
+
+
+.forum_thread > .info > div {
+	display: inline-block;
+}
+
+.forum_thread > .info > .indexlink {
+	margin-left: 20px;
+}
+
+.forum_thread .threadlink_pagination {
+	margin-left: 4px;
+}
+
+.forum_thread .threadlink_pagination > a {
+	margin-left: 2px;
+}
+
+.forum_thread .indexlink > div {
+	display:inline-block;
+}

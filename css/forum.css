@@ -3,6 +3,9 @@
  * @author Mikael Holmbom
  * @version 1.0
  */
+
+@import url("forum_subject.css");
+@import url("forum_thread.css");
 @import url("colorschemes/forum_green.css");
 @import url("pagination.css");
 
@@ -56,94 +59,6 @@
 .topic{
 	text-transform: capitalize;
 }
-
-
-/*******************************************
-	THREADS
-********************************************/
-
-.forum_thread > .info > div{
-	display: inline-block;
-}
-.forum_thread > .info > .indexlink{
-	margin-left: 20px;
-}
-.forum_thread .threadlink_pagination{
-	margin-left: 4px;
-}
-.forum_thread .threadlink_pagination > a{
-	margin-left: 2px;
-}
-.forum_thread .indexlink > div{
-	display:inline-block;
-}
-
-
-/********************************************
-	POSTS
-*********************************************/
-
-.forum_post{
-	display: flex;
-	padding: 0px;
-}
-
-/*		FORUMPOST AUTHOR SECTION
-*/
-.forum_post .author{
-	
-}
-/* author section in forum post */
-.forum_post .author{
-	text-align: center;
-	padding: 0 5px 0 0;
-	min-width: 14%;
-}
-/* the author of posts name label */
-.forum_post .author .name a{
-	font-weight: bold;
-	text-decoration: none;
-}
-
-.forum_post .author .role{
-	position:relative;
-	top:-4px;
-	font-size: 80%;
-}
-.forum_post .author .registered{
-	font-size: 75%
-}
-
-/*		FORUMPOST MESSAGE SECTION
-*/
- .option_panel{
-	margin-left: 20px;
-	margin-bottom: 10px;
-}
-.forum_post .option_panel form{
-	display: block;
-}
-
-.forum_post .post{
-	position: relative;
-	flex: 1;
-	padding: 10px 0;
-}
-.forum_post .message{
-	margin-left:12px;
-	margin-right: 20px;
-	margin-bottom:40px;
-}
-.forum_post .dates{
-	font-size: 85%;
-	float:right;
-	align-content: bottom;
-	position: absolute;
-	bottom:4px;
-	right: 0;
-	margin: 0 20px;
-}
-
 
 
 /***********************************

@@ -1,0 +1,45 @@
+/**
+ * COLORSCHEME
+ * green
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+
+.forum_post{
+	background-color: #FFFFF3;
+	border-radius: 5px;
+	border-style: ridge;
+}
+
+.forum_post:hover{
+	/*border: 2px solid #5A5ACF;	*/
+	box-shadow: none;
+}
+
+/* author section in forum post */
+.forum_post .author{
+	border-width: 0 1px 0 0;
+	border-style: solid;
+	
+}
+/* the author of posts name label */
+.forum_post .author .name a{
+	color:black;
+}
+
+.forum_post .post{
+	border-width: medium;
+}
+
+#breadcrum .breadcrum_link{
+	border: 2px solid #8A8;
+	background-color: #575;
+	text-decoration: none;
+	color: #EFE;
+}
+
+#breadcrum .breadcrum_link:hover{
+	border: 2px solid #8A8;
+	background-color: #797;
+}

@@ -1,0 +1,23 @@
+/**
+ * COLORSCHEME
+ * green
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+
+.forum_thread{
+	background-color: #C0C8C0; /* std value*/
+	background: -webkit-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #C0C8C0, #F0F0F0); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #C0C8C0, #F0F0F0); /* Standard syntax */
+}
+
+.forum_thread:hover{
+	background-color: #E0E3E0; /* std value*/
+	background: -webkit-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(bottom right, #E0E3E0, #EFEFF9); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, #E0E3E0, #EFEFF9); /* Standard syntax */
+}
