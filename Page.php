@@ -78,30 +78,26 @@
 		/**
 		 * define this head section
 		 */
-		public function setHead($head){
-			$this->defHead =
-				$head == NULL ? "" : $head;
+		public function setHead($head=""){
+			$this->defHead = $head;
 		}
 		/**
 		 * define this header section
 		 */
-		public function setHeader($header){
-			$this->defHeader =
-				$header == NULL ? "" : $header;
+		public function setHeader($header=""){
+			$this->defHeader = $header;
 		}
 		/**
 		 * define this main section
 		 */
-		public function setMain($main){
-			$this->defMain =
-				$main == NULL ? "" : $main;
+		public function setMain($main=""){
+			$this->defMain =$main;
 		}
 		/**
 		 * define this footer section
 		 */
-		public function setFooter($footer){
-			$this->defFooter =
-				$footer == NULL ? "" : $footer;
+		public function setFooter($footer=""){
+			$this->defFooter = $footer;
 		}
 		/**
 		 * @return all sections as html string
