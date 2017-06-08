@@ -50,23 +50,23 @@
 		if($thread == NULL){
 			return "";
 		}
-		$maxlength = 65;
+
 		$lastAuthor = $thread->getLastAttributor();
 		return
 			"<div class='latestThreadViewRef'>"
 			. 	"<a href='".getDisplayThreadLink($thread, 1)."'>"
 			.			"<div class='topic'>"
-			.				textToLength($thread->getTopic(), $maxlength)
+			.				textToLength($thread->getTopic(), 20)
 			.			"</div>"
 			.		"</a>"
 			. 	"<a href='".getDisplayThreadLink($thread, $thread->getLastPageIndex())."'>"
 			.			"<div class='message'>"
-			.				textToLength($thread->getLastPost()->getMessage(), $maxlength)
+			.				textToLength($thread->getLastPost()->getMessage(), 40)
 			.			"</div>"
 			.		"</a>"
 			. 	"<a href='".getDisplayUserLink($lastAuthor->getPrimaryKey())."'>"
 			.			"<div class='author'>"
-			.			textToLength($lastAuthor->getName(), $maxlength)
+			.			textToLength($lastAuthor->getName(), 20)
 			.			"</div>"
 			. 	"</a>"
 			. "</div>";
