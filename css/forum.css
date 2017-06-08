@@ -20,6 +20,7 @@
 	max-width: 92%;
 	min-height: 280px;
 }
+
 .forum_content_listitem{
 	min-height: 0;
 	margin-bottom: 8px;
@@ -27,8 +28,8 @@
 
 .forum_content_listitem  a{
 	text-decoration: none;
-
 }
+
 .forum_content_listitem .topic:hover{
 	text-decoration: underline;
 }
