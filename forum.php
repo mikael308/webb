@@ -54,6 +54,14 @@
 		$index = "subject";
 		$index_val = get_index("s");
 	}
+
+	if($index == "main"){
+		$mainContent .=
+			"<aside>"
+			. 	displayLatestThreads()
+			. "</aside>";
+	}
+
 	# display the forum
 	$mainContent .=
 		forum(
@@ -61,15 +69,7 @@
 			$index_val,
 			get_index("p")
 		);
-	switch($index){
-		case "main":
-		$mainContent .=
-			"<aside>"
-			. 	displayLatestThreads()
-			. "</aside>";
 
-		break;
-	}
 	$page->setMain($mainContent);
 
 	echo $page->toHtml();
