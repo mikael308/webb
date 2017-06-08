@@ -8,10 +8,6 @@
 @import url("colorschemes/information_green.css");
 
 
-#infopanel_latestthreads {
-
-}
-
 .infopanel_banner {
 	padding: 6px;
 	margin: 0;
@@ -35,6 +31,10 @@
 /*************
  *	CONCRETE infopanels
  *************/
+
+#infopanel_latestthreads {
+	
+}
 
 .latestThreadViewRef {
 	padding: 5px 10px 6px;
