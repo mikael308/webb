@@ -74,4 +74,3 @@
       .	"<input type='submit' id='logout_button' class='button' value='logout'	name='logout'>"
       . "</form>";
   }
-?>
