@@ -59,7 +59,7 @@
 			. "<div class='role'>". $user->getRole() . "</div>";
 
 		return
-		 	  "<a href='".$GLOBALS["user_page"] ."?u=" . $user->getPrimaryKey() . "' class='user main'>"
+		 	  "<a href='" . pagelinkUser($user->getPrimaryKey()) . "' class='user main'>"
 		 	. 	"<div class='user extra'>"
 			.		$cont
 			. 	"</div>"

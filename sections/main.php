@@ -48,7 +48,7 @@
 		# forum website logo
 		$logo =
 			"<div id='logo'>"
-			.		"<a href='".$GLOBALS["index_page"]."'>"
+			.		"<a href='".$GLOBALS["pagelink"]["index"]."'>"
 			.			"<h1 id='main_header'>"
 			.				"Webb"
 			.			"</h1>"
@@ -97,16 +97,15 @@
 			"<div id='footerlinks'>"
 				# left footer column
 				. asFooterCol(
-					listitem("<a href='".$GLOBALS["about_page"]."?d=about'>about</a>")
-					. listitem("<a href='".$GLOBALS["contact_page"]."?d=about'>contact us</a>")
+					listitem("<a href='".$GLOBALS["pagelink"]["about_about"]."'>about</a>")
+					. listitem("<a href='".$GLOBALS["pagelink"]["contact"]."'>contact us</a>")
 				)
 			# right footer column
 			. asFooterCol(
-				listitem("<a href='". $GLOBALS["index_page"] ."'>footbook link</a>")
-				. listitem("<a href='". $GLOBALS["index_page"] ."'>tritter link</a>")
+				listitem("<a href='". $GLOBALS["pagelink"]["index"] ."'>footbook link</a>")
+				. listitem("<a href='". $GLOBALS["pagelink"]["index"] ."'>tritter link</a>")
 		 	)
 		 . "</div>";
 	}
-
 
 ?>

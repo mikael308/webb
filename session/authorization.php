@@ -11,7 +11,9 @@
 	 * redirect to param page
 	 * @param redirectedPage the page to redirect client to
 	 */
-	function restrictedToAuthorized($redirectedPage){
+	function restrictedToAuthorized($redirectedPage=null){
+		if($redirectedPage == null)
+			$redirectedPage = $GLOBALS["pagelink"]["register"];
 		if(! userIsAuthorized()){	
 			header("Location: " . $redirectedPage);
 			exit();
@@ -82,7 +84,7 @@
 				if($authUser != NULL)
 					$_SESSION["authorized_user"] = NULL;
 
-				header("Location: " . $GLOBALS["index_page"]);
+				header("Location: " . $GLOBALS["pagelink"]["index"]);
 				exit();
 			}
 		}

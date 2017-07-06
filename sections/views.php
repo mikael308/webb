@@ -19,7 +19,7 @@
 	 * @return link url as string
 	 */
 	function getDisplayUserLink($forumuser_pk){
-		return $GLOBALS["user_page"] . "?u=" . $forumuser_pk;
+		return $GLOBALS["pagelink"]["user"] . "/" . $forumuser_pk;
 	}
 	/**
 	 * generate newsfeed view

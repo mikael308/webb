@@ -5,6 +5,9 @@
    * @param thread the current thread
    * @return as html
    */
+
+  require_once "./config/pageref.php";
+
   function getBreadcrum(ForumSubject $subject = NULL, ForumThread $thread = NULL){
     function getBreadcrumLink($link, $title){
       return
@@ -13,12 +16,27 @@
         ."</div>";
     }
 
-    $cont = getBreadcrumLink($GLOBALS["forum_page"], "main");
+    # FORUM MAIN
+    $cont = getBreadcrumLink(
+      $GLOBALS["pagelink"]["forum"],
+      "main"
+    );
+    # FORUM SUBJECT
     if($subject != NULL){
-      $cont .= getBreadcrumLink($GLOBALS["forum_page"] ."?s=".$subject->getPrimaryKey()."&p=1", $subject->getTopic());
+      $cont .= getBreadcrumLink(
+        pagelinkForumSubject($subject->getPrimaryKey()),
+        $subject->getTopic()
+      );
     }
+    # FORUM THREAD
     if($thread != NULL){
-      $cont .= getBreadcrumLink($GLOBALS["forum_page"] ."?t=".$thread->getPrimaryKey()."&p=1", $thread->getTopic());
+      $cont .= getBreadcrumLink(
+        pagelinkForumThread(
+          $thread->getSubjectFK(),
+          $thread->getPrimaryKey()
+        ),
+        $thread->getTopic()
+      );
     }
 
     return

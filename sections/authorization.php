@@ -40,7 +40,7 @@
 	function getRegisterContent(){
 		return
 			"<span>"
-			.		"<a href='". $GLOBALS["register_page"]. "'>"
+			.		"<a href='". $GLOBALS["pagelink"]["register"]. "'>"
 			.			"register here!"
 			.		"</a>"
 			.	"</span>";

@@ -73,9 +73,7 @@
 			# information about the author of the post
 			. "<div class='author'>"
 				. "<div class='name'>"
-				.		"<a href='".$GLOBALS["user_page"] ."?u=".$author->getPrimaryKey()."'>"
-				. 		$author->getName()
-				. 	"</a>"
+				.		"<a href='".pagelinkUser($author->getPrimaryKey())."'>". $author->getName() ."</a>"
 				.	"</div>"
 				. "<div class='role'>"
 				. 	$author->getRole()

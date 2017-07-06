@@ -14,12 +14,12 @@
     $pagenavitems =
     	listitem(
     		getNavButton(
-    			$GLOBALS["index_page"],
+    			$GLOBALS["pagelink"]["index"],
     	 		"start")
     	)
     	. listitem(
     		getNavButton(
-    			$GLOBALS["forum_page"],
+    			$GLOBALS["pagelink"]["forum"],
     			"forum")
     	)
     	. listitem(
@@ -33,7 +33,7 @@
     if($user != NULL && $user->isAdmin()){
     	$pagenavitems .=
     		getNavButton(
-    			$GLOBALS["admin_page"],
+    			$GLOBALS["pagelink"]["admin"],
     			"admin"
         );
     }
@@ -83,8 +83,8 @@
     	"<i class='dropbtn material-icons clickable'>info_outline</i>";
     $dropdown_list_about =
     	array(
-    		"faq" => $GLOBALS['about_page'] . "?d=faq",
-    		"about" => $GLOBALS['about_page'] . "?d=about"
+    		"about"   => $GLOBALS["pagelink"]["about_about"],
+        "faq"     => $GLOBALS["pagelink"]["about_faq"]
     	);
 
     return

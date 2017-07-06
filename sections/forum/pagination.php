@@ -6,41 +6,50 @@
 	 * @version 1.0
 	 */
 
+	require_once "./config/pageref.php";
+
 	 class Pagination {
 
 		 /**
 		  * generate pagination for subject
-			* @param $subject
-			* @param currentPage the current displayed page
+		  * @param $subject
+		  * @param currentPage the current displayed page
 		  * @return as html
-			*/
+		  */
 		 public static function generateSubject(ForumSubject $subject, $currentPage) {
-			 $link = $GLOBALS["forum_page"] . "?s=" . $subject->getPrimaryKey();
-			 $max_pages = Count::maxPagesSubject($subject);
-			 return Pagination::generate(
-				 $subject->getPrimaryKey(),
-				 $currentPage,
-				 $max_pages,
-				 $link
-			 );
+		 	$link = pagelinkForumSubject(
+		 		$subject->getPrimaryKey()
+		 	);
+		 	##### $GLOBALS["pagelink"]["forum"] . "?s=" . $subject->getPrimaryKey();
+			$max_pages = Count::maxPagesSubject($subject);
+			return Pagination::generate(
+			  $subject->getPrimaryKey(),
+			  $currentPage,
+			  $max_pages,
+			  $link
+			);
 		 }
 
- 		 /**
- 		  * generate pagination for thread
- 			* @param $thread
- 			* @param currentPage the current displayed page
- 		  * @return as html
- 			*/
-		 public static function generateThread(ForumThread $thread, $currentPage) {
-			 $link = $GLOBALS["forum_page"] . "?t=" . $thread->getPrimaryKey();
-			 $max_pages = Count::maxPagesThread($thread);
-			 return Pagination::generate(
-				 $thread->getPrimaryKey(),
-				 $currentPage,
-				 $max_pages,
-				 $link
-			 );
-		 }
+ 		/**
+ 		 * generate pagination for thread
+ 		 * @param $thread
+ 		 * @param currentPage the current displayed page
+ 		 * @return as html
+ 		 */
+		public static function generateThread(ForumThread $thread, $currentPage) {
+			#$link = $GLOBALS["pagelink"]["forum"] . "?t=" . $thread->getPrimaryKey();
+			$link = pagelinkForumThread(
+				$thread->getSubjectFK(),
+				$thread->getPrimaryKey()
+			);
+			$max_pages = Count::maxPagesThread($thread);
+			return Pagination::generate(
+			 $thread->getPrimaryKey(),
+			 $currentPage,
+			 $max_pages,
+			 $link
+			);
+		}
 
 		 	/**
 		 	 * get the pagination indexes buttons

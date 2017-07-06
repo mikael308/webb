@@ -20,7 +20,7 @@
 	startSession();
 
 	if(loginListener()){
-		header("Location: " . $GLOBALS["index_page"]);
+		header("Location: " . $GLOBALS["pagelink"]["index"]);
 		exit();
 	}
 
@@ -209,9 +209,9 @@
 				# user is successfully registered in database
 				$user = read::forumUser($user->getPrimaryKey());
 				$_SESSION["authorized_user"] = $user;
-				$linkref = $GLOBALS["user_page"] . "?u=" . $user->getPrimaryKey();
-				header("Location: " . $linkref);
-
+				
+				header("Location: " 
+					. pagelinkUser($user->getPrimaryKey()));
 			}
 	}
 	/**
