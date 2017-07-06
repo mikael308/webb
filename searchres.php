@@ -19,7 +19,9 @@
    * @param post the search result
    * @return searchresult as html
    */
-  function searchresPost(ForumPost $post){
+  function searchresPost(
+    ForumPost $post
+  ) {
     $maxlen = 40;
     $label = strlen($post->getMessage()) > $maxlen ? 
       substr($post->getMessage(), 0, $maxlen) . ' ... ' :
@@ -50,7 +52,9 @@
    * @param user 
    * @return rearsch result as html
    */
-  function searchresForumUser(ForumUser $user){
+  function searchresForumUser(
+    ForumUser $user
+  ) {
     $cont = "<div class='name'>". $user->getName() ."</div>"
       . "<div class='role'>". $user->getRole() . "</div>";
     return
@@ -66,9 +70,13 @@
    * @param data listitem data
    * @return li as html
    */
-  function search_li($data){
+  function search_li(
+    $data
+  ) {
     return "<li class='searchres_item'>". $data ."</li>";
   }
+
+
   $searchstr = $_REQUEST["id"];
   $searchType = $_REQUEST["type"];
   $nothingfoundres = "<li class='searchres_item'>no results</li>";
@@ -100,6 +108,7 @@
       break;
     }
   }
+  
   echo $suggest == "" ? "" :
     "<ul id='searchres_list'>"
     .   $suggest
