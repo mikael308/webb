@@ -1,0 +1,38 @@
+#
+# defines rewrite rules for pages 
+# 
+# author: Mikael Holmbom
+
+Options +FollowSymLinks -MultiViews
+
+RewriteEngine on
+
+# NC -> not casesensitive
+# L  -> end ruleprocessing
+
+##################
+# ABOUT
+RewriteRule ^(about)?$ $1.php?d=$1 [NC,L]
+RewriteRule ^(about)/([a-zA-Z]+)?$ $1.php?d=$2 [NC,L]
+
+##################
+# FORUM
+RewriteRule ^forum$ forum.php [NC,L]
+
+RewriteRule ^forum/([0-9]+)$ forum.php?s=$1&p=1 [NC,L]
+RewriteRule ^forum/([0-9]+)/([0-9]+)$ forum.php?s=$1&p=$2 [NC,L]
+
+RewriteRule ^forum/([0-9]+)/([0-9]+)/([0-9]+)$ forum.php?t=$2&p=$3 [NC,L]
+
+##################
+# INDEX
+RewriteRule ^$ index.php [NC,L]
+RewriteRule ^index$ index.php [NC,L]
+
+##################
+# USER
+RewriteRule ^user/(.+)$ user.php?u=$1 [NC,L]
+
+##################
+# REGISTER
+RewriteRule ^register$ registeruser.php [NC,L]
