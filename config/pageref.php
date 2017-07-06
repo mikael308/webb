@@ -5,6 +5,9 @@
    * @author Mikael Holmbom
    */
   
+  # absolute path to web root
+  $GLOBALS["site-root"] = "/webb/";
+  
   # references to actual page files
   $GLOBALS["pageref"] = array(
     "about"         => "about.php",
