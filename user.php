@@ -19,7 +19,7 @@
 
 	startSession();
 	logoutListener();
-	restrictedToAuthorized($GLOBALS["register_page"] );
+	restrictedToAuthorized();
 
 	function getReq($index){
 		if(isset($_GET[$index])){
