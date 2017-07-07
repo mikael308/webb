@@ -2,6 +2,7 @@
 	/**
 	 * page used for register new users
 	 * this page has permitted access to non-authorized users
+	 * if user is already authorized, user is redirected
 	 *
 	 * @author Mikael Holmbom
 	 * @version 1.0
@@ -21,6 +22,12 @@
 
 	if(loginListener()){
 		header("Location: " . $GLOBALS["pagelink"]["index"]);
+		exit();
+	}
+
+	if(userIsAuthorized())
+	{
+		header("Location: ". $GLOBALS["pagelink"]["index"]);
 		exit();
 	}
 
