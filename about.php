@@ -9,6 +9,7 @@
 
 	require_once "Page.php";
 	require_once "./database/database.php";
+	require_once "./sections/messages.php";
 	require_once "./session/authorization.php";
 	require_once "./session/main.php";
 
@@ -31,7 +32,7 @@
 
 	# MAIN
 	##########################
-	$mainContent = "<p>about page</p>";
+	$mainContent = "";
 
 	if(isset($_GET["d"])){
 		switch($_GET["d"]){
@@ -40,6 +41,9 @@
 			break;
 			case "about":
 				$mainContent .= aboutContent();
+			break;
+			default:
+				$mainContent .= errorContent();
 			break;
 		}
 	} else { # the default page content
@@ -83,5 +87,11 @@
 		return $cont;
 	}
 
+	function errorContent(){
+		return 
+		errorMessage(
+			"about page could not be found"
+		);
+	}
 
  ?>
