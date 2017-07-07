@@ -82,11 +82,14 @@
 	if($view_user != NULL){
 		$mainContent .= getUserInfo($view_user);
 		$authorized_user = $_SESSION["authorized_user"];
-		if($authorized_user->isAdmin() || $authorized_user->isModerator()){
+		if(	
+			$authorized_user->isAdmin() ||
+		 	$authorized_user->isModerator()
+		){
 				$mainContent .= getAdminTools();
-		} else {
-			$mainContent .= errorMessage("user was not found");
 		}
+	} else {
+		$mainContent .= errorMessage("user was not found");
 	}
 	$page->setMain(
 		$mainContent
