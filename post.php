@@ -36,7 +36,7 @@
 
 	autoloadDAO();
 	startSession();
-	restrictedToAuthorized($GLOBALS['index_page']);
+	restrictedToAuthorized($GLOBALS["pagelink"]["index"]);
 
 
 	/*
