@@ -56,17 +56,26 @@
 			"<div class='latestThreadViewRef'>"
 			. 	"<a href='".getDisplayThreadLink($thread, 1)."'>"
 			.			"<div class='topic'>"
-			.				textToLength($thread->getTopic(), 20)
+			.				textToLength(
+								$thread->getTopic(),
+								20
+							)
 			.			"</div>"
 			.		"</a>"
 			. 	"<a href='".getDisplayThreadLink($thread, $thread->getLastPageIndex())."'>"
 			.			"<div class='message'>"
-			.				textToLength($thread->getLastPost()->getMessage(), 40)
+			.				textToLength(
+								$thread->getLastPost()->getMessage(),
+								40
+							)
 			.			"</div>"
 			.		"</a>"
 			. 	"<a href='".getDisplayUserLink($lastAuthor->getPrimaryKey())."'>"
 			.			"<div class='author'>"
-			.			textToLength($lastAuthor->getName(), 20)
+			.			textToLength(
+							$lastAuthor->getName(),
+							20
+						)
 			.			"</div>"
 			. 	"</a>"
 			. "</div>";
