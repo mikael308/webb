@@ -150,7 +150,9 @@
 	* @param password the password to validate
 	* @return True if password is valid
 	*/
-	function validPassword($password){
+	function validPassword(
+		$password
+	) {
 		if(validLength($password)
 			&& validContent($password)){
 			return True;
@@ -163,7 +165,9 @@
 	* @param password the password to validate
 	* @return True if password is valid length
 	*/
-	function validLength($password){
+	function validLength(
+		$password
+	) {
 		if (strlen($password) >= 6){
 			return True;
 		}
@@ -174,7 +178,9 @@
 	* @param password the password to validate
 	* @return True if password is valid  of content
 	*/
-	function validContent($password){
+	function validContent(
+		$password
+	){
 		if (preg_match("/[a-z]/", $password) == 0
 				|| preg_match("/[A-Z]/", $password) == 0
 				|| preg_match("/[0-9]/", $password) == 0
@@ -225,8 +231,12 @@
 	 * determine if user fields is valid
 	 * @return True if valid
 	 */
-	function validUser($name, $email, $passw, $passw_conf){
-
+	function validUser(
+		$name, 
+		$email, 
+		$passw, 
+		$passw_conf
+	) {
 		# validate input fields
 		##########################
 
@@ -274,7 +284,9 @@
 	 * meaning translate htmlspecial chars, slashes and initial or ending whitespaces
 	 * @return the clean string
 	 */
-	function clean_input($data){
+	function clean_input(
+		$data
+	) {
 		$data = trim($data);
 		$data = stripslashes($data);
 		$data = htmlspecialchars($data);
