@@ -12,31 +12,37 @@
 	require_once "./sections/forum/pagination.php";
 
 	/**
-	 * facade function generating forum content 
+	 * facade function generating forum content
 	 * @param index content to display. use keys <ul><li>thread</li>subject<li></li><li>main</li></ul>
-	 * @param indexValue 
+	 * @param indexValue
 	 * @param page the page to view
 	 * @return content as html string
 	 */
-	function forum($index, $indexValue=NULL, $page=NULL){
+	function forum(
+		$index,
+		$indexValue = null,
+		$page = null
+	) {
 
 		switch($index){
-			case "thread": 		
+			case "thread":
 				return displayThreadContent(
 					Read::thread($indexValue),
-					$page);
-			case "subject":		
+					$page
+				);
+			case "subject":
 				return displaySubjectContent(
 					Read::subjects($indexValue)[0],
-					$page);
-			case "main":		
+					$page
+				);
+			case "main":
 				return displayMainContent();
-			default:			
+			default:
 				return errorMessage("page request error");
 		}
 
 	}
-	
+
 	/**
 	 * get forum content view format
 	 * @param breadrcrum current breadcrum
@@ -46,7 +52,14 @@
 	 * @param pag pagination of content
 	 * @return content as html string
 	 */
-	function forumViewFormat($breadcrum, $header, $top_bts, $forumcontlist, $bottom_bts, $pag){
+	function forumViewFormat(
+		$breadcrum,
+		$header,
+		$top_bts,
+		$forumcontlist,
+		$bottom_bts,
+		$pag
+	) {
 		return
 		"<article id='forum_content'>"
 		.	$breadcrum
@@ -63,17 +76,20 @@
 		. 	$pag
 		. "</article>";
 	}
-	
+
 	/**
 	 * display the content of a forumthread
-	 * @param thread the thread to 
+	 * @param thread the thread to
 	 * @param p the page to display
 	 * @return content as html string
 	 */
-	function displayThreadContent($thread, $p){
-		if($thread == NULL)
+	function displayThreadContent(
+		$thread,
+		$p
+	) {
+		if($thread == null)
 			return errorMessage("invalid thread");
-		if ($p == NULL || $p == "") 
+		if ($p == null || $p == "")
 			return errorMessage("invalid page");
 
 		$pag = Pagination::generateThread(
@@ -89,17 +105,20 @@
 			replyButton($thread),
 			$pag);
 	}
-	
+
 	/**
 	 * display the content of a forumsubject
 	 * @param subject the subject containing threads to display
 	 * @param p the page number to display
 	 * @return content as html string
 	 */
-	function displaySubjectContent($subject, $p){
-		if($subject == NULL)
+	function displaySubjectContent(
+		$subject, 
+		$p
+	) {
+		if($subject == null)
 			return errorMessage("invalid subject");
-		if ($p == NULL || $p == "") 
+		if ($p == null || $p == "")
 			return errorMessage("invalid page");
 
 		$pag = Pagination::generateSubject(
@@ -108,7 +127,7 @@
 		);
 
 		return forumViewFormat(
-			getBreadcrum($subject, NULL),
+			getBreadcrum($subject, null),
 			$subject->getTopic(),
 			newThreadButton($subject),
 			forumContentListThreads($subject, $p),
@@ -123,7 +142,7 @@
 	function displayMainContent(){
 
 		return forumViewFormat(
-			getBreadcrum(NULL, NULL),
+			getBreadcrum(null, null),
 			"forum",
 			"",
 			forumContentListSubjects(read::subjects()),
@@ -136,9 +155,11 @@
 	 * @param thread the thread to reply to
 	 * @return content as html string
 	 */
-	function replyButton($thread){
+	function replyButton(
+		$thread
+	) {
 		return
-			"<a class='button forum_button' href='".$GLOBALS["post_page"] ."?op=reply&t=".$thread->getPrimaryKey()."'>reply</a>";
+			"<a class='button forum_button' href='".$GLOBALS["pageref"]["post"] ."?op=reply&t=".$thread->getPrimaryKey()."'>reply</a>";
 	}
 
 	/**
@@ -146,8 +167,10 @@
 	 * @param subject the subject to add thread to
 	 * @return button as html string
 	 */
-	function newThreadButton($subject){
-		return "<a class='button forum_button' href='".$GLOBALS["post_page"] ."?op=createthread&s=".$subject->getPrimaryKey()."'>new thread</a>";
+	function newThreadButton(
+		$subject
+	) {
+		return "<a class='button forum_button' href='".$GLOBALS["pageref"]["post"] ."?op=createthread&s=".$subject->getPrimaryKey()."'>new thread</a>";
 	}
 
 	/**
@@ -156,8 +179,15 @@
 	 * @param page the index page of the link
 	 * @return link url as string
 	 */
-	function getDisplayThreadLink(ForumThread $thread, $page){
-		return $GLOBALS["forum_page"] . "?t=" . $thread->getId() . "&p=" . $page;
+	function getDisplayThreadLink(
+		ForumThread $thread,
+		$page
+	) {
+		return pagelinkForumThread(
+			$thread->getSubjectFK(),
+			$thread->getPrimaryKey(),
+			$page
+		);
 	}
 
 ?>
