@@ -11,7 +11,9 @@
 	 * redirect to param page
 	 * @param redirectedPage the page to redirect client to
 	 */
-	function restrictedToAuthorized($redirectedPage=null){
+	function restrictedToAuthorized(
+		$redirectedPage=null
+	) {
 		if($redirectedPage == null)
 			$redirectedPage = $GLOBALS["pagelink"]["register"];
 		if(! userIsAuthorized()){	
@@ -24,7 +26,9 @@
 	 * redirect to param page
 	 * @param redirectedPage the page to redirect client to
 	 */
-	function restrictedToAdmin($redirectedPage){
+	function restrictedToAdmin(
+		$redirectedPage
+	) {
 		restrictedToAuthorized($redirectedPage);
 		$authUser = getAuthorizedUser();
 		
@@ -58,13 +62,16 @@
 					case 1: # successful login
 						return True;
 					case 0:
-						$_SESSION["login_errmsg"] = "could not connect to database";
+						$_SESSION["login_errmsg"]
+						 = "could not connect to database";
 						break;
 					case -1:
-						$_SESSION["login_errmsg"] = "could not login, wrong username or password";
+						$_SESSION["login_errmsg"]
+						 = "could not login, wrong username or password";
 						break;
 					case -2:
-						$_SESSION["login_errmsg"] = "could not login, user is banned";
+						$_SESSION["login_errmsg"]
+						 = "could not login, user is banned";
 						break;
 				}
 				
