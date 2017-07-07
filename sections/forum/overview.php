@@ -12,7 +12,9 @@
 	 * @param subjects list of subjects to display
 	 * @return content as html string
 	 */
-	function forumContentListSubjects($subjects){
+	function forumContentListSubjects(
+		$subjects
+	) {
 		$cont = "";
 
 		foreach($subjects as $subject){
@@ -26,7 +28,9 @@
 	 * @param subject the forumsubject to display
 	 * @return content as html string
 	 */
-	function forumSubjectView(ForumSubject $subject){
+	function forumSubjectView(
+		ForumSubject $subject
+	) {
 		if ($subject == NULL) 
 			return errorMessage("could not display subject");
 
