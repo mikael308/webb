@@ -32,11 +32,11 @@
 	}
 
 	$_SESSION["registeruser_errmsg"] = "";
-	if($_SERVER["REQUEST_METHOD"] == "POST"){
+	if($_SERVER["REQUEST_METHOD"] == "POST")
+	{
 		# listen for user register post
 		if(isset($_POST["user_register"])){
 			register();
-
 		}
 	}
 
