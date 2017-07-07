@@ -21,7 +21,7 @@
 
 
 	logoutListener();
-	restrictedToAuthorized($GLOBALS["register_page"] );
+	restrictedToAuthorized();
 	$page = new Page();
 
 	# HEAD
