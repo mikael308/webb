@@ -6,6 +6,8 @@
 	 * @version 1.0
 	 */
 
+	require_once "./config/pageref.php";
+
 	/**
 	 * get a icon button
 	 * @param icon the icon title
@@ -64,7 +66,7 @@
 	function searchSidePanel(){
 		$res_cont = getAuthorizedUser() != NULL ?
 					"<div id='searchres'></div>" :
-					"<div><a href='".$GLOBALS["register_page"] ."'>register to search forum</a></div>";
+					"<div><a href='".$GLOBALS["pagelink"]["register"] ."'>register to search forum</a></div>";
 
 		return "<div id='search_sidepanel' class='sidepanel'>"
 				. "<a href='javascript:void(0)' class='clickable closebtn' onclick='closeSearchPanel()'>&times;</a>"
@@ -128,7 +130,7 @@
 	 * @return stylesheet link as html
 	 */
 	function getStylesheet($filename){
-		return "<link rel='stylesheet' href='./css/".$filename."' >";
+		return "<link rel='stylesheet' href='".$GLOBALS["site-root"]."/css/".$filename."' >";
 	}
 	/**
 	 * get script link to file
@@ -136,7 +138,7 @@
 	 * @return script link as html
 	 */
 	function getScript($filename){
-		return "<script type='text/javascript' src='./js/".$filename."' ></script>";
+		return "<script type='text/javascript' src='".$GLOBALS["site-root"]."/js/".$filename."' ></script>";
 	}
 	/**
 	 * generate listitem
