@@ -50,25 +50,25 @@
   */
   function getUserNav($user=NULL){
     if($user == NULL)
-    	return "";
+      return "";
 
     $dropdown_btn =
-    	"<div class='dropbtn clickable'>"
-    	.		$user->getName()
-    	.		"<i class='dropbtn material-icons clickable'>expand_more</i>"
-    	.	"</div>";
+      "<div class='dropbtn clickable'>"
+      .	 $user->getName()
+      .	 "<i class='dropbtn material-icons clickable'>expand_more</i>"
+      .	"</div>";
     $dropdown_list =
-    	array(
-    		"my page" => getDisplayUserLink($user->getPrimaryKey()),
-    		"logout" => $GLOBALS["about_page"] . "?d=about"
-    	);
+      array(
+        "my page" => getDisplayUserLink($user->getPrimaryKey()),
+        "logout" => $GLOBALS["pagelink"]["about_about"] # TODO fixa logout
+      );
 
     return
-    	dropDownList(
-    		$dropdown_btn,
-    		$dropdown_list,
-    		"user_dropdown"
-    	);
+      dropDownList(
+        $dropdown_btn,
+        $dropdown_list,
+        "user_dropdown"
+      );
   }
 
   /**
@@ -82,32 +82,32 @@
     $dropdown_btn_about =
     	"<i class='dropbtn material-icons clickable'>info_outline</i>";
     $dropdown_list_about =
-    	array(
-    		"about"   => $GLOBALS["pagelink"]["about_about"],
+      array(
+        "about"   => $GLOBALS["pagelink"]["about_about"],
         "faq"     => $GLOBALS["pagelink"]["about_faq"]
-    	);
+      );
 
     return
-    	"<ul id='meta_nav'>"
-    	. listitem(
-    			toolTip(
-    				dropDownList(
-    					$dropdown_btn_about,
-    					$dropdown_list_about
-    				),
-    				"about"
-    			)
-    		)
-    	. listitem(
-    			toolTip(
-    				getIconButton(
-    					"search",
-    					"onclick='openSearchPanel()'"
-    				),
-    				"search"
-    			)
-    		)
-    	. "</ul>";
+      "<ul id='meta_nav'>"
+      . listitem(
+          toolTip(
+            dropDownList(
+              $dropdown_btn_about,
+              $dropdown_list_about
+            ),
+            "about"
+          )
+        )
+        . listitem(
+          toolTip(
+            getIconButton(
+              "search",
+              "onclick='openSearchPanel()'"
+            ),
+            "search"
+          )
+        )
+      . "</ul>";
   }
 
   /**
@@ -148,5 +148,12 @@
       . "</ul>";
   }
 
+  function getAboutNav(){
+    return
+      "<ul>"
+      .   listitem("<a href='".$GLOBALS["pagelink"]["about_about"]."'><div class='button clickable'>about</div></a>")
+      .   listitem("<a href='".$GLOBALS["pagelink"]["about_faq"]."'><div class='button clickable'>faq</div></a>")
+      . "</ul>";
+  }
 
 ?>
