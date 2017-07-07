@@ -151,8 +151,12 @@
   function getAboutNav(){
     return
       "<ul>"
-      .   listitem("<a href='".$GLOBALS["pagelink"]["about_about"]."'><div class='button clickable'>about</div></a>")
-      .   listitem("<a href='".$GLOBALS["pagelink"]["about_faq"]."'><div class='button clickable'>faq</div></a>")
+      .   listitem(
+        "<a href='".$GLOBALS["pagelink"]["about_about"]."'><div class='button clickable'>about</div></a>"
+        )
+      .   listitem(
+        "<a href='".$GLOBALS["pagelink"]["about_faq"]."'><div class='button clickable'>faq</div></a>"
+        )
       . "</ul>";
   }
 
