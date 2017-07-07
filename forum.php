@@ -75,8 +75,6 @@
 	echo $page->toHtml();
 
 
-
-
 	######################################
 	# page functions
 	#####################################
@@ -86,9 +84,11 @@
 		$topic = NULL;
 		try{
 			if(get_index("s") != NULL){
-				$topic = Read::subjects(get_index("s"))[0];
+				$topic =
+				 Read::subjects(get_index("s"))[0];
 			} elseif (get_index("t") != NULL){
-				$topic = Read::thread(get_index("t"));
+				$topic =
+				 Read::thread(get_index("t"));
 			}
 		} catch(RuntimeException $e){
 
