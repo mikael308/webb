@@ -5,7 +5,7 @@ namespace Database\DAO;
 require_once "./database/dao/iForumContent.php";
 require_once "./database/Count.php";
 require_once "./database/Read.php";
-require_once "../config/settings.php";
+require_once "./session/config/settings.php";
 
 use \Database\Count;
 use \Database\Read;
@@ -126,7 +126,7 @@ class ForumThread extends DataAccessObject
 	 * @return page index as integer
 	 */
 	function getLastPageIndex(){
-		return ceil($this->getSize() / \Settings\read("posts_per_page"));
+		return ceil($this->getSize() / $_SESSION['settings']->value("posts_per_page"));
 	}
 
 	/**

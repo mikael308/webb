@@ -147,7 +147,7 @@ class Data extends \Framework\Data\Widget
         $currentPage, 
         $n_pages
     ) {
-        $pageWidth = (int) \Settings\read("pag_max_interval");
+        $pageWidth = (int) $_SESSION['settings']->value("pag_max_interval");
 
         # offset of pagination indexes
         $left_offset = $currentPage - $pageWidth;

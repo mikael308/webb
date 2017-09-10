@@ -100,7 +100,7 @@ class ForumSubject extends DataAccessObject
 		return ceil(
 			$this->getSize()
 			/
-			\Settings\read("threads_per_page")
+            $_SESSION['settings']->value("threads_per_page")
 		);
 	}
 }
