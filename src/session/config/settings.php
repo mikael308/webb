@@ -12,12 +12,13 @@ namespace Session\Config;
 
 class Settings
 {
-    protected $settings_filename = "../../config/settings.conf";
+    protected $settings_filename;
 
     protected $settingsValues;
 
-	public function __construct()
-	{
+    public function __construct($settingsFileName)
+    {
+        $this->settings_filename = $settingsFileName;
         $this->reset();
 	}
 
