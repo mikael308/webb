@@ -38,8 +38,7 @@ class Settings
 
             $row_arr = explode(" ", $tl);
 
-            $this->settingsValues["<?= $row_arr[0] ?>"] = $row_arr[1];
-
+            $this->settingsValues["$row_arr[0]"] = $row_arr[1];
         }
 
         fclose($settings_file);
