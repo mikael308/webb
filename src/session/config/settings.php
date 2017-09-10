@@ -16,13 +16,15 @@ class Settings
 
     protected $settingsValues;
 
+    protected $settingsSet = false;
+
     public function __construct($settingsFileName)
     {
         $this->settings_filename = $settingsFileName;
         $this->reset();
-	}
+    }
 
-	public function reset()
+    public function reset()
     {
         $this->settingsValues = [];
 
@@ -42,12 +44,18 @@ class Settings
         }
 
         fclose($settings_file);
+        $this->settingsSet = true;
+    }
+
+    public function isSettingsSet()
+    {
+        return $this->settingsSet;
     }
 
     public function value(
         $settings_key
     ) {
-	    return $this->settingsValues["$settings_key"];
+        return $this->settingsValues["$settings_key"];
     }
 
     /**
