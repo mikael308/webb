@@ -76,7 +76,7 @@ class Count{
             .       " WHERE id='".$post_pk."' "
             .   " ) "
             . " ;";
-        return ceil(count::query($query) / \Settings\read("posts_per_page"));
+        return ceil(count::query($query) / $_SESSION['settings']->value("posts_per_page"));
     }
     /**
      * count results from database query
@@ -117,7 +117,7 @@ class Count{
             . " WHERE thread='" . $thread->getPrimaryKey() ."'"
             .";";
         $n_posts        = Count::query($query);
-        $max_pages      = ceil($n_posts / \Settings\read("posts_per_page"));
+        $max_pages      = ceil($n_posts / $_SESSION['settings']->value("posts_per_page"));
         return $max_pages;
     
     }
@@ -136,7 +136,7 @@ class Count{
             . ";";
 
         $n_threads = Count::query($query);
-        $max_pages = ceil($n_threads / \Settings\read("threads_per_page"));
+        $max_pages = ceil($n_threads / $_SESSION['settings']->value("threads_per_page"));
 
         return $max_pages;
     }

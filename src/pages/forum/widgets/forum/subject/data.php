@@ -39,7 +39,7 @@ class Data extends \Framework\Data\Widget
 
     public function getThreadsPerPage()
     {
-        return (int) \Settings\Read("threads_per_page");
+        return (int) $_SESSION['settings']->value("threads_per_page");
     }
 
     public function getStartOffset()
@@ -55,7 +55,7 @@ class Data extends \Framework\Data\Widget
     public function threadInnerPag(ForumThread $thread)
     {
         #$cont = "";
-        $pagInterval = Settings\read("pag_max_interval_threadlink");
+        $pagInterval = $_SESSION['settings']->value("pag_max_interval_threadlink");
         $lastPagIdx = 0;
         $pags = getStartEndPags($thread, $pagInterval);
         foreach($pags as $i => $pag){

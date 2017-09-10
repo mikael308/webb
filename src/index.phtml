@@ -19,6 +19,12 @@ require_once "pageref.php";
 loadSections("request");
 loadSections("import");
 
+if(! isset($_SESSION['settings'])){
+    $_SESSION['settings'] = new \Session\Config\Settings(
+            "../config/settings.conf"
+    );
+}
+
 $display = false;
 try {
     loadSections("listener");
