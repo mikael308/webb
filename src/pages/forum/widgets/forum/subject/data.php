@@ -18,11 +18,7 @@ class Data extends \Framework\Data\Widget
     {
         $this->subject = \Database\Read::subjects(getSubjectIndex())[0];
         $this->threads = $this->subject->getThreads();
-        
-        #$tpp       = 
-        #$i             =  # start offset
-        #$maxlim    = ($tpp + $i); # end offset
-        #$n_threads     = count($this->threads);
+
         $this->maxPages = \Database\Count::maxPagesSubject($this->subject);
     }
 
