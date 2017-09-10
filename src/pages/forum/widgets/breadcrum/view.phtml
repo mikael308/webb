@@ -1,0 +1,26 @@
+<div id="breadcrum">
+    <div class="parallellogram">
+        <a 
+            class="clickable breadcrum_link" 
+            href="<?= $GLOBALS["pagelink"]["forum"] ?>"><?= "forum" ?></a>
+    </div>
+    <?php 
+    $subject = $data->getSubject();
+    if($subject != null): ?>
+        <div class="parallellogram">
+            <a 
+                class="clickable breadcrum_link" 
+                href="<?= pagelinkForumSubject($subject->getPrimaryKey()) ?>"><?= $subject->getTopic() ?></a>
+        </div>
+    <?php endif; ?>
+    <?php 
+    $thread = $data->getThread();
+    if($thread != null): ?>
+        <div class="parallellogram">
+            <a 
+                class="clickable breadcrum_link" 
+                href="<?= pagelinkForumThread($thread->getPrimaryKey()) ?>"><?= $data->getThread()->getTopic() ?></a>
+
+        </div>
+    <?php endif; ?>
+</div>

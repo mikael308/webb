@@ -1,0 +1,23 @@
+<?php
+
+# modify database
+switch (getSubpage()) {
+    case "deletepost":
+        \Database\deletePost();
+    break;
+    case "news":
+        \Framework\Factory\Widgets::include("create_news", "post");
+        break;
+    case "thread":
+    	\Framework\Factory\Widgets::include("create_thread", "post");
+    break;
+    case "reply":
+    	\Framework\Factory\Widgets::include("post_reply", "post");
+    break;
+    case "editpost":
+        \Framework\Factory\Widgets::include("edit_post", "post");
+    break;
+    default:
+    	echo "<h1>error: not found</h1>";
+    break;
+}

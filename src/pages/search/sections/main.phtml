@@ -1,0 +1,14 @@
+<h2>Search <?= getSubPage() ?></h2>
+<h3>searchresult for <?= getSearchVal() ?></h3>
+
+<?php
+
+switch(getSubpage())
+{
+    case "post":
+        loadContentView('post_searchres', 'search');
+        break;
+    case "user":
+        loadContentView('user_searchres', 'search');
+        break;
+}

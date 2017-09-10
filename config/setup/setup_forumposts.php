@@ -3,8 +3,12 @@
 	require_once "./database/database.php";
 	require_once "./database/Persist.php";
 	#require_once "./database/Read.php";
+	require_once "./database/dao/ForumPost.class.php";
 
-	autoloadDAO();
+	use \Database\Persist as Persist;
+	use \Database\DAO\ForumPost as ForumPost;
+
+	\Database\autoloadDAO();
 
 	#$t = Read::ForumThread(2);
 
@@ -38,7 +42,7 @@
 	$p6->setAuthorFK("klaatu");
 	$p6->setMessage("You mean how long will I live? That no one can tell. ");
 
-	if(Persist::forumPost($p1) &&
+	if (Persist::forumPost($p1) &&
 		Persist::forumPost($p2) &&
 		Persist::forumPost($p3) &&
 		Persist::forumPost($p4) &&

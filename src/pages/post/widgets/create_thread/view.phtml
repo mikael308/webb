@@ -1,0 +1,24 @@
+<h3>create forum thread in subject <?= \Database\Read::subject(getSubjectIndex())->getTopic() ?></h3>
+<form method="POST" action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" />
+    <input type="hidden" name="page" value="post" />
+    <input type="hidden" name="task" value="create_thread" />
+	<table>
+		<tr>
+			<td><label 
+				for="forumthread_topic">topic</label></td>
+			<td><input 
+				type="text" 
+				name="forumthread_topic" autofocus required ></td>
+		</tr>
+		<tr>
+			<td><label for="forumpost_message">message</label>
+			<td><textarea rows="5" cols="40" name="forumpost_message" autofocus required /></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<!-- TODO få in create=create_forumthread som en hidden input istället -->
+			<td><input type="submit" value="create" name="create_forumthread"></td>
+		</tr>
+	</table>
+</form>

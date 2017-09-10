@@ -1,0 +1,37 @@
+<?php
+/**
+ * contains navigation commands:
+ * * about
+ * * search
+ */
+
+$dropdown_btn_about =
+    "<i class='dropbtn material-icons clickable'>info_outline</i>";
+$dropdown_list_about =
+    array(
+    'about'   => $GLOBALS['pagelink']['about_about'],
+    'faq'     => $GLOBALS['pagelink']['about_faq']
+    );
+
+$items = array(
+    'about' 
+    => dropDownList(
+        $dropdown_btn_about,
+        $dropdown_list_about
+    ),
+    'search' 
+    => getIconButton(
+        'search',
+        "onclick='openSearchPanel()'"
+    )
+);
+
+?>
+
+<ul id='meta_nav'>
+    <?php foreach($items as $text => $obj): ?>
+        <li>
+            <?= tooltip($obj, $text); ?>
+        </li>
+    <?php endforeach; ?>
+</ul>

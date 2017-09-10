@@ -1,0 +1,30 @@
+<?php
+/**
+ * @author Mikael Holmbom
+ */
+
+$subpages = array(
+    "about",
+    "faq"
+);
+
+$req_subpage = getSubpage();
+
+$contentPath = in_array($req_subpage, $subpages)
+    ? $req_subpage
+    : "error";
+?>
+
+<h2><?= $req_subpage; ?></h2>
+
+<?php
+loadContentView(
+    $contentPath,
+    "about"
+);
+
+
+#require_once "./ErrorMessageException.php";
+#use \Exception\ErrorMessageException\ErrorMessageException as EME;
+#throw new EME('kjaldskajdlsjad');
+

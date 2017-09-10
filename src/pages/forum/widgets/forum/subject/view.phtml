@@ -1,0 +1,49 @@
+<?php if($data->getThreadsLength() < 1): ?>
+    <p>TODO infomessage</p>
+<?php endif; ?>
+
+<?php 
+$page = getPageIndex();
+?>
+
+<?php if ($page < 1 || $page > $data->getMaxPages()): ?>
+    <p>TODO errormessages</p>
+<?php endif; ?>
+
+<?php 
+
+$threads = $data->getThreads();
+?>
+
+<?php foreach($threads as $thread): ?>
+
+    <?php
+    $creator = $thread->getCreator();
+    $lastAttr = $thread->getLastAttributor();
+    ?>
+
+    <div class="forum_content_listitem forum_thread">
+        <a href="<?= pagelinkForumThread($thread->getPrimaryKey(), 1) ?>">
+            <h3 class="topic"><?= $thread->getTopic() ?></h3>
+        </a>
+        <div class="info">
+            <div class="authors">
+            <?php if ($creator != null): ?>
+                <div class="creator">created by:<a class="clickable" href="<?= pagelinkUser($creator->getPrimaryKey()) ?>"><?= $creator->getName() ?></a></div>
+            <?php endif; ?>
+            <?php if ($lastAttr != null): ?>
+                <span class="lastAttributor">
+                    last: <a class="clickable" href="<?= pagelinkUser($lastAttr->getPrimaryKey()) ?>"><?= $lastAttr->getName() ?></a>
+                </span>
+            <?php endif; ?>
+            </div>
+            <div class="indexlink">
+                <span class="label">index:</span>
+                <div class="threadlink_pagination">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php endforeach; ?>

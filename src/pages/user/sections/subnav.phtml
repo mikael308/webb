@@ -1,0 +1,29 @@
+<?php
+use \Session\Security\Authorizer as Authorizer;
+
+$pagelink = $GLOBALS["pagelink"];
+$authUser = Authorizer::getAuthorizedUser()->getPrimaryKey();
+$view_user = Database\Read::forumUser(
+  getReqUser()
+);
+if ($view_user == null)
+{
+    return;
+}
+$view_userPK = $view_user->getPrimaryKey();
+$btnarr = array(
+    "info"      => pagelinkUser($view_userPK, "info"),
+    "stats"     => pagelinkUser($view_userPK, "stats")
+);
+
+# if "mypage"
+if (getReqUser() == $authUser)
+{
+    $btnarr["settings"] = pagelinkUser($view_userPK, "settings");
+}
+
+?>
+
+<?php foreach($btnarr as $text => $link): ?>
+    <li><a href="<?= $link?>"><?=$text?></a></li>
+<?php endforeach; ?>

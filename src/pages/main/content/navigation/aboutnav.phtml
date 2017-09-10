@@ -1,0 +1,17 @@
+<?php 
+
+$btns = array(
+  "about"   => $GLOBALS["pagelink"]["about_about"],
+  "faq"     => $GLOBALS["pagelink"]["about_faq"]
+);
+
+?>
+
+<ul id="aboutnav">
+<?php foreach($btns as $text => $link): ?>
+  <li>
+    <a href="<?=$link;?>"><div class="button clickable"><?= $text ?></div></a>
+  </li>
+<?php endforeach; ?>
+
+</ul>

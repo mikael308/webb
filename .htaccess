@@ -3,6 +3,8 @@
 # 
 # author: Mikael Holmbom
 
+DirectoryIndex src/index.phtml
+
 Options +FollowSymLinks -MultiViews
 
 RewriteEngine on
@@ -10,29 +12,33 @@ RewriteEngine on
 # NC -> not casesensitive
 # L  -> end ruleprocessing
 
-##################
-# ABOUT
-RewriteRule ^(about)?$ $1.php?d=$1 [NC,L]
-RewriteRule ^(about)/([a-zA-Z]+)?$ $1.php?d=$2 [NC,L]
+# RewriteRule
+####################################
 
-##################
-# FORUM
-RewriteRule ^forum$ forum.php [NC,L]
+# startpage
+RewriteRule ^$ src/index.phtml?page=news [NC,L]
 
-RewriteRule ^forum/([0-9]+)$ forum.php?s=$1&p=1 [NC,L]
-RewriteRule ^forum/([0-9]+)/([0-9]+)$ forum.php?s=$1&p=$2 [NC,L]
+# Page about
+# startsubpage: about
+# subpage must start with alpha char
+RewriteRule ^(about)$ src/index.phtml?page=$1&subpage=about [NC,L]
+RewriteRule ^(about)/([a-z][a-z0-9]*)$ src/index.phtml?page=$1&subpage=$2 [NC,L]
 
-RewriteRule ^forum/([0-9]+)/([0-9]+)/([0-9]+)$ forum.php?t=$2&p=$3 [NC,L]
+RewriteRule ^(ajax)/([a-z][a-z0-9]*)/(.*)$ src/ajax/$2.php?$3 [NC,L]
 
-##################
-# INDEX
-RewriteRule ^$ index.php [NC,L]
-RewriteRule ^index$ index.php [NC,L]
+RewriteRule ^(forum)$ src/index.phtml?page=$1&subpage=main [NC,L]
+RewriteRule ^(forum)/(thread|subject)/([0-9]+)/([0-9]+)$ src/index.phtml?page=$1&subpage=$2&$2=$3&pageidx=$4 [NC,L]
+RewriteRule ^(forum)/(post)$ src/index.phtml?page=$2 [NC,L]
 
-##################
-# USER
-RewriteRule ^user/(.+)$ user.php?u=$1 [NC,L]
+RewriteRule ^(search)/([a-z][a-z0-9]*)/([a-z][a-z0-9]*)$ src/index.phtml?page=$1&subpage=$2&type=$2&value=$3 [NC,L]
 
-##################
-# REGISTER
-RewriteRule ^register$ registeruser.php [NC,L]
+# Page user
+# startsubpage: info
+# username must start with alpha char
+# subpage must start with alpha char
+RewriteRule ^(user)/([a-z][a-z0-9]*)$ src/index.phtml?page=$1&user=$2&subpage=info [NC,L]
+RewriteRule ^(user)/([a-z][a-z0-9]*)/([a-z]*)$ src/index.phtml?page=$1&subpage=$3&user=$2 [NC,L]
+
+RewriteRule ^([a-z][a-z0-9]*)/([a-z][a-z0-9]*)$ src/index.phtml?page=$1&subpage=$2 [NC,L]
+# no subpage
+RewriteRule ^([a-z][a-z0-9]*)$ src/index.phtml?page=$1 [NC,L]

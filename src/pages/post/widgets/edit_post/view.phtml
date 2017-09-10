@@ -1,0 +1,23 @@
+<h3>edit post from thread: <?= $data->getPost()->getThread()->getTopic() ?></h3>
+<form method="POST" action="<?= htmlentities($_SERVER["PHP_SELF"]) ?>">
+    <table>
+        <input type="hidden" name="page" value="post" />
+        <input type="hidden" name="task" value="edit_post" /> 
+        <input type="hidden" name="post" 
+            value="<?= $data->getPost()->getPrimaryKey() ?>" />
+        <input type="hidden" name="page_idx" value="<?= getPageIndex() ?>"/>
+
+        <tr>
+            <td><label for="forumpost_message">message</label></td>
+            <td><textarea
+                    rows="5"
+                    cols="40"
+                    name="forumpost_message"
+                    autofocus required /><?= $data->getPost()->getMessage() ?></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="post" name="update_post" /></td>
+        </tr>
+    </table>
+</form>

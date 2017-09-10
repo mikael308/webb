@@ -1,0 +1,59 @@
+<?php
+/**
+ * form with fields:
+ *      input_username  (text)
+ *      input_password  (password)
+ * submit button:
+ *      login (submit)
+
+ #TODO inte jättesnyggt med divclass formtable_row etc??
+ *
+ */
+
+require_once "./pageref.php";
+
+
+if (!isset($_SESSION["login_errmsg"]))
+  $_SESSION["login_errmsg"]="";
+
+?>
+<div>
+  <form
+      id="loginform"
+      method="POST"
+      action="<?= htmlentities($_SERVER['REQUEST_URI']); ?>"
+      >
+    <div>
+      <span id="login_errmsg"><?= $_SESSION["login_errmsg"]; ?></span>
+    </div>
+    <div class="formtable">
+      <div class="formtable_row">
+        <label for="input_username">username</label>
+      </div>
+      <div class="formtable_row">
+        <input
+          type="text"
+          id="input_username"
+          name="input_username"
+          >
+      </div>
+      <div class="formtable_row">
+        <label for="input_password">password</label>
+      </div>
+      <div class="formtable_row">
+        <input
+          type="password"
+          id="input_password"
+          name="input_password">
+      </div>
+      <div class="formtable_row">
+        <input
+          type="submit"
+          class="btn"
+          value="login"
+          name="login">
+      </div>
+    </div>
+    <?php loadContentView("security/registerlink"); ?>
+  </form>
+</div>

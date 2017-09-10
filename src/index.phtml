@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<?php
+/*
+ * main index file
+ * reads controller and redirect to correct page content
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+#TODO tmp?
+require_once "loader.php";
+require_once "./session/main.php";
+require_once "./database/database.php";
+require_once "ErrorMessageException.php";
+require_once "pageref.php";
+
+\Database\autoloadDAO();
+
+loadSections("request");
+loadSections("import");
+
+$display = false;
+try {
+    loadSections("listener");
+    $display = true;
+} catch (\Exception $e) {
+    #TODO create 404 exception
+}
+
+?>
+
+<html>
+    <head>
+        <?php loadSections("head"); ?>
+    </head>
+    <body>
+        <header>
+            <?php loadSection("header", "main"); ?>
+        </header>
+        <main>
+            <?php
+            if ($display) {
+                loadSection("main", getPage());
+            } else {
+                loadContentView("page404_notfound", "main");
+            }
+            ?>
+        </main>
+        <footer>
+            <?php
+                loadSection("footer", "main");
+                loadSection("script", getPage());
+            ?>
+        </footer>
+    </body>
+</html>

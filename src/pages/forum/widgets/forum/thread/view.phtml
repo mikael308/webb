@@ -1,0 +1,64 @@
+<?php
+
+    use \Database\DAO\ForumPost;
+
+    #TODO för sorgligt... få in detta i data.php
+    $thread = $data->getThread();
+    # start offset
+    $n_postsPerPage = Settings\read("posts_per_page");
+    $start_offset = (getPageIndex() - 1) * $n_postsPerPage;
+    $posts = \Database\Read::postsFromThread($thread->getPrimaryKey());
+    # upper limit of pages
+    $maxlim = ($n_postsPerPage + $start_offset);
+    $n_posts = $thread->getSize();
+    $max_pages = \Database\Count::maxPagesThread($thread);
+    $max_i = min($maxlim, $n_posts);
+
+?>
+
+<?php for ($i = $start_offset; $i < $max_i; $i++): ?>
+    <?php
+    $post = $posts[$i];
+    $author = $post->getAuthor();
+
+    ?>
+
+    <div class="forum_content_listitem forum_post">
+        <div class="author">
+            <div class="name">
+                <a href="<?= pagelinkUser($author->getPrimaryKey()) ?>"
+                    ><?= $author->getName() ?></a>
+            </div>
+            <div class="role">
+                <?= $author->getRole() ?>
+            </div>
+            <div class="registered">registered<br>
+                <?= \Helper\Format::date($author->getRegistered()) ?>
+            </div>
+        </div>
+        <div class="post">
+            <div class="message">
+                <?= $post->getMessage() ?>
+            </div>
+            <div class="dates">
+            <div class="created">created: <?= \Helper\Format::dateTime($post->getCreated()) ?></div>
+                <?php if($post->isEdited()): ?>
+                    <div class="edited">edited: <?= \Helper\Format::dateTime($post->getEdited()) ?></div>
+                <?php endif; ?> 
+            </div>
+        </div>
+        <div class="option_panel">
+            <?php 
+            if(\Database\editable($post)){
+                $data->loadContent('optionpanel/edit_post', [
+                    'post' => $post->getPrimaryKey()
+                ]);
+                $data->loadContent('optionpanel/delete_post', [
+                    'post' => $post->getPrimaryKey()
+                ]);  
+            }
+            ?>
+        </div>
+    </div>
+
+<?php endfor; ?>

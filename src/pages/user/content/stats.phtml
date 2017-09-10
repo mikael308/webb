@@ -1,0 +1,41 @@
+<?php
+use \Session\Security\Authorizer as Authorizer;
+
+$view_user = \Database\Read::forumUser(
+    getReqUser()
+);
+$authUser = Authorizer::getAuthorizedUser();
+
+$nForumThreads  = \Database\Count::forumThreads($view_user);
+$nForumPosts    = \Database\Count::forumPosts($view_user);
+
+$displayStats = array();
+$displayStats["name"] = $view_user->getName();
+if (
+    $view_user == $authUser || 
+    $authUser->isAdmin()
+) {
+    $displayStats["email"] = $view_user->getEmail();
+}
+$displayStats["role"] = $view_user->getRole();
+$displayStats["registered"] = $view_user->getRegistered();
+$displayStats["created threads"] = $nForumThreads;
+$displayStats["posts"] = $nForumPosts;
+
+
+?>
+
+<!-- #TODO byt namn på detta id... userstats eller så -->
+<table id="userinfo">
+    <?php foreach($displayStats as $label => $data): ?>
+        <!-- #TODO fixa så denna inte är table.. inte snyggt.... -->
+        <tr>
+            <td class="userinfo_label"><?= $label ?></td>
+            <td class="userinfo_data"><?= $data ?></td>
+        </tr>
+    
+    <?php endforeach; ?>
+
+</table>
+
+

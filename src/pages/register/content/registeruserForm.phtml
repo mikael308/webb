@@ -1,0 +1,81 @@
+<?php 
+  # if prior values is set
+  $pre_name = 
+    isset($_SESSION["input_name"]) ?
+    $_SESSION["input_name"] : "" ;
+  $pre_email = 
+    isset($_SESSION["input_email"]) ?
+    $_SESSION["input_email"] : "";
+
+?>
+
+<div id="user_reg_table">
+<!-- <form method="POST" action='<?php echo htmlentities($_SERVER["PHP_SELF"]); ?>'> -->
+<form method="POST" action="htmlentities('index.phtml?controller=register')">
+ <table>
+    <th>user registration</th>
+    <tr>
+      <td>
+        <label for="user_name">name</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          id="user_name"
+          value=""
+          name="user_name"
+          autofocus required></td>
+    </tr>
+    <tr>
+      <td>
+        <label for="user_email">email</label>
+      </td>
+      <td>
+        <input
+          type="text"
+          id="user_email"
+          value="<?php echo $pre_email; ?>"
+          name="user_email"
+          required>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="user_password">password</label>
+      </td>
+      <td>
+        <input
+          type="password"
+          id="user_password"
+          name="user_password"
+          onkeyup='validatePasswordHint(this.value)'
+          required>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="user_password_confirm">confirm password</label>
+      </td>
+      <td>
+        <input
+          type="password"
+          id="user_password_confirm"
+          name="user_password_confirm"
+          required>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+        <input
+          type="submit"
+          id="user_register"
+          name="user_register"
+          value="register">
+      </td>
+    </tr>
+  </table>
+  </form>
+</div>

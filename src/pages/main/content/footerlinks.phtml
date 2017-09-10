@@ -1,0 +1,28 @@
+<?php 
+function asFooterCol(
+    ... $listitems
+) {
+    return "<ul class='footer_col'>"
+    .   implode("",$listitems)
+    . "</ul>";
+} 
+?>
+
+<div id='footerlinks'>
+    <ul class='footer_col'>
+        <li>
+            <a href="<?= $GLOBALS["pagelink"]["about_about"] ?>">about</a>
+        </li>
+        <li>
+            <a href="<?= $GLOBALS["pagelink"]["contact"] ?>">contact us</a>
+        </li>
+    </ul>
+    <ul class='footer_col'>
+        <li>
+            <a href="<?= $GLOBALS["pagelink"]["index"] ?>">footbook link</a>
+        </li>
+        <li>
+            <a href="<?= $GLOBALS["pagelink"]["index"] ?>">tritter link</a>
+        </li>
+    </ul>
+</div>

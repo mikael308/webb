@@ -1,0 +1,32 @@
+<?php
+
+function getThreadIndex()
+{
+    return getIndex("thread");
+}
+
+function getSubjectIndex()
+{
+    return getIndex("subject");
+}
+
+function getPageIndex()
+{
+    return getIndex("pageidx");
+}
+
+function isCurrentSubject()
+{
+	return getSubpage() === "subject";
+}
+
+function isCurrentThread()
+{
+	return getSubpage() === "thread";
+}
+
+function isCurrentMain()
+{
+	return getSubpage() === "main";
+}
+

@@ -1,0 +1,58 @@
+<div 
+    id="infopanel_latestthreads" 
+    class="infopanel">
+    <h1 class="infopanel_banner"><?= $data->banner(); ?></h1>
+    <div class="infopanel_content">
+        <?php $threads = $data->latestThreads(); ?>
+        <?php foreach($threads as $thread): ?>
+            <?php $lastAuthor = $thread->getLastAttributor(); ?>
+            <div class="latestThreadViewRef">
+                <a href="<?=
+                        pagelinkForumThread(
+                            $thread->getPrimaryKey(), 
+                            1
+                        ); ?>">
+                    <div class="topic">
+                        <?= 
+                        \Helper\Format::textToLength(
+                            $thread->getTopic(),
+                            20
+                        );
+                        ?>
+                    </div>
+                </a>
+
+                <a href="<?=
+                        pagelinkForumThread(
+                            $thread->getPrimaryKey(),
+                            $thread->getLastPageIndex()
+                        ); ?>">
+                    <div class="message">
+                        <?=
+                        \Helper\Format::textToLength(
+                            $thread->getLastPost()->getMessage(),
+                            40
+                        );
+                        ?>
+                    </div>
+                </a>
+
+                <a href="<?=
+                        pagelinkUser(
+                            $lastAuthor->getPrimaryKey()
+                        ); ?>">
+                    <div class="author">
+                        <?=
+                        \Helper\Format::textToLength(
+                            $lastAuthor->getName(),
+                            20
+                        );
+                        ?>
+                    </div>
+                </a>
+            </div>
+
+        <?php endforeach; ?>
+
+    </div>
+</div>

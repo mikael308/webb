@@ -1,0 +1,78 @@
+<?php
+/**
+ * defines listeners for handling requests
+ * 
+ * @author Mikael Holmbom
+ * @version 1.0
+ */
+
+/**
+ * get the current requested page
+ */
+function getPage() 
+{
+	return $_REQUEST["page"] != null
+		? $_REQUEST["page"]
+		: "";
+}
+
+/**
+ * get the current requested subpage
+ */
+function getSubpage()
+{
+	return $_REQUEST["subpage"] != null
+		? $_REQUEST["subpage"]
+		: "";
+}
+
+/**
+ * get index value from request GET\n
+ * param must be >= 0
+ * @param index return value from GET request 
+ * @return 
+ */
+function getIndex($key){
+    if(isset($_REQUEST[$key])){
+        if(preg_match("/^[0-9]*$/", $_REQUEST[$key])){
+            return $_REQUEST[$key];
+        }
+    }
+    return null;
+}
+
+/**
+ * get value from request POST\n
+ * scope using this must declare variable $requestIndex
+ * @param index return value from GET request 
+ * @return 
+ */
+function post($index){
+    global $requestIndex;
+    $key = $requestIndex[$index];
+            
+    if(isset($_POST[$key])){
+        return $_POST[$key];
+    }
+    return null;
+}
+
+/**
+ * determine if index is set as GET\n
+ * scope using this must declare variable $requestIndex
+ * @param index index to determine
+ */
+function issetGet($index){
+    global $requestIndex;
+    return isset($_GET[$requestIndex[$index]]);
+}
+
+/**
+ * determine if index is set as POST\n
+ * scope using this must declare variable $requestIndex
+ * @param index index to determine
+ */
+function issetPost($index){
+    global $requestIndex;
+    return isset($_GET[$requestIndex[$index]]);
+}

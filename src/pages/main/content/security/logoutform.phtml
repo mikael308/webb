@@ -1,0 +1,20 @@
+<?php
+/**
+ * form used for logout current user
+ */
+
+require_once "./pageref.php";
+
+?>
+<form 
+    id="logoutform" 
+    method="POST"
+    action="<?= htmlentities($_SERVER['PHP_SELF'].'?page=news') ?>">
+  <input 
+    type="submit" 
+    id="logout_button"
+    class="button" 
+    value="logout" 
+    name="logout">
+</form>
+

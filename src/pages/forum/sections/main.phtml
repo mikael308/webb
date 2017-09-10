@@ -1,0 +1,37 @@
+<div id="forum_top_bts" class="button_panel">
+    <?php if (isCurrentMain()): ?>
+        
+    <?php elseif (isCurrentSubject()): ?>
+        <?php 
+            loadContentView("create_thread", "forum");
+        ?>
+    <?php elseif (isCurrentThread()): ?>
+
+    <?php endif; ?>
+</div>
+
+<?php
+\Framework\Factory\Widgets::include("forum", getPage());
+
+?>
+
+<div id="forum_bottom_bts" class="button_panel">
+    <?php if (isCurrentMain()): ?>
+
+    <?php elseif (isCurrentSubject()): ?>
+        
+    <?php elseif (isCurrentThread()): ?>
+        <?php
+        loadContentView('post_reply', 'forum');
+        ?>
+    <?php endif; ?>
+</div>
+
+<?php
+if (isCurrentMain()): ?>
+    <aside>
+        <?php
+        \Framework\Factory\Widgets::include("latestForumThreads");
+        ?>
+    </aside>
+<?php endif; ?>

@@ -1,0 +1,10 @@
+<?php 
+$accordions = $data->getAccordions();
+?>
+
+<?php foreach ($accordions as $label => $panel): ?>
+    <button class="accordion"><?= $label ?></button>
+    <div class="panel">
+        <span><?= $panel ?></span>
+    </div>
+<?php endforeach; ?>

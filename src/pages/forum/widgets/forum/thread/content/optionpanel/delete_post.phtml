@@ -1,0 +1,14 @@
+<?php
+    getScript("confirmation.js") 
+?>
+<form class="delete_post" 
+     method="POST" 
+     action="<?= htmlentities(pagelinkPost("deletepost")) ?>" 
+     onSubmit="return confirmation();" 
+    >
+    <input type="hidden" name="post" value="<?= $args["post"] ?>" />
+    <input type="hidden" name="page_index" value="<?= getPageIndex() ?>" />
+    
+    <input type="submit" class="icon_button material-icons" value="delete_post" />
+
+</form>

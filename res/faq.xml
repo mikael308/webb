@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<faqs 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<faqs 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	version="1.0">
 	<faq>
 		<question>klatu verada ..?</question>
@@ -9,7 +10,6 @@
 		<question>how long is a rope?</question>
 		<answer>half of length * 2</answer>
 	</faq>
-
 </faqs>
 
 

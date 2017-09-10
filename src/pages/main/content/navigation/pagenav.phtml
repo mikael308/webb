@@ -1,0 +1,30 @@
+<?php
+
+use  Session\Security\Authorizer as Authorizer;
+
+$user = Authorizer::getAuthorizedUser();  
+$user_pk = $user == null ? null : $user->getPrimaryKey();
+
+$btns = array(
+    'news'      => $GLOBALS['pagelink']['news'],
+    'forum'     => $GLOBALS['pagelink']['forum'],
+    'my page'   => pagelinkUser($user_pk)
+);
+
+if ($user != null && $user->isAdmin())
+{
+    $btns['admin'] = $GLOBALS['pagelink']['admin'];
+}
+
+?>
+
+<ul id='page_nav'>
+    <?php foreach($btns as $name => $link): ?>
+        <li>
+            <?php $extraClass = getPage() == $name? 'current':''?>
+            <a class="button btn_nav <?= getPage() == $name? 'currentpage':''?>" href="<?= $link ?>"><?= $name ?></a>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+

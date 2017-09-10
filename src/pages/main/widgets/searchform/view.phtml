@@ -1,0 +1,46 @@
+
+<script>
+
+    function getSearchType()
+    {
+        var searchtype = '';
+        var typeRadioButtons = document.getElementsByName('type');
+        for (var i = 0; i < typeRadioButtons.length; i++) {
+            if (typeRadioButtons[i].checked) {
+                searchtype = typeRadioButtons[i].value;
+                break;
+            }
+        }
+        return searchtype;
+    }
+
+    function buildURL()
+    {
+        var action = document.getElementById('searchform').getAttribute('action');
+        var searchtype = getSearchType();
+        var searchvalue = document.getElementById("searchbar").value;
+        var url = action + '/' + searchtype + '/' + searchvalue;
+
+        document.getElementById('searchform').setAttribute('action', url);
+        return true;
+    }
+
+</script>
+<form method="POST" id="searchform" onSubmit="buildURL()" action="<?= $GLOBALS["pagelink"]["search"] ?>">
+
+    <div id="main">
+        <input type="text" id="searchbar" name="value"
+            onkeyup="search(this.value)" autocomplete="off" required />
+        <input id="searchform_btn" type="submit" value="search" class="clickable material-icons" />
+    </div>
+    <div id="options">
+        <label for="search_type_post">post</label>
+        <input type="radio" value="post" name="type"
+           onclick="search(value.value)" checked />
+
+        <label for="search_type_user">user</label>
+        <input type="radio" value="user" name="type"
+           onclick="search(value.value)" />
+    </div>
+
+</form>

@@ -1,0 +1,27 @@
+<?php
+
+require_once "./database/post.php";
+
+if (isset($_REQUEST["task"])) 
+{
+    switch($_REQUEST["task"]) {
+        case "delete_post":
+            \Database\deletePost();
+        break;
+        case "create_news":
+            \Database\createNews();
+        break;
+        case "create_thread":
+            \Database\createThread();
+        break;
+        case "post_reply":
+            \Database\postReply();
+        break;
+        case "edit_post":
+            \Database\editPost();
+        break;
+        default:
+        
+        break;
+    }
+}

@@ -1,0 +1,21 @@
+<?php
+/**
+ * about: faq content page
+ * @author Mikael Holmbom
+ */
+$xml = simplexml_load_file("../res/faq.xml") 
+    or die("could not load faq");
+
+$accordionWidget = \Framework\Factory\Widgets::create('accordion');
+foreach ($xml->children() as $faq) 
+{
+    $accordionWidget->addAccordion(
+        $faq->question,
+        $faq->answer
+    );    
+}
+?>
+
+<div id="faq">
+    <?php \Framework\Factory\Widgets::output($accordionWidget); ?>
+</div>

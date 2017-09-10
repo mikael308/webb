@@ -1,0 +1,29 @@
+<?php
+echo
+  getStylesheet("forum.css")
+  . getStylesheet("information.css")
+  # read from request and set topic name as this title
+  . readTitle();
+
+
+function readTitle(){
+  $title = "forum";
+  $topic = NULL;
+
+  try{
+    if(getIndex("s") != NULL){
+      $topic =
+       \Database\Read::subjects(getIndex("s"))[0];
+    } elseif (getIndex("t") != NULL){
+      $topic =
+       \Database\Read::thread(getIndex("t"));
+    }
+  } catch(RuntimeException $e){
+
+  }
+
+  if($topic != NULL){
+      $title .= ":" . $topic->getTopic();
+  }
+  return setTitle($title);
+}

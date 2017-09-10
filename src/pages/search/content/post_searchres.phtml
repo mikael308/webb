@@ -1,0 +1,22 @@
+<?php $searchresitems = \Database\searchPost(getSearchVal()); ?>
+
+<ul id="searchres">
+    <?php foreach($searchresitems as $post): ?>
+        <?php
+        $maxlen = 40;
+        $label = \Helper\Format::textToLength($post->getMessage(), $maxlen);
+        $p = \Database\Count::postPageIndex($post->getPrimaryKey());
+        $t = $post->getThread();
+        $author = $post->getAuthor();
+        ?>
+
+        <div class="searchres_item">
+            <a href="<?= pagelinkForumThread($t->getPrimaryKey(), $p) ?>"><span class='post main'><?= $label ?></span></a>
+            <span class='author'>author:
+                <a href="<?= pagelinkUser($author->getPrimaryKey()) ?>"><?= $author->getName() ?></a>
+            </span>
+            <span class='topic'>topic: <a href="<?= pagelinkForumThread($t->getPrimaryKey(), 1) ?>"><?= $t->getTopic() ?></a></span>
+        </div>
+
+    <?php endforeach; ?>
+</ul>

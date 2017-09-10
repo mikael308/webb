@@ -1,0 +1,23 @@
+<h3>create newsfeed</h3>
+<form method="POST" action="<?= htmlentities($_SERVER['PHP_SELF']) ?>">
+    <input type="hidden" name="task" value="create_news" />
+    <input type="hidden" name="page" value="post" />
+    
+    <table>
+        <tr>
+            <td><label for="news_title">title</label></td>
+            <td><input type="text" name="news_title" /></td>
+        </tr>
+        <tr>
+            <td><label for="news_message">message</label></td>
+            <td><textarea
+                rows="5"
+                cols="40"
+                name="news_message"></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="create_news" value="create"/></td>
+        </tr>
+    </table>
+</form>

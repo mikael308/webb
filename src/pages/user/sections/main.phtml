@@ -1,0 +1,29 @@
+<div>
+<?php
+
+# subpages that is not restricted
+$open_subpages = array(
+    "info"
+);
+
+
+$subpage = isset($_GET["subpage"])
+    ? $_GET["subpage"]
+    : "";
+
+#TODO if request u is not set, display current user
+$view_user = Database\Read::forumUser(
+    getReqUser()
+);
+
+if ($view_user != null) {
+    #TODO bad url. redo on namespacefix
+    if (is_file("./pages/user/content/$subpage.phtml")) {
+        loadContentView($subpage,"user");
+    } else {
+        throw new \Exception("could not find userpage \"$subpage\". Check URL again");
+    }
+
+} else {
+    throw new \Exception("user was not found");
+}

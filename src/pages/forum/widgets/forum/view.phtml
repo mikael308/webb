@@ -1,0 +1,24 @@
+<article id="forum_content">
+    <?php
+    $page = getPage();
+    \Framework\Factory\Widgets::include('breadcrum', $page);
+    ?>
+    <h2><?= $data->getHeader() ?></h2>
+    <div id="forum_top_bts" class="button_panel">
+
+    </div>
+    <div id="forum_content_list">
+        <?php $data->getContent(); ?>
+    </div>
+    <div id="forum_bottom_bts" class="button_panel">
+
+    </div>
+    <?php
+    #TODO call forum content with AJAX
+    if(getSubPage() != 'main')
+    {
+        \Framework\Factory\Widgets::include('pagination', $page);
+    }
+
+    ?>
+</article>

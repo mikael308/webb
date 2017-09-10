@@ -1,0 +1,12 @@
+<?php
+
+if (
+    ! in_array(getSearchType(),
+    [
+        'post',
+        'user'
+    ])
+) {
+    #TODO define
+    throw new \Exception('404 message');
+}

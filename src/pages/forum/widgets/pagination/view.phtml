@@ -1,0 +1,29 @@
+<div id="pag_nav">
+    <ul>
+        <li><a 
+            id="pag_first" 
+            href="<?= $data->firstIndexLink() ?>" 
+            class="pag_button pag_button_dir material-icons">first_page</a></li>
+        <li><a 
+            id="pag_prev" 
+            href="<?= $data->prevIndexLink() ?>" 
+            class="pag_button pag_button_dir material-icons">navigate_before</a></li>
+        <?php 
+        $idx = $data->getIndexes();
+        ?>
+        <?php foreach ($idx as $i): ?>
+            <li><a
+                href="<?= $data->indexLink($i) ?>"
+                class="pag_button 
+                <?= $data->isCurrent($i)?'pag_button_current':'' ?>"><?= $i ?></a></li>
+        <?php endforeach; ?>
+        <li><a 
+            id="pag_next" 
+            href="<?= $data->nextIndexLink() ?>" 
+            class="pag_button pag_button_dir material-icons">navigate_next</a></li>
+        <li><a 
+            id="pag_last"
+            href="<?= $data->lastIndexLink() ?>" 
+            class="pag_button pag_button_dir material-icons">last_page</a></li>
+    </ul>
+</div>

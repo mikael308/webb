@@ -1,0 +1,38 @@
+<?php
+  /**
+   * authorization forms
+   * if not logged in: returns login form, and register link
+   * if already authorized: return logout form
+   */
+
+?>
+<div id="authorizationsection">
+  <?php 
+  if(! Authorizer::userIsAuthorized())
+  {
+    loadContentView("security/loginform");
+    loadContentView("security/registerlink");
+  } 
+  else 
+  {
+    loadContentView("security/logoutform");
+  }
+  ?>
+</div>
+<!--
+TODO denna har inte testats
+  function getAuthorizationContent(){
+    $cont = "";
+    # if user is not auhtorized
+    if(! isset($_SESSION["authorized_user"])){
+      $cont .= getLoginForm()
+        . getRegisterContent();
+    } else {
+      #$cont .= getLogoutForm();
+    }
+    return
+      "<div id='authorizationsection'>"
+      .   $cont
+      . "</div>";
+  }
+  -->

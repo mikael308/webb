@@ -1,0 +1,28 @@
+<?php
+
+function getOp()
+{
+	#TODO deprecated
+	echo "<h1>deprecated getOp() post/req:5</h1>";
+	return $_REQUEST['op'];
+}
+
+function getSubjectIndex()
+{
+	return getIndex('subject');
+}
+
+function getThreadIndex()
+{
+	return getIndex('thread');
+}
+
+function getPageIndex()
+{
+	return getIndex('page_index');
+}
+
+function getPostIndex()
+{
+	return getIndex('post');
+}

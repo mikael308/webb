@@ -1,0 +1,16 @@
+<?php
+    require_once "./pages/forum/sections/request.phtml";
+
+?>
+<form 
+    class="edit_post" 
+    name="" 
+    method="POST" 
+    action="<?= htmlentities(pagelinkPost("editpost")) ?>" >
+    
+    <input type="hidden" name="post" value="<?= $args["post"] ?>" />
+    <input type="hidden" name="page_index" value="<?= getPageIndex() ?>" />
+    
+    <input type="submit" class="icon_button material-icons" 
+        value="edit_post" name="op"></input>
+</form>

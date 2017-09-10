@@ -1,0 +1,22 @@
+<h3>reply to thread: <?= $data->getThread()->getTopic() ?></h3>
+<form method="POST" action="<?= htmlentities($_SERVER["PHP_SELF"])?>">
+    <table>
+        <input type="hidden" name="page" value="post" />
+        <input type="hidden" name="task" value="post_reply" />
+        <input type="hidden" name="thread" 
+            value="<?= $data->getThread()->getId() ?>" />
+        
+        <tr>
+            <td><label for="forumpost_message">message</label></td>
+            <td><textarea
+                rows="5"
+                cols="40"
+                name="forumpost_message"
+                autofocus required /></textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="post" name="post_reply" /></td>
+        </tr>
+    </table>
+</form>

@@ -1,0 +1,101 @@
+
+<?php
+
+#TODO tmp lösning
+$view_user = Read::forumUser(getReqUser());
+
+?>
+<div id="admin_tools">
+<div class="header">admin tools</div>
+<p>OBS denna fungerar inte... se submit button.. den ska ge tooltip</p>
+  <form 
+      id="admintools"
+      method="POST" 
+      action="<?php echo htmlentities($_SERVER['PHP_SELF'].'?controller=user'); ?>"
+      >
+  <table>
+    <input type="hidden" name="u" value="<?php echo $view_user->getPrimaryKey(); ?>" />
+    <?php if(! $view_user->isAdmin()):
+      $bannuser_tooltip = "user is currently: "
+      . ($view_user->isBanned()? "true" : "false");
+    ?>
+    <tr>
+    <td>
+      <label>banned user</label>
+      </td>
+      <td>
+      <?php
+      echo toolTip(switchButton("update_user_banned",
+        $view_user->isBanned()),
+        $bannuser_tooltip);
+      ?>
+      </td>
+    </tr>
+    <?php endif; ?>
+    <tr>
+      <td></td>
+      <td>
+        <input 
+          type="submit" 
+          id="submit" 
+          class="icon_button material-icons" 
+          value="save" 
+        name="update_user"></td>
+    </tr>
+  </table>
+</form>
+</div>
+
+
+
+
+<?php
+
+/*
+function getAdminTools(){
+  global $view_user;
+#TODO tmp lösning
+  $view_user = Read::forumUser(getReqUser());
+
+  # the user settings is concerning
+  $hiddenuser_row =
+    "<input type='hidden' name='u' value='" . $view_user->getPrimaryKey() . "' />";
+
+  $bannuser_row="";
+  if(! $view_user->isAdmin()){
+    # BANN USER setting
+    $bannuser_tooltip = "user is currently: "
+      . ($view_user->isBanned()? "true" : "false");
+    $bannuser_row = tr(
+      td("<label>banned user</label>")
+      .td(
+        toolTip(switchButton("update_user_banned",
+        $view_user->isBanned()),
+        $bannuser_tooltip)
+    ));
+  }
+    # SAVE BUTTON
+  $submit = "<input type='submit' id='submit' class='icon_button material-icons' value='save' name='update_user'>";
+  $submit_row = tr(
+    td("")
+    .td(toolTip(
+        $submit,
+        "save changes"
+    ))
+  );
+
+  return "<div id='admin_tools'>"
+  . "<div class='header'>admin tools</div>"
+  .   "<form id='admintools' "
+  .       "method='POST' "
+  .       "action='".htmlentities($_SERVER['PHP_SELF'])."'>"
+  .   "<table>"
+  .     $hiddenuser_row
+  .     $bannuser_row
+  .     $submit_row
+  .   "</table>"
+  . "</form>"
+  . "</div>";
+}
+?>
+</div>*/

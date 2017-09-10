@@ -6,9 +6,13 @@
 
 	require_once "./database/database.php";
 	require_once "./database/Persist.php";
-	require_once "./sections/dateformat.php";
+	require_once "./database/dao/ForumUser.class.php";
+	require_once "./helper/format.php";
 
-	autoloadDAO();
+	use \Database\DAO\ForumUser as ForumUser;
+	use \Database\Persist as Persist;
+
+	\Database\autoloadDAO();
 
 	$tom = new ForumUser();
 	$tom->setName("tom");
@@ -59,18 +63,20 @@
 	$hel->setBanned(False);
 	$hel->setRegistered(date($GLOBALS["timestamp_format"]));
 
-	if(Persist::forumUser($tom, "abc") &&
+	if (
+		Persist::forumUser($tom, "abc") &&
 		Persist::forumUser($tim, "hej") &&
 		Persist::forumUser($mik, "asd") &&
 		Persist::forumUser($hil, "hhh") &&
 		Persist::forumUser($hel, "hhh") &&
 		Persist::forumUser($bern, "bbb") &&
-		Persist::forumUser($klaatu, "k")){
+		Persist::forumUser($klaatu, "k")
+	) {
 
 		echo "setup users successful\n";
 		exit();
 
-	} else{
+	} else {
 		echo pg_last_error($db_conn);
 	    echo "See setup_readme.md for information on setup db\n";
 	}

@@ -1,0 +1,12 @@
+<?php
+$page = $GLOBALS["pagelink"];
+$btns = array(
+    "about"     => $page["about_about"],
+    "faq"       => $page["about_faq"]   
+);
+
+?>
+
+<?php foreach($btns as $text => $link): ?>
+    <li><a href="<?=$link;?>" class="subnav_button clickable"><?=$text;?></a></li>
+<?php endforeach; ?>
