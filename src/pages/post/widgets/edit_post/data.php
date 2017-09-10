@@ -7,7 +7,7 @@ require_once "./database/post.php";
 
 use Database\Read;
 
-class Data extends \Model\Widget
+class Data extends \Framework\Data\Widget
 {
     private $post;
 
