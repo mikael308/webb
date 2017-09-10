@@ -8,7 +8,7 @@
  * @version 1.0
  */
 
-namespace Session;
+namespace Session\Config;
 
 class Settings
 {
