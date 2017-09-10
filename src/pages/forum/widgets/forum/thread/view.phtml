@@ -1,26 +1,15 @@
 <?php
 
-    use \Database\DAO\ForumPost;
-
-    #TODO för sorgligt... få in detta i data.php
-    $thread = $data->getThread();
-    # start offset
-    $n_postsPerPage = Settings\read("posts_per_page");
-    $start_offset = (getPageIndex() - 1) * $n_postsPerPage;
-    $posts = \Database\Read::postsFromThread($thread->getPrimaryKey());
-    # upper limit of pages
-    $maxlim = ($n_postsPerPage + $start_offset);
-    $n_posts = $thread->getSize();
-    $max_pages = \Database\Count::maxPagesThread($thread);
-    $max_i = min($maxlim, $n_posts);
+$posts = $data->getPosts();
+$maxPosts = $data->getMaxPosts();
+$startOffset = $data->getStartOffset();
 
 ?>
 
-<?php for ($i = $start_offset; $i < $max_i; $i++): ?>
+<?php for ($i = $startOffset; $i < $maxPosts; $i++): ?>
     <?php
     $post = $posts[$i];
     $author = $post->getAuthor();
-
     ?>
 
     <div class="forum_content_listitem forum_post">
