@@ -21,11 +21,11 @@ class Extract{
 		if ($db_conn){
 
 			$query = " SELECT *"
-				. " FROM ".$GLOBALS['dbtable_forumthreads']." AS t"
+				. " FROM ".$GLOBALS['database']['table']['forumthreads']." AS t"
 				. " WHERE t.id IN "
 				. " ("
 				.  " SELECT p.thread"
-				.  " FROM ".$GLOBALS['dbtable_forumposts']." AS p"
+				.  " FROM ".$GLOBALS['database']['table']['forumposts']." AS p"
 				.  " GROUP BY p.thread"
 				.  " ORDER BY MAX(p.created) DESC"
 				.  " LIMIT($amount)"

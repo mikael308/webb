@@ -19,7 +19,7 @@ class Persist
     ) {
         $db_conn = connect();
         if ($db_conn) {
-            $query = "INSERT INTO " . $GLOBALS['dbtable_forumposts']
+            $query = "INSERT INTO " . $GLOBALS['database']['table']['forumposts']
                 . " (author, thread, message, created) "
                 . " VALUES('"
                 .       $post->getAuthorFK() .  "','"
@@ -49,7 +49,7 @@ class Persist
         $resThread = null;
         $db_conn = connect();
         if($db_conn){
-            $query = "INSERT INTO " . $GLOBALS['dbtable_forumthreads'] 
+            $query = "INSERT INTO " . $GLOBALS['database']['table']['forumthreads'] 
                 . " (subject, topic)"
                 . " VALUES('".$thread->getSubject()->getPrimaryKey()."', '".$thread->getTopic()."') "
                 . " RETURNING id ;";
@@ -118,7 +118,7 @@ class Persist
         $db_conn = connect();
         if($db_conn){
             echo 'persisting author ' . $news->getAuthorPK();
-            $query = "INSERT INTO " . $GLOBALS['dbtable_news']
+            $query = "INSERT INTO " . $GLOBALS['database']['table']['news']
             . " (author, title, message, created) "
                     . " VALUES("
                     . "'" . $news->getAuthorPK() . "',"

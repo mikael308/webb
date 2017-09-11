@@ -18,7 +18,7 @@ class Delete{
     ) {
         $db_conn = connect();
         if ($db_conn){
-            $query = "DELETE FROM " . $GLOBALS['dbtable_forumusers'] ." as fuser "
+            $query = "DELETE FROM " . $GLOBALS['database']['table']['forumusers'] ." as fuser "
             . " WHERE fuser.name='" . $user->getPrimaryKey() . "';";
             $res = pg_query($db_conn, $query);
             if($res){
@@ -43,7 +43,7 @@ class Delete{
     ) {
         $db_conn = connect();
         if ($db_conn){
-            $query = "DELETE FROM " . $GLOBALS['dbtable_forumposts'] . " as fpost "
+            $query = "DELETE FROM " . $GLOBALS['database']['table']['forumposts'] . " as fpost "
                 . " WHERE fpost.id='" . $post->getPrimaryKey() . "';";
             $res = pg_query($db_conn, $query);
             if($res){

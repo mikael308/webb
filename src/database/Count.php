@@ -21,18 +21,18 @@ class Count{
         ForumUser $user
     ) {
         $query =
-            " FROM ".$GLOBALS['dbtable_forumthreads']." AS t "
-            . " LEFT JOIN ".$GLOBALS['dbtable_forumposts']." as p "
+            " FROM ".$GLOBALS['database']['table']['forumthreads']." AS t "
+            . " LEFT JOIN ".$GLOBALS['database']['table']['forumposts']." as p "
             . " ON p.thread=t.id "
             . " WHERE p.author = '".$user->getPrimaryKey()."' "
             . " AND p.id IN "
             . " ( " # the first posts in every thread
                 . " SELECT p.id "
-                . " FROM ".$GLOBALS['dbtable_forumposts']." p "
+                . " FROM ".$GLOBALS['database']['table']['forumposts']." p "
                 . " WHERE p.id = "
                 . " ( "
                     . " SELECT p2.id "
-                    . " FROM ".$GLOBALS['dbtable_forumposts']." p2 "
+                    . " FROM ".$GLOBALS['database']['table']['forumposts']." p2 "
                     . " WHERE p2.thread=p.thread "
                     . " ORDER BY p2.created ASC "
                     . " LIMIT 1 "
@@ -51,7 +51,7 @@ class Count{
         ForumUser $user
     ) {
         $query =
-            " FROM " . $GLOBALS['dbtable_forumposts']
+            " FROM " . $GLOBALS['database']['table']['forumposts']
             . " WHERE author='" . $user->getPrimaryKey() . "'"
             . " ;";
 
@@ -68,11 +68,11 @@ class Count{
         $post_pk
     ) {
         $query = 
-             " FROM " . $GLOBALS['dbtable_forumposts']
+             " FROM " . $GLOBALS['database']['table']['forumposts']
             . " WHERE thread='". Read::forumPost($post_pk)->getThread()->getPrimaryKey() ."' "
             . " AND created <= ( "
             .       " SELECT created "
-            .       " FROM " . $GLOBALS['dbtable_forumposts']
+            .       " FROM " . $GLOBALS['database']['table']['forumposts']
             .       " WHERE id='".$post_pk."' "
             .   " ) "
             . " ;";
@@ -113,7 +113,7 @@ class Count{
         ForumThread $thread
     ) {
         $query =
-            " FROM " . $GLOBALS['dbtable_forumposts']
+            " FROM " . $GLOBALS['database']['table']['forumposts']
             . " WHERE thread='" . $thread->getPrimaryKey() ."'"
             .";";
         $n_posts        = Count::query($query);
@@ -131,7 +131,7 @@ class Count{
         ForumSubject $subject
     ) {
         $query =
-            " FROM " . $GLOBALS['dbtable_forumthreads'] . " AS t "
+            " FROM " . $GLOBALS['database']['table']['forumthreads'] . " AS t "
             . " WHERE t.subject='" . $subject->getPrimaryKey() . "'"
             . ";";
 
@@ -149,7 +149,7 @@ class Count{
         ForumThread $thread
     ) {
         $query =
-            " FROM " . $GLOBALS['dbtable_forumposts'] . " AS p "
+            " FROM " . $GLOBALS['database']['table']['forumposts'] . " AS p "
             . " WHERE p.thread='".$thread->getPrimaryKey()."'"
             . ";";
 

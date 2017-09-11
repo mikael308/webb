@@ -23,7 +23,7 @@ class Read
         $db_conn = connect();
         if ($db_conn) {
             $query = " SELECT id, title "
-                . " FROM " . $GLOBALS['dbtable_roles']
+                . " FROM " . $GLOBALS['database']['table']['roles']
                 . " WHERE id=$1 "
                 . " ;";
 
@@ -64,12 +64,12 @@ class Read
             if ($subject_id == null) {
                 $res = pg_query($db_conn,
                     " SELECT subject.id, subject.topic, subject.subtitle "
-                     . " FROM " . $GLOBALS['dbtable_subjects'] . " as subject "
+                     . " FROM " . $GLOBALS['database']['table']['subjects'] . " as subject "
                      . " ;");
             } else {
                 $res = pg_query_params($db_conn,
                     " SELECT subject.id, subject.topic, subject.subtitle "
-                     . " FROM " . $GLOBALS['dbtable_subjects'] . " as subject "
+                     . " FROM " . $GLOBALS['database']['table']['subjects'] . " as subject "
                      . " WHERE subject.id=$1 "
                      . " ;",
                     array($subject_id));
@@ -98,7 +98,7 @@ class Read
         $db_conn = connect();
         if ($db_conn) {
             $query = " SELECT thread.id, thread.subject, thread.topic "
-                . " FROM " . $GLOBALS['dbtable_forumthreads'] . " AS thread "
+                . " FROM " . $GLOBALS['database']['table']['forumthreads'] . " AS thread "
                 . " WHERE thread.subject=$1 "
                 . " ;";
 
@@ -131,7 +131,7 @@ class Read
         $db_conn = connect();
         if ($db_conn) {
             $query = " SELECT thread.id, thread.subject, thread.topic "
-                . " FROM " . $GLOBALS['dbtable_forumthreads'] . " AS thread "
+                . " FROM " . $GLOBALS['database']['table']['forumthreads'] . " AS thread "
                 . " WHERE thread.id=$1 "
                 . " ;";
 
@@ -160,7 +160,7 @@ class Read
         $db_conn = connect();
         if ($db_conn) {
             $query = "SELECT news.id, news.author, news.title, news.message, news.created "
-                . " FROM " . $GLOBALS['dbtable_news'] . " AS news ";
+                . " FROM " . $GLOBALS['database']['table']['news'] . " AS news ";
             if (
                 $whereclause != null &&
                 $whereclause != ""
@@ -195,7 +195,7 @@ class Read
         $db_conn = connect();
         if ($db_conn) {
             $query = "SELECT post.id "
-                . " FROM " . $GLOBALS['dbtable_forumposts'] . " AS post "
+                . " FROM " . $GLOBALS['database']['table']['forumposts'] . " AS post "
                 . " WHERE thread=$1 "
                 . " ORDER BY post.created ASC"
                 . " ;";
@@ -233,7 +233,7 @@ class Read
 
         if ($db_conn) {
             $query = "SELECT post.id, post.thread, post.message, post.created, post.edited, post.author "
-                . " FROM " . $GLOBALS['dbtable_forumposts'] . " AS post "
+                . " FROM " . $GLOBALS['database']['table']['forumposts'] . " AS post "
                 . " WHERE post.id=$1"
                 . " ;";
             $res = pg_query_params($db_conn, $query, array($post_id));
@@ -259,8 +259,8 @@ class Read
         $db_conn = connect();
         if ($db_conn) {
             $query = "SELECT fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
-             . " FROM ".$GLOBALS['dbtable_forumusers']." AS fuser "
-             . " LEFT JOIN ".$GLOBALS['dbtable_roles']
+             . " FROM ".$GLOBALS['database']['table']['forumusers']." AS fuser "
+             . " LEFT JOIN ".$GLOBALS['database']['table']['roles']
              . "   ON fuser.role=roles.id "
              . " WHERE fuser.name=$1 "
              . " ;";
@@ -298,8 +298,8 @@ class Read
         $db_conn = connect();
         if ($db_conn){
             $query = "SELECT p.author "
-                . " FROM ". $GLOBALS['dbtable_forumposts'] ." AS p "
-                . " LEFT JOIN " . $GLOBALS['dbtable_forumthreads'] . " AS t "
+                . " FROM ". $GLOBALS['database']['table']['forumposts'] ." AS p "
+                . " LEFT JOIN " . $GLOBALS['database']['table']['forumthreads'] . " AS t "
                 . "     ON p.thread=t.id "
                 . " WHERE p.thread=$1 "
                 . " ORDER BY p.created ASC "
@@ -335,7 +335,7 @@ class Read
         $db_conn = connect();
         if ($db_conn) {
             $query = "SELECT author "
-                . " FROM " . $GLOBALS['dbtable_forumposts']
+                . " FROM " . $GLOBALS['database']['table']['forumposts']
                 . " WHERE thread=$1 "
                 . " ORDER BY created DESC "
                 . " LIMIT 1 "

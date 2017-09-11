@@ -18,7 +18,7 @@ class update
         if ($db_conn) {
             $banned_val = $user->isBanned() ? "TRUE" : "FALSE";
             
-            $query = " UPDATE " . $GLOBALS['dbtable_forumusers'] . " "
+            $query = " UPDATE " . $GLOBALS['database']['table']['forumusers'] . " "
              . " SET "
              . " email='"   . $user->getEmail() . "', "
              . " banned='"  . $banned_val . "' "
@@ -45,7 +45,7 @@ class update
     {
         $db_conn = connect();
         if ($db_conn) {
-            $query = " UPDATE  " . $GLOBALS['dbtable_forumposts'] 
+            $query = " UPDATE  " . $GLOBALS['database']['table']['forumposts'] 
                 . " AS p "
                 . " SET "
                 . " message=$1 ,"

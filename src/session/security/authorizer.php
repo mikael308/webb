@@ -45,7 +45,7 @@ class Authorizer {
         if ($db_conn) {
 
             $query = "SELECT fuser.password, fuser.name "
-                . " FROM " . $GLOBALS['dbtable_forumusers'] . " AS fuser "
+                . " FROM " . $GLOBALS['database']['table']['forumusers'] . " AS fuser "
                 . " WHERE name= $1;";
 
             $res = pg_query_params(
@@ -62,7 +62,7 @@ class Authorizer {
                     
                     $crypt_inpassw = crypt(
                         $password,
-                        $GLOBALS['crypt_salt']
+                        $GLOBALS['database']['crypt_salt']
                     );
 
                     if (

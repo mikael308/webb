@@ -14,15 +14,15 @@ namespace Database;
 #require_once "Read.php";
 
 # password crypt salt
-$GLOBALS['crypt_salt'] = 'd4';
+$GLOBALS['database']['crypt_salt'] = 'd4';
 
-$GLOBALS['schema'] = "proj";
-$GLOBALS['dbtable_forumusers'] = $GLOBALS['schema'] . ".forumusers";
-$GLOBALS['dbtable_forumthreads']  = $GLOBALS['schema'] . ".forumthreads";
-$GLOBALS['dbtable_subjects'] = $GLOBALS['schema'] . ".forumsubjects";
-$GLOBALS['dbtable_forumposts'] = $GLOBALS['schema'] . ".forumposts";
-$GLOBALS['dbtable_roles'] = $GLOBALS['schema'] . ".roles";
-$GLOBALS['dbtable_news'] = $GLOBALS['schema'] . ".news";
+$GLOBALS['database']['schema'] = "proj";
+$GLOBALS['database']['table']['forumusers'] = $GLOBALS['database']['schema'] . ".forumusers";
+$GLOBALS['database']['table']['forumthreads']  = $GLOBALS['database']['schema'] . ".forumthreads";
+$GLOBALS['database']['table']['subjects'] = $GLOBALS['database']['schema'] . ".forumsubjects";
+$GLOBALS['database']['table']['forumposts'] = $GLOBALS['database']['schema'] . ".forumposts";
+$GLOBALS['database']['table']['roles'] = $GLOBALS['database']['schema'] . ".roles";
+$GLOBALS['database']['table']['news'] = $GLOBALS['database']['schema'] . ".news";
 
 function autoloadDAO()
 {
@@ -64,7 +64,7 @@ function exists(\Database\DAO\ForumUser $user)
     $db_conn = connect();
     if ($db_conn) {
 
-    $query = "SELECT name FROM " . $GLOBALS['dbtable_forumusers']
+    $query = "SELECT name FROM " . $GLOBALS['database']['table']['forumusers']
     . " WHERE name = '". $user->getPrimaryKey() . "' ;";
     #TODO params
     $res = pg_query(
