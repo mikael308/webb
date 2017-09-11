@@ -3,6 +3,7 @@
 namespace Session\Security;
 
 require_once "./database/database.php";
+require_once "./database/Read.php";
 require_once "./database/dao/ForumUser.class.php";
 
 class Authorizer {
@@ -10,13 +11,13 @@ class Authorizer {
     public static function setAuthorizedUser(
         \Database\DAO\ForumUser $user
     ) {
-        $_SESSION['AUTHUSER'] = $user;
+        $_SESSION['authorized_user_id'] = $user->getPrimaryKey();
     }
 
     public static function getAuthorizedUser()
     {
-        return isset($_SESSION['AUTHUSER']) 
-            ? $_SESSION['AUTHUSER']
+        return isset($_SESSION['authorized_user_id'])
+            ? \Database\Read::forumUser($_SESSION['authorized_user_id'])
             : null;
     }
 
@@ -27,7 +28,7 @@ class Authorizer {
 
     public function logout()
     {
-        $_SESSION['AUTHUSER'] = null;
+        $_SESSION['authorized_user_id'] = null;
     }
 
     /**
