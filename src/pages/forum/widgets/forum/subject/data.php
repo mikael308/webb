@@ -81,8 +81,10 @@ class Data extends \Web\Framework\Data\Widget
     {
         if($thread == NULL)
             return "";
-        
-        $maxPages = $this->getMaxPages();//Count::maxPagesThread($thread);
+
+        $n_posts = $thread->getSize();
+        $posts_per_page = $_SESSION['settings']->value('posts_per_page');
+        $maxPages = ceil($n_posts / $posts_per_page);
         $maxlim = min($maxPages, $pagInterval);
         $pags = array();
         $i = 1;
