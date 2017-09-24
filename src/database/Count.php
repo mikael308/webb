@@ -153,9 +153,6 @@ class Count{
             . " WHERE p.thread='".$thread->getPrimaryKey()."'"
             . ";";
 
-            return Count::query($query);
+        return Count::query($query);
     }
 } # ! COUNT
-
-
-?>
