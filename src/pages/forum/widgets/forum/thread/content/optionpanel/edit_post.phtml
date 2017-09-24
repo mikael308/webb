@@ -6,7 +6,7 @@
     class="edit_post" 
     name="" 
     method="POST" 
-    action="<?= htmlentities(pagelinkPost("editpost")) ?>" >
+    action="<?= htmlentities(\Web\pagelinkPost("editpost")) ?>" >
     
     <input type="hidden" name="post" value="<?= $args["post"] ?>" />
     <input type="hidden" name="page_index" value="<?= getPageIndex() ?>" />
