@@ -90,7 +90,7 @@ class Data extends \Web\Framework\Data\Widget
         $i = 1;
         # beginning indexes
         for (; $i <= $maxlim; $i++){
-            $pags[$i] = threadlinkPagButton($thread, $i);
+            $pags[] = $i;
         }
         # get the end offset
         $end_offset = ($maxPages - $pagInterval) +1;
@@ -99,7 +99,7 @@ class Data extends \Web\Framework\Data\Widget
         }
         # ending indexes
         for (; $i <= $maxPages; $i++){
-            $pags[$i] = threadlinkPagButton($thread, $i);
+            $pags[] = $i;
         }
         return $pags;
     }
