@@ -57,7 +57,7 @@ class Data extends \Web\Framework\Data\Widget
         #$cont = "";
         $pagInterval = $_SESSION['settings']->value("pag_max_interval_threadlink");
         $lastPagIdx = 0;
-        $pags = getStartEndPags($thread, $pagInterval);
+        $pags = $this->getStartEndPags($thread, $pagInterval);
         foreach($pags as $i => $pag){
             if($i != ($lastPagIdx+1)){
                 # previous page was not current (index -1)
