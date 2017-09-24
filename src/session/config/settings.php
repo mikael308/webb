@@ -71,17 +71,15 @@ class Settings
             $line = fgets($settings_file);
 
             $tl = trim($line);
-            if(strlen($tl) == 0 || $tl[0] == "#"){
+            if (strlen($tl) == 0 || $tl[0] == "#") {
                 continue;
             }
 
             $row_arr = explode(" ", $tl);
 
-            if($row_arr[0] == $setting_name){
+            if ($row_arr[0] == $setting_name) {
                 $ret_val = $row_arr[1];
-
             }
-
         }
 
         fclose($settings_file);
