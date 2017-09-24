@@ -73,15 +73,12 @@ class Widgets
         $page = "main"
     ) {
         try {
-            Widgets::output(
-                Widgets::create($widgetName, $page)
-            );
+            $dataObject = Widgets::create($widgetName, $page);
+            Widgets::output($dataObject);
         } catch(\Exception $e) {
             $viewPath = Widgets::widgetRootPath($widgetName, $page) . "/view.phtml";
-            
             if (is_file($viewPath)) {
                 include $viewPath;
-            
             } else {
                 throw new \Exception("could not find file $viewPath");
             }     
