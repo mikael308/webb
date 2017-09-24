@@ -6,7 +6,8 @@ namespace Web\Database;
  * @author Mikael Holmbom
  * @version 1.0
  */
-class Delete{
+class Delete
+{
     /**
      * delete forumuser matching with param user
      * @param user \Database\DAO\ForumUser to delete
