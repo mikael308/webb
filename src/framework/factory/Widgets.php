@@ -57,10 +57,10 @@ class Widgets
     ) {
         $widgetRoot = dirname($dataObj->path());
 
-        $data = $dataObj;
         $viewPath = "$widgetRoot/view.phtml";
         
         if (is_file($viewPath)) {
+            $data = $dataObj;
             include $viewPath;
         } else {
             throw new \Exception("could not find file $viewPath");
