@@ -8,7 +8,7 @@ class Widgets
 {
 
     private static function widgetRootPath(
-        $widgetName,
+        $filename,
         $page = "main"
     ) {
         return \Web\Helper\Format::nsToPath(
