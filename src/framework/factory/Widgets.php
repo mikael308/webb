@@ -63,7 +63,7 @@ class Widgets
         if (is_file($viewPath)) {
             include $viewPath;
         } else {
-            throw new \Exception("could not read file $viewPath");
+            throw new \Exception("could not find file $viewPath");
         }
 
     }
@@ -83,7 +83,7 @@ class Widgets
                 include $viewPath;
             
             } else {
-                throw new \Exception("could not read file $viewPath");
+                throw new \Exception("could not find file $viewPath");
             }     
         }
     }

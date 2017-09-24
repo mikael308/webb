@@ -43,7 +43,7 @@ class Extract{
 				}
 				pg_free_result($res);
 			} else {
-				throw new RuntimeException(pg_last_error($db_conn));
+				throw new \RuntimeException(pg_last_error($db_conn));
 			}
 
 		}

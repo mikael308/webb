@@ -136,7 +136,7 @@ class Persist
                 return True;
                     
             } else {
-                throw new RuntimeException(pg_last_error($db_conn));
+                throw new \RuntimeException(pg_last_error($db_conn));
             }
         }
         return False;
