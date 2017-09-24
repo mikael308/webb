@@ -58,8 +58,8 @@ class Data extends \Web\Framework\Data\Widget
         $pagInterval = $_SESSION['settings']->value("pag_max_interval_threadlink");
         $lastPagIdx = 0;
         $pags = $this->getStartEndPags($thread, $pagInterval);
-        foreach($pags as $i => $pag){
-            if($i != ($lastPagIdx+1)){
+        foreach ($pags as $i => $pag){
+            if ($i != ($lastPagIdx + 1)){
                 # previous page was not current (index -1)
                 # add a mark for stepping in index
                 $cont .= " ... ";
@@ -79,7 +79,7 @@ class Data extends \Web\Framework\Data\Widget
      */
     function getStartEndPags($thread, $pagInterval)
     {
-        if($thread == NULL)
+        if ($thread == NULL)
             return "";
 
         $n_posts = $thread->getSize();
@@ -89,16 +89,16 @@ class Data extends \Web\Framework\Data\Widget
         $pags = array();
         $i = 1;
         # beginning indexes
-        for(; $i <= $maxlim; $i++){
+        for (; $i <= $maxlim; $i++){
             $pags[$i] = threadlinkPagButton($thread, $i);
         }
         # get the end offset
         $end_offset = ($maxPages - $pagInterval) +1;
-        if($i < $end_offset){
+        if ($i < $end_offset){
             $i = $end_offset;
         }
         # ending indexes
-        for(;$i <= $maxPages; $i++){
+        for (; $i <= $maxPages; $i++){
             $pags[$i] = threadlinkPagButton($thread, $i);
         }
         return $pags;
