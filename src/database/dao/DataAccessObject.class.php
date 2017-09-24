@@ -11,7 +11,8 @@ require_once "./database/database.php";
  * @author Mikael Holmbom
  * @version 1.0
  */
-abstract class DataAccessObject{
+abstract class DataAccessObject
+{
 
     abstract public function getPrimaryKey();
 
