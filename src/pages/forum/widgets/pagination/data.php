@@ -119,7 +119,6 @@ class Data extends \Web\Framework\Data\Widget
     {
         $idxs = array();
 
-
         $offset = $this->getOffsets($this->currentIndex(), 10);
 
         # correct the interval to match the size of the page list length
@@ -130,9 +129,6 @@ class Data extends \Web\Framework\Data\Widget
         for (; $i <= $maxlim; $i++) {
             $idxs[] = $i;
         }
-
-
-
 
         return $idxs;
     }
