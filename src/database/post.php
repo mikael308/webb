@@ -42,7 +42,7 @@ function getThreadPageLink(
     if ($pageIdx == null || $pageIdx > $lastPage)
         $pageIdx = $lastPage;
 
-    return pagelinkForumThread(
+    return \Web\pagelinkForumThread(
         $thread->getId(),
         $pageIdx
     );
