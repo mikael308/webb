@@ -68,7 +68,7 @@ class Widgets
 
     }
 
-    public static function include(
+    public static function addToPage(
         $widgetName,
         $page = "main"
     ) {
