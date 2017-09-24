@@ -32,7 +32,7 @@ class ForumThread extends DataAccessObject
 	private $creator_fk;
 
 	/**
-	 * @param topic this threads topic
+	 * @param topic int this threads topic
 	 */
 	public function __construct($topic){
 		$this->topic = $topic;
@@ -69,7 +69,7 @@ class ForumThread extends DataAccessObject
 	}
 	/**
 	 * set this id
-	 * @param id id value
+	 * @param int id value
 	 */
 	public function setId($id){
 		$this->id = $id;
@@ -88,20 +88,20 @@ class ForumThread extends DataAccessObject
 
 	/**
 	 *
-	 * @return this threads subject
+	 * @return \Web\Database\DAO\ForumSubject this threads subject
 	 */
 	public function getSubject(){
 		return Read::subjects($this->getSubjectFK())[0];
 	}
 	/**
-	 * @return last attributor of this thread
+	 * @return \Web\Database\DAO\ForumUser last attributor of this thread
 	 */
 	public function getLastAttributor(){
 		return Read::lastAttributor($this->getPrimaryKey());
 	}
 	/**
 	 *
-	 * @return the cretor of this thread
+	 * @return \Web\Database\DAO\ForumUser the cretor of this thread
 	 */
 	public function getCreator() {
 		return Read::creator($this->getPrimaryKey());
@@ -115,7 +115,7 @@ class ForumThread extends DataAccessObject
 	}
 	/**
 	 * get current amount of posts
-	 * @return amount of posts
+	 * @return int amount of posts
 	 */
 	public function getSize(){
 		return Count::postsBy($this);
@@ -123,14 +123,14 @@ class ForumThread extends DataAccessObject
 	/**
 	 * get the index of the current last page containing posts
 	 * index is affected by the setting: posts_per_page
-	 * @return page index as integer
+	 * @return int page index as integer
 	 */
 	function getLastPageIndex(){
 		return ceil($this->getSize() / $_SESSION['settings']->value("posts_per_page"));
 	}
 
 	/**
-	 * @return this threads last post
+	 * @return \Web\database\DAO\ForumPost this threads last post
 	 */
 	function getLastPost(){
 		return $this->getPosts()[($this->getSize()-1)];
