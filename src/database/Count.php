@@ -136,7 +136,8 @@ class Count{
             . ";";
 
         $n_threads = Count::query($query);
-        $max_pages = ceil($n_threads / $_SESSION['settings']->value("threads_per_page"));
+        $threads_per_page = $_SESSION['settings']->value("threads_per_page");
+        $max_pages = ceil($n_threads / $threads_per_page);
 
         return $max_pages;
     }
