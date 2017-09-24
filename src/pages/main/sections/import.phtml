@@ -1,7 +1,5 @@
 <?php  
 
-#require_once "./database/database.php";
-#require_once "./database/dao/ForumUser.class.php";
 require_once "./session/security/authorizer.php";
 require_once "./session/security/listeners.php";
 require_once "./session/security/restriction.php";
@@ -12,6 +10,3 @@ require_once "./framework/data/Widget.php";
 require_once "./pages/main/content/navigation/usernav.phtml";
 require_once "./helper/elements.php";
 require_once "./helper/messages.php";
-
-\Session\start();
-\Database\autoloadDAO();
