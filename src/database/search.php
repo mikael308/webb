@@ -1,10 +1,8 @@
 <?php
-namespace Database;
+namespace Web\Database;
 
 require_once "database.php";
 require_once "Read.php";
-
-#autoloadDAO();
 
 /**
  * get forumusers with id as param user_id

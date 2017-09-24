@@ -1,10 +1,10 @@
 <?php
 
-namespace Widgets\Forum\Forum\Main;
+namespace Web\Pages\Forum\Widgets\Forum\Main;
 
-use Database\Read;
+use Web\Database\Read;
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
 
 	private $forumObject = null;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Session\Security;
+namespace Web\Session\Security;
 
 require_once "authorizer.php";
-use \Session\Security\Authorizer as Authorizer;
+use \Web\Session\Security\Authorizer as Authorizer;
 
 /**
  * listens for POST request for\n

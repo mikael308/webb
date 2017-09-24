@@ -1,12 +1,12 @@
 <?php
 
-namespace Database\DAO;
+namespace Web\Database\DAO;
 
 require_once "./database/dao/DataAccessObject.class.php";
 require_once "./database/Read.php";
 require_once "./database/dao/iForumContent.php";
 
-use Database\Read;
+use Web\Database\Read;
 
 /**
  * defines forumsubject entry

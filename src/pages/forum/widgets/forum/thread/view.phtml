@@ -15,14 +15,14 @@ $startOffset = $data->getStartOffset();
     <div class="forum_content_listitem forum_post">
         <div class="author">
             <div class="name">
-                <a href="<?= pagelinkUser($author->getPrimaryKey()) ?>"
+                <a href="<?= Web\pagelinkUser($author->getPrimaryKey()) ?>"
                     ><?= $author->getName() ?></a>
             </div>
             <div class="role">
                 <?= $author->getRole() ?>
             </div>
             <div class="registered">registered<br>
-                <?= \Helper\Format::date($author->getRegistered()) ?>
+                <?= \Web\Helper\Format::date($author->getRegistered()) ?>
             </div>
         </div>
         <div class="post">
@@ -30,15 +30,15 @@ $startOffset = $data->getStartOffset();
                 <?= $post->getMessage() ?>
             </div>
             <div class="dates">
-            <div class="created">created: <?= \Helper\Format::dateTime($post->getCreated()) ?></div>
+            <div class="created">created: <?= \Web\Helper\Format::dateTime($post->getCreated()) ?></div>
                 <?php if($post->isEdited()): ?>
-                    <div class="edited">edited: <?= \Helper\Format::dateTime($post->getEdited()) ?></div>
+                    <div class="edited">edited: <?= \Web\Helper\Format::dateTime($post->getEdited()) ?></div>
                 <?php endif; ?> 
             </div>
         </div>
         <div class="option_panel">
             <?php 
-            if(\Database\editable($post)){
+            if(\Web\Database\editable($post)){
                 $data->loadContent('optionpanel/edit_post', [
                     'post' => $post->getPrimaryKey()
                 ]);

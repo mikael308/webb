@@ -1,9 +1,10 @@
 <?php
-use \Session\Security\Authorizer as Authorizer;
+
+use \Web\Session\Security\Authorizer as Authorizer;
 
 $pagelink = $GLOBALS["pagelink"];
 $authUser = Authorizer::getAuthorizedUser()->getPrimaryKey();
-$view_user = Database\Read::forumUser(
+$view_user = \Web\Database\Read::forumUser(
   getReqUser()
 );
 if ($view_user == null)
@@ -12,14 +13,14 @@ if ($view_user == null)
 }
 $view_userPK = $view_user->getPrimaryKey();
 $btnarr = array(
-    "info"      => pagelinkUser($view_userPK, "info"),
-    "stats"     => pagelinkUser($view_userPK, "stats")
+    "info"      => \Web\pagelinkUser($view_userPK, "info"),
+    "stats"     => \Web\pagelinkUser($view_userPK, "stats")
 );
 
 # if "mypage"
 if (getReqUser() == $authUser)
 {
-    $btnarr["settings"] = pagelinkUser($view_userPK, "settings");
+    $btnarr["settings"] = \Web\pagelinkUser($view_userPK, "settings");
 }
 
 ?>

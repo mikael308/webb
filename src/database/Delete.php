@@ -1,5 +1,5 @@
 <?php
-namespace Database;
+namespace Web\Database;
 
 /**
  * delete data from database
@@ -14,7 +14,7 @@ class Delete{
      * @return True if user was successfully deleted
      */
     public static function forumUser(
-        \Database\DAO\ForumUser $user
+        \Web\Database\DAO\ForumUser $user
     ) {
         $db_conn = connect();
         if ($db_conn){
@@ -39,7 +39,7 @@ class Delete{
      * @return True if deletion was successful
      */
     public static function forumPost(
-        \Database\DAO\ForumPost $post
+        \Web\Database\DAO\ForumPost $post
     ) {
         $db_conn = connect();
         if ($db_conn){

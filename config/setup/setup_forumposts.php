@@ -5,10 +5,10 @@
 	#require_once "./database/Read.php";
 	require_once "./database/dao/ForumPost.class.php";
 
-	use \Database\Persist as Persist;
-	use \Database\DAO\ForumPost as ForumPost;
+	use \Web\Database\Persist as Persist;
+	use \Web\Database\DAO\ForumPost as ForumPost;
 
-	\Database\autoloadDAO();
+	\Web\Database\autoloadDAO();
 
 	#$t = Read::ForumThread(2);
 

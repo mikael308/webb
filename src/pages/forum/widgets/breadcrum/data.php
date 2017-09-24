@@ -1,13 +1,13 @@
 <?php
 
-namespace Widgets\Forum\Breadcrum;
+namespace Web\Pages\Forum\Widgets\Breadcrum;
 
 require_once "./database/Read.php";
 require_once "./framework/data/Widget.php";
 
-use Database\Read;
+use Web\Database\Read;
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
 
     private $subject = null;

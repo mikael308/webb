@@ -1,12 +1,13 @@
 <?php
-namespace Widgets\Forum\Forum\Thread;
+namespace Web\Pages\Forum\Widgets\Forum\Thread;
 
 require_once "./database/post.php";
 require_once "./database/Read.php";
 
-use \Database\Post;
+use \Web\Database\Read;
+use \Web\Database\Count;
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
     protected $thread;
 
@@ -14,8 +15,8 @@ class Data extends \Framework\Data\Widget
 
     public function __construct()
     {
-        $this->thread = \Database\Read::thread(getThreadIndex());
-        $this->posts = \Database\Read::postsFromThread($this->thread->getPrimaryKey());
+        $this->thread = Read::thread(getThreadIndex());
+        $this->posts = Read::postsFromThread($this->thread->getPrimaryKey());
     }
 
     public function getThread()
@@ -30,7 +31,7 @@ class Data extends \Framework\Data\Widget
 
     public function getPost()
     {
-        return \Database\Read::post(getPostIndex());
+        return Read::forumPost(getPostIndex());
     }
 
     public function getMaxPosts()
@@ -57,7 +58,7 @@ class Data extends \Framework\Data\Widget
 
     public function getMaxPages()
     {
-        return \Database\Count::maxPagesThread($this->thread);
+        return Count::maxPagesThread($this->thread);
     }
 
 }

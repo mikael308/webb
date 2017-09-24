@@ -15,12 +15,12 @@ $dropdown_list_about =
 
 $items = array(
     'about' 
-    => dropDownList(
+    => \Web\Helper\dropDownList(
         $dropdown_btn_about,
         $dropdown_list_about
     ),
     'search' 
-    => getIconButton(
+    => \Web\Helper\getIconButton(
         'search',
         "onclick='openSearchPanel()'"
     )
@@ -31,7 +31,7 @@ $items = array(
 <ul id='meta_nav'>
     <?php foreach($items as $text => $obj): ?>
         <li>
-            <?= tooltip($obj, $text); ?>
+            <?= \Web\Helper\tooltip($obj, $text); ?>
         </li>
     <?php endforeach; ?>
 </ul>

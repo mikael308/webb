@@ -1,4 +1,5 @@
 <?php
+namespace Web\Pages\Register\helper;
 
 /**
  * determine if user fields is valid

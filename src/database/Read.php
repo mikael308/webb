@@ -1,5 +1,7 @@
 <?php
-namespace Database;
+namespace Web\Database;
+
+use Web\Database\DAO\ForumUser;
 
 require_once "database.php";
 require_once "Parse.php";
@@ -123,7 +125,7 @@ class Read
      * read a specific thread from database
      * @param thread_id string id of thread to read
      * @throws \RuntimeException on failed query
-     * @return \Database\DAO\ForumThread the first found row in database, if no result was found null is returned
+     * @return \Web\Database\DAO\ForumThread the first found row in database, if no result was found null is returned
      */
     public static function thread($thread_id){
         $thread = null;
@@ -223,7 +225,7 @@ class Read
      * read a specific forumpost from database\n
      * @param post_id id of forumpost to read
      * @throws \RuntimeException on failed query
-     * @return \Database\DAO\ForumPost object. If requested forumpost was not found, null is returned\n
+     * @return \Web\Database\DAO\ForumPost object. If requested forumpost was not found, null is returned\n
      */
     public static function forumPost(
         $post_id
@@ -252,7 +254,7 @@ class Read
      * read forumusers from database
      * @param whereclause specify query
      * @throws \RuntimeException on failed query
-     * @return \Database\DAO\ForumUser of forumusers results from database
+     * @return \Web\Database\DAO\ForumUser of forumusers results from database
      */
     public static function forumUser($user_id){
         $user = null;
@@ -327,7 +329,7 @@ class Read
      * get the last attributor of param thread
      * @param thread_pk primary key of requested thread
      * @throws \RuntimeException on failed query
-     * @return \Database\DAO\ForumUser last attributor of thread as ForumUser
+     * @return \Web\Database\DAO\ForumUser last attributor of thread as ForumUser
      */
     public static function lastAttributor($thread_pk){
         if ($thread_pk == null || $thread_pk == "") return null;

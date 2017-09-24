@@ -1,12 +1,12 @@
 <?php
 
-if (\Session\Security\loginListener()) {
+if (\Web\Session\Security\loginListener()) {
     $pagelink = $GLOBALS['pagelink']['index'];
     header("Location: $pagelink");
     exit();
 }
 
-if (\Session\Security\Authorizer::userIsAuthorized()) {
+if (\Web\Session\Security\Authorizer::userIsAuthorized()) {
     $pagelink = $GLOBALS['pagelink']['index'];
     header("Location: $pagelink");
     exit();
@@ -16,6 +16,6 @@ $_SESSION['registeruser_errmsg'] = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     # listen for user register post
     if (isset($_POST['user_register'])) {
-        register();
+        \Web\Pages\Register\Helper\register();
     }
 }

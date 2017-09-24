@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Data;
+namespace Web\Framework\Data;
 
 class Widget
 {

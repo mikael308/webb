@@ -1,4 +1,4 @@
-<h3>create forum thread in subject <?= \Database\Read::subject(getSubjectIndex())->getTopic() ?></h3>
+<h3>create forum thread in subject <?= \Web\Database\Read::subject(getSubjectIndex())->getTopic() ?></h3>
 <form method="POST" action="<?= htmlentities($_SERVER['PHP_SELF']) ?>" />
     <input type="hidden" name="page" value="post" />
     <input type="hidden" name="task" value="create_thread" />

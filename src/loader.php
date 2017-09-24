@@ -1,5 +1,7 @@
 <?php
 
+namespace Web;
+
 require_once "./helper/format.php";
 
 function loadSection(

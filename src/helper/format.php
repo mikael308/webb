@@ -1,6 +1,6 @@
 <?php
 
-namespace Helper;
+namespace Web\Helper;
 /**
  * format used for displaying timestamps
  */

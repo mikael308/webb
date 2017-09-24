@@ -7,32 +7,15 @@
 
 ?>
 <div id="authorizationsection">
-  <?php 
-  if(! Authorizer::userIsAuthorized())
-  {
-    loadContentView("security/loginform");
-    loadContentView("security/registerlink");
-  } 
-  else 
-  {
-    loadContentView("security/logoutform");
-  }
-  ?>
-</div>
-<!--
-TODO denna har inte testats
-  function getAuthorizationContent(){
-    $cont = "";
-    # if user is not auhtorized
-    if(! isset($_SESSION["authorized_user"])){
-      $cont .= getLoginForm()
-        . getRegisterContent();
-    } else {
-      #$cont .= getLogoutForm();
+    <?php
+    if(! \Web\Session\Security\Authorizer::userIsAuthorized())
+    {
+        \Web\loadContentView("security/loginform");
+        \Web\loadContentView("security/registerlink");
     }
-    return
-      "<div id='authorizationsection'>"
-      .   $cont
-      . "</div>";
-  }
-  -->
+    else
+    {
+        \Web\loadContentView("security/logoutform");
+    }
+    ?>
+</div>

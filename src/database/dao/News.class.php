@@ -1,12 +1,11 @@
 <?php
 
-namespace Database\DAO;
+namespace Web\Database\DAO;
 
 require_once "./database/Read.php";
 require_once "./database/dao/DataAccessObject.class.php";
 
-use \Database\Read;
-
+use \Web\Database\Read;
 /**
  * handles news in forum
  *

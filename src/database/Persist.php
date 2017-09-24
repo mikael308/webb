@@ -1,5 +1,9 @@
 <?php
-namespace Database;
+namespace Web\Database;
+
+use Web\Database\DAO\ForumPost;
+use Web\Database\DAO\ForumThread;
+use Web\Database\DAO\News;
 
 /**
  * persist data to database
@@ -15,7 +19,7 @@ class Persist
      * @return True if post was inserted in database successfully
      */
     public static function forumPost(
-        \Database\DAO\ForumPost $post
+        \Web\Database\DAO\ForumPost $post
     ) {
         $db_conn = connect();
         if ($db_conn) {
@@ -44,7 +48,7 @@ class Persist
      * @return the persisted thread with id
      */
     public static function forumThread(
-        \Database\DAO\ForumThread $thread
+        \Web\Database\DAO\ForumThread $thread
     ) {
         $resThread = null;
         $db_conn = connect();
@@ -76,7 +80,7 @@ class Persist
      * @param passw requested password to persist
      */
     public static function forumUser(
-        \Database\DAO\ForumUser $user, 
+        \Web\Database\DAO\ForumUser $user,
         $passw
     ) {
         $db_conn = connect();
@@ -102,18 +106,18 @@ class Persist
                 return True;
                 
             } else {
-                throw new RuntimeException(pg_last_error($db_conn));
+                throw new \RuntimeException(pg_last_error($db_conn));
             }
         }
         return False;
     }
     /**
      * persist news to database
-     * @param news news instance to persist
+     * @param news News news instance to persist
      * @return true if persist was successful
      */
     public static function news(
-        \Database\DAO\News $news
+        \Web\Database\DAO\News $news
     ) {
         $db_conn = connect();
         if($db_conn){

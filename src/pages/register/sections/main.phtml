@@ -4,19 +4,19 @@
 
 <article id="register">
     <?php
-    loadContentView(
+    \Web\loadContentView(
       "registeruserForm",
       "register"
     );
 
-    loadContentView("validPasswordhint", getPage());
+    \Web\loadContentView("validPasswordhint", getPage());
     ?>
 </article>
 
 <article id="login">
     <span id="login_h">already a member?</span>
     <?php
-    loadContentView("security/loginform");
+    \Web\loadContentView("security/loginform");
 
     ?>
 </article>

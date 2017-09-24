@@ -1,10 +1,10 @@
 <?php
 
-namespace Database;
+namespace Web\Database;
 
-use \Database\DAO\ForumUser;
-use \Database\DAO\ForumSubject;
-use \Database\DAO\ForumThread;
+use \Web\Database\DAO\ForumUser;
+use \Web\Database\DAO\ForumSubject;
+use \Web\Database\DAO\ForumThread;
 
 /**
  * 
@@ -15,7 +15,7 @@ class Count{
     /**
      * count the number of forumthreads created by specific user
      * @throws \RuntimeException on failed query
-     * @param user \Database\DAO\ForumUser the specific user
+     * @param user \Web\Database\DAO\ForumUser the specific user
      */
     public static function forumThreads(
         ForumUser $user
@@ -62,7 +62,7 @@ class Count{
      * get the index of post in thread ordered by created attribute
      * @param post_pk string primary key to request post
      * @throws \RuntimeException on failed query
-     * @return \Database\DAO\ForumUser index
+     * @return \Web\Database\DAO\ForumUser index
      */
     public static function postPageIndex(
         $post_pk

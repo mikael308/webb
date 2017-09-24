@@ -4,7 +4,7 @@ $subjects = $data->getSubjects();
 ?>
 <?php foreach ($subjects as $subject): ?>
     <div class="forum_content_listitem forum_subject">
-        <a href="<?= pagelinkForumSubject($subject->getPrimaryKey())?>">
+        <a href="<?= Web\pagelinkForumSubject($subject->getPrimaryKey())?>">
         <div class="topic"><?= $subject->getTopic() ?></div>
         <div class="info">
             <div class="subtitle"><?= $subject->getSubtitle() ?></div>

@@ -4,24 +4,22 @@ use \Framework\Factory\Widgets;
 ?>
 <div id="banner">
     <div id="header_content">
-        <?php loadContentView("logo", "main"); ?>
-    <?php
-    loadContentView('security/logoutform');
-    ?>
+        <?php \Web\loadContentView("logo", "main"); ?>
+    <?php \Web\loadContentView('security/logoutform'); ?>
         <nav>
-            <?php loadContentView("navigation/pagenav", "main"); ?>
+            <?php \Web\loadContentView("navigation/pagenav", "main"); ?>
             <ul id="user_nav">
-                <li><?= getUserNav(Authorizer::getAuthorizedUser()); ?></li>
+                <li><?= getUserNav(\Web\Session\Security\Authorizer::getAuthorizedUser()); ?></li>
             </ul>
         </nav>
     </div>
 </div>
 <div id="subheader_content">
     <ul id="subheader_left">
-        <?php loadSection("subnav", getPage()); ?>
+        <?php \Web\loadSection("subnav", getPage()); ?>
     </ul>
     <div id="subheader_right">
-        <?php loadContentView("navigation/metanav", "main"); ?>
+        <?php \Web\loadContentView("navigation/metanav", "main"); ?>
     </div>
 </div>
-<?php \Framework\Factory\Widgets::include('searchsidepanel', 'main'); ?>
+<?php \Web\Framework\Factory\Widgets::addToPage('searchsidepanel', 'main'); ?>

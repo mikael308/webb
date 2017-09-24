@@ -1,13 +1,13 @@
 <?php
 
-namespace Widgets\Post\Post_reply;
+namespace Web\Pages\Post\Widgets\Post_reply;
 
 require_once "./database/Read.php";
 require_once "./database/post.php";
 
-use Database\Read;
+use Web\Database\Read;
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
     private $thread;
     
@@ -16,10 +16,10 @@ class Data extends \Framework\Data\Widget
 
         if (getThreadIndex() == null) {
             #TODO how to handle this throw exception
-            return \Helper\Message::error("invalid thread");
+            return \Web\Helper\Message::error("invalid thread");
         }
 
-        $this->thread = \Database\Read::thread(getThreadIndex());
+        $this->thread = \Web\Database\Read::thread(getThreadIndex());
     }
 
     public function getThread()

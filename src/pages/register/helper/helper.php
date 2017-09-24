@@ -1,4 +1,9 @@
 <?php
+namespace Web\Pages\Register\Helper;
+
+use \Web\Database\DAO\ForumUser;
+use \Web\Database\Persist;
+use Web\Database\Read;
 
 /**
  * if post user is valid send persistrequest to database
@@ -24,25 +29,25 @@ function register()
     $user->setBanned(False);
     $user->setRegistered(date($GLOBALS["timestamp_format"]));
 
-    if (exists($user)){
+    if (\Web\Database\exists($user)){
         $_SESSION["registeruser_errmsg"] = "email already registered";
         return;
     }
 
     if (persist::forumUser($user, $passw)){
         # user is successfully registered in database
-        $user = read::forumUser($user->getPrimaryKey());
+        $user = Read::forumUser($user->getPrimaryKey());
         $_SESSION["authorized_user"] = $user;
         
         header("Location: " 
-            . pagelinkUser($user->getPrimaryKey()));
+            . \Web\pagelinkUser($user->getPrimaryKey()));
     }
 }
 
 /**
  * cleans string\n
  * meaning translate htmlspecial chars, slashes and initial or ending whitespaces
- * @return the clean string
+ * @return string the clean string
  */
 function clean_input(
     $data

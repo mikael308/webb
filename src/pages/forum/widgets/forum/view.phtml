@@ -1,7 +1,7 @@
 <article id="forum_content">
     <?php
     $page = getPage();
-    \Framework\Factory\Widgets::include('breadcrum', $page);
+    \Web\Framework\Factory\Widgets::addToPage('breadcrum', $page);
     ?>
     <h2><?= $data->getHeader() ?></h2>
     <div id="forum_top_bts" class="button_panel">
@@ -17,7 +17,7 @@
     #TODO call forum content with AJAX
     if(getSubPage() != 'main')
     {
-        \Framework\Factory\Widgets::include('pagination', $page);
+        \Web\Framework\Factory\Widgets::addToPage('pagination', $page);
     }
 
     ?>

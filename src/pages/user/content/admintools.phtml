@@ -2,7 +2,7 @@
 <?php
 
 #TODO tmp lösning
-$view_user = Read::forumUser(getReqUser());
+$view_user = \Web\Database\Read::forumUser(getReqUser());
 
 ?>
 <div id="admin_tools">
@@ -25,7 +25,7 @@ $view_user = Read::forumUser(getReqUser());
       </td>
       <td>
       <?php
-      echo toolTip(switchButton("update_user_banned",
+      echo \Web\Helper\toolTip(switchButton("update_user_banned",
         $view_user->isBanned()),
         $bannuser_tooltip);
       ?>

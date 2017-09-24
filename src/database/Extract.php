@@ -1,6 +1,6 @@
 <?php
 
-namespace Database;
+namespace Web\Database;
 
 require_once "database.php";
 require_once "Parse.php";

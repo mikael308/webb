@@ -1,13 +1,13 @@
 <?php
-use \Session\Security\Authorizer as Authorizer;
+use \Web\Session\Security\Authorizer as Authorizer;
 
-$view_user = \Database\Read::forumUser(
+$view_user = \Web\Database\Read::forumUser(
     getReqUser()
 );
 $authUser = Authorizer::getAuthorizedUser();
 
-$nForumThreads  = \Database\Count::forumThreads($view_user);
-$nForumPosts    = \Database\Count::forumPosts($view_user);
+$nForumThreads  = \Web\Database\Count::forumThreads($view_user);
+$nForumPosts    = \Web\Database\Count::forumPosts($view_user);
 
 $displayStats = array();
 $displayStats["name"] = $view_user->getName();

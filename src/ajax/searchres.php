@@ -1,4 +1,6 @@
 <?php
+namespace Web\Ajax;
+
 /**
  * use request 'id' for searchstring \n
  * echos list of links to users that match with searchstring\n

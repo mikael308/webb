@@ -1,14 +1,14 @@
 <?php
 
-namespace Database\DAO;
+namespace Web\Database\DAO;
 
 require_once "./database/dao/iForumContent.php";
 require_once "./database/Count.php";
 require_once "./database/Read.php";
 require_once "./session/config/settings.php";
 
-use \Database\Count;
-use \Database\Read;
+use \Web\Database\Count;
+use \Web\Database\Read;
 
 /**
  * represents a thread in forum

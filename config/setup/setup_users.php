@@ -9,10 +9,10 @@
 	require_once "./database/dao/ForumUser.class.php";
 	require_once "./helper/format.php";
 
-	use \Database\DAO\ForumUser as ForumUser;
-	use \Database\Persist as Persist;
+	use \Web\Database\DAO\ForumUser as ForumUser;
+	use \Web\Database\Persist as Persist;
 
-	\Database\autoloadDAO();
+	\Web\Database\autoloadDAO();
 
 	$tom = new ForumUser();
 	$tom->setName("tom");

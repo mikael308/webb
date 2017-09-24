@@ -5,7 +5,7 @@
  * @author Mikael Holmbom
  */
 
-namespace Session;
+namespace Web\Session;
 
 /**
  * starts session if not already active

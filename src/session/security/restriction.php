@@ -10,7 +10,7 @@ require_once "./database/database.php";
 require_once "./database/Read.php";
 require_once "authorizer.php";
 
-use Session\Security\Authorizer as Authorizer;
+use Web\Session\Security\Authorizer as Authorizer;
 
 /**
  * if session authorized_user is not authorized:\n

@@ -1,6 +1,6 @@
 <?php
 
-namespace Database;
+namespace Web\Database;
 
 /**
  * facade functions used for working with database
@@ -16,12 +16,12 @@ require_once "Persist.php";
 require_once "./session/main.php";
 require_once "./helper/security.php";
 
-use \Database\DAO\ForumPost;
-use \Database\DAO\ForumSubject;
-use \Database\DAO\ForumThread;
-use \Database\DAO\ForumUser;
-use \Database\DAO\News;
-use \Session\Security\Authorizer;
+use \Web\Database\DAO\ForumPost;
+use \Web\Database\DAO\ForumSubject;
+use \Web\Database\DAO\ForumThread;
+use \Web\Database\DAO\ForumUser;
+use \Web\Database\DAO\News;
+use \Web\Session\Security\Authorizer;
 
 autoloadDAO();
 
@@ -57,7 +57,7 @@ function createThread()
     $msg = htmlentities($_POST['forumpost_message']);
     if (getSubjectIndex() == null) {
         #TODO inte returnera html sträng?? returnera exeption
-        echo \Helper\Message::error('could not read subject');
+        echo \Web\Helper\Message::error('could not read subject');
     }
 
     $subj = Read::subject(getSubjectIndex());
@@ -66,12 +66,12 @@ function createThread()
     #TODO validate topic and msg
 
     $user = Authorizer::getAuthorizedUser();
-    $thread = new \Database\DAO\ForumThread($topic);
+    $thread = new ForumThread($topic);
     $thread->setSubjectFK($subj->getPrimaryKey());
     # now
     $timestamp = date($GLOBALS['timestamp_format']); 
 
-    $post = new \Database\DAO\ForumPost();
+    $post = new ForumPost();
     $post->setAuthorFK($user->getPrimaryKey());
     $post->setMessage($msg);
     $post->setCreated($timestamp);
@@ -94,7 +94,7 @@ function postReply()
 {
     $msg = htmlentities($_REQUEST['forumpost_message']);
     
-    $post = new \Database\DAO\ForumPost();
+    $post = new ForumPost();
     $post->setThreadFK(getThreadIndex());
     $post->setAuthor(Authorizer::getAuthorizedUser());
     $post->setMessage($msg);
@@ -135,7 +135,7 @@ function deletePost()
 {
     $post = \Database\Read::forumPost($_REQUEST['post']);
     $thread = $post->getThread();
-    if (\Database\Delete::forumPost($post)) {
+    if (Delete::forumPost($post)) {
         # redirect to thread page
         $pageIndex = $_REQUEST['page_index'];
         $pagelink = getThreadPageLink($thread, $pageIndex);
@@ -165,7 +165,7 @@ function createNews()
         header("Location: $pagelink");
         exit();
     } else {
-        echo \Helper\Message::error("could not create news");
+        echo \Web\Helper\Message::error("could not create news");
     }
 
 }

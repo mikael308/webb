@@ -1,5 +1,5 @@
 <?php
-namespace Database;
+namespace Web\Database;
 
 require_once "database.php";
 require_once "Read.php";
@@ -9,11 +9,11 @@ require_once "dao/ForumSubject.class.php";
 require_once "dao/ForumThread.class.php";
 require_once "dao/ForumUser.class.php";
 
-use \Database\Dao\News;
-use \Database\DAO\ForumPost;
-use \Database\DAO\ForumSubject;
-use \Database\DAO\ForumThread;
-use \Database\DAO\ForumUser;
+use \Web\Database\Dao\News;
+use \Web\Database\DAO\ForumPost;
+use \Web\Database\DAO\ForumSubject;
+use \Web\Database\DAO\ForumThread;
+use \Web\Database\DAO\ForumUser;
 
 autoloadDAO();
 

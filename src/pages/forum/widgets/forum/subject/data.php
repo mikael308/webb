@@ -1,11 +1,11 @@
 <?php
 
-namespace Widgets\Forum\Forum\Subject;
+namespace Web\Pages\Forum\Widgets\Forum\Subject;
 
-use \Database\Count;
-use \Database\Read;
+use \Web\Database\Count;
+use \Web\Database\Read;
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
 
     private $subject = null;
@@ -16,10 +16,10 @@ class Data extends \Framework\Data\Widget
 
     public function __construct()
     {
-        $this->subject = \Database\Read::subjects(getSubjectIndex())[0];
+        $this->subject = Read::subjects(getSubjectIndex())[0];
         $this->threads = $this->subject->getThreads();
 
-        $this->maxPages = \Database\Count::maxPagesSubject($this->subject);
+        $this->maxPages = Count::maxPagesSubject($this->subject);
     }
 
     public function getSubject()
@@ -52,7 +52,7 @@ class Data extends \Framework\Data\Widget
         return $this->maxPages;
     }
 
-    public function threadInnerPag(ForumThread $thread)
+    public function threadInnerPag(\Web\Database\DAO\ForumThread $thread)
     {
         #$cont = "";
         $pagInterval = $_SESSION['settings']->value("pag_max_interval_threadlink");

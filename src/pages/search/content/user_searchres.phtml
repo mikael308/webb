@@ -1,10 +1,10 @@
-<?php $searchresitems = \Database\searchForumUser(getSearchVal());
+<?php $searchresitems = \Web\Database\searchForumUser(getSearchVal());
 ?>
 
 <ul id="searchres">
 <?php foreach($searchresitems as $user): ?>
     <div class="searchres_item">
-        <a href="<?= pagelinkUser($user->getPrimaryKey()) ?>">
+        <a href="<?= \Web\pagelinkUser($user->getPrimaryKey()) ?>">
             <span class="name"><?= $user->getName() ?></span>
             <span class="role"><?= $user->getRole() ?></span>
         </a>

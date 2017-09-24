@@ -1,11 +1,11 @@
 <?php
 
-namespace Database\DAO;
+namespace Web\Database\DAO;
 
 require_once "./database/dao/DataAccessObject.class.php";
 require_once "./database/Read.php";
 
-use \Database\Read;
+use \Web\Database\Read;
 
 /**
  * defines a post in a thread
@@ -58,7 +58,7 @@ class ForumPost extends DataAccessObject{
     public function setId($id) {
         $this->id = $id;
     }
-    public function setAuthor(\Database\DAO\ForumUser $user) {
+    public function setAuthor(\Web\Database\DAO\ForumUser $user) {
         $this->setAuthorFK($user->getPrimaryKey());
     }
     public function setAuthorFK($author_fk) {
@@ -92,7 +92,7 @@ class ForumPost extends DataAccessObject{
     
     /**
      * get the thread of this post
-     * @return thread of this post as ForumThread instance
+     * @return \Web\Database\DAO\ForumThread thread of this post as ForumThread instance
      */
     public function getThread()
     {

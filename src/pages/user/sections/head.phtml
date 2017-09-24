@@ -1,10 +1,10 @@
 <?php
-$view_user = Database\Read::forumUser(getReqUser());
+$view_user = \Web\Database\Read::forumUser(getReqUser());
 
 if ($view_user != NULL) {
-  echo setTitle($view_user->getName());
+  echo \Web\Helper\setTitle($view_user->getName());
 } else {
-  echo setTitle("could not find user");
+  echo \Web\Helper\setTitle("could not find user");
 }
 
-echo getStylesheet("user.css");
+echo Web\Helper\getStylesheet("user.css");

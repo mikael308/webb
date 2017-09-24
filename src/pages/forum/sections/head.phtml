@@ -1,7 +1,7 @@
 <?php
 echo
-  getStylesheet("forum.css")
-  . getStylesheet("information.css")
+    Web\helper\getStylesheet("forum.css")
+  . Web\helper\getStylesheet("information.css")
   # read from request and set topic name as this title
   . readTitle();
 
@@ -13,10 +13,10 @@ function readTitle(){
   try{
     if(getIndex("s") != NULL){
       $topic =
-       \Database\Read::subjects(getIndex("s"))[0];
+       \Web\Database\Read::subjects(getIndex("s"))[0];
     } elseif (getIndex("t") != NULL){
       $topic =
-       \Database\Read::thread(getIndex("t"));
+       \Web\Database\Read::thread(getIndex("t"));
     }
   } catch(RuntimeException $e){
 
@@ -25,5 +25,5 @@ function readTitle(){
   if($topic != NULL){
       $title .= ":" . $topic->getTopic();
   }
-  return setTitle($title);
+  return Web\helper\setTitle($title);
 }

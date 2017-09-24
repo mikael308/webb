@@ -8,7 +8,7 @@
  * @version 1.0
  */
 
-namespace Session\Config;
+namespace Web\Session\Config;
 
 class Settings
 {

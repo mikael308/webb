@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\DAO;
+namespace Web\Database\DAO;
 
 require_once "./database/dao/DataAccessObject.class.php";
 

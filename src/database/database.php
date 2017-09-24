@@ -8,7 +8,7 @@
 * @author Mikael Holmbom
 * @version 1.0
 */
-namespace Database;
+namespace Web\Database;
 
 #require_once "../config/settings.php";
 #require_once "Read.php";
@@ -57,7 +57,7 @@ function connect()
 * determine if a user already exists in database
 * @param user
 */
-function exists(\Database\DAO\ForumUser $user)
+function exists(\Web\Database\DAO\ForumUser $user)
 {
     $exists = False;
 

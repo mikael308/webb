@@ -1,6 +1,6 @@
 <?php
 
-namespace Helper;
+namespace Web\Helper;
 
 /**
  * messages used to inform the user<br>

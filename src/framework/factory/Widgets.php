@@ -1,6 +1,6 @@
 <?php
 
-namespace Framework\Factory;
+namespace Web\Framework\Factory;
 
 require_once "./helper/format.php";
 
@@ -11,8 +11,8 @@ class Widgets
         $widgetName,
         $page = "main"
     ) {
-        return \Helper\Format::nsToPath(
-            "./pages/$page/widgets/$widgetName"
+        return \Web\Helper\Format::nsToPath(
+            $_SERVER['DOCUMENT_ROOT']."/webb/src/pages/$page/widgets/$filename"
         );
     }
     

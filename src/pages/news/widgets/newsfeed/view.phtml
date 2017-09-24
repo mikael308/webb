@@ -6,7 +6,7 @@
     <article>
       <div class="newsfeed">
         <h2 class="title"><?= $news->getTitle() ?></h2>
-        <div class="created"><?= \Helper\Format::dateTime($news->getCreated()) ?></div>
+        <div class="created"><?= \Web\Helper\Format::dateTime($news->getCreated()) ?></div>
         <div class="message"><?= $news->getMessage() ?></div>
         <div class="author"><?= $news->getAuthor()->getName() ?></div>
       </div>

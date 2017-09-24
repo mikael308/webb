@@ -8,13 +8,13 @@
             <?php $lastAuthor = $thread->getLastAttributor(); ?>
             <div class="latestThreadViewRef">
                 <a href="<?=
-                        pagelinkForumThread(
+                        \Web\pagelinkForumThread(
                             $thread->getPrimaryKey(), 
                             1
                         ); ?>">
                     <div class="topic">
                         <?= 
-                        \Helper\Format::textToLength(
+                        \Web\Helper\Format::textToLength(
                             $thread->getTopic(),
                             20
                         );
@@ -23,13 +23,13 @@
                 </a>
 
                 <a href="<?=
-                        pagelinkForumThread(
+                        \Web\pagelinkForumThread(
                             $thread->getPrimaryKey(),
                             $thread->getLastPageIndex()
                         ); ?>">
                     <div class="message">
                         <?=
-                        \Helper\Format::textToLength(
+                        \Web\Helper\Format::textToLength(
                             $thread->getLastPost()->getMessage(),
                             40
                         );
@@ -38,12 +38,12 @@
                 </a>
 
                 <a href="<?=
-                        pagelinkUser(
+                        \Web\pagelinkUser(
                             $lastAuthor->getPrimaryKey()
                         ); ?>">
                     <div class="author">
                         <?=
-                        \Helper\Format::textToLength(
+                        \Web\Helper\Format::textToLength(
                             $lastAuthor->getName(),
                             20
                         );

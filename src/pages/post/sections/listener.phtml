@@ -6,19 +6,19 @@ if (isset($_REQUEST["task"]))
 {
     switch($_REQUEST["task"]) {
         case "delete_post":
-            \Database\deletePost();
+            \Web\Database\deletePost();
         break;
         case "create_news":
-            \Database\createNews();
+            \Web\Database\createNews();
         break;
         case "create_thread":
-            \Database\createThread();
+            \Web\Database\createThread();
         break;
         case "post_reply":
-            \Database\postReply();
+            \Web\Database\postReply();
         break;
         case "edit_post":
-            \Database\editPost();
+            \Web\Database\editPost();
         break;
         default:
         

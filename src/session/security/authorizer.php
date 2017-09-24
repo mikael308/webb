@@ -1,6 +1,6 @@
 <?php
 
-namespace Session\Security;
+namespace Web\Session\Security;
 
 require_once "./database/database.php";
 require_once "./database/Read.php";
@@ -9,7 +9,7 @@ require_once "./database/dao/ForumUser.class.php";
 class Authorizer {
 
     public static function setAuthorizedUser(
-        \Database\DAO\ForumUser $user
+        \Web\Database\DAO\ForumUser $user
     ) {
         $_SESSION['authorized_user_id'] = $user->getPrimaryKey();
     }
@@ -17,7 +17,7 @@ class Authorizer {
     public static function getAuthorizedUser()
     {
         return isset($_SESSION['authorized_user_id'])
-            ? \Database\Read::forumUser($_SESSION['authorized_user_id'])
+            ? \Web\Database\Read::forumUser($_SESSION['authorized_user_id'])
             : null;
     }
 
@@ -41,7 +41,7 @@ class Authorizer {
     ) {
         $retVal = 0;
 
-        $db_conn = \Database\connect();
+        $db_conn = \Web\Database\connect();
         if ($db_conn) {
 
             $query = "SELECT fuser.password, fuser.name "
@@ -69,7 +69,7 @@ class Authorizer {
                         strcmp($data->password, $crypt_inpassw) == 0
                     ) {
                         #if(hash_equals($data->password, crypt(password, $data->password))){ # successful login
-                        $user = \Database\Read::forumUser($data->name);
+                        $user = \Web\Database\Read::forumUser($data->name);
 
                         if ($user->isBanned()) {
                             $retVal = -2;

@@ -1,9 +1,9 @@
 <?php
+namespace Web\Pages\Main\Widgets\Accordion;
 
-namespace Widgets\Main\Accordion;
 require_once "./framework/data/Widget.php";
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
 
     private $accordions;

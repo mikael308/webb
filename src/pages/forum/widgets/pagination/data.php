@@ -1,13 +1,13 @@
 <?php
 
-namespace Widgets\Forum\Pagination;
+namespace Web\Pages\Forum\Widgets\Pagination;
 
 require_once "./database/database.php";
 
 #TODO ta bort denna???
-\Database\autoloadDAO();
+\Web\Database\autoloadDAO();
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
 
     private $totIndexes = -1;
@@ -18,11 +18,11 @@ class Data extends \Framework\Data\Widget
     {
         $t = getThreadIndex();
         if ($t != null) {
-            $this->forumObject = \Database\Read::thread($t);
+            $this->forumObject = \Web\Database\Read::thread($t);
         }
         $s = getSubjectIndex();
         if ($s != null) {
-            $this->forumObject = \Database\Read::subjects($s)[0];
+            $this->forumObject = \Web\Database\Read::subjects($s)[0];
         }
         $this->totIndexes = $this->forumObject->getLastPageIndex();
     }
@@ -72,15 +72,15 @@ class Data extends \Framework\Data\Widget
     {
         #echo "getting index link ";
         $obj = $this->forumObject;
-        if($obj instanceof \Database\DAO\ForumThread)
+        if($obj instanceof \Web\Database\DAO\ForumThread)
         {
-            return pagelinkForumThread(
+            return \Web\pagelinkForumThread(
                 $obj->getPrimaryKey(),
                 $idx
             );
-        } else if($obj instanceof \Database\DAO\ForumSubject)
+        } else if($obj instanceof \Web\Database\DAO\ForumSubject)
         {
-            return pagelinkForumSubject(
+            return \Web\pagelinkForumSubject(
                 $obj->getPrimaryKey(),
                 $idx
             );

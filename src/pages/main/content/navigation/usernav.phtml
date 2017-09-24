@@ -6,7 +6,7 @@
  * @return as html
  */
 function getUserNav(
-    \Database\DAO\ForumUser $user = null
+    \Web\Database\DAO\ForumUser $user = null
 ) {
     if ($user == null)
         return "";
@@ -18,12 +18,12 @@ function getUserNav(
         . "</div>";
     $dropdown_list =
         array(
-            "my page" => pagelinkUser($user->getPrimaryKey())#,
+            "my page" => \Web\pagelinkUser($user->getPrimaryKey())#,
             #"logout" => include "./widgets/security/logoutform.phtml"
         );
     
     return
-        dropDownList(
+        \Web\Helper\dropDownList(
             $dropdown_btn,
             $dropdown_list,
             "user_dropdown"

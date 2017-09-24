@@ -1,12 +1,11 @@
-
 <div id="search_sidepanel" class="sidepanel">
     <a href="javascript:void(0)" class="clickable closebtn" onclick="closeSearchPanel()">&times;</a>
 
     <h2>search</h2>
     <div class="sidepanel_content">
-        <?php \Framework\Factory\Widgets::include("searchform"); ?>
+        <?php \Web\Framework\Factory\Widgets::addToPage("searchform"); ?>
     </div>
-    <?php if (Session\Security\Authorizer::userIsAuthorized()): ?>
+    <?php if (\Web\Session\Security\Authorizer::userIsAuthorized()): ?>
         <div id="searchres"></div>
     <?php else: ?>
         <span><a href="<?= $GLOBALS['pagelink']['register'] ?>">register to search forum</a></span>

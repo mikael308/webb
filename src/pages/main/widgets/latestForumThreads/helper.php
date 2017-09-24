@@ -1,14 +1,13 @@
 <?php
 
-#TODO används ens denna ???
-namespace Widgets\latestForumThreads;
+namespace Web\Pages\Main\Widgets\LatestForumThreads;
 
 /**
  * get a summary view of a threads latest post
  * @return as html
  */
 function threadsLatestPostView(
-  ForumThread $thread
+  \Web\Database\DAO\ForumThread $thread
 ){
   if($thread == NULL){
     return "";
@@ -18,31 +17,31 @@ function threadsLatestPostView(
   #TODO få bort html i strängar
   return
     "<div class='latestThreadViewRef'>"
-    . "<a href='".pagelinkForumThread(
+    . "<a href='".\Web\pagelinkForumThread(
           $thread->getPrimaryKey(), 
           1
         )."'>"
     .   "<div class='topic'>"
-    .     textToLength(
+    .     \Web\Helper\Format::textToLength(
             $thread->getTopic(),
             20
           )
     .   "</div>"
     . "</a>"
-     . "<a href='".pagelinkForumThread(
+     . "<a href='".\Web\pagelinkForumThread(
           $thread->getPrimaryKey(),
           $thread->getLastPageIndex()
         )."'>"
     .   "<div class='message'>"
-    .     textToLength(
+    .     \Web\Helper\Format::textToLength(
             $thread->getLastPost()->getMessage(),
             40
           )
     .   "</div>"
     . "</a>"
-    .   "<a href='".pagelinkUser($lastAuthor->getPrimaryKey())."'>"
+    .   "<a href='".\Web\pagelinkUser($lastAuthor->getPrimaryKey())."'>"
     .     "<div class='author'>"
-    .     textToLength(
+    .     \Web\Helper\Format::textToLength(
             $lastAuthor->getName(),
             20
           )

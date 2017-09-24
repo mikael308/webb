@@ -1,16 +1,16 @@
 <?php
 
-namespace Widgets\News\Newsfeed;
+namespace Web\Pages\News\Widgets\Newsfeed;
 
 require_once "./database/Read.php";
 require_once "./framework/data/Widget.php";
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
 
     function getNews()
     {
-        return \Database\Read::news(" ORDER BY news.created DESC");
+        return \Web\Database\Read::news(" ORDER BY news.created DESC");
     }
 
 }

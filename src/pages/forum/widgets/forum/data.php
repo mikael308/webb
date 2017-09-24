@@ -1,10 +1,10 @@
 <?php
 
-namespace Widgets\Forum\Forum;
+namespace Web\Pages\Forum\Widgets\Forum;
 
-use \Database\Read;
+use \Web\Database\Read;
 
-class Data extends \Framework\Data\Widget
+class Data extends \Web\Framework\Data\Widget
 {
 
     private $contentObj = null;
@@ -47,7 +47,7 @@ class Data extends \Framework\Data\Widget
                 return;
             break;
         }
-        \Framework\Factory\Widgets::include($widgetName, 'forum');
+        \Web\Framework\Factory\Widgets::addToPage($widgetName, 'forum');
     }
 
 }
