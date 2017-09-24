@@ -31,20 +31,20 @@ class Widgets
             $widgetName,
             $page
         ) . "/data.php";
-        
-        if (!is_file($dataPath))
-            throw new \Exception("could not read data $dataPath");
+        if (!is_file($dataPath)){
+            throw new \Exception("could not find data $dataPath");
+        }
         try {
             require_once $dataPath;
+
+            $obj = \Web\Helper\Format::pathToNS(
+                "\\web\\Pages\\$page\\widgets\\$widgetName\\Data"
+            );
+            return new $obj();
             
         } catch(\Exception $e) {
             echo "<h1>".$e->getMessage()."</h1>";
         }
-
-        $obj = \Helper\Format::pathToNS(
-            "\\widgets\\$page\\$widgetName\\Data"
-        );
-        return new $obj();
     }
 
     /**
