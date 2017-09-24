@@ -16,4 +16,12 @@ abstract class DataAccessObject
 
     abstract public function getPrimaryKey();
 
+    /**
+     * @return mixed get this id
+     */
+    public function getId()
+    {
+        return $this->getPrimaryKey();
+    }
+
 }
