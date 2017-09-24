@@ -12,8 +12,8 @@ class Message
 {
 	/**
 	 * get a error message
-	 * @param message the text message contained
-	 * @return error message as html string
+	 * @param message string the text message contained
+	 * @return string error message as html string
 	 */
 	public static function error($message){
 		return "<p class='err_msg msg'>"
@@ -23,8 +23,8 @@ class Message
 	}
 	/**
 	 * get a info message
-	 * @param message the text message contained
-	 * @return info message as html string
+	 * @param message string the text message contained
+	 * @return string info message as html string
 	 */
 	public static function info($message){
 		return "<p class='info_msg msg'>"

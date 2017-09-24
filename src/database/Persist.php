@@ -14,8 +14,8 @@ class Persist
 {
     /**
      * persist forumpost to database
-     * @param thread containing thread
-     * @param post the post to persist
+     * @param thread ForumThread containing thread
+     * @param post ForumPost the post to persist
      * @return True if post was inserted in database successfully
      */
     public static function forumPost(

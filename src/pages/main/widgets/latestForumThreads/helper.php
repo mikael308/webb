@@ -4,7 +4,7 @@ namespace Web\Pages\Main\Widgets\LatestForumThreads;
 
 /**
  * get a summary view of a threads latest post
- * @return as html
+ * @return string as html
  */
 function threadsLatestPostView(
   \Web\Database\DAO\ForumThread $thread

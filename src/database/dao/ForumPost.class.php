@@ -102,7 +102,7 @@ class ForumPost extends DataAccessObject{
     }
     /**
      * get the author of this post
-     * @return author of this post as ForumUser instance
+     * @return ForumUser author of this post as ForumUser instance
      */
     public function getAuthor()
     {

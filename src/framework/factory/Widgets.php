@@ -15,7 +15,14 @@ class Widgets
             $_SERVER['DOCUMENT_ROOT']."/webb/src/pages/$page/widgets/$filename"
         );
     }
-    
+
+    /**
+     * create a widget dataobject
+     * @param $widgetName string name of the widget
+     * @param string $page name of the page containing the widget
+     * @return \Web\Framework\Data\Widget widget datainstance
+     * @throws \Exception
+     */
     public static function create(
         $widgetName,
         $page = "main"
@@ -40,6 +47,11 @@ class Widgets
         return new $obj();
     }
 
+    /**
+     * Output dataobject
+     * @param $dataObj \Web\Framework\Data\Widget the dataobject to output
+     * @throws \Exception
+     */
     public static function output(
         $dataObj
     ) {

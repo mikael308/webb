@@ -141,7 +141,7 @@ class Data extends \Web\Framework\Data\Widget
      * get the index offsets of pagination
      * the interval of page links will always be max value of
      * setting value [pag_max_interval]
-     * @return as html
+     * @return array
      */
     private function getOffsets(
         $currentPage, 

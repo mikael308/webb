@@ -29,9 +29,9 @@ autoloadDAO();
  * get form to create forumthread as html string\n
  * get the last page if requested index is over thread bound
  * or param pageidx is null
- * @param thread concerned thread
- * @param pageIdx requested page index
- * @return forum page with requested pageindex link as string 
+ * @param thread ForumThread concerned thread
+ * @param pageIdx int requested page index
+ * @return string forum page with requested pageindex link as string
  */
 function getThreadPageLink(
     ForumThread $thread,

@@ -55,7 +55,7 @@ function validUser(
 
 /**
  * determine if password is valid
- * @param password the password to validate
+ * @param password string the password to validate
  * @return True if password is valid
  */
 function validPassword(
@@ -73,7 +73,7 @@ function validPassword(
 /**
  * determine if password is of correct length\n
  * password need to be above 6 characters
- * @param password the password to validate
+ * @param password string the password to validate
  * @return True if password is valid length
  */
 function validLength(
@@ -87,7 +87,7 @@ function validLength(
 
 /**
  * validates the content of a password
- * @param password the password to validate
+ * @param password string the password to validate
  * @return True if password is valid  of content
  */
 function validContent(

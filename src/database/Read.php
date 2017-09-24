@@ -290,7 +290,7 @@ class Read
      * creator is defined as the first post of a thread
      * @param thread string primary key of thread to find the creator of
      * @throws \RuntimeException on failed query
-     * @return the creator as ForumUser, if no creator was found null is returned
+     * @return ForumUser the creator as ForumUser, if no creator was found null is returned
      */
     public static function creator($thread_fk){
         if ($thread_fk == null || $thread_fk == "") return null;

@@ -45,7 +45,7 @@ class Count{
     /**
      * count the number of forumposts created by specific user
      * @throws \RuntimeException on failed query
-     * @param user the specific user
+     * @param user string the specific user
      */
     public static function forumPosts(
         ForumUser $user
@@ -80,9 +80,9 @@ class Count{
     }
     /**
      * count results from database query
-     * @param unknown $query the query defining from and where sql statements
+     * @param string  $query the query defining from and where sql statements
      * @throws \RuntimeException on failed query
-     * @return num rows from query result|NULL
+     * @return int num rows from query result|NULL
      */
     public static function query(
         $query
@@ -143,7 +143,7 @@ class Count{
 
     /**
      * get the amount of posts in param thread
-     * @return as number of posts
+     * @return int as number of posts
      */
     public static function postsBy(
         ForumThread $thread

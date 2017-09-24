@@ -37,42 +37,42 @@ class ForumSubject extends DataAccessObject
 	}
 	/**
 	 * set this id
-	 * @param id new id value
+	 * @param id string new id value
 	 */
 	public function setId($id){
 		$this->id = $id;
 	}
 	/**
 	 * set this topic
-	 * @param topic new topic value
+	 * @param topic string new topic value
 	 */
 	public function setTopic($topic){
 		$this->topic = $topic;
 	}
 	/**
 	 * set this subtitle
-	 * @param id new subtitle value
+	 * @param id string new subtitle value
 	 */
 	public function setSubtitle($subtitle){
 		$this->subtitle = $subtitle;
 	}
 	/**
 	 * get this id
-	 * @return this topic value
+	 * @return string this topic value
 	 */
 	public function getTopic(){
 		return $this->topic;
 	}
 	/**
 	 * get this subtitle
-	 * @return this subtitle value
+	 * @return string this subtitle value
 	 */
 	public function getSubtitle(){
 		return $this->subtitle;
 	}
 	/**
 	 * get this primary key
-	 * @return this primary key value
+	 * @return string this primary key value
 	 */
 	public function getPrimaryKey(){
 		return $this->id;
@@ -83,7 +83,7 @@ class ForumSubject extends DataAccessObject
 	}
 	/**
 	 * this subjects threads
-	 * @return threads as array
+	 * @return ForumThread threads as array
 	 */
 	public function getThreads(){
 		return Read::threadsOfSubject(

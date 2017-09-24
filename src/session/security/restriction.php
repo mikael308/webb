@@ -15,7 +15,7 @@ use Web\Session\Security\Authorizer as Authorizer;
 /**
  * if session authorized_user is not authorized:\n
  * redirect to param page
- * @param redirectPage the page to redirect client to
+ * @param redirectPage string the page url to redirect client to
  */
 function restrictedToAuthorized(
     $redirectPage = null
