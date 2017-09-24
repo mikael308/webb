@@ -93,7 +93,7 @@ function validLength(
 function validContent(
     $password
 ){
-    if (#TODO skriv om....
+    if (
         preg_match("/[a-z]/", $password) == 0  ||
         preg_match("/[A-Z]/", $password) == 0  ||
         preg_match("/[0-9]/", $password) == 0  ||
