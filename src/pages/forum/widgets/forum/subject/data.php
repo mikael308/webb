@@ -27,6 +27,10 @@ class Data extends \Web\Framework\Data\Widget
         return $this->subject;  
     }
 
+    /**
+     * get the threads of subject
+     * @return array
+     */
     public function getThreads() 
     {
         return $this->threads;
@@ -37,6 +41,9 @@ class Data extends \Web\Framework\Data\Widget
         return count($this->getThreads());
     }
 
+    /**
+     * @return int settings value: amount of threads per page
+     */
     public function getThreadsPerPage()
     {
         return (int) $_SESSION['settings']->value("threads_per_page");
