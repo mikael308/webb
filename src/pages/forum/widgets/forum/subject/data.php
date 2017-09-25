@@ -101,8 +101,10 @@ class Data extends \Web\Framework\Data\Widget
     }
 
     /**
-     * get pagination links to
-     * @return array list of pagination links
+     * get pagination links to forumthread
+     * @param $thread \Web\Database\DAO\ForumThread
+     * @param $pagInterval int the size of pagination group
+     * @return array|null list of pagination indexes
      */
     function getStartEndPags(
         $thread,
