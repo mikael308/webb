@@ -54,6 +54,14 @@ class Data extends \Web\Framework\Data\Widget
         return ($this->getThreadsPerPage() * (getPageIndex() - 1));
     }
 
+    /**
+     * @return int settings value: threadlink max pagination groupinterval
+     */
+    public function getThreadlinkPaginationInterval()
+    {
+        return (int) $_SESSION['settings']->value('pag_max_interval_threadlink');
+    }
+
     public function getMaxPages()
     {
         return $this->maxPages;
