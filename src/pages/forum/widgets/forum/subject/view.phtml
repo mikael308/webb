@@ -32,14 +32,14 @@ $threads = $data->getThreads();
         </a>
         <div class="info">
             <div class="authors">
-            <?php if ($creator != null): ?>
-                <div class="creator">created by:<a class="clickable" href="<?= Web\pagelinkUser($creator->getId()) ?>"><?= $creator->getName() ?></a></div>
-            <?php endif; ?>
-            <?php if ($lastAttr != null): ?>
-                <span class="lastAttributor">
-                    last: <a class="clickable" href="<?= Web\pagelinkUser($lastAttr->getId()) ?>"><?= $lastAttr->getName() ?></a>
-                </span>
-            <?php endif; ?>
+                <?php if ($creator != null): ?>
+                    <div class="creator">created by:<a class="clickable" href="<?= Web\pagelinkUser($creator->getId()) ?>"><?= $creator->getName() ?></a></div>
+                <?php endif; ?>
+                <?php if ($lastAttr != null): ?>
+                    <span class="lastAttributor">
+                        last: <a class="clickable" href="<?= Web\pagelinkUser($lastAttr->getId()) ?>"><?= $lastAttr->getName() ?></a>
+                    </span>
+                <?php endif; ?>
             </div>
             <div class="indexlink">
                 <span class="label">index:</span>
