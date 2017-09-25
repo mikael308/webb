@@ -108,7 +108,7 @@ class Data extends \Web\Framework\Data\Widget
         $thread,
         $pagInterval = 1
     ) {
-        if ($thread == NULL)
+        if ($thread == null)
             return array();
 
         $maxPages = $this->getThreadMaxPages($thread);
