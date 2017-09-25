@@ -20,6 +20,10 @@ $threads = $data->getThreads();
     <?php
     $creator = $thread->getCreator();
     $lastAttr = $thread->getLastAttributor();
+    $pags = $data->getStartEndPags(
+        $thread,
+        $data->getThreadlinkPaginationInterval()
+    );
     ?>
 
     <div class="forum_content_listitem forum_thread">
@@ -40,7 +44,16 @@ $threads = $data->getThreads();
             <div class="indexlink">
                 <span class="label">index:</span>
                 <div class="threadlink_pagination">
-
+                    <div class='threadlink_pagination'>
+                        <?php $lastPag = 0; ?>
+                        <?php foreach ($pags as $pag): ?>
+                            <?php if (($lastPag + 1) != $pag): ?>
+                                <span>...</span>
+                            <?php endif; ?>
+                            <a href="<?= \Web\pagelinkForumThread($thread->getId(), $pag) ?>"><?= $pag ?></a>
+                            <?php $lastPag = $pag; ?>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         </div>
