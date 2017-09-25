@@ -16,7 +16,7 @@ class Data extends \Web\Framework\Data\Widget
 
     public function __construct()
     {
-        $this->subject = Read::subjects(getSubjectIndex())[0];
+        $this->subject = Read::subject(getSubjectIndex());
         $this->threads = $this->subject->getThreads();
 
         $this->maxPages = Count::maxPagesSubject($this->subject);
