@@ -51,7 +51,7 @@ class Data extends \Web\Framework\Data\Widget
 
     public function getStartOffset()
     {
-        return ($this->getThreadsPerPage() * (getPageIndex() - 1));
+        return $this->getThreadsPerPage() * (getPageIndex() - 1);
     }
 
     /**
