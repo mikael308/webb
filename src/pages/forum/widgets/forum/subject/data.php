@@ -51,6 +51,18 @@ class Data extends \Web\Framework\Data\Widget
     {
         return $this->maxPages;
     }
+    /**
+     * @param \Web\Database\DAO\ForumThread $thread
+     * @return int max amount of pages in thread
+     */
+    public function getThreadMaxPages(
+        \Web\Database\DAO\ForumThread $thread
+    ) {
+        $n_posts = $thread->getSize();
+        $posts_per_page = $_SESSION['settings']->value('posts_per_page');
+        $maxThreadPages = ceil($n_posts / $posts_per_page);
+        return $maxThreadPages;
+    }
 
     public function threadInnerPag(\Web\Database\DAO\ForumThread $thread)
     {
@@ -84,9 +96,7 @@ class Data extends \Web\Framework\Data\Widget
         if ($thread == NULL)
             return "";
 
-        $n_posts = $thread->getSize();
-        $posts_per_page = $_SESSION['settings']->value('posts_per_page');
-        $maxPages = ceil($n_posts / $posts_per_page);
+        $maxPages = $this->getThreadMaxPages($thread);
         $maxlim = min($maxPages, $pagInterval);
         $pags = array();
         $i = 1;
