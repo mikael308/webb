@@ -77,8 +77,10 @@ class Data extends \Web\Framework\Data\Widget
      * get pagination links to
      * @return array list of pagination links
      */
-    function getStartEndPags($thread, $pagInterval)
-    {
+    function getStartEndPags(
+        $thread,
+        $pagInterval = 1
+    ) {
         if ($thread == NULL)
             return "";
 
