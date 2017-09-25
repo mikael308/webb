@@ -6,7 +6,7 @@
 * Time: 8:32 PM
 */
 
-namespace Web;
+namespace Web\FrontController;
 
 require_once "./database/database.php";
 require_once "./loader.php";
@@ -23,12 +23,12 @@ if(! isset($_SESSION['settings'])){
     );
 }
 
-loadSections("request");
-loadSections("import");
+\Web\loadSections("request");
+\Web\loadSections("import");
 
 $display = false;
 try {
-    loadSections("listener");
+    \Web\loadSections("listener");
     $display = true;
 } catch (\Exception $e) {
     #TODO create 404 exception
@@ -36,26 +36,26 @@ try {
 
 function head()
 {
-    loadSections("head");
+    \Web\loadSections("head");
 }
 
 function header()
 {
-    loadSection("header", "main");
+    \Web\loadSection("header", "main");
 }
 
 function main()
 {
     global $display;
     if ($display) {
-        loadSection("main", getPage());
+        \Web\loadSection("main", getPage());
     } else {
-        loadContentView("page404_notfound", "main");
+        \Web\loadContentView("page404_notfound", "main");
     }
 }
 
 function footer()
 {
-    loadSection("footer", "main");
-    loadSection("script", getPage());
+    \Web\loadSection("footer", "main");
+    \Web\loadSection("script", getPage());
 }
