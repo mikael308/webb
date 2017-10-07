@@ -63,4 +63,20 @@ Vagrant.configure(2) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo add-apt-repository ppa:ondrej/php -y
+    sudo apt-get update
+
+    # apache
+    sudo apt-get install -y apache2
+    # php
+    sudo apt-get install -y php7.0
+    sudo apt-get install -y php7.0-cli php7.0-mbstring php7.0-mcrypt php7.0-json php7.0-pgsql php7.0-xml 
+
+  sudo apt-get update
+  
+  sudo a2enmod rewrite  
+  sudo service apache2 restart
+
+  SHELL
 end
