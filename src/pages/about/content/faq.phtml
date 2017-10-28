@@ -6,7 +6,7 @@
 $xml = simplexml_load_file("../res/faq.xml") 
     or die("could not load faq");
 
-$accordionWidget = \Framework\Factory\Widgets::create('accordion');
+$accordionWidget = \Web\Framework\Factory\Widgets::create('accordion');
 foreach ($xml->children() as $faq) 
 {
     $accordionWidget->addAccordion(
@@ -17,5 +17,5 @@ foreach ($xml->children() as $faq)
 ?>
 
 <div id="faq">
-    <?php \Framework\Factory\Widgets::output($accordionWidget); ?>
+    <?php \Web\Framework\Factory\Widgets::output($accordionWidget); ?>
 </div>
