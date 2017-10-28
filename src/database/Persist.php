@@ -76,8 +76,8 @@ class Persist
     }
     /**
      * persist a user to database
-     * @param user the user to persist
-     * @param passw requested password to persist
+     * @param user \Web\Database\Dao\ForumUser the user to persist
+     * @param passw string requested password to persist
      */
     public static function forumUser(
         \Web\Database\DAO\ForumUser $user,

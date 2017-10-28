@@ -223,7 +223,7 @@ class Read
     }
     /**
      * read a specific forumpost from database\n
-     * @param post_id id of forumpost to read
+     * @param post_id string id of forumpost to read
      * @throws \RuntimeException on failed query
      * @return \Web\Database\DAO\ForumPost object. If requested forumpost was not found, null is returned\n
      */
@@ -252,7 +252,7 @@ class Read
 
     /**
      * read forumusers from database
-     * @param whereclause specify query
+     * @param whereclause string specify query
      * @throws \RuntimeException on failed query
      * @return \Web\Database\DAO\ForumUser of forumusers results from database
      */
@@ -327,7 +327,7 @@ class Read
     }
     /**
      * get the last attributor of param thread
-     * @param thread_pk primary key of requested thread
+     * @param thread_pk string primary key of requested thread
      * @throws \RuntimeException on failed query
      * @return \Web\Database\DAO\ForumUser last attributor of thread as ForumUser
      */
