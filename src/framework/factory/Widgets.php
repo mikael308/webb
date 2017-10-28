@@ -12,7 +12,7 @@ class Widgets
         $page = "main"
     ) {
         return \Web\Helper\Format::nsToPath(
-            $_SERVER['DOCUMENT_ROOT']."/webb/src/pages/$page/widgets/$filename"
+            PATH_ROOT_ABS."pages/$page/widgets/$filename"
         );
     }
 
