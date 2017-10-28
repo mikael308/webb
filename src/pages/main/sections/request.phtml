@@ -47,22 +47,3 @@ function post($index){
     return $_POST[$key] ?? null;
 }
 
-/**
- * determine if index is set as GET\n
- * scope using this must declare variable $requestIndex
- * @param index index to determine
- */
-function issetGet($index){
-    global $requestIndex;
-    return isset($_GET[$requestIndex[$index]]);
-}
-
-/**
- * determine if index is set as POST\n
- * scope using this must declare variable $requestIndex
- * @param index index to determine
- */
-function issetPost($index){
-    global $requestIndex;
-    return isset($_GET[$requestIndex[$index]]);
-}
