@@ -79,8 +79,9 @@ class Data extends \Web\Framework\Data\Widget
         return $maxThreadPages;
     }
 
-    public function threadInnerPag(\Web\Database\DAO\ForumThread $thread)
-    {
+    public function threadInnerPag(
+        \Web\Database\DAO\ForumThread $thread
+    ) {
         #$cont = "";
         $pagInterval = $_SESSION['settings']->value("pag_max_interval_threadlink");
         $lastPagIdx = 0;
