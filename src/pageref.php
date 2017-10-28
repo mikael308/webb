@@ -13,6 +13,9 @@ $page_root = $GLOBALS["site-root"];
 
 $GLOBALS['src-root'] = $GLOBALS['site-root']."/src/";
 
+define('PATH_ROOT_ABS', '/vagrant/src/');#$_SERVER['DOCUMENT_ROOT']."/src/");
+define('PATH_ROOT_REL', "/src/");
+
 # references to page rewrites
 # key => URL
 $GLOBALS["pagelink"] = array(
