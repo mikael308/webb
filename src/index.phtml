@@ -10,12 +10,12 @@ namespace Web;
  * @version 1.0
  */
 
-require_once "./database/database.php";
-require_once "./session/main.php";
-require_once "./session/config/settings.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."session/main.php";
+require_once PATH_ROOT_ABS."session/config/settings.php";
 
 \Web\Session\start();
 \Web\Database\autoloadDAO();
 
-include "FrontControllerData.php";
-include "FrontControllerView.phtml";
+include PATH_ROOT_ABS."FrontControllerData.php";
+include PATH_ROOT_ABS."FrontControllerView.phtml";

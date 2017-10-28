@@ -2,10 +2,10 @@
 
 namespace Web\Database\DAO;
 
-require_once "./database/dao/iForumContent.php";
-require_once "./database/Count.php";
-require_once "./database/Read.php";
-require_once "./session/config/settings.php";
+require_once PATH_ROOT_ABS."database/dao/iForumContent.php";
+require_once PATH_ROOT_ABS."database/Count.php";
+require_once PATH_ROOT_ABS."database/Read.php";
+require_once PATH_ROOT_ABS."session/config/settings.php";
 
 use \Web\Database\Count;
 use \Web\Database\Read;

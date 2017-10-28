@@ -2,9 +2,9 @@
 
 namespace Web\Database;
 
-require_once "database.php";
-require_once "Parse.php";
-#use Database\Parse;
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."database/Parse.php";
+
 /**
  * extract data from database
  * @author Mikael Holmbom

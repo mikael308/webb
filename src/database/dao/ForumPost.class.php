@@ -2,8 +2,8 @@
 
 namespace Web\Database\DAO;
 
-require_once "./database/dao/DataAccessObject.class.php";
-require_once "./database/Read.php";
+require_once PATH_ROOT_ABS."database/dao/DataAccessObject.class.php";
+require_once PATH_ROOT_ABS."database/Read.php";
 
 use \Web\Database\Read;
 

@@ -1,8 +1,8 @@
 <?php
 namespace Web\Database;
 
-require_once "database.php";
-require_once "Read.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."database/Read.php";
 
 /**
  * get forumusers with id as param user_id

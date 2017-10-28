@@ -8,13 +8,13 @@ namespace Web\Database;
  * @version 1.0
  */
 
-require_once "database.php";
-require_once "Read.php";
-require_once "Delete.php";
-require_once "Update.php";
-require_once "Persist.php";
-require_once "./session/main.php";
-require_once "./helper/security.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."database/Read.php";
+require_once PATH_ROOT_ABS."database/Delete.php";
+require_once PATH_ROOT_ABS."database/Update.php";
+require_once PATH_ROOT_ABS."database/Persist.php";
+require_once PATH_ROOT_ABS."database/./session/main.php";
+require_once PATH_ROOT_ABS."database/./helper/security.php";
 
 use \Web\Database\DAO\ForumPost;
 use \Web\Database\DAO\ForumSubject;

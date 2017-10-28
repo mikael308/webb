@@ -3,8 +3,8 @@ namespace Web\Database;
 
 use Web\Database\DAO\ForumUser;
 
-require_once "database.php";
-require_once "Parse.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."database/Parse.php";
 
 
 /**

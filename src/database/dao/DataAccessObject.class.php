@@ -2,7 +2,7 @@
 
 namespace Web\Database\DAO;
 
-require_once "./database/database.php";
+require_once PATH_ROOT_ABS."database/database.php";
 
 
 /**

@@ -6,9 +6,9 @@
  * @version 1.0
  */
 
-require_once "./database/database.php";
-require_once "./database/Read.php";
-require_once "authorizer.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."database/Read.php";
+require_once PATH_ROOT_ABS."session/security/authorizer.php";
 
 use Web\Session\Security\Authorizer as Authorizer;
 

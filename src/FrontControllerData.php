@@ -8,11 +8,11 @@
 
 namespace Web\FrontController;
 
-require_once "./database/database.php";
-require_once "./loader.php";
-require_once "./pageref.php";
-require_once "./session/main.php";
-require_once "./session/config/settings.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."loader.php";
+require_once PATH_ROOT_ABS."pageref.php";
+require_once PATH_ROOT_ABS."session/main.php";
+require_once PATH_ROOT_ABS."session/config/settings.php";
 
 $_SESSION['settings'] = new \Web\Session\Config\Settings(
     "../config/settings.conf"

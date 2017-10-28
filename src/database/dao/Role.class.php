@@ -2,7 +2,7 @@
 
 namespace Web\Database\DAO;
 
-require_once "./database/dao/DataAccessObject.class.php";
+require_once PATH_ROOT_ABS."database/dao/DataAccessObject.class.php";
 
 
 /**

@@ -2,9 +2,9 @@
 
 namespace Web\Session\Security;
 
-require_once "./database/database.php";
-require_once "./database/Read.php";
-require_once "./database/dao/ForumUser.class.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."database/Read.php";
+require_once PATH_ROOT_ABS."database/dao/ForumUser.class.php";
 
 class Authorizer {
 

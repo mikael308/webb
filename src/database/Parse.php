@@ -1,13 +1,13 @@
 <?php
 namespace Web\Database;
 
-require_once "database.php";
-require_once "Read.php";
-require_once "dao/News.class.php";
-require_once "dao/ForumPost.class.php";
-require_once "dao/ForumSubject.class.php";
-require_once "dao/ForumThread.class.php";
-require_once "dao/ForumUser.class.php";
+require_once PATH_ROOT_ABS."database/database.php";
+require_once PATH_ROOT_ABS."database/Read.php";
+require_once PATH_ROOT_ABS."database/dao/News.class.php";
+require_once PATH_ROOT_ABS."database/dao/ForumPost.class.php";
+require_once PATH_ROOT_ABS."database/dao/ForumSubject.class.php";
+require_once PATH_ROOT_ABS."database/dao/ForumThread.class.php";
+require_once PATH_ROOT_ABS."database/dao/ForumUser.class.php";
 
 use \Web\Database\Dao\News;
 use \Web\Database\DAO\ForumPost;
