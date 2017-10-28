@@ -119,7 +119,7 @@ class Parse{
         $user->setName(Parse::clean($data->name));
         $user->setEmail(Parse::clean(crypt(
             $data->email,
-            $GLOBALS['crypt_salt']
+            $GLOBALS['database']['crypt_salt']
         )));
         $user->setRole(Parse::clean($data->title));
         $user->setRegistered(Parse::clean($data->registered));

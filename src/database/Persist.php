@@ -89,7 +89,7 @@ class Persist
             
             $crypt_passw = crypt(
                 $passw,
-                $GLOBALS["crypt_salt"]
+                $GLOBALS['database']['crypt_salt']
             );
             $query = "INSERT INTO " . $GLOBALS['database']['table']['forumusers']
                 . " (name, email, role, banned, password, registered) "
