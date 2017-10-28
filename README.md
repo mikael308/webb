@@ -1,4 +1,4 @@
-# webb
+# Readme
 simple forum to handle 
 * subjects, threads and users with different roles
 * searchfunction for authorized users
