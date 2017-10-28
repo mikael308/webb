@@ -14,20 +14,20 @@ define('PATH_ROOT_REL', "/src/");
 
 # references to page rewrites
 # key => URL
-$GLOBALS["pagelink"] = array(
-    "about_about"   => $page_root."about/about",
-    "about_faq"     => $page_root."about/faq",
-    "admin"         => $page_root."admin",
-    "contact"       => $page_root."contact",
-    "forum"         => $page_root."forum",
-    "index"         => $page_root,
-    "news"          => $page_root."news",
-    "register"      => $page_root."register",
-    "search"        => $page_root."search",
-    "post"          => $page_root."post",
-    "user"          => $page_root."user",
-    "user_info"     => $page_root."user/info",
-    "user_settings" => $page_root."user/settings"
+$GLOBALS['pagelink'] = array(
+    "about_about"   => "/about/about",
+    "about_faq"     => "/about/faq",
+    "admin"         => "/admin",
+    "contact"       => "/contact",
+    "forum"         => "/forum",
+    "index"         => "/",
+    "news"          => "/news",
+    "register"      => "/register",
+    "search"        => "/search",
+    "post"          => "/post",
+    "user"          => "/user",
+    "user_info"     => "/user/info",
+    "user_settings" => "/user/settings"
 );
 
 # generate pagelinks from objects
