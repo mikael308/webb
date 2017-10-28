@@ -82,8 +82,8 @@ class Data extends \Web\Framework\Data\Widget
     public function threadInnerPag(
         \Web\Database\DAO\ForumThread $thread
     ) {
-        #$cont = "";
-        $pagInterval = $_SESSION['settings']->value("pag_max_interval_threadlink");
+        $cont = "";
+        $pagInterval = $this->getThreadlinkPaginationInterval();
         $lastPagIdx = 0;
         $pags = $this->getStartEndPags($thread, $pagInterval);
         foreach ($pags as $i => $pag){
