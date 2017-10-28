@@ -7,8 +7,6 @@ namespace Web\Helper;
  * @version 1.0
  */
 
-require_once "./pageref.php";
-
 /**
  * get a icon button
  * @param icon string the icon title
