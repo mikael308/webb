@@ -10,9 +10,6 @@
 */
 namespace Web\Database;
 
-#require_once "../config/settings.php";
-#require_once "Read.php";
-
 # password crypt salt
 $GLOBALS['database']['crypt_salt'] = 'd4';
 
