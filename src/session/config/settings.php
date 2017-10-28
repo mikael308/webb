@@ -28,7 +28,9 @@ class Settings
     {
         $this->settingsValues = [];
 
-        $settings_file = fopen($this->settings_filename, "r") or die("unable to read settings");
+        $settings_file = fopen($this->settings_filename, "r")
+        or
+        die("unable to read settings");
 
         while (! feof($settings_file)) {
             $line = fgets($settings_file);
