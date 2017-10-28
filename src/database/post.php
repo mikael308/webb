@@ -131,7 +131,7 @@ function editPost()
  */
 function deletePost() 
 {
-    $post = \Database\Read::forumPost($_REQUEST['post']);
+    $post = \Web\Database\Read::forumPost($_REQUEST['post']);
     $thread = $post->getThread();
     if (Delete::forumPost($post)) {
         # redirect to thread page
