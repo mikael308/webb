@@ -41,6 +41,9 @@ Vagrant.configure(2) do |config|
     type: "rsync",
     rsync_auto: true
 
+  config.vm.synced_folder "./var/log", "/vagrant/var/log",
+    create: true
+
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
