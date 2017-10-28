@@ -17,9 +17,7 @@ require_once PATH_ROOT_ABS."session/main.phtml";
 require_once PATH_ROOT_ABS."helper/security.php";
 
 use \Web\Database\DAO\ForumPost;
-use \Web\Database\DAO\ForumSubject;
 use \Web\Database\DAO\ForumThread;
-use \Web\Database\DAO\ForumUser;
 use \Web\Database\DAO\News;
 use \Web\Session\Security\Authorizer;
 
