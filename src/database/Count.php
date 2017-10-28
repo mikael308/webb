@@ -156,4 +156,5 @@ class Count{
 
         return Count::query($query);
     }
+
 } # ! COUNT
