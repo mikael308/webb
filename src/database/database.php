@@ -44,11 +44,11 @@ function connect()
     $username       = "postgres";
     $password       = "password";
 
-    $conn_str = "host=" 	. $servername
-    . " port=" 			. $port
-    . " dbname=" 		. $dbname
-    . " user=" 			. $username
-    . " password=" 		. $password;
+    $conn_str = "host=" . $servername
+    . " port="          . $port
+    . " dbname="        . $dbname
+    . " user="          . $username
+    . " password="      . $password;
 
     return pg_connect($conn_str);
 }
