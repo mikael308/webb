@@ -60,21 +60,20 @@ function exists(\Web\Database\DAO\ForumUser $user)
 
     $db_conn = connect();
     if ($db_conn) {
+        $table = $GLOBALS['database']['table']['forumusers'];
+        $res = pg_query_params(
+            $db_conn,
+            "SELECT name FROM $table "
+            . " WHERE name = $1 ;",
+            [$user->getPrimaryKey()]
+        );
 
-    $query = "SELECT name FROM " . $GLOBALS['database']['table']['forumusers']
-    . " WHERE name = '". $user->getPrimaryKey() . "' ;";
-    #TODO params
-    $res = pg_query(
-        $db_conn,
-        $query
-    );
-    if ($res) {
-        if (pg_num_rows($res)) {
-            $exists = True;
+        if ($res) {
+            if (pg_num_rows($res)) {
+                $exists = True;
+            }
+            pg_free_result($res);
         }
-        pg_free_result($res);
-    }
-
     }
     #TODO throw error on !$db_conn
 
