@@ -95,10 +95,7 @@ class Data extends \Web\Framework\Data\Widget
             $lastPagIdx=$i;
             $cont .= $pag;
         }
-        return
-              "<div class='threadlink_pagination'>"
-            .   $cont
-            . "</div>";
+        return $cont;
     }
 
     /**
