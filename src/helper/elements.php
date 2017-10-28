@@ -150,7 +150,8 @@ function getStylesheets(
 function getStylesheet(
 	$filename
 ) {
-	return "<link rel='stylesheet' href='".$GLOBALS["src-root"]."css/".$filename."' >";
+    $filepath = PATH_ROOT_REL."css/$filename";
+	return "<link rel='stylesheet' href='$filepath' >";
 }
 
 function getScripts(
@@ -171,7 +172,8 @@ function getScripts(
 function getScript(
 	$filename
 ) {
-	return "<script type='text/javascript' src='".$GLOBALS["src-root"]."js/".$filename."' ></script>";
+    $filepath = PATH_ROOT_REL."js/$filename";
+	return "<script type='text/javascript' src='$filepath' ></script>";
 }
 /**
  * TODO rm
