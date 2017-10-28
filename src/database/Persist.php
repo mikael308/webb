@@ -91,7 +91,7 @@ class Persist
                 $passw,
                 $GLOBALS["crypt_salt"]
             );
-            $query = "INSERT INTO " . $GLOBALS["dbtable_forumusers"] 
+            $query = "INSERT INTO " . $GLOBALS['database']['table']['forumusers']
                 . " (name, email, role, banned, password, registered) "
                 . " VALUES('".$user->getName()."',"
                 . "'" . $user->getEmail() . "', "
