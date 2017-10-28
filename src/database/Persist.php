@@ -141,6 +141,5 @@ class Persist
         }
         return False;
     }
-} # ! PERSIST
 
-?>
+} # ! PERSIST
