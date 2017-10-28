@@ -17,7 +17,7 @@ require_once PATH_ROOT_ABS."session/config/settings.php";
 $_SESSION['settings'] = new \Web\Session\Config\Settings(
     "../config/settings.conf"
 );
-if(! isset($_SESSION['settings'])){
+if (! isset($_SESSION['settings'])) {
     $_SESSION['settings'] = new \Web\Session\Config\Settings(
         "../config/settings.conf"
     );
