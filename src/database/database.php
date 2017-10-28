@@ -38,11 +38,11 @@ function autoloadDAO()
 */
 function connect()
 {
-    $servername 	= "localhost";
-    $port 			= "5432";
-    $dbname 		= "postgres";
-    $username 		= "mikael";
-    $password 		= "mydbpassw";
+    $servername     = "127.0.0.1";
+    $port           = "5432";
+    $dbname         = "postgres";
+    $username       = "postgres";
+    $password       = "password";
 
     $conn_str = "host=" 	. $servername
     . " port=" 			. $port
