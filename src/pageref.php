@@ -7,11 +7,7 @@ namespace Web;
 * @author Mikael Holmbom
 */
 
-# absolute path to web root
-$GLOBALS["site-root"] = "/webb/";
-$page_root = $GLOBALS["site-root"];
 
-$GLOBALS['src-root'] = $GLOBALS['site-root']."/src/";
 
 define('PATH_ROOT_ABS', '/vagrant/src/');#$_SERVER['DOCUMENT_ROOT']."/src/");
 define('PATH_ROOT_REL', "/src/");
