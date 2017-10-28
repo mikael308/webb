@@ -70,21 +70,21 @@ class ForumUser extends DataAccessObject {
     }
     /**
      * set this name
-     * @param name new name value
+     * @param name string new name value
      */
     public function setName($name){
         $this->name = $name;
     }
     /**
      * set this email
-     * @param email new email value
+     * @param email string new email value
      */
     public function setEmail($email){
         $this->email = $email;
     }
     /**
      * set this role
-     * @param role new role value
+     * @param role string new role value
      */
     public function setRole($role){
         $this->role = $role;
