@@ -7,16 +7,22 @@ for demonstration see doc/presentation.ogv
 - php7.0
 - apache2
 - postgresql
+- vagrant
 
-## setup database
-to setup the database, do one of the following
-### shellscript
-in root, run ```bash config/setup/setup.sh```
-### manual setup
-run the following scripts
-1. ./config/setup/setup_tables.sql
-2. ./config/setup/init_roles.sql
-3. ./config/setup/setup_users.php
-4. ./config/setup/init_vals.sql
-5. ./config/setup/setup_storedprocedures.sql
+## setup
+pre:
+- vagrant
 
+edit /etc/hosts, add
+```
+192.168.33.10	    local.webb.com
+```
+
+cd into root
+```
+vagrant up
+```
+for synchronizing source files
+```
+vagrant rsync-auto
+```
