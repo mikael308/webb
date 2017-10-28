@@ -11,9 +11,7 @@
  */
 function getPage() 
 {
-	return $_REQUEST["page"] != null
-		? $_REQUEST["page"]
-		: "";
+    return $_REQUEST['page'] ?? '';
 }
 
 /**
@@ -21,9 +19,7 @@ function getPage()
  */
 function getSubpage()
 {
-	return $_REQUEST["subpage"] != null
-		? $_REQUEST["subpage"]
-		: "";
+    return $_REQUEST['subpage'] ?? '';
 }
 
 /**
@@ -33,12 +29,10 @@ function getSubpage()
  * @return 
  */
 function getIndex($key){
-    if(isset($_REQUEST[$key])){
-        if(preg_match("/^[0-9]*$/", $_REQUEST[$key])){
-            return $_REQUEST[$key];
-        }
-    }
-    return null;
+    $index = $_REQUEST[$key] ?? '';
+    return preg_match("/^[0-9]+$/", $index)
+        ? $index
+        : null;
 }
 
 /**
@@ -50,11 +44,7 @@ function getIndex($key){
 function post($index){
     global $requestIndex;
     $key = $requestIndex[$index];
-            
-    if(isset($_POST[$key])){
-        return $_POST[$key];
-    }
-    return null;
+    return $_POST[$key] ?? null;
 }
 
 /**
