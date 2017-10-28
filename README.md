@@ -10,7 +10,7 @@ for demonstration see doc/presentation.ogv
 - vagrant
 
 ## setup
-pre:
+ prerequisites:
 - vagrant
 
 edit /etc/hosts, add
