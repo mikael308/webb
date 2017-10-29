@@ -349,7 +349,7 @@ class Read
     public static function lastAttributor($thread_pk)
     {
         if ($thread_pk == null || $thread_pk == "") return null;
-        $user = null; # the last attributor
+        $lastAttributor = null;
         $db_conn = connect();
         if ($db_conn) {
             $table = $GLOBALS['database']['table']['forumposts'];
@@ -365,13 +365,13 @@ class Read
             if ($res) {
                 if (pg_num_rows($res) > 0) {
                     $data = pg_fetch_object($res, 0);
-                    $user = Read::forumUser($data->author);
+                    $lastAttributor = Read::forumUser($data->author);
                 }
             } else {
                 throw new \RuntimeException(pg_last_error($db_conn));
             }
         }
 
-        return $user;
+        return $lastAttributor;
     }
 } # ! READ
