@@ -40,7 +40,7 @@ class Count{
             . " ) "
                 . " ;";
                                                                                                                                                     
-        return count::query($query);
+        return Count::query($query);
     }
     /**
      * count the number of forumposts created by specific user
@@ -55,7 +55,7 @@ class Count{
             . " WHERE author='" . $user->getPrimaryKey() . "'"
             . " ;";
 
-        return count::query($query);
+        return Count::query($query);
     }
 
     /**
@@ -76,7 +76,7 @@ class Count{
             .       " WHERE id='".$post_pk."' "
             .   " ) "
             . " ;";
-        return ceil(count::query($query) / $_SESSION['settings']->value("posts_per_page"));
+        return ceil(Count::query($query) / $_SESSION['settings']->value("posts_per_page"));
     }
     /**
      * count results from database query
