@@ -159,29 +159,23 @@ class Read
         }
         return $thread;
     }
+
     /**
-     * read news from database
-     * @param whereclause string specify query
+     * read news from database ordered by created value descending
      * @throws \RuntimeException on failed query
      * @return array of news instances matching query
      */
-    public static function news($whereclause = null)
+    public static function news()
     {
-        $news_arr = array();
+        $news_arr = [];
 
         $db_conn = connect();
         if ($db_conn) {
             $table = $GLOBALS['database']['table']['news'];
-            $param_where = ($whereclause != null &&
-                $whereclause != '')
-                ? $whereclause
-                : '';
-            
-            $res = pg_query_params(
-                $db_conn, 
+            $res = pg_query(
+                $db_conn,
                 "SELECT news.id, news.author, news.title, news.message, news.created "
-                . " FROM $table AS news $1;",
-                [ $param_where ]
+                . " FROM $table AS news ORDER BY news.created DESC;"
             );
             if ($res) {
                 $n_rows = pg_num_rows($res);
