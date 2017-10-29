@@ -10,7 +10,7 @@ class Data extends \Web\Framework\Data\Widget
 
     function getNews()
     {
-        return \Web\Database\Read::news(" ORDER BY news.created DESC");
+        return \Web\Database\Read::news();
     }
 
 }
