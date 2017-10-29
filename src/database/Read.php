@@ -20,7 +20,8 @@ class Read
      * @throws \RuntimeException on failed query
      * @param id
      */
-    public static function role($id){
+    public static function role($id)
+    {
         $resRole = null;
         $db_conn = connect();
         if ($db_conn) {
@@ -95,7 +96,8 @@ class Read
      * @throws \RuntimeException on failed query
      * @return array requested forumsubject, if not found null is returned
      */
-    public static function threadsOfSubject($subject_id){
+    public static function threadsOfSubject($subject_id)
+    {
         $resThreadArr = array();
         $db_conn = connect();
         if ($db_conn) {
@@ -130,7 +132,8 @@ class Read
      * @throws \RuntimeException on failed query
      * @return \Web\Database\DAO\ForumThread the first found row in database, if no result was found null is returned
      */
-    public static function thread($thread_id){
+    public static function thread($thread_id)
+    {
         $thread = null;
 
         $db_conn = connect();
@@ -161,7 +164,8 @@ class Read
      * @throws \RuntimeException on failed query
      * @return array of news instances matching query
      */
-    public static function news($whereclause = null){
+    public static function news($whereclause = null)
+    {
         $news_arr = array();
 
         $db_conn = connect();
@@ -304,7 +308,7 @@ class Read
         $creator = null;
 
         $db_conn = connect();
-        if ($db_conn){
+        if ($db_conn) {
             $table = $GLOBALS['database']['table']['forumposts'];
             $join_table = $GLOBALS['database']['table']['forumthreads'];
             $res = pg_query_params(
@@ -339,7 +343,8 @@ class Read
      * @throws \RuntimeException on failed query
      * @return \Web\Database\DAO\ForumUser last attributor of thread as ForumUser
      */
-    public static function lastAttributor($thread_pk){
+    public static function lastAttributor($thread_pk)
+    {
         if ($thread_pk == null || $thread_pk == "") return null;
         $user = null; # the last attributor
         $db_conn = connect();

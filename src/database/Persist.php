@@ -66,7 +66,7 @@ class Persist
                     $thread->getTopic()
                 ]
             );
-            if($res){
+            if ($res) {
                 $data = pg_fetch_object($res, 0);
                 $resThread = $thread;
                 $resThread->setId($data->id);
@@ -91,7 +91,7 @@ class Persist
         $passw
     ) {
         $db_conn = connect();
-        if($db_conn){
+        if ($db_conn) {
             $banned_val = $user->isBanned() ? "TRUE" : "FALSE";
             
             $crypt_passw = crypt(
@@ -114,7 +114,7 @@ class Persist
                     $user->getRegistered()
                 ]
             );
-            if($res){
+            if ($res) {
                 pg_free_result($res);
                 return True;
                 
@@ -146,7 +146,7 @@ class Persist
                     $news->getMessage()
                 ]
             );
-            if($res){
+            if ($res) {
                 pg_free_result($res);
                 return True;
                     

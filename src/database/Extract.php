@@ -35,8 +35,8 @@ class Extract{
                 . " ;",
                 [ $amount ]
             );
-			if($res){
-				for($i = 0; $i < pg_num_rows($res); $i++){
+			if ($res) {
+				for ($i = 0; $i < pg_num_rows($res); $i++) {
 					$latestThreads[] =
 						Parse::toThread(pg_fetch_object(
 							$res,

@@ -4,16 +4,18 @@ namespace Web\Database;
  * update data in database
  * @author Mikael Holmbom
  * @version 1.0
-     */
+ */
 class update
 {
+
     /**
      * update forumser
      * @param user \Web\Database\DAO\ForumUser the user to update
      * @throws \RuntimeException on failed query
      * @return True if the user was updated successfully
      */
-    public static function forumUser(\Web\Database\DAO\ForumUser $user){
+    public static function forumUser(\Web\Database\DAO\ForumUser $user)
+    {
         $db_conn = connect();
         if ($db_conn) {
             $banned_val = $user->isBanned() ? "TRUE" : "FALSE";
@@ -35,6 +37,7 @@ class update
         }
         return False;
     }
+
     /**
      * update existring forumpost
      * @param post \Database\DAO\ForumPost the post to update

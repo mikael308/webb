@@ -18,7 +18,7 @@ class Delete
         \Web\Database\DAO\ForumUser $user
     ) {
         $db_conn = connect();
-        if ($db_conn){
+        if ($db_conn) {
             $table = $GLOBALS['database']['table']['forumusers'];
             $res = pg_query_params(
                 $db_conn,
@@ -26,6 +26,7 @@ class Delete
                 . " WHERE fuser.name=$1;",
                 [ $user->getPrimaryKey() ]
             );
+            if ($res) {
                 pg_free_result($res);
                 return True;    
             } else {
@@ -46,7 +47,7 @@ class Delete
         \Web\Database\DAO\ForumPost $post
     ) {
         $db_conn = connect();
-        if ($db_conn){
+        if ($db_conn) {
             $table = $GLOBALS['database']['table']['forumposts'];
             $res = pg_query_params(
                 $db_conn,
@@ -54,6 +55,7 @@ class Delete
                 . " WHERE fpost.id=$1;",
                 [ $post->getPrimaryKey() ]
             );
+            if ($res) {
                 pg_free_result($res);
                 return True;
             } else {
