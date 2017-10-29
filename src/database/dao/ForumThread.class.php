@@ -67,18 +67,23 @@ class ForumThread extends DataAccessObject
 	public function getPrimaryKey(){
 		return $this->getId();
 	}
-	/**
-	 * set this id
-	 * @param int id value
-	 */
-	public function setId($id){
+
+    /**
+     * set this id
+     * @param id int value
+     * @return $this
+     */
+	public function setId($id)
+	{
 		$this->id = $id;
+		return $this;
 	}
 	/**
 	 * set subject containing this thread
 	 */
 	public function setSubjectFK($subject_fk){
 		$this->subject_fk = $subject_fk;
+		return $this;
 	}
 
 

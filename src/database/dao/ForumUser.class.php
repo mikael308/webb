@@ -71,37 +71,47 @@ class ForumUser extends DataAccessObject {
     /**
      * set this name
      * @param name string new name value
+     * @return $this
      */
     public function setName($name){
         $this->name = $name;
+        return $this;
     }
     /**
      * set this email
      * @param email string new email value
+     * @return $this
      */
     public function setEmail($email){
         $this->email = $email;
+        return $this;
     }
     /**
      * set this role
      * @param role string new role value
+     * @return $this
      */
     public function setRole($role){
         $this->role = $role;
+        return $this;
     }
     /**
-    * set this banned state value
-    * @param banned boolean value for this banned state
-    */
+     * set this banned state value
+     * @param banned boolean value for this banned state
+     * @return $this
+     */
     public function setBanned($banned){
         $this->banned = $banned;
+        return $this;
     }
     /**
      * set this registered timestamp
      * @param regsitered timestamp when this forumuser was registered
+     * @return $this
      */
     public function setRegistered($registered){
         $this->registered = $registered;
+        return $this;
     }
     /**
      * determine if this user role is admin

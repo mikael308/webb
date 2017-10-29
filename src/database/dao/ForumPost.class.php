@@ -57,24 +57,31 @@ class ForumPost extends DataAccessObject{
     }
     public function setId($id) {
         $this->id = $id;
+        return $this;
     }
     public function setAuthor(\Web\Database\DAO\ForumUser $user) {
         $this->setAuthorFK($user->getPrimaryKey());
+        return $this;
     }
     public function setAuthorFK($author_fk) {
         $this->author_fk = $author_fk;
+        return $this;
     }
     public function setMessage($message) {
         $this->message = $message;
+        return $this;
     }
     public function setCreated($created) {
         $this->created = $created;
+        return $this;
     }
     public function setEdited($edited) {
         $this->edited = $edited;
+        return $this;
     }
     public function setThreadFK($thread_fk) {
         $this->thread_fk = $thread_fk;
+        return $this;
     }
 
     /**

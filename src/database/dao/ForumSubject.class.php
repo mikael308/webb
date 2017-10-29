@@ -35,26 +35,37 @@ class ForumSubject extends DataAccessObject
 	public function __construct(){
 		
 	}
-	/**
-	 * set this id
-	 * @param id string new id value
-	 */
+
+    /**
+     * set this id
+     * @param id string new id value
+     * @return $this
+     */
 	public function setId($id){
 		$this->id = $id;
+		return $this;
 	}
-	/**
-	 * set this topic
-	 * @param topic string new topic value
-	 */
-	public function setTopic($topic){
+
+    /**
+     * set this topic
+     * @param topic string new topic value
+     * @return $this
+     */
+	public function setTopic($topic)
+	{
 		$this->topic = $topic;
+		return $this;
 	}
-	/**
-	 * set this subtitle
-	 * @param id string new subtitle value
-	 */
-	public function setSubtitle($subtitle){
+
+    /**
+     * set this subtitle
+     * @param id string new subtitle value
+     * @return $this
+     */
+	public function setSubtitle($subtitle)
+	{
 		$this->subtitle = $subtitle;
+		return $this;
 	}
 	/**
 	 * get this id
