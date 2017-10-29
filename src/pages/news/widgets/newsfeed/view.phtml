@@ -1,17 +1,16 @@
 <div id="newsfeed">
-<?php
-  $news_arr = $data->getNews();
-  foreach($news_arr as $news): 
-  ?>
-    <article>
-      <div class="newsfeed">
-        <h2 class="title"><?= $news->getTitle() ?></h2>
-        <div class="created"><?= \Web\Helper\Format::dateTime($news->getCreated()) ?></div>
-        <div class="message"><?= $news->getMessage() ?></div>
-        <div class="author"><?= $news->getAuthor()->getName() ?></div>
-      </div>
-    </article>
-
-<?php endforeach; ?>
+    <?php
+    $news_arr = $data->getNews();
+    ?>
+    <?php foreach($news_arr as $news): ?>
+        <article>
+            <div class="newsfeed">
+                <h2 class="title"><?= $news->getTitle() ?></h2>
+                <div class="created"><?= \Web\Helper\Format::dateTime($news->getCreated()) ?></div>
+                <div class="message"><?= $news->getMessage() ?></div>
+                <div class="author"><?= $news->getAuthor()->getName() ?></div>
+            </div>
+        </article>
+    <?php endforeach; ?>
 
 </div>
