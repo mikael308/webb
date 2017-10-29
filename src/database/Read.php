@@ -24,15 +24,13 @@ class Read
         $resRole = null;
         $db_conn = connect();
         if ($db_conn) {
-            $query = " SELECT id, title "
-                . " FROM " . $GLOBALS['database']['table']['roles']
-                . " WHERE id=$1 "
-                . " ;";
-
+            $table = $GLOBALS['database']['table']['roles'];
             $res = pg_query_params(
                 $db_conn,
-                $query,
-                array($id)
+                " SELECT id, title "
+                . " FROM $table "
+                . " WHERE id=$1;",
+                [ $id ]
             );
             if ($res) {
                 if (pg_num_rows($res) == 1) {
@@ -58,23 +56,25 @@ class Read
     * @throws \RuntimeException on failed query
     * @return array of search result
     */
-    public static function subjects($subject_id = null){
+    public static function subjects($subject_id = null)
+    {
         $subjs = null;
         $db_conn = connect();
         if ($db_conn) {
             $res = null;
+            $table = $GLOBALS['database']['table']['subjects'];
             if ($subject_id == null) {
-                $res = pg_query($db_conn,
+                $res = pg_query(
+                    $db_conn,
                     " SELECT subject.id, subject.topic, subject.subtitle "
-                     . " FROM " . $GLOBALS['database']['table']['subjects'] . " as subject "
-                     . " ;");
+                     . " FROM $table as subject;");
             } else {
-                $res = pg_query_params($db_conn,
+                $res = pg_query_params(
+                    $db_conn,
                     " SELECT subject.id, subject.topic, subject.subtitle "
-                     . " FROM " . $GLOBALS['database']['table']['subjects'] . " as subject "
-                     . " WHERE subject.id=$1 "
-                     . " ;",
-                    array($subject_id));
+                     . " FROM $table as subject "
+                     . " WHERE subject.id=$1;",
+                    [ $subject_id) ];
             }
 
             if ($res) {
@@ -99,12 +99,15 @@ class Read
         $resThreadArr = array();
         $db_conn = connect();
         if ($db_conn) {
-            $query = " SELECT thread.id, thread.subject, thread.topic "
-                . " FROM " . $GLOBALS['database']['table']['forumthreads'] . " AS thread "
-                . " WHERE thread.subject=$1 "
-                . " ;";
+            $table = $GLOBALS['database']['table']['forumthreads'];
 
-            $res = pg_query_params($db_conn, $query, array($subject_id));
+            $res = pg_query_params(
+                $db_conn,
+                " SELECT thread.id, thread.subject, thread.topic "
+                . " FROM $table AS thread "
+                . " WHERE thread.subject=$1;",
+                array($subject_id)
+            );
             if ($res) {
                 $resThreadArr = array();
                 $n_row = pg_num_rows($res);
@@ -132,12 +135,14 @@ class Read
 
         $db_conn = connect();
         if ($db_conn) {
-            $query = " SELECT thread.id, thread.subject, thread.topic "
-                . " FROM " . $GLOBALS['database']['table']['forumthreads'] . " AS thread "
-                . " WHERE thread.id=$1 "
-                . " ;";
-
-            $res = pg_query_params($db_conn, $query, array($thread_id));
+            $table = $GLOBALS['database']['table']['forumthreads'];
+            $res = pg_query_params(
+                $db_conn,
+                " SELECT thread.id, thread.subject, thread.topic "
+                . " FROM $table AS thread "
+                . " WHERE thread.id=$1;",
+                [ $thread_id]
+            );
             if ($res) {
                 if (pg_num_rows($res) > 0) {
                     $thread = Parse::toThread(pg_fetch_object($res, 0));
@@ -161,17 +166,18 @@ class Read
 
         $db_conn = connect();
         if ($db_conn) {
-            $query = "SELECT news.id, news.author, news.title, news.message, news.created "
-                . " FROM " . $GLOBALS['database']['table']['news'] . " AS news ";
-            if (
-                $whereclause != null &&
-                $whereclause != ""
-            ) {
-                $query .= " $whereclause ";
-            };
-            $query .= " ;";
-
-            $res = pg_query($db_conn, $query);
+            $table = $GLOBALS['database']['table']['news'];
+            $param_where = ($whereclause != null &&
+                $whereclause != '')
+                ? $whereclause
+                : '';
+            
+            $res = pg_query_params(
+                $db_conn, 
+                "SELECT news.id, news.author, news.title, news.message, news.created "
+                . " FROM $table AS news $1;",
+                [ $param_where ]
+            );
             if ($res) {
                 $n_rows = pg_num_rows($res);
                 for ($i = 0; $i < $n_rows; $i++) {
@@ -196,16 +202,14 @@ class Read
         $post_arr = array();
         $db_conn = connect();
         if ($db_conn) {
-            $query = "SELECT post.id "
-                . " FROM " . $GLOBALS['database']['table']['forumposts'] . " AS post "
-                . " WHERE thread=$1 "
-                . " ORDER BY post.created ASC"
-                . " ;";
-
+            $table = $GLOBALS['database']['table']['forumposts'];
             $res = pg_query_params(
                 $db_conn,
-                $query,
-                array($thread_id)
+                "SELECT post.id "
+                . " FROM $table AS post "
+                . " WHERE thread=$1 "
+                . " ORDER BY post.created ASC;",
+                [ $thread_id ]
             );
             if ($res) {
                 $n_rows = pg_num_rows($res);
@@ -234,11 +238,13 @@ class Read
         $db_conn = connect();
 
         if ($db_conn) {
-            $query = "SELECT post.id, post.thread, post.message, post.created, post.edited, post.author "
-                . " FROM " . $GLOBALS['database']['table']['forumposts'] . " AS post "
-                . " WHERE post.id=$1"
-                . " ;";
-            $res = pg_query_params($db_conn, $query, array($post_id));
+            $table = $GLOBALS['database']['table']['forumposts'];
+            $res = pg_query_params(
+                $db_conn,
+                "SELECT post.id, post.thread, post.message, post.created, post.edited, post.author "
+                . " FROM " .  . " AS post "
+                . " WHERE post.id=$1;",
+                [ $post_id) ];
             if ($res) {
                 $post = Parse::toPost(pg_fetch_object($res));
 
@@ -260,17 +266,17 @@ class Read
         $user = null;
         $db_conn = connect();
         if ($db_conn) {
-            $query = "SELECT fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
-             . " FROM ".$GLOBALS['database']['table']['forumusers']." AS fuser "
-             . " LEFT JOIN ".$GLOBALS['database']['table']['roles']
-             . "   ON fuser.role=roles.id "
-             . " WHERE fuser.name=$1 "
-             . " ;";
-
+            $table = $GLOBALS['database']['table']['forumusers'];
+            $join_table = $GLOBALS['database']['table']['roles'];
+            
             $res = pg_query_params(
                 $db_conn,
-                $query,
-                array($user_id)
+                "SELECT fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
+                . " FROM $table AS fuser "
+                . " LEFT JOIN $join_table "
+                . "   ON fuser.role=roles.id "
+                . " WHERE fuser.name=$1;",
+                [ $user_id ]
             );
             if ($res) {
                 if (pg_num_rows($res) == 0) return null;
@@ -299,16 +305,18 @@ class Read
 
         $db_conn = connect();
         if ($db_conn){
-            $query = "SELECT p.author "
-                . " FROM ". $GLOBALS['database']['table']['forumposts'] ." AS p "
-                . " LEFT JOIN " . $GLOBALS['database']['table']['forumthreads'] . " AS t "
+            $table = $GLOBALS['database']['table']['forumposts'];
+            $join_table = $GLOBALS['database']['table']['forumthreads'];
+            $res = pg_query_params(
+                $db_conn,
+                "SELECT p.author "
+                . " FROM $table AS p "
+                . " LEFT JOIN $join_table AS t "
                 . "     ON p.thread=t.id "
                 . " WHERE p.thread=$1 "
                 . " ORDER BY p.created ASC "
-                . " LIMIT 1"
-                . " ;";
-
-            $res = pg_query_params($db_conn, $query, array($thread_fk));
+                . " LIMIT 1;",
+                [ $thread_fk) ];
             if ($res) {
                 if (pg_num_rows($res) > 0) {
                     $data = pg_fetch_object($res, 0);
@@ -336,13 +344,16 @@ class Read
         $user = null; # the last attributor
         $db_conn = connect();
         if ($db_conn) {
-            $query = "SELECT author "
-                . " FROM " . $GLOBALS['database']['table']['forumposts']
+            $table = $GLOBALS['database']['table']['forumposts'];
+            $res = pg_query_params(
+                $db_conn,
+                "SELECT author "
+                . " FROM $table"
                 . " WHERE thread=$1 "
                 . " ORDER BY created DESC "
-                . " LIMIT 1 "
-                . " ;";
-            $res = pg_query_params($db_conn, $query, array($thread_pk));
+                . " LIMIT 1;",
+                [ $thread_pk ]
+            );
             if ($res) {
                 if (pg_num_rows($res) > 0) {
                     $data = pg_fetch_object($res, 0);

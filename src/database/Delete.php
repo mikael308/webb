@@ -19,10 +19,13 @@ class Delete
     ) {
         $db_conn = connect();
         if ($db_conn){
-            $query = "DELETE FROM " . $GLOBALS['database']['table']['forumusers'] ." as fuser "
-            . " WHERE fuser.name='" . $user->getPrimaryKey() . "';";
-            $res = pg_query($db_conn, $query);
-            if($res){
+            $table = $GLOBALS['database']['table']['forumusers'];
+            $res = pg_query_params(
+                $db_conn,
+                "DELETE FROM $table as fuser "
+                . " WHERE fuser.name=$1;",
+                [ $user->getPrimaryKey() ]
+            );
                 pg_free_result($res);
                 return True;    
             } else {
@@ -44,10 +47,13 @@ class Delete
     ) {
         $db_conn = connect();
         if ($db_conn){
-            $query = "DELETE FROM " . $GLOBALS['database']['table']['forumposts'] . " as fpost "
-                . " WHERE fpost.id='" . $post->getPrimaryKey() . "';";
-            $res = pg_query($db_conn, $query);
-            if($res){
+            $table = $GLOBALS['database']['table']['forumposts'];
+            $res = pg_query_params(
+                $db_conn,
+                "DELETE FROM $table as fpost "
+                . " WHERE fpost.id=$1;",
+                [ $post->getPrimaryKey() ]
+            );
                 pg_free_result($res);
                 return True;
             } else {

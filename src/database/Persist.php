@@ -23,15 +23,17 @@ class Persist
     ) {
         $db_conn = connect();
         if ($db_conn) {
-            $query = "INSERT INTO " . $GLOBALS['database']['table']['forumposts']
-                . " (author, thread, message, created) "
-                . " VALUES('"
-                .       $post->getAuthorFK() .  "','"
-                .       $post->getThreadFK() . "','"
-                .       $post->getMessage()
-                .       "', now());";
-
-            $res = pg_query($db_conn, $query);
+            $table = $GLOBALS['database']['table']['forumposts']
+            $res = pg_query(
+                $db_conn,
+                "INSERT INTO $table (author, thread, message, created) "
+                . " VALUES($1, $2, $3, now());",
+                [
+                    $post->getAuthorFK(),
+                    $post->getThreadFK(),
+                    $post->getMessage()
+                ]
+            );
             if ($res) {
                 pg_free_result($res);
                 return True;
@@ -45,20 +47,25 @@ class Persist
     /**
      * persist forumthread to database
      * @param thread forumthread to persist
-     * @return the persisted thread with id
+     * @return ForumThread the persisted thread with id
      */
     public static function forumThread(
         \Web\Database\DAO\ForumThread $thread
     ) {
         $resThread = null;
         $db_conn = connect();
-        if($db_conn){
-            $query = "INSERT INTO " . $GLOBALS['database']['table']['forumthreads'] 
-                . " (subject, topic)"
-                . " VALUES('".$thread->getSubject()->getPrimaryKey()."', '".$thread->getTopic()."') "
-                . " RETURNING id ;";
-                
-            $res = pg_query($db_conn, $query);
+        if ($db_conn) {
+            $table = $GLOBALS['database']['table']['forumthreads']
+            $res = pg_query_params(
+                $db_conn,
+                "INSERT INTO $table (subject, topic)"
+                . " VALUES($1, $2) "
+                . " RETURNING id ;",
+                [
+                    $thread->getSubject()->getPrimaryKey(),
+                    $thread->getTopic()
+                ]
+            );
             if($res){
                 $data = pg_fetch_object($res, 0);
                 $resThread = $thread;
@@ -91,16 +98,22 @@ class Persist
                 $passw,
                 $GLOBALS['database']['crypt_salt']
             );
-            $query = "INSERT INTO " . $GLOBALS['database']['table']['forumusers']
+
+            $table = $GLOBALS['database']['table']['forumusers'];
+            $res = pg_query(
+                $db_conn,
+                "INSERT INTO $table "
                 . " (name, email, role, banned, password, registered) "
-                . " VALUES('".$user->getName()."',"
-                . "'" . $user->getEmail() . "', "
-                . "'" . $user->getRole() . "',"
-                . "'" . $banned_val . "', " 
-                . "'" . $crypt_passw . "', "
-                . "'" . $user->getRegistered() . "');";
-            
-            $res = pg_query($db_conn, $query);
+                . " VALUES($1, $2, $3, $4, $5, $6);",
+                [
+                    $user->getName(),
+                    $user->getEmail(),
+                    $user->getRole(),
+                    $banned_val,
+                    $crypt_passw,
+                    $user->getRegistered()
+                ]
+            );
             if($res){
                 pg_free_result($res);
                 return True;
@@ -120,17 +133,19 @@ class Persist
         \Web\Database\DAO\News $news
     ) {
         $db_conn = connect();
-        if($db_conn){
-            echo 'persisting author ' . $news->getAuthorPK();
-            $query = "INSERT INTO " . $GLOBALS['database']['table']['news']
-            . " (author, title, message, created) "
-                    . " VALUES("
-                    . "'" . $news->getAuthorPK() . "',"
-                    . "'" . $news->getTitle() . "', "
-                    . "'" . $news->getMessage() . "', "
-                    . "'now()');";
-
-            $res = pg_query($db_conn, $query);
+        if ($db_conn) {
+            $table = $GLOBALS['database']['table']['news'];
+            $res = pg_query_params(
+                $db_conn,
+                "INSERT INTO $table "
+                . " (author, title, message, created) "
+                    . " VALUES($1, $2, $3, 'now()');",
+                [
+                    $news->getAuthorPK(),
+                    $news->getTitle(),
+                    $news->getMessage()
+                ]
+            );
             if($res){
                 pg_free_result($res);
                 return True;

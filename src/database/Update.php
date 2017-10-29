@@ -17,15 +17,15 @@ class update
         $db_conn = connect();
         if ($db_conn) {
             $banned_val = $user->isBanned() ? "TRUE" : "FALSE";
-            
-            $query = " UPDATE " . $GLOBALS['database']['table']['forumusers'] . " "
-             . " SET "
-             . " email='"   . $user->getEmail() . "', "
-             . " banned='"  . $banned_val . "' "
+            $table = $GLOBALS['database']['table']['forumusers'];
              
-             . " WHERE name='" . $user->getPrimaryKey() . "';";
-             
-            $res = pg_query($db_conn, $query);
+            $res = pg_query_params(
+                $db_conn,
+                " UPDATE $table "
+                . " SET email=$1, banned=$2 "
+                . " WHERE name=$3;",
+                [ $user->getEmail(), $banned_val, $user->getPrimaryKey() ]
+            );
             if ($res) {
                 pg_free_result($res);
                 return True;    
@@ -45,20 +45,17 @@ class update
     {
         $db_conn = connect();
         if ($db_conn) {
-            $query = " UPDATE  " . $GLOBALS['database']['table']['forumposts'] 
-                . " AS p "
-                . " SET "
-                . " message=$1 ,"
-                . " edited=now() "
-                . " WHERE p.id=$2;";
+            $table = $GLOBALS['database']['table']['forumposts'];
 
             $res = pg_query_params(
                 $db_conn, 
-                $query,
-                array( 
-                    $post->getMessage(), 
-                    $post->getId()
-                ));
+                " UPDATE  $table AS p "
+                . " SET "
+                . " message=$1,"
+                . " edited=now() "
+                . " WHERE p.id=$2;",
+                [ $post->getMessage(), $post->getId() ]
+            );
 
             if ($res) {
                 pg_free_result($res);

@@ -20,19 +20,21 @@ class Extract{
 		$db_conn = connect();
 		if ($db_conn){
 
-			$query = " SELECT *"
-				. " FROM ".$GLOBALS['database']['table']['forumthreads']." AS t"
-				. " WHERE t.id IN "
-				. " ("
-				.  " SELECT p.thread"
-				.  " FROM ".$GLOBALS['database']['table']['forumposts']." AS p"
-				.  " GROUP BY p.thread"
-				.  " ORDER BY MAX(p.created) DESC"
-				.  " LIMIT($amount)"
-				. " )"
-				. " ;";
-
-			$res = pg_query($db_conn, $query);
+			$res = pg_query_params(
+			    $db_conn,
+                " SELECT *"
+                . " FROM ".$GLOBALS['database']['table']['forumthreads']." AS t"
+                . " WHERE t.id IN "
+                . " ("
+                .  " SELECT p.thread"
+                .  " FROM ".$GLOBALS['database']['table']['forumposts']." AS p"
+                .  " GROUP BY p.thread"
+                .  " ORDER BY MAX(p.created) DESC"
+                .  " LIMIT($1)"
+                . " )"
+                . " ;",
+                [ $amount ]
+            );
 			if($res){
 				for($i = 0; $i < pg_num_rows($res); $i++){
 					$latestThreads[] =
