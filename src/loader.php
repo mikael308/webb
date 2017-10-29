@@ -6,7 +6,7 @@ require_once PATH_ROOT_ABS."helper/format.php";
 
 function loadSection(
     $name,
-    $page = "main"
+    $page = 'main'
 ) {
     #try {
         $filepath = "./pages/$page/sections/$name.phtml";
@@ -36,9 +36,9 @@ function loadSections($name)
 
 function loadContentView (
     $name,
-    $page = "main"
+    $page = 'main'
 ) {
-    $path = "";
+    $path = '';
     if ($page == null) {
         echo "<h1>deprecated A001: use </h1>";
         #TODO widgets?

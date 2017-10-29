@@ -69,13 +69,14 @@ class Widgets
 
     public static function addToPage(
         $widgetName,
-        $page = "main"
+        $page = 'main'
     ) {
         try {
             $dataObject = Widgets::create($widgetName, $page);
             Widgets::output($dataObject);
+
         } catch(\Exception $e) {
-            $viewPath = Widgets::widgetRootPath($widgetName, $page) . "/view.phtml";
+            $viewPath = Widgets::widgetRootPath($widgetName, $page) . '/view.phtml';
             if (is_file($viewPath)) {
                 include $viewPath;
             } else {
