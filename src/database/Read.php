@@ -145,7 +145,7 @@ class Read
                 " SELECT thread.id, thread.subject, thread.topic "
                 . " FROM $table AS thread "
                 . " WHERE thread.id=$1;",
-                [ $thread_id]
+                [ $thread_id ]
             );
             if ($res) {
                 if (pg_num_rows($res) > 0) {
