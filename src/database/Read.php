@@ -75,7 +75,8 @@ class Read
                     " SELECT subject.id, subject.topic, subject.subtitle "
                      . " FROM $table as subject "
                      . " WHERE subject.id=$1;",
-                    [ $subject_id) ];
+                    [ $subject_id ]
+                );
             }
 
             if ($res) {
@@ -247,9 +248,10 @@ class Read
             $res = pg_query_params(
                 $db_conn,
                 "SELECT post.id, post.thread, post.message, post.created, post.edited, post.author "
-                . " FROM " .  . " AS post "
+                . " FROM $table AS post "
                 . " WHERE post.id=$1;",
-                [ $post_id) ];
+                [ $post_id ]
+            );
             if ($res) {
                 $post = Parse::toPost(pg_fetch_object($res));
 
@@ -323,7 +325,8 @@ class Read
                 . " WHERE p.thread=$1 "
                 . " ORDER BY p.created ASC "
                 . " LIMIT 1;",
-                [ $thread_fk) ];
+                [ $thread_fk ]
+            );
             if ($res) {
                 if (pg_num_rows($res) > 0) {
                     $data = pg_fetch_object($res, 0);

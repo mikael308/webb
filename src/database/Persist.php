@@ -23,7 +23,7 @@ class Persist
     ) {
         $db_conn = connect();
         if ($db_conn) {
-            $table = $GLOBALS['database']['table']['forumposts']
+            $table = $GLOBALS['database']['table']['forumposts'];
             $res = pg_query(
                 $db_conn,
                 "INSERT INTO $table (author, thread, message, created) "
@@ -55,7 +55,7 @@ class Persist
         $resThread = null;
         $db_conn = connect();
         if ($db_conn) {
-            $table = $GLOBALS['database']['table']['forumthreads']
+            $table = $GLOBALS['database']['table']['forumthreads'];
             $res = pg_query_params(
                 $db_conn,
                 "INSERT INTO $table (subject, topic)"

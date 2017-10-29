@@ -137,7 +137,7 @@ class Count{
         
         $n_threads = Count::query(
             " FROM $table AS t "
-            . " WHERE t.subject='" . $subject->getPrimaryKey() . "';";
+            . " WHERE t.subject='" . $subject->getPrimaryKey() . "';"
         );
         $threads_per_page = $_SESSION['settings']->value("threads_per_page");
         $max_pages = ceil($n_threads / $threads_per_page);
