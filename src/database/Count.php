@@ -89,12 +89,12 @@ class Count{
         $query
     ) {
         $db_conn = connect();
-        if($db_conn){
+        if ($db_conn) {
             $res = pg_query(
                 $db_conn,
                 "SELECT COUNT(*) " . $query
             );
-            if($res){
+            if ($res) {
                 $num = pg_fetch_object($res)->count;
                 pg_free_result($res);
 
