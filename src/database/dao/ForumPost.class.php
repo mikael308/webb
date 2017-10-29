@@ -13,7 +13,8 @@ use \Web\Database\Read;
  * @author Mikael Holmbom
  * @version 1.0
  */
-class ForumPost extends DataAccessObject{
+class ForumPost extends DataAccessObject
+{
 
     # this id
     private $id;
@@ -30,56 +31,71 @@ class ForumPost extends DataAccessObject{
     
     /**
      */
-    public function __construct() {
+    public function __construct() 
+    {
         
     }
     
-    public function getId() {
+    public function getId() 
+    {
         return $this->id;
     }
-    public function getAuthorFK() {
+    public function getAuthorFK() 
+    {
         return $this->author_fk;
     }
-    public function getMessage() {
+    public function getMessage() 
+    {
         return $this->message;
     }
-    public function getCreated() {
+    public function getCreated() 
+    {
         return $this->created;
     }
-    public function getEdited() {
+    public function getEdited() 
+    {
         return $this->edited;
     }
-    public function getThreadFK() {
+    public function getThreadFK() 
+    {
         return $this->thread_fk;
     }
-    public function getPrimaryKey() {
+    public function getPrimaryKey() 
+    {
         return $this->getId();
     }
-    public function setId($id) {
+    public function setId($id) 
+    {
         $this->id = $id;
         return $this;
     }
-    public function setAuthor(\Web\Database\DAO\ForumUser $user) {
+    public function setAuthor(\Web\Database\DAO\ForumUser $user) 
+    {
         $this->setAuthorFK($user->getPrimaryKey());
         return $this;
     }
-    public function setAuthorFK($author_fk) {
+    public function setAuthorFK($author_fk)
+    {
         $this->author_fk = $author_fk;
         return $this;
     }
-    public function setMessage($message) {
+    public function setMessage($message) 
+    {
         $this->message = $message;
         return $this;
     }
-    public function setCreated($created) {
+    public function setCreated($created) 
+    {
         $this->created = $created;
         return $this;
     }
-    public function setEdited($edited) {
+    public function setEdited($edited) 
+    {
         $this->edited = $edited;
         return $this;
     }
-    public function setThreadFK($thread_fk) {
+    public function setThreadFK($thread_fk) 
+    {
         $this->thread_fk = $thread_fk;
         return $this;
     }

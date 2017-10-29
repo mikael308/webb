@@ -2,7 +2,8 @@
 
 namespace Web\Database\DAO;
 
-interface iForumContent {
+interface iForumContent 
+{
 
 	public function getLastPageIndex();
 

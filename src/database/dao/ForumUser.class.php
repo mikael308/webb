@@ -10,7 +10,8 @@ require_once PATH_ROOT_ABS."database/dao/DataAccessObject.class.php";
  * @author Mikael Holmbom
  * @version 1.0
  */
-class ForumUser extends DataAccessObject {
+class ForumUser extends DataAccessObject 
+{
 
     /**
      * this user name
@@ -36,104 +37,124 @@ class ForumUser extends DataAccessObject {
     /**
      *
      */
-    function __construct(){
+    function __construct()
+    {
+
     }
     /**
      * get this name
      */
-    public function getName(){
+    public function getName()
+    {
         return $this->name;
     }
     /**
      * get this email
      */
-    public function getEmail(){
+    public function getEmail()
+    {
         return $this->email;
     }
     /**
      * get this role
      */
-    public function getRole(){
+    public function getRole()
+    {
         return $this->role;
     }
     /**
      * get timestamp when this forumuser was registered
      */
-    public function getRegistered(){
+    public function getRegistered()
+    {
         return $this->registered;
     }
     /**
      * get this primary key
      */
-    public function getPrimaryKey(){
+    public function getPrimaryKey()
+    {
         return $this->getName();
     }
+
     /**
      * set this name
      * @param name string new name value
      * @return $this
      */
-    public function setName($name){
+    public function setName($name)
+    {
         $this->name = $name;
         return $this;
     }
+
     /**
      * set this email
      * @param email string new email value
      * @return $this
      */
-    public function setEmail($email){
+    public function setEmail($email)
+    {
         $this->email = $email;
         return $this;
     }
+
     /**
      * set this role
      * @param role string new role value
      * @return $this
      */
-    public function setRole($role){
+    public function setRole($role)
+    {
         $this->role = $role;
         return $this;
     }
+
     /**
      * set this banned state value
      * @param banned boolean value for this banned state
      * @return $this
      */
-    public function setBanned($banned){
+    public function setBanned($banned)
+    {
         $this->banned = $banned;
         return $this;
     }
+
     /**
      * set this registered timestamp
      * @param regsitered timestamp when this forumuser was registered
      * @return $this
      */
-    public function setRegistered($registered){
+    public function setRegistered($registered)
+    {
         $this->registered = $registered;
         return $this;
     }
     /**
      * determine if this user role is admin
-     * @param true if user is admin
+     * @return true if user is admin
      */
-    public function isAdmin(){
+    public function isAdmin()
+    {
         if($this->getRole() == NULL) return False;
         return $this->getRole() == "admin";
     }
     /**
      * determine if this user role is  moderator
-     * @param true if user is moderator
+     * @return true if user is moderator
      */
-    public function isModerator(){
+    public function isModerator()
+    {
         if($this->getRole() == NULL) return False;
         return $this->getRole() == "moderator";
     }
     /**
      * determine if this user role is user
-     * @param true if user is user
+     * @return true if user is user
      */
-    public function isUser(){
+    public function isUser()
+    {
         if($this->getRole() == NULL) return False;
         return $this->getRole() == "user";
     }
@@ -141,7 +162,8 @@ class ForumUser extends DataAccessObject {
     * determine if this instance has the state: banned
     * @return True if this instance is banned
     */
-    public function isBanned(){
+    public function isBanned()
+    {
         return $this->banned;
     }
 

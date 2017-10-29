@@ -12,53 +12,66 @@ use \Web\Database\Read;
  * @author Mikael Holmbom
  * @version 1.0
  */
-class News extends DataAccessObject {
+class News extends DataAccessObject 
+{
 
-	private $id = NULL;
-	private $author_pk = NULL;
-	private $title = NULL;
-	private $message = NULL;
-	private $created = NULL;
+	private $id = null;
+	private $author_pk = null;
+	private $title = null;
+	private $message = null;
+	private $created = null;
 
-	function __construct(){
+	function __construct()
+	{
 
 	}
 
-	function setAuthorPK($author_pk){
+	function setAuthorPK($author_pk)
+	{
 		$this->author_pk = $author_pk;
 	}
-	function setTitle($title){
+	function setTitle($title)
+	{
 		$this->title = $title;
 	}
-	function setMessage($message){
+	function setMessage($message)
+	{
 		$this->message = $message;
 	}
-	function setCreated($created){
+	function setCreated($created)
+	{
 		$this->created = $created;
 	}
-	function setId($id){
+	function setId($id)
+	{
 		$this->id = $id;
 	}
-	function getAuthorPK(){
+	function getAuthorPK()
+	{
 		return $this->author_pk;
 	}
-	function getAuthor(){
+	function getAuthor()
+	{
 		return $this->getAuthorPK() == NULL ?
 			NULL:
 			Read::forumUser($this->getAuthorPK());
 
 	}
-	function getTitle(){
+	function getTitle()
+	{
 		return $this->title;
 	}
-	function getMessage(){
+	function getMessage()
+	{
 		return $this->message;
 	}
-	function getCreated(){
+	function getCreated()
+	{
 		return $this->created;
 	}
 
-	function getPrimaryKey(){
+	function getPrimaryKey()
+	{
 		return $this->id;
 	}
 }

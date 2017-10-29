@@ -13,7 +13,8 @@ require_once PATH_ROOT_ABS."database/dao/DataAccessObject.class.php";
  * @author Mikael Holmbom
  * @version 1.0
  */
-class Role extends DataAccessObject{
+class Role extends DataAccessObject
+{
 
 	/**
 	 * this id
@@ -25,29 +26,34 @@ class Role extends DataAccessObject{
 	private $title;
 
 	/**
-	* @param id the id of this Role
-	* @param title the title of this Role
+	* @param id int the id of this Role
+	* @param title string the title of this Role
 	*/
-	function __construct($id, $title){
+	function __construct($id, $title)
+	{
 		$this->id = $id;
 		$this->title = $title;
 	}
 	/**
 	* get this id
 	*/
-	public function getId(){
+	public function getId()
+	{
 		return $this->id;
 	}
 	/**
 	* get this title
 	*/
-	public function getTitle(){
+	public function getTitle()
+	{
 		return $this->title;
 	}
 	/**
 	 * get this primary key
 	 */
-	public function getPrimaryKey(){
+	public function getPrimaryKey()
+	{
 		return $this->getId();
 	}
+	
 }

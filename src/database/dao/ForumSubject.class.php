@@ -41,7 +41,8 @@ class ForumSubject extends DataAccessObject
      * @param id string new id value
      * @return $this
      */
-	public function setId($id){
+	public function setId($id)
+	{
 		$this->id = $id;
 		return $this;
 	}
@@ -71,32 +72,37 @@ class ForumSubject extends DataAccessObject
 	 * get this id
 	 * @return string this topic value
 	 */
-	public function getTopic(){
+	public function getTopic()
+	{
 		return $this->topic;
 	}
 	/**
 	 * get this subtitle
 	 * @return string this subtitle value
 	 */
-	public function getSubtitle(){
+	public function getSubtitle()
+	{
 		return $this->subtitle;
 	}
 	/**
 	 * get this primary key
 	 * @return string this primary key value
 	 */
-	public function getPrimaryKey(){
+	public function getPrimaryKey()
+	{
 		return $this->id;
 	}
 	
-	public function getSize(){
+	public function getSize()
+	{
 		return sizeof($this->getThreads());
 	}
 	/**
 	 * this subjects threads
-	 * @return ForumThread threads as array
+	 * @return array ForumThreads as array
 	 */
-	public function getThreads(){
+	public function getThreads()
+	{
 		return Read::threadsOfSubject(
 			$this->getPrimaryKey()
 		);
@@ -105,9 +111,10 @@ class ForumSubject extends DataAccessObject
 	/**
 	 * get the index of the current last page containing posts
 	 * index is affected by the setting: posts_per_page
-	 * @return page index as integer
+	 * @return integer page index
 	 */
-	function getLastPageIndex(){
+	function getLastPageIndex()
+	{
 		return ceil(
 			$this->getSize()
 			/
