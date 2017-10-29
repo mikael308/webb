@@ -29,22 +29,27 @@ class News extends DataAccessObject
     function setAuthorPK($author_pk)
     {
         $this->author_pk = $author_pk;
+        return $this;
     }
     function setTitle($title)
     {
         $this->title = $title;
+        return $this;
     }
     function setMessage($message)
     {
         $this->message = $message;
+        return $this;
     }
     function setCreated($created)
     {
         $this->created = $created;
+        return $this;
     }
     function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
     function getAuthorPK()
     {
