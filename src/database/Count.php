@@ -82,7 +82,7 @@ class Count{
      * count results from database query
      * @param string  $query the query defining from and where sql statements
      * @throws \RuntimeException on failed query
-     * @return int num rows from query result|NULL
+     * @return int num rows from query result|null
      */
     public static function query(
         $query
@@ -100,7 +100,7 @@ class Count{
                 throw new \RuntimeException(pg_last_error($db_conn));
             }
         }
-        return NULL;
+        return null;
     }
     
     /**
