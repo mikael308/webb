@@ -24,7 +24,7 @@ class Persist
         $db_conn = connect();
         if ($db_conn) {
             $table = $GLOBALS['database']['table']['forumposts'];
-            $res = pg_query(
+            $res = pg_query_params(
                 $db_conn,
                 "INSERT INTO $table (author, thread, message, created) "
                 . " VALUES($1, $2, $3, now());",
@@ -101,7 +101,7 @@ class Persist
             );
 
             $table = $GLOBALS['database']['table']['forumusers'];
-            $res = pg_query(
+            $res = pg_query_params(
                 $db_conn,
                 "INSERT INTO $table "
                 . " (name, email, role, banned, password, registered) "
