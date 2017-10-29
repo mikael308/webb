@@ -5,7 +5,7 @@ use \Web\Session\Security\Authorizer as Authorizer;
 
 ?>
 <aside>
-    <?php
+<?php
     if (! Authorizer::userIsAuthorized())
         \Web\loadContentView("security/loginform");
 
@@ -13,5 +13,5 @@ use \Web\Session\Security\Authorizer as Authorizer;
     if (Authorizer::userIsAuthorized())
     	\Web\Framework\Factory\Widgets::addToPage("latestForumThreads");
     
-    ?>
+?>
 </aside>
