@@ -202,7 +202,8 @@ class Read
      * @param thread_id string the id of the thread to read
      * @return array of \Database\DAO\ForumThread
      */
-    public static function postsFromThread($thread_id){
+    public static function postsFromThread($thread_id)
+    {
         $post_arr = array();
         $db_conn = connect();
         if ($db_conn) {
@@ -266,7 +267,8 @@ class Read
      * @throws \RuntimeException on failed query
      * @return \Web\Database\DAO\ForumUser of forumusers results from database
      */
-    public static function forumUser($user_id){
+    public static function forumUser($user_id)
+    {
         $user = null;
         $db_conn = connect();
         if ($db_conn) {
@@ -302,7 +304,8 @@ class Read
      * @throws \RuntimeException on failed query
      * @return ForumUser the creator as ForumUser, if no creator was found null is returned
      */
-    public static function creator($thread_fk){
+    public static function creator($thread_fk)
+    {
         if ($thread_fk == null || $thread_fk == "") return null;
 
         $creator = null;
