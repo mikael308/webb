@@ -17,9 +17,4 @@ psql -U postgres -d postgres -f /vagrant/bootstrap/database/setup_storedprocedur
 # init values
 psql -U postgres -d postgres -f /vagrant/bootstrap/database/init_roles.sql
 
-# add dummy values
-php /vagrant/bootstrap/database/setup_users.php 
-psql -U postgres -d postgres -f /vagrant/bootstrap/database/init_vals.sql
-php /vagrant/bootstrap/database/setup_forumposts.php
-
 SHELL
