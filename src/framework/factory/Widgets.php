@@ -56,9 +56,8 @@ class Widgets
         $dataObj
     ) {
         $widgetRoot = dirname($dataObj->path());
-
         $viewPath = "$widgetRoot/view.phtml";
-        
+
         if (is_file($viewPath)) {
             $data = $dataObj;
             include $viewPath;
