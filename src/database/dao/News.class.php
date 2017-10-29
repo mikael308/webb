@@ -15,63 +15,63 @@ use \Web\Database\Read;
 class News extends DataAccessObject 
 {
 
-	private $id = null;
-	private $author_pk = null;
-	private $title = null;
-	private $message = null;
-	private $created = null;
+    private $id = null;
+    private $author_pk = null;
+    private $title = null;
+    private $message = null;
+    private $created = null;
 
-	function __construct()
-	{
+    function __construct()
+    {
 
-	}
+    }
 
-	function setAuthorPK($author_pk)
-	{
-		$this->author_pk = $author_pk;
-	}
-	function setTitle($title)
-	{
-		$this->title = $title;
-	}
-	function setMessage($message)
-	{
-		$this->message = $message;
-	}
-	function setCreated($created)
-	{
-		$this->created = $created;
-	}
-	function setId($id)
-	{
-		$this->id = $id;
-	}
-	function getAuthorPK()
-	{
-		return $this->author_pk;
-	}
-	function getAuthor()
-	{
-		return $this->getAuthorPK() == NULL ?
-			NULL:
-			Read::forumUser($this->getAuthorPK());
+    function setAuthorPK($author_pk)
+    {
+        $this->author_pk = $author_pk;
+    }
+    function setTitle($title)
+    {
+        $this->title = $title;
+    }
+    function setMessage($message)
+    {
+        $this->message = $message;
+    }
+    function setCreated($created)
+    {
+        $this->created = $created;
+    }
+    function setId($id)
+    {
+        $this->id = $id;
+    }
+    function getAuthorPK()
+    {
+        return $this->author_pk;
+    }
+    function getAuthor()
+    {
+        return $this->getAuthorPK() == NULL ?
+            NULL:
+            Read::forumUser($this->getAuthorPK());
 
-	}
-	function getTitle()
-	{
-		return $this->title;
-	}
-	function getMessage()
-	{
-		return $this->message;
-	}
-	function getCreated()
-	{
-		return $this->created;
-	}
+    }
+    function getTitle()
+    {
+        return $this->title;
+    }
+    function getMessage()
+    {
+        return $this->message;
+    }
+    function getCreated()
+    {
+        return $this->created;
+    }
 
-	function getPrimaryKey()
-	{
-		return $this->id;
-	}
+    function getPrimaryKey()
+    {
+        return $this->id;
+    }
 }
