@@ -2,6 +2,7 @@
 namespace Web\Database;
 
 use Web\Database\DAO\ForumPost;
+use Web\Database\DAO\ForumSubject;
 use Web\Database\DAO\ForumThread;
 use Web\Database\DAO\News;
 
@@ -123,6 +124,33 @@ class Persist
         }
         return False;
     }
+
+    public static function forumSubject(
+        ForumSubject $subject
+    ) {
+        $db_conn = connect();
+        if ($db_conn) {
+            $table = $GLOBALS['database']['table']['subjects'];
+            $res = pg_query_params(
+                $db_conn,
+                "INSERT INTO $table (topic, subtitle) "
+                . " VALUES($1, $2);",
+                [
+                    $subject->getTopic(),
+                    $subject->getSubtitle()
+                ]
+            );
+            if ($res) {
+                pg_free_result($res);
+                return True;
+
+            } else {
+                throw new \RuntimeException(pg_last_error($db_conn));
+            }
+        }
+        return False;
+    }
+
     /**
      * persist news to database
      * @param news News news instance to persist
