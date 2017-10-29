@@ -95,10 +95,8 @@ class Persist
         if ($db_conn) {
             $banned_val = $user->isBanned() ? "TRUE" : "FALSE";
             
-            $crypt_passw = crypt(
-                $passw,
-                $GLOBALS['database']['crypt_salt']
-            );
+            $salt = $GLOBALS['database']['crypt_salt'];
+            $crypt_passw = crypt($passw, $salt);
 
             $table = $GLOBALS['database']['table']['forumusers'];
             $res = pg_query_params(
