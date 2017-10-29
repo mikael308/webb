@@ -17,14 +17,19 @@ class Widget
     	$content,
     	$args
     ) {
-    	$widgetpath = dirname($this->path($this));
-        $fullPath = "$widgetpath/content/$content.phtml";
+        try {
+            $widgetpath = dirname($this->path($this));
+            $fullPath = "$widgetpath/content/$content.phtml";
 
-        if (is_file($fullPath)) {
-    	   include $fullPath;
-           return false;
+            if (is_file($fullPath)) {
+                include $fullPath;
+                return true;
+            }
+
+        } catch (\Exception $e) {
+            echo $e->getMessage();
         }
-        return true;
+        return false;
     }
 
 }
