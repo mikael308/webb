@@ -1,9 +1,6 @@
-
----------------------------------------------------------------------------------------
 --
 -- STORED PROCEDURES
---
----------------------------------------------------------------------------------------
+-- author Mikael Holmbom
 
 CREATE OR REPLACE FUNCTION proj.get_user(IN p_name text DEFAULT '%'::text)
  RETURNS TABLE(
