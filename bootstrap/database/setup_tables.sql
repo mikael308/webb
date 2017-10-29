@@ -1,19 +1,7 @@
-------------------------
--- RESET
-------------------------
+-- creates tables
+--
+-- author Mikael Holmbom
 
-DROP TABLE IF EXISTS 
-proj.news,
-proj.forumsubjects,
-proj.roles,
-proj.forumposts,
-proj.forumusers, 
-proj.forumthreads
-CASCADE;
-
----------------------------------------
--- CREATE NEW
----------------------------------------
 
 CREATE TABLE proj.roles(
 	id INTEGER NOT NULL PRIMARY KEY,
