@@ -111,16 +111,14 @@ class Data extends \Web\Framework\Data\Widget
     /**
      * get pagination links to forumthread
      * @param $thread \Web\Database\DAO\ForumThread
-     * @param $pagInterval int the size of pagination group
      * @return array|null list of pagination indexes
      */
     function getStartEndPags(
-        $thread,
-        $pagInterval = 1
+        $thread
     ) {
         if ($thread == null)
             return array();
-
+        $pagInterval = $this->getThreadlinkPaginationInterval();
         $maxPages = $this->getThreadMaxPages($thread);
         $maxlim = min($maxPages, $pagInterval);
         $pags = array();
