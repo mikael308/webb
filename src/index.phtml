@@ -14,8 +14,13 @@ require_once PATH_ROOT_ABS."database/database.php";
 require_once PATH_ROOT_ABS."session/main.phtml";
 require_once PATH_ROOT_ABS."session/config/settings.php";
 
-\Web\Session\start();
-\Web\Database\autoloadDAO();
+try {
+    \Web\Session\start();
+    \Web\Database\autoloadDAO();
 
-include PATH_ROOT_ABS."framework/frontcontroller/Data.php";
-include PATH_ROOT_ABS."framework/frontcontroller/View.phtml";
+    include PATH_ROOT_ABS."framework/frontcontroller/Data.php";
+    include PATH_ROOT_ABS."framework/frontcontroller/View.phtml";
+
+} catch (\Exception $e) {
+    echo $e->getMessage();
+}
