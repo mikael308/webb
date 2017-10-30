@@ -36,8 +36,8 @@ ServerName 10.0.2.15
   DocumentRoot "/vagrant/"
   DirectoryIndex src/index.phtml
 
-  ErrorLog /vagrant/var/log/error.log
-  CustomLog /vagrant/var/log/access.log combined
+  ErrorLog /vagrant/var/log/apache/error.log
+  CustomLog /vagrant/var/log/apache/access.log combined
 
   <Directory "/">
     Options Indexes FollowSymLinks
