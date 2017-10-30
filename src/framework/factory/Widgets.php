@@ -21,30 +21,24 @@ class Widgets
      * @param $widgetName string name of the widget
      * @param string $page name of the page containing the widget
      * @return \Web\Framework\Data\Widget widget datainstance
-     * @throws \Exception
+     * @throws \Exception if data is not found
      */
     public static function create(
         $widgetName,
         $page = "main"
     ) {
-        $dataPath = Widgets::widgetRootPath(
-            $widgetName,
-            $page
-        ) . "/data.php";
-        if (!is_file($dataPath)){
+        $widgetRoot = Widgets::widgetRootPath($widgetName, $page);
+        $dataPath = "$widgetRoot/data.php";
+        if (!is_file($dataPath)) {
             throw new \Exception("could not find data $dataPath");
         }
-        try {
-            require_once $dataPath;
+        require_once $dataPath;
 
-            $obj = \Web\Helper\Format::pathToNS(
-                "\\web\\Pages\\$page\\widgets\\$widgetName\\Data"
-            );
-            return new $obj();
-            
-        } catch(\Exception $e) {
-            echo "<h1>".$e->getMessage()."</h1>";
-        }
+        $obj = \Web\Helper\Format::pathToNS(
+            "\\web\\Pages\\$page\\widgets\\$widgetName\\Data"
+        );
+
+        return new $obj();
     }
 
     /**
