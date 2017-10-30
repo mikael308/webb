@@ -36,16 +36,16 @@ class Data extends \Web\Framework\Data\Widget
         {
             case 'subject':
                 $widgetName = 'forum/subject';
-            break;
+                break;
             case 'thread':
                 $widgetName = 'forum/thread';
-            break;
+                break;
             case 'main':
                 $widgetName = 'forum/main';
-            break;
+                break;
             default:
                 return;
-            break;
+                break;
         }
         \Web\Framework\Factory\Widgets::addToPage($widgetName, 'forum');
     }

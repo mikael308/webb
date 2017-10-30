@@ -1,29 +1,13 @@
-<?php if($data->getThreadsLength() < 1): ?>
-    <p>TODO infomessage</p>
-<?php endif; ?>
-
-<?php 
+<?php
 $page = getPageIndex();
-?>
-
-<?php if ($page < 1 || $page > $data->getMaxPages()): ?>
-    <p>TODO errormessages</p>
-<?php endif; ?>
-
-<?php 
-
 $threads = $data->getThreads();
 ?>
 
 <?php foreach($threads as $thread): ?>
-
     <?php
     $creator = $thread->getCreator();
     $lastAttr = $thread->getLastAttributor();
-    $pags = $data->getStartEndPags(
-        $thread,
-        $data->getThreadlinkPaginationInterval()
-    );
+    $pags = $data->getStartEndPags($thread);
     ?>
 
     <div class="forum_content_listitem forum_thread">

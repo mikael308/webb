@@ -6,12 +6,14 @@ use \Web\Session\Security\Authorizer as Authorizer;
 ?>
 <aside>
 <?php
-    if (! Authorizer::userIsAuthorized())
-        \Web\loadContentView("security/loginform");
+    if (! Authorizer::userIsAuthorized()) {
+        \Web\loadContentView('security/loginform');
+    }
 
     #TODO show only if: user is authorized:
-    if (Authorizer::userIsAuthorized())
-    	\Web\Framework\Factory\Widgets::addToPage("latestForumThreads");
-    
+    if (Authorizer::userIsAuthorized()) {
+    	\Web\Framework\Factory\Widgets::addToPage('latestForumThreads');
+    }
+
 ?>
 </aside>
