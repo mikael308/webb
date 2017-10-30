@@ -20,6 +20,16 @@ class Data extends \Web\Framework\Data\Widget
         $this->threads = $this->subject->getThreads();
 
         $this->maxPages = Count::maxPagesSubject($this->subject);
+
+        if ($this->getThreadsLength() < 1) {
+            throw new \Web\Framework\Exception\InfoException('subject contains no threads yet');
+        }
+
+        $page = getPageIndex();
+        if ($page < 1 || $page > $this->getMaxPages()) {
+            throw new \Web\Framework\Exception\InvalidPageException("could not display page");
+        }
+
     }
 
     public function getSubject()
