@@ -24,9 +24,9 @@ class Data extends \Web\Framework\Data\Widget
 
     public function getHeader()
     {
-        if ($this->contentObj == null) return '';
-
-        return $this->contentObj->getTopic();
+        return $this->contentObj == null
+            ? ''
+            : $this->contentObj->getTopic();
     }
 
     public function getContent()
