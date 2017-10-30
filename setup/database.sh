@@ -6,21 +6,21 @@
 
 case $1 in
 
-	"init")
+    "init")
 sudo sh $0 setup
 sudo sh $0 tables:setup
 ;;
-	"setup")
+    "setup")
 sudo su postgres <<SHELL
 psql -U postgres -d postgres -f /vagrant/setup/database/setup_database.sql
 SHELL
 ;;
-	"drop")
+    "drop")
 sudo su postgres <<SHELL
 psql -U postgres -d postgres -f /vagrant/setup/database/drop_database.sql
 SHELL
 ;;
-	"reset")
+    "reset")
 sudo sh $0 database:drop
 sudo sh $0 database:setup
 ;;
