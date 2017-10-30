@@ -89,25 +89,6 @@ class Data extends \Web\Framework\Data\Widget
         return $maxThreadPages;
     }
 
-    public function threadInnerPag(
-        \Web\Database\DAO\ForumThread $thread
-    ) {
-        $cont = "";
-        $pagInterval = $this->getThreadlinkPaginationInterval();
-        $lastPagIdx = 0;
-        $pags = $this->getStartEndPags($thread, $pagInterval);
-        foreach ($pags as $i => $pag){
-            if ($i != ($lastPagIdx + 1)){
-                # previous page was not current (index -1)
-                # add a mark for stepping in index
-                $cont .= " ... ";
-            }
-            $lastPagIdx=$i;
-            $cont .= $pag;
-        }
-        return $cont;
-    }
-
     /**
      * get pagination links to forumthread
      * @param $thread \Web\Database\DAO\ForumThread
