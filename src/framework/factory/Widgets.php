@@ -75,6 +75,10 @@ class Widgets
             $dataObject = Widgets::create($widgetName, $page);
             Widgets::output($dataObject);
 
+        } catch(\Web\Framework\Exception\InfoException $e) {
+            echo $e->toHtml();
+        } catch(\Web\Framework\Exception\InvalidPageException $e) {
+            echo $e->toHtml();
         } catch(\Exception $e) {
             $viewPath = Widgets::widgetRootPath($widgetName, $page) . '/view.phtml';
             if (is_file($viewPath)) {
