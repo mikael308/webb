@@ -1,11 +1,11 @@
 #
 # author Mikael Holmbom
 
-echo "Running bootstrap setup"
+echo "Running setup setup"
 echo " ********** setup config ************* "
-sudo bash /vagrant/bootstrap/setup_config.sh
+sudo bash /vagrant/setup/setup_config.sh
 echo " ********** setup LAMP *************** "
-sudo bash /vagrant/bootstrap/setup_lamp.sh
+sudo bash /vagrant/setup/setup_lamp.sh
 echo " ********** setup database *********** "
-sudo bash /vagrant/bootstrap/setup_database.sh
+sudo bash /vagrant/setup/setup_database.sh
 

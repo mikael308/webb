@@ -64,6 +64,6 @@ Vagrant.configure(2) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
-  config.vm.provision :shell, :path => "bootstrap/bootstrap.sh", privileged: false
+  config.vm.provision :shell, :path => "setup/setup.sh", privileged: false
 
 end

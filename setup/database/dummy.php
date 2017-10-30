@@ -3,7 +3,7 @@
 /**
  * config script used to setup forumusers in database
  */
-namespace Web\Bootstrap;
+namespace Web\Setup;
 session_start();
 
 require_once "/vagrant/src/pageref.php";
