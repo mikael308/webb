@@ -8,19 +8,11 @@ function loadSection(
     $name,
     $page = 'main'
 ) {
-    #try {
-        $filepath = "./pages/$page/sections/$name.phtml";
+    $filepath = "./pages/$page/sections/$name.phtml";
 
-        if (is_file($filepath)) {
-            include $filepath;
-        } else {
-            #TODO kasta något annat fel, skriv ett eget?
-            #throw new Exception("file $path not found");
-        }
-    #} catch (\Exception $e) {
-    #    #TODO log
-    #    #echo "<p>ERROR: ".$e->getMessage()."</p>";
-    #}
+    if (is_file($filepath)) {
+        include $filepath;
+    }
 }
 
 /**
