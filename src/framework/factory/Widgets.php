@@ -25,7 +25,7 @@ class Widgets
      */
     public static function create(
         $widgetName,
-        $page = "main"
+        $page = 'main'
     ) {
         $widgetRoot = Widgets::widgetRootPath($widgetName, $page);
         $dataPath = "$widgetRoot/data.php";
