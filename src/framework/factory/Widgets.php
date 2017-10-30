@@ -44,7 +44,7 @@ class Widgets
     /**
      * Output dataobject
      * @param $dataObj \Web\Framework\Data\Widget the dataobject to output
-     * @throws \Exception
+     * @throws \Exception if view is not found
      */
     public static function output(
         $dataObj
