@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+#
 # facade for database operations
 #
 # author Mikael Holmbom

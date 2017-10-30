@@ -1,4 +1,4 @@
-#
+#!/usr/bin/env bash
 #
 #
 # author Mikael Holmbom
