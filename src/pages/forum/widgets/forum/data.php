@@ -14,11 +14,11 @@ class Data extends \Web\Framework\Data\Widget
         switch(getSubPage())
         {
             case 'subject':
-            $this->contentObj = Read::subjects(getSubjectIndex())[0];
-            break;
+                $this->contentObj = Read::subjects(getSubjectIndex())[0];
+                break;
             case 'thread':
-            $this->contentObj = Read::thread(getThreadIndex());
-            break;
+                $this->contentObj = Read::thread(getThreadIndex());
+                break;
         }
     }
 
