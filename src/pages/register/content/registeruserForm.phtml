@@ -9,6 +9,9 @@
 <form method="POST" action="/register">
  <table>
     <th>user registration</th>
+     <?php if(isset($_SESSION["registeruser_errmsg"])): ?>
+         <span id="registeruser_errmsg"><?= $_SESSION["registeruser_errmsg"] ?></span>
+     <?php endif; ?>
     <tr>
       <td>
         <label for="user_name">name</label>
