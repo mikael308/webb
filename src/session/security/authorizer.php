@@ -44,7 +44,11 @@ class Authorizer {
         return Authorizer::getAuthorizedUser() != null;
     }
 
-    public function logout()
+    /**
+     * logs out current user.
+     * sets the authoriezd user id to null
+     */
+    public static function logout()
     {
         $_SESSION['authorized_user_id'] = null;
     }
