@@ -44,16 +44,3 @@ function getSubUrl()
 {
     return $_SERVER["REQUEST_URI"] ?? '';
 }
-
-/**
- * get value from request POST\n
- * scope using this must declare variable $requestIndex
- * @param index return value from GET request 
- * @return 
- */
-function post($index){
-    global $requestIndex;
-    $key = $requestIndex[$index];
-    return $_POST[$key] ?? null;
-}
-
