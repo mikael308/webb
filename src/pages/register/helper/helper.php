@@ -15,11 +15,16 @@ function register()
     $passw        = clean_input($_POST["user_password"]);
     $passw_conf   = clean_input($_POST["user_password_confirm"]);
 
-    if (! validUser($name, $email, $passw, $passw_conf)){
+    $response = [
+        'success' => false
+    ];
+    $validUserResponse = validUser($name, $email, $passw, $passw_conf);
+    if (! $validUserResponse['success']){
         # set form input fields to previous value
         $_SESSION["input_name"] = $name;
         $_SESSION["input_email"] = $email;
-        return;
+        $response['message'] = $validUserResponse['message'];
+        return $response;
     }
 
     $user = new ForumUser();
