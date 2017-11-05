@@ -1,14 +1,14 @@
 <?php
 
 if (\Web\Session\Security\loginListener()) {
-    $pagelink = $GLOBALS['pagelink']['index'];
-    header("Location: $pagelink");
+    $url = $_SESSION['redirect_url'] ?? $GLOBALS['pagelink']['index'];
+    header("Location: $url");
     exit();
 }
 
 if (\Web\Session\Security\Authorizer::userIsAuthorized()) {
-    $pagelink = $GLOBALS['pagelink']['index'];
-    header("Location: $pagelink");
+    $url = $_SESSION['redirect_url'] ?? $GLOBALS['pagelink']['index'];
+    header("Location: $url");
     exit();
 }
 
