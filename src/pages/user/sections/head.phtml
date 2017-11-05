@@ -1,7 +1,7 @@
 <?php
 $view_user = \Web\Database\Read::forumUser(getReqUser());
 
-if ($view_user != NULL) {
+if ($view_user != null) {
   echo \Web\Helper\setTitle($view_user->getName());
 } else {
   echo \Web\Helper\setTitle("could not find user");
