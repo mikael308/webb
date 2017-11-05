@@ -8,12 +8,20 @@ require_once PATH_ROOT_ABS."database/dao/ForumUser.class.php";
 
 class Authorizer {
 
+    /**
+     * sets the authorized user
+     * @param \Web\Database\DAO\ForumUser $user
+     */
     public static function setAuthorizedUser(
         \Web\Database\DAO\ForumUser $user
     ) {
         $_SESSION['authorized_user_id'] = $user->getPrimaryKey();
     }
 
+    /**
+     * gets the current authorized user
+     * @return null|\Web\Database\DAO\ForumUser
+     */
     public static function getAuthorizedUser()
     {
         return isset($_SESSION['authorized_user_id'])
