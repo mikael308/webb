@@ -28,6 +28,10 @@ EOF
 
 echo " *********** WRITING TO sites-enabled/000-default.CONF *****************"
 
+mkdir /vagrant/var
+mkdir /vagrant/var/log
+mkdir /vagrant/var/log/apache
+
 cat <<EOF > /etc/apache2/sites-enabled/000-default.conf
 
 ServerName 10.0.2.15
