@@ -1,3 +1,11 @@
 <?php
 
-\Web\Session\Security\authorizationListener();
+#\Web\Session\Security\authorizationListener();
+if (\Web\Session\Security\loginListener()) {
+    $redirect_url = $_SESSION['redirect_url'] ?? $GLOBALS['pagelink']['index'];
+    $_SESSION['redirect_url'] = '';
+    header('Location: ' . $redirect_url);
+    exit();
+}
+\Web\Session\Security\logoutListener();
+

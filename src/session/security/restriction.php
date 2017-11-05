@@ -23,6 +23,7 @@ function restrictedToAuthorized(
     if ($redirectPage == null)
         $redirectPage = $GLOBALS["pagelink"]["register"];
     if (!Authorizer::userIsAuthorized()) {
+        $_SESSION['redirect_url'] = getSubUrl();
         header("Location: " . $redirectPage);
         exit();
     }
