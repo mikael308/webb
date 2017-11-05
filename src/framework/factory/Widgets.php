@@ -17,10 +17,10 @@ class Widgets
     }
 
     /**
-     * create a widget dataobject
-     * @param $widgetName string name of the widget
-     * @param string $page name of the page containing the widget
-     * @return \Web\Framework\Data\Widget widget datainstance
+     * create a widgets dataobject
+     * @param $widgetName string name of the widgets
+     * @param string $page name of the page containing the widgets
+     * @return \Web\Framework\Data\Widget widgets datainstance
      * @throws \Exception if data is not found
      */
     public static function create(
