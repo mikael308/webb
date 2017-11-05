@@ -38,14 +38,11 @@ function logoutListener(){
  */
 function loginListener(){
     # reset error message
-    $_SESSION["login_errmsg"] = "";
+    $_SESSION['login_errmsg'] = '';
 
-    if (
-        $_SERVER["REQUEST_METHOD"] == "POST" &&
-        isset($_POST["login"])
-    ) {
-        $user   = $_POST["input_username"];
-        $passw  = $_POST["input_password"];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+        $user   = $_POST['input_username'];
+        $passw  = $_POST['input_password'];
 
         $response = Authorizer::login($user, $passw);
         $_SESSION['login_errmsg'] = $response['message'];

@@ -14,8 +14,8 @@
 require_once "./pageref.php";
 
 
-if (!isset($_SESSION["login_errmsg"]))
-  $_SESSION["login_errmsg"]="";
+if (!isset($_SESSION['login_errmsg']))
+  $_SESSION['login_errmsg']='';
 
 ?>
 <div>
@@ -24,9 +24,11 @@ if (!isset($_SESSION["login_errmsg"]))
       method="POST"
       action="<?= htmlentities($_SERVER['REQUEST_URI']); ?>"
       >
+
     <input type="hidden" name="redirect_url" value="<?= $_SESSION['redirect_url'] ?? '' ?>" />
+
     <div>
-      <span id="login_errmsg"><?= $_SESSION["login_errmsg"]; ?></span>
+      <span id='login_errmsg'><?= $_SESSION['login_errmsg']; ?></span>
     </div>
     <div class="formtable">
       <div class="formtable_row">
