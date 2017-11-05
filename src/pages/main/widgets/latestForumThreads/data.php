@@ -16,11 +16,9 @@ class Data extends \Web\Framework\Data\Widget
         return "latest posts";
     }
 
-
     public function latestThreads()
     {
         $amount = (int) $_SESSION['settings']->value("n_latest_threads");
-
         return \Web\Database\Extract::latestThreads($amount);
     }
 
