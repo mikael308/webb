@@ -23,8 +23,8 @@ function authorizationListener()
 function logoutListener()
 {
     if (
-        $_SERVER["REQUEST_METHOD"] == "POST" &&
-        isset($_POST["logout"])
+        $_SERVER['REQUEST_METHOD'] == 'POST' &&
+        isset($_POST['logout'])
     ) {
         Authorizer::logout();
 
