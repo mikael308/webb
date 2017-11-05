@@ -1,11 +1,7 @@
 <?php 
   # if prior values is set
-  $pre_name = 
-    isset($_SESSION["input_name"]) ?
-    $_SESSION["input_name"] : "" ;
-  $pre_email = 
-    isset($_SESSION["input_email"]) ?
-    $_SESSION["input_email"] : "";
+  $pre_name = $_SESSION["input_name"] ?? '';
+  $pre_email = $_SESSION["input_email"] ?? '';
 
 ?>
 
@@ -19,24 +15,15 @@
         <label for="user_name">name</label>
       </td>
       <td>
-        <input
-          type="text"
-          id="user_name"
-          value=""
-          name="user_name"
-          autofocus required></td>
+        <input type="text" id="user_name" value="" name="user_name" autofocus required>
+      </td>
     </tr>
     <tr>
       <td>
         <label for="user_email">email</label>
       </td>
       <td>
-        <input
-          type="text"
-          id="user_email"
-          value="<?php echo $pre_email; ?>"
-          name="user_email"
-          required>
+        <input type="text" id="user_email" value="<?php echo $pre_email; ?>" name="user_email" required>
       </td>
     </tr>
     <tr>
@@ -44,12 +31,7 @@
         <label for="user_password">password</label>
       </td>
       <td>
-        <input
-          type="password"
-          id="user_password"
-          name="user_password"
-          onkeyup='validatePasswordHint(this.value)'
-          required>
+        <input type="password" id="user_password" name="user_password" onkeyup='validatePasswordHint(this.value)' required>
       </td>
     </tr>
     <tr>
@@ -57,11 +39,7 @@
         <label for="user_password_confirm">confirm password</label>
       </td>
       <td>
-        <input
-          type="password"
-          id="user_password_confirm"
-          name="user_password_confirm"
-          required>
+        <input type="password" id="user_password_confirm" name="user_password_confirm" required>
       </td>
     </tr>
     <tr>
@@ -69,11 +47,7 @@
 
       </td>
       <td>
-        <input
-          type="submit"
-          id="user_register"
-          name="user_register"
-          value="register">
+        <input type="submit" id="user_register" name="user_register" value="register">
       </td>
     </tr>
   </table>
