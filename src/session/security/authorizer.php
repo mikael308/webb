@@ -65,9 +65,7 @@ class Authorizer {
                         $GLOBALS['database']['crypt_salt']
                     );
 
-                    if (
-                        strcmp($data->password, $crypt_inpassw) == 0
-                    ) {
+                    if (strcmp($data->password, $crypt_inpassw) == 0) {
                         #if(hash_equals($data->password, crypt(password, $data->password))){ # successful login
                         $user = \Web\Database\Read::forumUser($data->name);
 

@@ -20,8 +20,9 @@ use Web\Session\Security\Authorizer as Authorizer;
 function restrictedToAuthorized(
     $redirectPage = null
 ) {
-    if ($redirectPage == null)
+    if ($redirectPage == null) {
         $redirectPage = $GLOBALS["pagelink"]["register"];
+    }
     if (!Authorizer::userIsAuthorized()) {
         $_SESSION['redirect_url'] = getSubUrl();
         header("Location: " . $redirectPage);
@@ -32,17 +33,14 @@ function restrictedToAuthorized(
 /**
  * if session authorized_user is not admin:\n
  * redirect to param page
- * @param redirectPage the page to redirect client to
+ * @param redirectPage string the page to redirect client to
  */
 function restrictedToAdmin(
     $redirectPage
 ) {
     restrictedToAuthorized($redirectPage);
     $authUser = Authorizer::getAuthorizedUser();
-    if (
-        $authUser == null ||
-        ! $authUser->isAdmin()
-    ) {
+    if ($authUser == null || ! $authUser->isAdmin()) {
         header("Location: " . $redirectPage);
         exit();
     }

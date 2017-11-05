@@ -28,7 +28,8 @@ function getSubpage()
  * @param index string return value from GET request
  * @return 
  */
-function getIndex($key){
+function getIndex($key)
+{
     $index = $_REQUEST[$key] ?? '';
     return preg_match("/^[0-9]+$/", $index)
         ? $index

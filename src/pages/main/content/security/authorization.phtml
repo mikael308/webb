@@ -9,13 +9,10 @@
 ?>
 <div id="authorizationsection">
     <?php
-    if(! \Web\Session\Security\Authorizer::userIsAuthorized())
-    {
+    if (! \Web\Session\Security\Authorizer::userIsAuthorized()) {
         \Web\loadContentView("security/loginform");
         \Web\loadContentView("security/registerlink");
-    }
-    else
-    {
+    } else {
         \Web\loadContentView("security/logoutform");
     }
     ?>
