@@ -35,7 +35,7 @@ class Widgets
         require_once $dataPath;
 
         $obj = \Web\Helper\Format::pathToNS(
-            "\\web\\Pages\\$page\\widgets\\$widgetName\\Data"
+            "\\web\\Pages\\$page\\widgets\\$widgetName\\data"
         );
 
         return new $obj();
