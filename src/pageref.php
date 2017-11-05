@@ -38,8 +38,11 @@ function pagelinkPost(
 }
 
 /**
-* generate pagelink to forum subject
-*/
+ * generate pagelink to forum subject
+ * @param string $subject_id
+ * @param int $page_id
+ * @return string url path to forumsubject page
+ */
 function pagelinkForumSubject(
     $subject_id,
     $page_id = 1
@@ -49,8 +52,11 @@ function pagelinkForumSubject(
 }
 
 /**
-* generate pagelink to forum thread
-*/
+ * generate pagelink to forum thread
+ * @param string $thread_id
+ * @param int $page_id
+ * @return string url path to forumthread page
+ */
 function pagelinkForumThread(
     $thread_id,
     $page_id = 1
@@ -60,8 +66,11 @@ function pagelinkForumThread(
 }
 
 /**
-* generate pagelink to userpage
-*/
+ * generate pagelink to userpage
+ * @param string $user_id
+ * @param null|string $subPage
+ * @return string
+ */
 function pagelinkUser(
     $user_id,
     $subPage = null
