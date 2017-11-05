@@ -47,26 +47,10 @@ function loginListener(){
         $user   = $_POST["input_username"];
         $passw  = $_POST["input_password"];
 
-        switch (Authorizer::login($user, $passw)){
-            case 1: # successful login
-                return True;
-            case 0:
-                $_SESSION["login_errmsg"]
-                    = "could not connect to database";
-                break;
-            case -1:
-                $_SESSION["login_errmsg"]
-                    = "could not login, wrong username or password";
-                break;
-            case -2:
-                $_SESSION["login_errmsg"]
-                    = "could not login, user is banned";
-                break;
-            default:
-                $_SESSION["login_errmsg"]
-                    = "could not login";
-        }
+        $response = Authorizer::login($user, $passw);
+        $_SESSION['login_errmsg'] = $response['message'];
 
+        return $response['success'];
     }
     return False;
 }

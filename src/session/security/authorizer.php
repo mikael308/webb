@@ -68,7 +68,16 @@ class Authorizer {
         $userPK,
         $password
     ) {
-        $retVal = 0;
+        $responseMessages = [
+            -2      => 'could not login, user is banned',
+            -1      => 'could not login, wrong username or password',
+            0       => 'could not connect to database',
+            1       => 'successful login'
+        ];
+
+        $response = [
+            'success' => false
+        ];
 
         $db_conn = \Web\Database\connect();
         if ($db_conn) {
@@ -99,33 +108,35 @@ class Authorizer {
                         $user = \Web\Database\Read::forumUser($data->name);
 
                         if ($user->isBanned()) {
-                            $retVal = -2;
+                            $response['code'] = -2;
                         } else {
                             # successful login
-                            $retVal = 1;
+                            $response['code'] = 1;
+                            $response['success'] = true;
                             Authorizer::setAuthorizedUser($user);
                         }
                     } else {
                         # password and username not matching
-                        $retVal = -1;
+                        $response['code'] = -1;
                     }
 
                 } else {
                     # found less or more than 0 rows
-                    $retVal = -1;
+                    $response['code'] = -1;
                 }
                 pg_free_result($res);
           
             } else {
                 # query !OK
-                $retVal = -1;
+                $response['code'] = -1;
             }
 
         } else {
             # database connection failed
+            $response['code'] = 0;
         }
-
-      return $retVal;
+        $response['message'] = $responseMessages[$response['code']];
+        return $response;
     }
 
 }
