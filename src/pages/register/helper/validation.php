@@ -3,7 +3,7 @@ namespace Web\Pages\Register\helper;
 
 /**
  * determine if user fields is valid
- * @return True if valid
+ * @return array response
  */
 function validUser(
     $name, 
@@ -11,46 +11,38 @@ function validUser(
     $passw, 
     $passw_conf
 ) {
-    # validate input fields
-    ##########################
-
-    if (str_replace(" ", "", $name) == ""){
-        $_SESSION["registeruser_errmsg"]
-            = "name cannot be empty";
-        return False;
-
-    } elseif (str_replace(" ", "", $email) == ""){
-        $_SESSION["registeruser_errmsg"]
-            = "email cannot be empty";
-        return False;
-
-    } elseif (str_replace(" ", "", $passw) == ""
-    || str_replace(" ", "", $passw_conf) == ""){
-        $_SESSION["registeruser_errmsg"]
-            = "password cannot be empty";
-        return False;
-
-    } elseif (str_replace(" ", "", $passw_conf) == ""){
-        $_SESSION["registeruser_errmsg"]
-            = "password confirmation cannot be empty";
-        return False;
+    $response = [
+        'success' => false
+    ];
+    $failflag = false;
+    if (trim($name) == '') {
+        $response['message'] = 'name cannot be empty';
+        $failflag = true;
+    } elseif (trim($email) == '') {
+        $response['message'] = 'email cannot be empty';
+        $failflag = true;
+    } elseif (trim($passw) == '' || trim($passw_conf) == '') {
+        $response['message'] = 'password cannot be empty';
+        $failflag = true;
+    } elseif (trim($passw_conf) == '') {
+        $response['message'] = 'password confirmation cannot be empty';
+        $failflag = true;
     }
 
-    # validate password
-    #####################
-
-    if (! validPassword($passw)){
-        $_SESSION["registeruser_errmsg"]
-            = "password not valid";
-         return False;
+    if (! validPassword($passw)) {
+        $response['message'] = 'password not valid';
+        $failflag = true;
     }
-    if ($passw != $passw_conf){
-         $_SESSION["registeruser_errmsg"]
-            = "passwords not equal";
-         return False;
+    if ($passw != $passw_conf) {
+        $response['message'] ='passwords not equal';
+        $failflag = true;
     }
 
-    return True;
+    $response['success'] = !$failflag;
+    if (!$failflag) {
+        $response['message'] = 'user is valid';
+    }
+    return $response;
 }
 
 /**
