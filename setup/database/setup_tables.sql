@@ -9,7 +9,8 @@ CREATE TABLE proj.roles(
 );
 
 CREATE TABLE proj.forumusers(
-    name TEXT NOT NULL PRIMARY KEY,
+    id SERIAL NOT NULL PRIMARY KEY,
+    name TEXT NOT NULL,
     email TEXT NOT NULL,
     role INTEGER NOT NULL references proj.roles,
     banned BOOLEAN,
