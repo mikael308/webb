@@ -54,8 +54,8 @@ function validPassword(
     $password
 ) {
     if (
-        validLength($password) && 
-        validContent($password)
+        validLength($password)
+        && validContent($password)
     ) {
         return True;
     }
