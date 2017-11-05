@@ -19,6 +19,14 @@ class Authorizer {
     }
 
     /**
+     * get the id of current authorized user
+     * @return string|null
+     */
+    public static function getAuthorizedUserId()
+    {
+        return $_SESSION['authorized_user_id'] ?? null;
+    }
+    /**
      * gets the current authorized user
      * @return null|\Web\Database\DAO\ForumUser
      */
