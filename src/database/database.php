@@ -63,9 +63,10 @@ function exists(\Web\Database\DAO\ForumUser $user)
         $table = $GLOBALS['database']['table']['forumusers'];
         $res = pg_query_params(
             $db_conn,
-            "SELECT name FROM $table "
-            . " WHERE name = $1 ;",
-            [$user->getPrimaryKey()]
+            "SELECT name, email FROM $table "
+            . " WHERE name = $1"
+            . "  OR email = $2 ;",
+            [$user->getName(), $user->getEmail()]
         );
 
         if ($res) {
