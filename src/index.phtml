@@ -18,8 +18,8 @@ try {
     \Web\Session\start();
     \Web\Database\autoloadDAO();
 
-    include PATH_ROOT_ABS."framework/frontcontroller/Data.php";
-    include PATH_ROOT_ABS."framework/frontcontroller/View.phtml";
+    include PATH_ROOT_ABS."framework/frontcontroller/data.php";
+    include PATH_ROOT_ABS."framework/frontcontroller/view.phtml";
 
 } catch (\Exception $e) {
     echo $e->getMessage();
