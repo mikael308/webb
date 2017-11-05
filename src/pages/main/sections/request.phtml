@@ -36,6 +36,15 @@ function getIndex($key){
 }
 
 /**
+ * get the current domain sub url
+ * @return string
+ */
+function getSubUrl()
+{
+    return $_SERVER["REQUEST_URI"] ?? '';
+}
+
+/**
  * get value from request POST\n
  * scope using this must declare variable $requestIndex
  * @param index return value from GET request 
