@@ -12,10 +12,23 @@ if (\Web\Session\Security\Authorizer::userIsAuthorized()) {
     exit();
 }
 
-$_SESSION['registeruser_errmsg'] = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     # listen for user register post
+    $_SESSION['registeruser_errmsg'] = '';
     if (isset($_POST['user_register'])) {
-        \Web\Pages\Register\Helper\register();
+        $response = \Web\Pages\Register\Helper\register();
+        echo var_dump($response);
+        if ($response['success']) {
+            echo "SUCCESS";
+            $_SESSION["input_name"] = '';
+            $_SESSION["input_email"] = '';
+
+            $url = $_SESSION['redirect_url'] ?? $GLOBALS['pagelink']['index'];
+            echo "REDIReCT $url";
+            header("Location: $url");
+            exit();
+        } else {
+            $_SESSION["registeruser_errmsg"] = $response['message'];
+        }
     }
 }
