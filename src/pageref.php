@@ -67,9 +67,9 @@ function pagelinkUser(
     $subPage = null
 ) {
     $root = $GLOBALS['pagelink']['user'];
-    $url = "$root";
+    $url = $root;
     if ($user_id != null && !empty($user_id)) {
-        $url .= "/$user_id";
+        $url = "$root/$user_id";
     }
 
     if ($subPage != null && !empty($user_id)) {
