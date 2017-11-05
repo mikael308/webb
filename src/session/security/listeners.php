@@ -10,7 +10,8 @@ use \Web\Session\Security\Authorizer as Authorizer;
  * * login\n
  * * logout
  */
-function authorizationListener(){
+function authorizationListener()
+{
     loginListener();
     logoutListener();
 }
@@ -19,7 +20,8 @@ function authorizationListener(){
  * listens for logout POST requests\n
  * set session authorized_user to null and redirect to index
  */
-function logoutListener(){
+function logoutListener()
+{
     if (
         $_SERVER["REQUEST_METHOD"] == "POST" &&
         isset($_POST["logout"])
@@ -36,7 +38,8 @@ function logoutListener(){
  * sets session authorized_user to logged in user
  * @return True if login was successful
  */
-function loginListener(){
+function loginListener()
+{
     # reset error message
     $_SESSION['login_errmsg'] = '';
 

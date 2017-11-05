@@ -98,10 +98,7 @@ class Authorizer {
                 if (pg_num_rows($res) == 1) { 
                     $data = pg_fetch_object($res, 0);
                     
-                    $crypt_inpassw = crypt(
-                        $password,
-                        $GLOBALS['database']['crypt_salt']
-                    );
+                    $crypt_inpassw = crypt($password, $GLOBALS['database']['crypt_salt']);
 
                     if (strcmp($data->password, $crypt_inpassw) == 0) {
                         #if(hash_equals($data->password, crypt(password, $data->password))){ # successful login
