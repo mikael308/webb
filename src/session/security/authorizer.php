@@ -32,9 +32,11 @@ class Authorizer {
      */
     public static function getAuthorizedUser()
     {
-        return isset($_SESSION['authorized_user_id'])
-            ? \Web\Database\Read::forumUser($_SESSION['authorized_user_id'])
-            : null;
+        $userId = Authorizer::getAuthorizedUserId();
+        if ($userId != null) {
+            return \Web\Database\Read::forumUser($userId);
+        }
+        return null;
     }
 
     public static function userIsAuthorized()
