@@ -91,6 +91,7 @@ class Authorizer {
                 $query,
                 array($userPK)
             );
+
             if ($res) {
                 # query OK
 
