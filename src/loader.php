@@ -25,27 +25,20 @@ function loadSections($name)
     loadSection($name, getPage());  
 }
 
-
+/**
+ * includes content view
+ * @param string $name name of content to include
+ * @param string $page the page containing the view
+ */
 function loadContentView (
     $name,
     $page = 'main'
 ) {
-    $path = '';
-    if ($page == null) {
-        echo "<h1>deprecated A001: use </h1>";
-        #TODO widgets?
-        $path = "widgets/$name.phtml";
-    } else {
-        $path = "pages/$page/content/$name.phtml";
-    }
+    $path = "pages/$page/content/$name.phtml";
 
-    #try {
-        if (! is_file($path)) {
-            echo "<p>could not find contentview file \"$path\"</p>";
-        } else {
-            include $path;
-        }
-    #} catch (Exception $e) {
-    #    echo "<p>ERROR: ".$e->getMessage()."</p>";
-    #}
+    if (! is_file($path)) {
+        echo "<p>could not find contentview file \"$path\"</p>";
+    } else {
+        include $path;
+    }
 }
