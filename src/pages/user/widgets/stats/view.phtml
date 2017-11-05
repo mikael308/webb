@@ -1,0 +1,17 @@
+<?php
+
+$displayStats = $data->getStats();
+?>
+
+<!-- #TODO byt namn på detta id... userstats eller så -->
+<table id="userinfo">
+    <?php foreach($displayStats as $label => $info): ?>
+        <!-- #TODO fixa så denna inte är table.. inte snyggt.... -->
+        <tr>
+            <td class="userinfo_label"><?= $label ?></td>
+            <td class="userinfo_data"><?= $info ?></td>
+        </tr>
+    
+    <?php endforeach; ?>
+
+</table>
