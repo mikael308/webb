@@ -39,6 +39,10 @@ class Authorizer {
         return null;
     }
 
+    /**
+     * determine if user is authorized
+     * @return bool true if user is authorized
+     */
     public static function userIsAuthorized()
     {
         return Authorizer::getAuthorizedUser() != null;
@@ -55,7 +59,10 @@ class Authorizer {
 
     /**
      * make a login request to database
-     * @return 1: login was successful\n0: no contact with database\n-1: failed password/username match\n-2: user banned
+     * @param $userPK
+     * @param $password
+     * @return int 1: login was successful\n0: no contact with database\n-1: failed password/username match\n-2: user banned
+
      */
     public static function login(
         $userPK,
