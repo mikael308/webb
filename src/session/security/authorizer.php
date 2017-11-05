@@ -57,7 +57,7 @@ class Authorizer {
      * make a login request to database
      * @return 1: login was successful\n0: no contact with database\n-1: failed password/username match\n-2: user banned
      */
-    function login(
+    public static function login(
         $userPK,
         $password
     ) {
