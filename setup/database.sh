@@ -7,12 +7,17 @@
 case $1 in
 
     "init")
-sudo sh $0 setup
-sudo sh $0 tables:setup
+sudo sh $0 create
+sudo sh $0 tables:create
 ;;
-    "setup")
+    "create")
+
 sudo su postgres <<SHELL
-psql -U postgres -d postgres -f /vagrant/setup/database/setup_database.sql
+createdb postgres
+echo "create database"
+psql -U postgres -d postgres -f /vagrant/setup/database/create_database.sql
+echo "create stored procedures"
+psql -U postgres -d postgres -f /vagrant/setup/database/create_storedprocedures.sql
 SHELL
 ;;
     "drop")
@@ -21,8 +26,8 @@ psql -U postgres -d postgres -f /vagrant/setup/database/drop_database.sql
 SHELL
 ;;
     "reset")
-sudo sh $0 database:drop
-sudo sh $0 database:setup
+sudo sh $0 drop
+sudo sh $0 create
 ;;
 
     "tables:clear") 
@@ -32,17 +37,19 @@ SHELL
 ;;
     "tables:drop")
 sudo su postgres <<SHELL
+echo "drop tables"
 psql -U postgres -d postgres -f /vagrant/setup/database/drop_tables.sql
 SHELL
 ;;  
     "tables:reset")
 sudo sh $0 tables:drop
-sudo sh $0 tables:setup
+sudo sh $0 tables:create
 ;;
-    "tables:setup") 
+    "tables:create")
 sudo su postgres <<SHELL
-psql -U postgres -d postgres -f /vagrant/setup/database/setup_tables.sql
-psql -U postgres -d postgres -f /vagrant/setup/database/setup_storedprocedures.sql
+echo "create tables"
+psql -U postgres -d postgres -f /vagrant/setup/database/create_tables.sql
+echo "init roles"
 psql -U postgres -d postgres -f /vagrant/setup/database/init_roles.sql
 SHELL
 ;;
