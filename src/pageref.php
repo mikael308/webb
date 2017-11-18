@@ -7,6 +7,8 @@ namespace Web;
 * @author Mikael Holmbom
 */
 
+use Web\Database\DAO\ForumUser;
+
 define('PATH_ROOT_ABS', '/vagrant/src/');#$_SERVER['DOCUMENT_ROOT']."/src/");
 define('PATH_ROOT_REL', "/src/");
 
