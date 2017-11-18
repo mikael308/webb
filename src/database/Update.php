@@ -5,7 +5,7 @@ namespace Web\Database;
  * @author Mikael Holmbom
  * @version 1.0
  */
-class update
+class Update
 {
 
     /**

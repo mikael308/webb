@@ -10,12 +10,12 @@ require_once PATH_ROOT_ABS."database/Parse.php";
  * @author Mikael Holmbom
  * @version 1.0
  */
-class Extract{
-
+class Extract
+{
 	static function latestThreads(
 		$amount
 	) {
-		$latestThreads = array();
+		$latestThreads = [];
 
 		$db_conn = connect();
 		if ($db_conn){

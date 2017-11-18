@@ -11,7 +11,8 @@ use \Web\Database\DAO\ForumThread;
  * @author Mikael Holmbom
  * @version 1.0
  */
-class Count{
+class Count
+{
     /**
      * count the number of forumthreads created by specific user
      * @throws \RuntimeException on failed query

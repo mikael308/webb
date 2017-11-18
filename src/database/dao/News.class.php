@@ -6,6 +6,7 @@ require_once PATH_ROOT_ABS."database/Read.php";
 require_once PATH_ROOT_ABS."database/dao/DataAccessObject.class.php";
 
 use \Web\Database\Read;
+
 /**
  * handles news in forum
  *
@@ -57,9 +58,9 @@ class News extends DataAccessObject
     }
     function getAuthor()
     {
-        return $this->getAuthorPK() == NULL ?
-            NULL:
-            Read::forumUser($this->getAuthorPK());
+        return $this->getAuthorPK() == null
+            ? null
+            : Read::forumUserById($this->getAuthorPK());
     }
     function getTitle()
     {

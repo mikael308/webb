@@ -23,7 +23,8 @@ autoloadDAO();
  * @author Mikael Holmbom
  * @version 1.0
  */
-class Parse{
+class Parse
+{
 
     /**
      * filter between database entry row and dataaccessobjects\n
