@@ -8,12 +8,14 @@ require_once PATH_ROOT_ABS."database/dao/ForumPost.class.php";
 require_once PATH_ROOT_ABS."database/dao/ForumSubject.class.php";
 require_once PATH_ROOT_ABS."database/dao/ForumThread.class.php";
 require_once PATH_ROOT_ABS."database/dao/ForumUser.class.php";
+require_once PATH_ROOT_ABS."database/dao/Role.class.php";
 
 use \Web\Database\Dao\News;
 use \Web\Database\DAO\ForumPost;
 use \Web\Database\DAO\ForumSubject;
 use \Web\Database\DAO\ForumThread;
 use \Web\Database\DAO\ForumUser;
+use Web\Database\DAO\Role;
 
 autoloadDAO();
 
