@@ -34,7 +34,7 @@ class Authorizer {
     {
         $userId = Authorizer::getAuthorizedUserId();
         if ($userId != null) {
-            return \Web\Database\Read::forumUser($userId);
+            return \Web\Database\Read::forumUserById($userId);
         }
         return null;
     }
@@ -103,7 +103,7 @@ class Authorizer {
 
                     if (strcmp($data->password, $crypt_inpassw) == 0) {
                         #if(hash_equals($data->password, crypt(password, $data->password))){ # successful login
-                        $user = \Web\Database\Read::forumUser($data->name);
+                        $user = \Web\Database\Read::forumUserById($data->id);
 
                         if ($user->isBanned()) {
                             $response['code'] = -2;

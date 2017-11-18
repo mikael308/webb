@@ -263,7 +263,7 @@ class Read
      * @throws \RuntimeException on failed query
      * @return \Web\Database\DAO\ForumUser of forumusers results from database
      */
-    public static function forumUser($user_id)
+    public static function forumUserById($user_id)
     {
         $user = null;
         $db_conn = connect();
@@ -326,7 +326,7 @@ class Read
                     $data = pg_fetch_object($res, 0);
 
                     if ($data != null) {
-                        $creator = Read::forumUser($data->author);
+                        $creator = Read::forumUserById($data->author);
                     }
                 }
 
@@ -362,7 +362,7 @@ class Read
             if ($res) {
                 if (pg_num_rows($res) > 0) {
                     $data = pg_fetch_object($res, 0);
-                    $lastAttributor = Read::forumUser($data->author);
+                    $lastAttributor = Read::forumUserById($data->author);
                 }
             } else {
                 throw new \RuntimeException(pg_last_error($db_conn));

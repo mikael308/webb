@@ -4,7 +4,7 @@ use \Web\Session\Security\Authorizer as Authorizer;
 
 $pagelink = $GLOBALS["pagelink"];
 $authUser = Authorizer::getAuthorizedUser()->getPrimaryKey();
-$view_user = \Web\Database\Read::forumUser(
+$view_user = \Web\Database\Read::forumUserById(
   getReqUser()
 );
 if ($view_user == null)

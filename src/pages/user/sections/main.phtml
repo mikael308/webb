@@ -4,10 +4,8 @@
 
 
 #TODO if request u is not set, display current user
-$view_user = Web\Database\Read::forumUser(
-    getReqUser()
-);
 
+$view_user = Web\Database\Read::forumUserById($reqUser);
 if ($view_user != null) {
     $subpage = getSubpage() != null ? getSubpage() : '';
 

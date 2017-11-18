@@ -131,7 +131,7 @@ class ForumPost extends DataAccessObject
     {
         if ($this->getAuthorFK() == null) return null;
         
-        return Read::forumUser($this->getAuthorFK());
+        return Read::forumUserById($this->getAuthorFK());
     }
 
 }

@@ -1,5 +1,5 @@
 <?php
-$view_user = \Web\Database\Read::forumUser(getReqUser());
+$view_user = \Web\Database\Read::forumUserById(getReqUser());
 
 if ($view_user != null) {
   echo \Web\Helper\setTitle($view_user->getName());

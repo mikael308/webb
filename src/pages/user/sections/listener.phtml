@@ -5,7 +5,7 @@ restrictedToAuthorized();
 function admintoolsListener(){
     try{
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $user = \Web\Database\Read::forumUser($_POST['user']);
+            $user = \Web\Database\Read::forumUserById($_POST['user']);
 
             if ($_POST["update_user"]) {
                  # SET NEW ATTRS
@@ -23,7 +23,7 @@ function admintoolsListener(){
             $_GET["u"] = $user->getPrimaryKey();
         }
 
-        $view_user = \Web\Database\Read::forumUser(getReqUser());
+        $view_user = \Web\Database\Read::forumUserById(getReqUser());
     } catch (RuntimeException $e) {
         echo "could not display user";
     }
