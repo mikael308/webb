@@ -258,6 +258,41 @@ class Read
     }
 
     /**
+     * @param $user_name string the name of the user
+     * @return null|ForumUser
+     */
+    public static function forumUserByName($user_name)
+    {
+        $user = null;
+        $db_conn = connect();
+        if ($db_conn) {
+            $table = $GLOBALS['database']['table']['forumusers'];
+            $join_table = $GLOBALS['database']['table']['roles'];
+
+            $res = pg_query_params(
+                $db_conn,
+                "SELECT fuser.id, fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
+                . " FROM $table AS fuser "
+                . " LEFT JOIN $join_table "
+                . "   ON fuser.role=roles.id "
+                . " WHERE fuser.name=$1;",
+                [ $user_name ]
+            );
+            if ($res) {
+                if (pg_num_rows($res) == 0) return null;
+                $data = pg_fetch_object($res, 0);
+                $user = Parse::toUser($data);
+
+                pg_free_result($res);
+
+            } else {
+                throw new \RuntimeException(pg_last_error($db_conn));
+            }
+        }
+        return $user;
+    }
+    
+    /**
      * read forumusers from database
      * @param whereclause string specify query
      * @throws \RuntimeException on failed query

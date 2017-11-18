@@ -4,7 +4,7 @@
 <ul id="searchres">
 <?php foreach($searchresitems as $user): ?>
     <div class="searchres_item">
-        <a href="<?= \Web\pagelinkUser($user->getPrimaryKey()) ?>">
+        <a href="<?= \Web\pagelinkUser($user) ?>">
             <span class="name"><?= $user->getName() ?></span>
             <span class="role"><?= $user->getRole() ?></span>
         </a>

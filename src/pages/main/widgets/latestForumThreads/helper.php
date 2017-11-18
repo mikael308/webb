@@ -39,7 +39,7 @@ function threadsLatestPostView(
           )
     .   "</div>"
     . "</a>"
-    .   "<a href='".\Web\pagelinkUser($lastAuthor->getPrimaryKey())."'>"
+    .   "<a href='".\Web\pagelinkUser($lastAuthor)."'>"
     .     "<div class='author'>"
     .     \Web\Helper\Format::textToLength(
             $lastAuthor->getName(),

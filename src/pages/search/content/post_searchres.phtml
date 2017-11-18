@@ -13,7 +13,7 @@
         <div class="searchres_item">
             <a href="<?= \Web\pagelinkForumThread($t->getPrimaryKey(), $p) ?>"><span class='post main'><?= $label ?></span></a>
             <span class='author'>author:
-                <a href="<?= \Web\pagelinkUser($author->getPrimaryKey()) ?>"><?= $author->getName() ?></a>
+                <a href="<?= \Web\pagelinkUser($author) ?>"><?= $author->getName() ?></a>
             </span>
             <span class='topic'>topic: <a href="<?= \Web\pagelinkForumThread($t->getPrimaryKey(), 1) ?>"><?= $t->getTopic() ?></a></span>
         </div>

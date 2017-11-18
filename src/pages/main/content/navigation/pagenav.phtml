@@ -2,16 +2,17 @@
 
 use  \Web\Session\Security\Authorizer as Authorizer;
 
-$user = Authorizer::getAuthorizedUser();  
-$user_pk = $user == null ? null : $user->getPrimaryKey();
+$authorizedUser = Authorizer::getAuthorizedUser();
+
+$user_pk = $authorizedUser == null ? null : $authorizedUser->getPrimaryKey();
 
 $btns = array(
     'news'      => $GLOBALS['pagelink']['news'],
     'forum'     => $GLOBALS['pagelink']['forum'],
-    'my page'   => \Web\pagelinkUser($user_pk)
+    'my page'   => \Web\pagelinkUser($authorizedUser)
 );
 
-if ($user != null && $user->isAdmin())
+if ($authorizedUser != null && $authorizedUser->isAdmin())
 {
     $btns['admin'] = $GLOBALS['pagelink']['admin'];
 }

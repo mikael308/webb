@@ -11,7 +11,7 @@ if ($reqUser == '') {
     exit();
 }
 
-$view_user = Web\Database\Read::forumUserById($reqUser);
+$view_user = Web\Database\Read::forumUserByName($reqUserName);
 if ($view_user != null) {
     $subpage = getSubpage() != null ? getSubpage() : 'info';
 

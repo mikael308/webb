@@ -46,7 +46,7 @@ function searchresPost(
         . "</a>"
         . "<div class='post extra'>"
         .   "<div class='author'>"
-        .     "author: <a href='". pagelinkUser($author->getPrimaryKey()) ."'>"
+        .     "author: <a href='". pagelinkUser($author) ."'>"
         .       $author->getName() . "</a>"
         .   "</div>"
         .   "<div class='topic' >"
@@ -68,7 +68,7 @@ function searchresForumUser(
     $cont = "<div class='name'>". $user->getName() ."</div>"
         . "<div class='role'>". $user->getRole() . "</div>";
     return
-            "<a href='" . pagelinkUser($user->getPrimaryKey()) . "' class='user main'>"
+            "<a href='" . pagelinkUser($user) . "' class='user main'>"
         . "<div class='user extra'>"
         .   $cont
         . "</div>"
