@@ -74,8 +74,8 @@ class Parse
     public static function toRole($data)
     {
         return new Role(
-            Parse::clean($data->id),
-            Parse::clean($data->title)
+            (int) Parse::clean($data->id),
+            (string) Parse::clean($data->title)
         );
     }
     /**
