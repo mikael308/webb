@@ -72,7 +72,7 @@ function pagelinkForumThread(
  * @return string
  */
 function pagelinkUser(
-    ForumUser $user,
+    ForumUser $user = null,
     $subPage = null
 ) {
     $root = $GLOBALS['pagelink']['user'];
