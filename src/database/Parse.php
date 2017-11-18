@@ -113,7 +113,7 @@ class Parse
     }
     /**
      * translate database row to ForumUser
-     * @param data database row
+     * @param data object database row
      * @return ForumUser of data
      */
     public static function toUser($data)
