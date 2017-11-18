@@ -2,11 +2,10 @@
 
 use Web\Session\Security\Authorizer;
 
-#TODO if request u is not set, display current user
-$reqUser = getReqUser();
-if ($reqUser == '') {
-    $reqUser = Authorizer::getAuthorizedUser()->getPrimaryKey();
-    $url = \Web\pagelinkUser($reqUser);
+$reqUserName = getReqUser();
+if (empty(trim($reqUserName))) {
+    $authorizedUser = Authorizer::getAuthorizedUser();
+    $url = \Web\pagelinkUser($authorizedUser);
     header("Location: " . $url);
     exit();
 }
