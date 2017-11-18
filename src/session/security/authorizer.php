@@ -81,13 +81,11 @@ class Authorizer {
         $db_conn = \Web\Database\connect();
         if ($db_conn) {
 
-            $query = "SELECT fuser.id, fuser.name, fuser.password "
-                . " FROM " . $GLOBALS['database']['table']['forumusers'] . " AS fuser "
-                . " WHERE fuser.name=$1;";
-
             $res = pg_query_params(
                 $db_conn,
-                $query,
+                "SELECT fuser.id, fuser.name, fuser.password "
+                . " FROM " . $GLOBALS['database']['table']['forumusers'] . " AS fuser "
+                . " WHERE fuser.name=$1;",
                 [ $userName ]
             );
 
