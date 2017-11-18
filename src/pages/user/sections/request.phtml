@@ -4,3 +4,19 @@ function getReqUser()
 {
 	return $_REQUEST['user'] ?? null;
 }
+
+/**
+ * get the user to view
+ * @return null|\Web\Database\DAO\ForumUser
+ */
+function getViewUser()
+{
+    $viewUser = null;
+    $reqUserName = getReqUser();
+    if (empty(trim($reqUserName))) {
+        $viewUser = \Web\Session\Security\Authorizer::getAuthorizedUser();
+    } else {
+        $viewUser = \Web\Database\Read::forumUserByName($reqUserName);
+    }
+    return $viewUser;
+}
