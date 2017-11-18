@@ -86,7 +86,7 @@ class Persist
      * persist a user to database
      * @param user \Web\Database\Dao\ForumUser the user to persist
      * @param passw string requested password to persist
-     * @return boolean true if forumuser is persisted
+     * @return \Web\Database\DAO\ForumUser|null the persisted ForumUser with id
      */
     public static function forumUser(
         \Web\Database\DAO\ForumUser $user,
@@ -119,13 +119,13 @@ class Persist
                 $data = pg_fetch_object($res, 0);
                 $user->setId($data->id);
                 pg_free_result($res);
-                return True;
+                return Parse::toUser($user);
                 
             } else {
                 throw new \RuntimeException(pg_last_error($db_conn));
             }
         }
-        return False;
+        return null;
     }
 
     public static function forumSubject(
