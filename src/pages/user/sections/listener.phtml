@@ -19,11 +19,8 @@ function admintoolsListener(){
 
                 \Web\Database\Update::forumUser($user);
             }
-
-            $_GET["u"] = $user->getPrimaryKey();
         }
 
-        $view_user = \Web\Database\Read::forumUserById(getReqUser());
     } catch (RuntimeException $e) {
         echo "could not display user";
     }
