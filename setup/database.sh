@@ -22,7 +22,7 @@ SHELL
 ;;
     "drop")
 sudo su postgres <<SHELL
-psql -U postgres -d postgres -f /vagrant/setup/database/drop_database.sql
+dropdb postgres
 SHELL
 ;;
     "reset")
