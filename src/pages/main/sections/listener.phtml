@@ -1,6 +1,5 @@
 <?php
 
-#\Web\Session\Security\authorizationListener();
 if (\Web\Session\Security\loginListener()) {
     $redirect_url = $_SESSION['redirect_url'] ?? $GLOBALS['pagelink']['index'];
     $_SESSION['redirect_url'] = '';
