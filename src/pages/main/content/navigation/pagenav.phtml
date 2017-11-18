@@ -21,9 +21,9 @@ if ($authorizedUser != null && $authorizedUser->isAdmin())
 
 <ul id='page_nav'>
     <?php foreach($btns as $name => $link): ?>
+        <?php $extraClass = getPage() == $name? 'currentpage':''; ?>
         <li>
-            <?php $extraClass = getPage() == $name? 'current':''?>
-            <a class="button btn_nav <?= getPage() == $name? 'currentpage':''?>" href="<?= $link ?>"><?= $name ?></a>
+            <a class="button btn_nav $extraClass" href="$link"><?= $name ?></a>
         </li>
     <?php endforeach; ?>
 </ul>
