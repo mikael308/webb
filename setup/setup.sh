@@ -9,4 +9,3 @@ echo " ********** setup LAMP *************** "
 sudo bash /vagrant/setup/setup_lamp.sh
 echo " ********** setup database *********** "
 sudo bash /vagrant/setup/setup_database.sh
-
