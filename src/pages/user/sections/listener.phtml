@@ -28,4 +28,11 @@ function admintoolsListener(){
 
 admintoolsListener();
 
-    
+
+$reqUserName = getReqUser();
+if (empty(trim($reqUserName))) {
+    $authorizedUser = Web\Session\Security\Authorizer::getAuthorizedUser();
+    $url = \Web\pagelinkUser($authorizedUser);
+    header("Location: $url");
+    exit();
+}

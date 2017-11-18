@@ -1,20 +1,8 @@
 <?php
 
-use Web\Session\Security\Authorizer;
-
-$reqUserName = getReqUser();
-if (empty(trim($reqUserName))) {
-    $authorizedUser = Authorizer::getAuthorizedUser();
-    $url = \Web\pagelinkUser($authorizedUser);
-    header("Location: " . $url);
-    exit();
-}
-
-$view_user = Web\Database\Read::forumUserByName($reqUserName);
+$view_user = getViewUser();
 if ($view_user != null) {
-    $subpage = getSubpage() != null ? getSubpage() : 'info';
-
-    \Web\Framework\Factory\Widgets::addToPage($subpage, 'user');
+    \Web\Framework\Factory\Widgets::addToPage(getSubpage(), 'user');
 
 } else {
     throw new \Exception("user was not found");
