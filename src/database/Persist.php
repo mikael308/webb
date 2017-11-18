@@ -117,9 +117,9 @@ class Persist
             );
             if ($res) {
                 $data = pg_fetch_object($res, 0);
-                $user->setId($data->id);
                 pg_free_result($res);
-                return Parse::toUser($user);
+                $user->setId($data->id);
+                return $user;
                 
             } else {
                 throw new \RuntimeException(pg_last_error($db_conn));
