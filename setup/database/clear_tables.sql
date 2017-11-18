@@ -2,10 +2,8 @@
 --
 -- author Mikael Holmbom
 
-DELETE FROM
-proj.news,
-proj.forumposts,
-proj.forumthreads,
-proj.forumusers,
-proj.forumsubjects 
-CASCADE;
+DELETE FROM proj.news CASCADE;
+DELETE FROM proj.forumposts CASCADE;
+DELETE FROM proj.forumthreads CASCADE;
+DELETE FROM proj.forumusers CASCADE;
+DELETE FROM proj.forumsubjects CASCADE;
