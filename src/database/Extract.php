@@ -12,6 +12,11 @@ require_once PATH_ROOT_ABS."database/Parse.php";
  */
 class Extract
 {
+    /**
+     * get the latest threads
+     * @param $amount int the amount of threads to extract
+     * @return array of threads
+     */
 	static function latestThreads(
 		$amount
 	) {
