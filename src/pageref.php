@@ -67,22 +67,22 @@ function pagelinkForumThread(
 
 /**
  * generate pagelink to userpage
- * @param string $user_id
+ * @param ForumUser $user
  * @param null|string $subPage
  * @return string
  */
 function pagelinkUser(
-    $user_id,
+    ForumUser $user,
     $subPage = null
 ) {
     $root = $GLOBALS['pagelink']['user'];
-    $url = $root;
-    if ($user_id != null && !empty($user_id)) {
-        $url = "$root/$user_id";
-    }
-
-    if ($subPage != null && !empty($user_id)) {
-        $url = "$root/$user_id/$subPage";
+    $url = '';
+    if ($user != null) {
+        $username = $user->getName();
+        $url = "$root/$username";
+        if ($subPage != null) {
+            $url .= "/$subPage";
+        }
     }
 
     return $url;
