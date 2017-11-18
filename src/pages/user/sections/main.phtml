@@ -14,7 +14,7 @@ if ($reqUser == '') {
 
 $view_user = Web\Database\Read::forumUserById($reqUser);
 if ($view_user != null) {
-    $subpage = getSubpage() != null ? getSubpage() : '';
+    $subpage = getSubpage() != null ? getSubpage() : 'info';
 
     \Web\Framework\Factory\Widgets::addToPage($subpage, 'user');
 
