@@ -1,11 +1,11 @@
 <div id="banner">
     <div id="header_content">
         <?php \Web\loadContentView('logo', 'main'); ?>
-    <?php \Web\loadContentView('security/logoutform'); ?>
+        <?php \Web\loadContentView('security/logoutform'); ?>
         <nav>
             <?php \Web\loadContentView('navigation/pagenav', 'main'); ?>
             <ul id="user_nav">
-                <li><?= getUserNav(\Web\Session\Security\Authorizer::getAuthorizedUser()); ?></li>
+                <li><?= getUserNav(\Web\Session\Security\Authorizer::getAuthorizedUser()) ?></li>
             </ul>
         </nav>
     </div>

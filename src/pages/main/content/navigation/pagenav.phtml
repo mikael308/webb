@@ -5,15 +5,13 @@ use  \Web\Session\Security\Authorizer as Authorizer;
 $authorizedUser = Authorizer::getAuthorizedUser();
 
 $user_pk = $authorizedUser == null ? null : $authorizedUser->getPrimaryKey();
-
-$btns = array(
+$btns = [
     'news'      => $GLOBALS['pagelink']['news'],
     'forum'     => $GLOBALS['pagelink']['forum'],
     'my page'   => \Web\pagelinkUser($authorizedUser)
-);
+];
 
-if ($authorizedUser != null && $authorizedUser->isAdmin())
-{
+if ($authorizedUser != null && $authorizedUser->isAdmin()) {
     $btns['admin'] = $GLOBALS['pagelink']['admin'];
 }
 
@@ -21,7 +19,7 @@ if ($authorizedUser != null && $authorizedUser->isAdmin())
 
 <ul id='page_nav'>
     <?php foreach($btns as $name => $link): ?>
-        <?php $extraClass = getPage() == $name? 'currentpage':''; ?>
+        <?php $extraClass = getPage() == $name ? 'currentpage':''; ?>
         <li>
             <a class="button btn_nav $extraClass" href="$link"><?= $name ?></a>
         </li>
