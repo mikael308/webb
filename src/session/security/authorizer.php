@@ -59,13 +59,12 @@ class Authorizer {
 
     /**
      * make a login request to database
-     * @param $userPK
+     * @param $userName
      * @param $password
      * @return int 1: login was successful\n0: no contact with database\n-1: failed password/username match\n-2: user banned
-
-     */
+ */
     public static function login(
-        $userPK,
+        $userName,
         $password
     ) {
         $responseMessages = [
@@ -82,14 +81,14 @@ class Authorizer {
         $db_conn = \Web\Database\connect();
         if ($db_conn) {
 
-            $query = "SELECT fuser.password, fuser.name "
+            $query = "SELECT fuser.id, fuser.name, fuser.password "
                 . " FROM " . $GLOBALS['database']['table']['forumusers'] . " AS fuser "
-                . " WHERE name= $1;";
+                . " WHERE fuser.name=$1;";
 
             $res = pg_query_params(
                 $db_conn,
                 $query,
-                array($userPK)
+                [ $userName ]
             );
 
             if ($res) {
