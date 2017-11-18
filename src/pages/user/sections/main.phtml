@@ -4,6 +4,13 @@
 
 
 #TODO if request u is not set, display current user
+$reqUser = getReqUser();
+if ($reqUser == '') {
+    $reqUser = Authorizer::getAuthorizedUser()->getPrimaryKey();
+    $url = \Web\pagelinkUser($reqUser);
+    header("Location: " . $url);
+    exit();
+}
 
 $view_user = Web\Database\Read::forumUserById($reqUser);
 if ($view_user != null) {
