@@ -28,7 +28,7 @@ function outFailStats($failCount, $totalCount) {
     fwrite(STDOUT, "- $successCount item(s) was succesfully added");
 
     if ($failCount > 0) {
-        fwrite(STDERR, "\n>>>Failed on $failCount item(s)");
+        fwrite(STDERR, "\n>>>Failed on $failCount item(s)\n");
     }
 }
 
