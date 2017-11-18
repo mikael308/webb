@@ -78,7 +78,7 @@ function pagelinkUser(
     $url = $GLOBALS['pagelink']['user'];
     if ($user != null) {
         $url .= '/' . $user->getName();
-        if ($subPage != null) {
+        if ($subPage) {
             $url .= "/$subPage";
         }
     }
