@@ -282,8 +282,8 @@ class Read
             );
             if ($res) {
                 if (pg_num_rows($res) == 0) return null;
-
-                $user = Parse::toUser(pg_fetch_object($res, 0));
+                $data = pg_fetch_object($res, 0);
+                $user = Parse::toUser($data);
 
                 pg_free_result($res);
 
