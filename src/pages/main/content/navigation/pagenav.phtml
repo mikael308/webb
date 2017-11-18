@@ -4,7 +4,6 @@ use  \Web\Session\Security\Authorizer as Authorizer;
 
 $authorizedUser = Authorizer::getAuthorizedUser();
 
-$user_pk = $authorizedUser == null ? null : $authorizedUser->getPrimaryKey();
 $btns = [
     'news'      => $GLOBALS['pagelink']['news'],
     'forum'     => $GLOBALS['pagelink']['forum'],
