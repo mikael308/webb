@@ -75,11 +75,9 @@ function pagelinkUser(
     ForumUser $user = null,
     $subPage = null
 ) {
-    $root = $GLOBALS['pagelink']['user'];
-    $url = '';
+    $url = $GLOBALS['pagelink']['user'];
     if ($user != null) {
-        $username = $user->getName();
-        $url = "$root/$username";
+        $url .= '/' . $user->getName();
         if ($subPage != null) {
             $url .= "/$subPage";
         }
