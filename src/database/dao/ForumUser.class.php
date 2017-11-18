@@ -13,6 +13,7 @@ require_once PATH_ROOT_ABS."database/dao/DataAccessObject.class.php";
 class ForumUser extends DataAccessObject 
 {
 
+    private $id;
     /**
      * this user name
      */
@@ -74,9 +75,14 @@ class ForumUser extends DataAccessObject
      */
     public function getPrimaryKey()
     {
-        return $this->getName();
+        return $this->id;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
+    }
     /**
      * set this name
      * @param name string new name value

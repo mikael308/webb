@@ -119,6 +119,7 @@ class Parse
     public static function toUser($data)
     {
         $user = new ForumUser();
+        $user->setId((int) Parse::clean($data->id));
         $user->setName(Parse::clean($data->name));
         $user->setEmail(Parse::clean(crypt(
             $data->email,

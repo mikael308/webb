@@ -273,11 +273,11 @@ class Read
             
             $res = pg_query_params(
                 $db_conn,
-                "SELECT fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
+                "SELECT fuser.id, fuser.name, fuser.email, roles.title, fuser.banned, fuser.registered "
                 . " FROM $table AS fuser "
                 . " LEFT JOIN $join_table "
                 . "   ON fuser.role=roles.id "
-                . " WHERE fuser.name=$1;",
+                . " WHERE fuser.id=$1;",
                 [ $user_id ]
             );
             if ($res) {

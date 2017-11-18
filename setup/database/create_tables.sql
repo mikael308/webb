@@ -31,7 +31,7 @@ CREATE TABLE proj.forumthreads(
 );
 
 CREATE TABLE proj.forumposts(
-    author TEXT NOT NULL references proj.forumusers,
+    author INTEGER NOT NULL references proj.forumusers,
     thread INTEGER NOT NULL references proj.forumthreads,
     id SERIAL NOT NULL PRIMARY KEY,
     message TEXT NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE proj.forumposts(
 
 CREATE TABLE proj.news(
     id SERIAL NOT NULL PRIMARY KEY,
-    author TEXT NOT NULL references proj.forumusers,
+    author INTEGER NOT NULL references proj.forumusers,
     title TEXT NOT NULL,
     message TEXT NOT NULL,
     created TIMESTAMP NOT NULL

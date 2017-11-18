@@ -104,7 +104,8 @@ class Persist
                 $db_conn,
                 "INSERT INTO $table "
                 . " (name, email, role, banned, password, registered) "
-                . " VALUES($1, $2, $3, $4, $5, $6);",
+                . " VALUES($1, $2, $3, $4, $5, $6)"
+                . " RETURNING id;",
                 [
                     $user->getName(),
                     $user->getEmail(),
@@ -115,6 +116,8 @@ class Persist
                 ]
             );
             if ($res) {
+                $data = pg_fetch_object($res, 0);
+                $user->setId($data->id);
                 pg_free_result($res);
                 return True;
                 
