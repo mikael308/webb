@@ -99,7 +99,7 @@ if ($searchstr != "") {
     # determine the type of the search
     switch($searchType) {
         case "post":
-            $reslist = \Database\searchPost($searchstr);
+            $reslist = \Web\Database\searchPost($searchstr);
 
             /*$reslist = \Database\searchPost($searchstr);
             if($reslist == NULL){
@@ -111,7 +111,7 @@ if ($searchstr != "") {
             }*/
             break;
         case "user":
-            $reslist = \Database\searchForumUser($searchstr);
+            $reslist = \Web\Database\searchForumUser($searchstr);
 
             /*if($reslist == NULL){
                 $suggest = $nothingfoundres;
