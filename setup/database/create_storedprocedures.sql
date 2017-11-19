@@ -4,6 +4,7 @@
 
 CREATE OR REPLACE FUNCTION proj.get_user(IN p_name text DEFAULT '%'::text)
  RETURNS TABLE(
+  id INTEGER,
   name TEXT,
   email TEXT,
   role INTEGER,
@@ -12,6 +13,7 @@ CREATE OR REPLACE FUNCTION proj.get_user(IN p_name text DEFAULT '%'::text)
  ) AS $$
  BEGIN
   RETURN QUERY SELECT
+  u.id,
   u.name,
   u.email, 
   CAST(u.role AS INTEGER),
