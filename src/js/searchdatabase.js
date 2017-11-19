@@ -39,7 +39,7 @@ function showSearchRes(str, target, searchType){
         }
     };
 
-    var link = "/webb/ajax/searchres/type="+searchType+"&value=" + str;
+    var link = "/ajax/searchres/type="+searchType+"&value=" + str;
     console.log("search link "+link);
     
     xmlhttp.open("POST", link, true);
