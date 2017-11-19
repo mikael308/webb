@@ -63,7 +63,7 @@ class Count
      * get the index of post in thread ordered by created attribute
      * @param post_pk string primary key to request post
      * @throws \RuntimeException on failed query
-     * @return \Web\Database\DAO\ForumUser index
+     * @return int index of post
      */
     public static function postPageIndex(
         $post_pk
