@@ -56,7 +56,7 @@ class Data extends \Web\Framework\Data\Widget
 
     public function postsPerPage()
     {
-        return $_SESSION['settings']->value("posts_per_page");
+        return getSettings()->value("posts_per_page");
     }
 
     public function getMaxPages()

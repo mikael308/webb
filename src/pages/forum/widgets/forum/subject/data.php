@@ -58,7 +58,7 @@ class Data extends \Web\Framework\Data\Widget
      */
     public function getThreadsPerPage()
     {
-        return (int) $_SESSION['settings']->value("threads_per_page");
+        return (int) getSettings()->value("threads_per_page");
     }
 
     public function getStartOffset()
@@ -71,7 +71,7 @@ class Data extends \Web\Framework\Data\Widget
      */
     public function getThreadlinkPaginationInterval()
     {
-        return (int) $_SESSION['settings']->value('pag_max_interval_threadlink');
+        return (int) getSettings()->value('pag_max_interval_threadlink');
     }
 
     public function getMaxPages()
@@ -86,7 +86,7 @@ class Data extends \Web\Framework\Data\Widget
         \Web\Database\DAO\ForumThread $thread
     ) {
         $n_posts = $thread->getSize();
-        $posts_per_page = $_SESSION['settings']->value('posts_per_page');
+        $posts_per_page = getSettings()->value('posts_per_page');
         $maxThreadPages = ceil($n_posts / $posts_per_page);
         return $maxThreadPages;
     }

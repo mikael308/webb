@@ -20,7 +20,7 @@ class Data extends \Web\Framework\Data\Widget
 
     public function latestThreads()
     {
-        $amount = (int) $_SESSION['settings']->value("n_latest_threads");
+        $amount = (int) getSettings()->value("n_latest_threads");
         return \Web\Database\Extract::latestThreads($amount);
     }
 

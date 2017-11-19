@@ -5,6 +5,7 @@ namespace Web\Database;
 use \Web\Database\DAO\ForumUser;
 use \Web\Database\DAO\ForumSubject;
 use \Web\Database\DAO\ForumThread;
+use function Web\Framework\Request\getSettings;
 
 /**
  * 
@@ -78,7 +79,7 @@ class Count
             .       " WHERE id='".$post_pk."' "
             . " );"
         );
-        return ceil($count / $_SESSION['settings']->value("posts_per_page"));
+        return ceil($count / getSettings()->value("posts_per_page"));
     }
     /**
      * count results from database query
