@@ -25,14 +25,13 @@ LANGUAGE PLPGSQL;
  
 CREATE OR REPLACE FUNCTION proj.get_post(IN p_msg TEXT DEFAULT '%'::text )
  RETURNS TABLE(
-  author TEXT,
+  author INTEGER,
   thread INTEGER,
   id INTEGER,
   message TEXT,
   created TIMESTAMP,
   edited TIMESTAMP
  ) AS $$
-
  BEGIN
   RETURN QUERY SELECT
   *

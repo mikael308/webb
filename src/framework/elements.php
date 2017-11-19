@@ -157,7 +157,6 @@ function getStylesheet(
 function getScripts(
 	... $filenames
 ) {
-	#TODO not opimized, search for php optimizing for better performance
 	$scripts = "";
 	foreach($filenames as $fn){
 		$scripts .= getScript($fn);

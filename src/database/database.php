@@ -25,7 +25,7 @@ function autoloadDAO()
 {
     # autoload dao classes
     spl_autoload_register(function($class) {
-    include './database/dao/' . $class . '.class.php';
+        include './database/dao/' . $class . '.class.php';
     });
 }
 

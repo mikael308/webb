@@ -1,4 +1,8 @@
 <?php
-echo \Web\helper\getScript("dropdownlist.js");
-echo \Web\helper\getScript("searchsidepanel.js");
+
+echo \Web\helper\getScripts(
+    "dropdownlist.js",
+    "searchdatabase.js",
+    "searchsidepanel.js"
+);
 \Web\Framework\loadContentView("footerlinks", "main");
