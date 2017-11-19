@@ -27,6 +27,7 @@ RewriteRule ^(about)/([a-z][a-z0-9]*)$ src/index.phtml?page=$1&subpage=$2 [NC,L]
 RewriteRule ^(ajax)/([a-z][a-z0-9]*)/(.*)$ src/ajax/$2.php?$3 [NC,L]
 
 RewriteRule ^(forum)$ src/index.phtml?page=$1&subpage=main [NC,L]
+RewriteRule ^(forum)/(thread|subject)/([0-9]+)$ src/index.phtml?page=$1&subpage=$2&$2=$3&page_index=1 [NC,L]
 RewriteRule ^(forum)/(thread|subject)/([0-9]+)/([0-9]+)$ src/index.phtml?page=$1&subpage=$2&$2=$3&page_index=$4 [NC,L]
 RewriteRule ^(forum)/(post)$ src/index.phtml?page=$2 [NC,L]
 
