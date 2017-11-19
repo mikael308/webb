@@ -113,7 +113,7 @@ class ForumSubject extends DataAccessObject
      * index is affected by the setting: posts_per_page
      * @return integer page index
      */
-    function getLastPageIndex()
+    function getLastPageIndex() : int
     {
         return ceil(
             $this->getSize()

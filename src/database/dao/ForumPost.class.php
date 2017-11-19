@@ -117,7 +117,7 @@ class ForumPost extends DataAccessObject
      * get the thread of this post
      * @return \Web\Database\DAO\ForumThread thread of this post as ForumThread instance
      */
-    public function getThread()
+    public function getThread() : ForumThread
     {
         if ($this->getThreadFK() == null) return null;
         
@@ -125,9 +125,9 @@ class ForumPost extends DataAccessObject
     }
     /**
      * get the author of this post
-     * @return ForumUser author of this post as ForumUser instance
+     * @return ForumUser author of this post
      */
-    public function getAuthor()
+    public function getAuthor() : ForumUser
     {
         if ($this->getAuthorFK() == null) return null;
         

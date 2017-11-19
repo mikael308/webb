@@ -56,7 +56,7 @@ class News extends DataAccessObject
     {
         return $this->author_pk;
     }
-    function getAuthor()
+    function getAuthor() : ForumUser
     {
         return $this->getAuthorPK() == null
             ? null

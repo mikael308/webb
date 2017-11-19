@@ -150,7 +150,7 @@ class ForumThread extends DataAccessObject
     /**
      * @return \Web\database\DAO\ForumPost this threads last post
      */
-    function getLastPost()
+    function getLastPost() : ForumPost
     {
         return $this->getPosts()[($this->getSize()-1)];
     }
