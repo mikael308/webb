@@ -119,9 +119,9 @@ class ForumPost extends DataAccessObject
      */
     public function getThread() : ForumThread
     {
-        if ($this->getThreadFK() == null) return null;
-        
-        return Read::thread($this->getThreadFK());
+        return $this->getThreadFK() == null
+            ? null
+            : Read::thread($this->getThreadFK());
     }
     /**
      * get the author of this post
@@ -129,9 +129,11 @@ class ForumPost extends DataAccessObject
      */
     public function getAuthor() : ForumUser
     {
-        if ($this->getAuthorFK() == null) return null;
-        
-        return Read::forumUserById($this->getAuthorFK());
+        return $this->getAuthorFK() == null
+            ? null
+            : Read::forumUserById($this->getAuthorFK());
+    }
+
     }
 
 }
