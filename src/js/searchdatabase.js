@@ -55,3 +55,31 @@ function search(s)
 
     showSearchRes(s, "searchres", searchType);
 }
+
+function messageToHtml(item)
+{
+    var searchitem = document.createElement("div");
+    searchitem.setAttribute('class', 'searchitem');
+
+    var a = document.createElement('a');
+    a.setAttribute("href", item.link);
+    var label = document.createElement('span');
+    label.setAttribute('class', 'post main');
+    label.innerText = item.message;
+
+    var extra = document.createElement('div');
+    extra.setAttribute('class', 'post extra');
+    var author = document.createElement('span');
+    author.setAttribute('class','author');
+    author.innerText = item.author_name;
+    var topic = document.createElement('span');
+    topic.setAttribute('class','topic');
+    topic.innerText = item.topic;
+
+    searchitem.appendChild(a);
+    searchitem.appendChild(extra);
+    a.appendChild(label);
+    extra.appendChild(author);
+    extra.append(topic);
+    return searchitem;
+}
