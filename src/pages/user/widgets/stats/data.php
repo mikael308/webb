@@ -9,7 +9,7 @@ class data extends \Web\Framework\Data\Widget
 
     public function __construct()
     {
-        $this->view_user = \Web\Database\Read::forumUserById(
+        $this->view_user = \Web\Database\Read::forumUserByName(
             getReqUser()
         );
     }
