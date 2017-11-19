@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $_SESSION['registeruser_errmsg'] = '';
     if (isset($_POST['user_register'])) {
         $response = \Web\Pages\Register\Helper\register();
-        echo var_dump($response);
         if ($response['success']) {
             echo "SUCCESS";
             $_SESSION["input_name"] = '';
