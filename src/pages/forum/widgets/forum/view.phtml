@@ -15,7 +15,7 @@
     </div>
     <?php
     #TODO call forum content with AJAX
-    if (getSubPage() != 'main') {
+    if (\Web\Framework\Request\getSubPage() != 'main') {
         \Web\Framework\Factory\Widgets::addToPage('pagination', $page);
     }
 

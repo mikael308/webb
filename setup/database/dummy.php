@@ -6,7 +6,7 @@
 namespace Web\Setup;
 session_start();
 
-require_once "/vagrant/src/pageref.php";
+require_once "/vagrant/src/pages/reference.php";
 
 require_once PATH_ROOT_ABS."database/database.php";
 require_once PATH_ROOT_ABS."database/Persist.php";

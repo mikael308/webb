@@ -56,15 +56,15 @@ function pagelinkForumSubject(
 /**
  * generate pagelink to forum thread
  * @param string $thread_id
- * @param int $page_id
+ * @param int $page_idx
  * @return string url path to forumthread page
  */
 function pagelinkForumThread(
     $thread_id,
-    $page_id = 1
+    $page_idx = 1
 ) {
     $root = $GLOBALS['pagelink']['forum'];
-    return "$root/thread/$thread_id/$page_id";
+    return "$root/thread/$thread_id/$page_idx";
 }
 
 /**

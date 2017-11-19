@@ -10,7 +10,7 @@ namespace Web\Ajax;
  */
 header('Content-Type: application/json');
 
-#require_once "./pageref.php";
+#require_once "./reference.php";
 #require_once "./config/settings.php";
 #require_once "./webb/src/database/database.php";
 #require_once "../database/database.php";
