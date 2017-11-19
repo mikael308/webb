@@ -39,18 +39,12 @@ class Data extends \Web\Framework\Data\Widget
 
     public function prevIndex()
     {
-        return max(
-            $this->currentIndex() - 1,
-            1
-        );
+        return max($this->currentIndex() - 1, 1);
     }
 
     public function nextIndex()
     {
-        return min(
-            $this->currentIndex() + 1,
-            $this->totIndexes()
-        );
+        return min($this->currentIndex() + 1, $this->totIndexes());
     }
 
     public function firstIndex()
@@ -72,52 +66,37 @@ class Data extends \Web\Framework\Data\Widget
     {
         #echo "getting index link ";
         $obj = $this->forumObject;
-        if($obj instanceof \Web\Database\DAO\ForumThread)
-        {
-            return \Web\pagelinkForumThread(
-                $obj->getPrimaryKey(),
-                $idx
-            );
-        } else if($obj instanceof \Web\Database\DAO\ForumSubject)
-        {
-            return \Web\pagelinkForumSubject(
-                $obj->getPrimaryKey(),
-                $idx
-            );
+        if ($obj instanceof \Web\Database\DAO\ForumThread) {
+            return \Web\pagelinkForumThread($obj->getPrimaryKey(), $idx);
+        } else if($obj instanceof \Web\Database\DAO\ForumSubject) {
+            return \Web\pagelinkForumSubject($obj->getPrimaryKey(), $idx);
         }
+        return '';
     }
 
     public function firstIndexLink()
     {
-        return $this->indexLink(
-            1
-        );
+        return $this->indexLink(1);
     }
 
     public function prevIndexLink()
     {
-        return $this->indexLink(
-                $this->prevIndex()
-            );
+        return $this->indexLink($this->prevIndex());
     }
 
     public function nextIndexLink()
     {
-        return $this->indexLink(
-                $this->nextIndex()
-            );
+        return $this->indexLink($this->nextIndex());
     }
 
     public function lastIndexLink()
     {
-        return $this->indexLink(
-            $this->totIndexes()
-        );
+        return $this->indexLink($this->totIndexes());
     }
 
     public function getIndexes()
     {
-        $idxs = array();
+        $idxs = [];
 
         $offset = $this->getOffsets($this->currentIndex(), 10);
 

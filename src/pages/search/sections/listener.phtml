@@ -1,12 +1,11 @@
 <?php
 
-if (
-    ! in_array(getSearchType(),
-    [
+$correctSearchType = in_array(
+    getSearchType(), [
         'post',
         'user'
-    ])
-) {
+    ]);
+if (!$correctSearchType) {
     #TODO define
     throw new \Exception('404 message');
 }

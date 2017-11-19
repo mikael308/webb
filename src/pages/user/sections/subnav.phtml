@@ -9,10 +9,10 @@ if ($view_user == null) {
     return;
 }
 
-$btnarr = array(
+$btnarr = [
     "info"      => \Web\pagelinkUser($view_user, "info"),
     "stats"     => \Web\pagelinkUser($view_user, "stats")
-);
+];
 
 if (getReqUser() == $authUser) {
     $btnarr["settings"] = \Web\pagelinkUser($view_user, "settings");

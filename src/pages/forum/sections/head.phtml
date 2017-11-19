@@ -9,23 +9,23 @@ echo
   . readTitle();
 
 
-function readTitle(){
+function readTitle() {
   $title = "forum";
   $topic = NULL;
 
   try{
-    if(getIndex("s") != NULL){
+    if (getIndex("s") != NULL) {
       $topic =
        \Web\Database\Read::subjects(getIndex("s"))[0];
-    } elseif (getIndex("t") != NULL){
+    } elseif (getIndex("t") != NULL) {
       $topic =
        \Web\Database\Read::thread(getIndex("t"));
     }
-  } catch(RuntimeException $e){
+  } catch(\RuntimeException $e){
 
   }
 
-  if($topic != NULL){
+  if ($topic != NULL) {
       $title .= ":" . $topic->getTopic();
   }
   return Web\helper\setTitle($title);
