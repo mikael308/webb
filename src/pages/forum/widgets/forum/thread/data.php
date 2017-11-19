@@ -51,7 +51,7 @@ class Data extends \Web\Framework\Data\Widget
         $n_postsPerPage = $this->postsPerPage();
         $start_offset = (getPageIndex() - 1) * $n_postsPerPage;
 
-        return $start_offset;
+        return max($start_offset, 0);
     }
 
     public function postsPerPage()
