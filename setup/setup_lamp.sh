@@ -21,7 +21,7 @@ sudo apt-get install -y php7.0-cli php7.0-mbstring php7.0-mcrypt php7.0-json php
 echo " *********** WRITING TO php.ini *****************"
 
 cat <<EOF >> /etc/php/7.0/apache2/php.ini
-auto_prepend_file="/vagrant/src/pageref.php"
+auto_prepend_file="/vagrant/setup/autoprepend.php"
 EOF
 
 ##################################################################################
