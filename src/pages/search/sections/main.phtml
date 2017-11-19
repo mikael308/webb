@@ -1,14 +1,14 @@
-<h2>Search <?= getSubPage() ?></h2>
+<h2>Search <?= \Web\Framework\getSubPage() ?></h2>
 <h3>searchresult for <?= getSearchVal() ?></h3>
 
 <?php
 
-switch(getSubpage())
+switch(\Web\Framework\getSubpage())
 {
     case "post":
-        \Web\loadContentView('post_searchres', 'search');
+        \Web\Framework\loadContentView('post_searchres', 'search');
         break;
     case "user":
-        \Web\loadContentView('user_searchres', 'search');
+        \Web\Framework\loadContentView('user_searchres', 'search');
         break;
 }

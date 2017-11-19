@@ -8,7 +8,7 @@
  * @version 1.0
  */
 
-namespace Web\Session\Config;
+namespace Web\Framework\Config;
 
 class Settings
 {
@@ -17,6 +17,8 @@ class Settings
     protected $settingsValues;
 
     protected $settingsSet = false;
+
+    protected $invalidUsernames = null;
 
     public function __construct($settingsFileName)
     {
@@ -65,7 +67,8 @@ class Settings
      * @param setting_name string name of the requested settings option
      * @return string settings options value. if settings option was not found, return NULL
      */
-    public function read($setting_name){
+    public function read($setting_name)
+    {
         $ret_val = NULL;
         $settings_file = fopen($this->settings_filename, "r") or die("unable to read settings");
 
@@ -87,6 +90,46 @@ class Settings
         fclose($settings_file);
 
         return $ret_val;
+    }
+
+    /**
+     * get invalid usernames
+     * return cached usernames if found
+     * @return null
+     */
+    public function getInvalidUsernames()
+    {
+        if ($this->invalidUsernames == null)
+            return $this->readInvalidUsernames();
+
+        return $this->invalidUsernames;
+    }
+
+    /**
+     * resets cached invalid usernames
+     */
+    public function resetInvalidUsernames()
+    {
+        $this->invalidUsernames = null;
+    }
+
+    /**
+     * read invalid usernames from config file
+     * @return array
+     */
+    public function readInvalidUsernames()
+    {
+        $invalidUsernames = [];
+        $confFile = fopen("config/invalidusername.conf", "r") or die("unable to read invalid usernames");
+
+        while (! feof($confFile)) {
+            $line = fgets($confFile);
+            $invalidUsernames[] = $line;
+        }
+
+        fclose($confFile);
+        $this->invalidUsernames = $invalidUsernames;
+        return $invalidUsernames;
     }
 
 }

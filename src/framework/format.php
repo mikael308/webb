@@ -1,6 +1,7 @@
 <?php
 
-namespace Web\Helper;
+namespace Web\Framework;
+
 /**
  * format used for displaying timestamps
  */
@@ -73,5 +74,3 @@ class Format
     }
 
 }
-
-

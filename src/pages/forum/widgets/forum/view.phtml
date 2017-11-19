@@ -1,6 +1,6 @@
 <article id="forum_content">
     <?php
-    $page = getPage();
+    $page = \Web\Framework\Request\getPage();
     \Web\Framework\Factory\Widgets::addToPage('breadcrum', $page);
     ?>
     <h2><?= $data->getHeader() ?></h2>

@@ -3,6 +3,7 @@
 namespace Web\Pages\Forum\Widgets\Forum;
 
 use \Web\Database\Read;
+use function Web\Framework\Request\getSubpage;
 
 class Data extends \Web\Framework\Data\Widget
 {

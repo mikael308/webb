@@ -1,12 +1,15 @@
 <?php
 
-require_once PATH_ROOT_ABS."session/security/authorizer.php";
-require_once PATH_ROOT_ABS."session/security/listeners.php";
-require_once PATH_ROOT_ABS."session/security/restriction.php";
+require_once PATH_ROOT_ABS."framework/session/security/authorizer.php";
+require_once PATH_ROOT_ABS."framework/session/security/listeners.php";
+require_once PATH_ROOT_ABS."framework/session/security/restriction.php";
 require_once PATH_ROOT_ABS."framework/factory/Widgets.php";
 require_once PATH_ROOT_ABS."framework/data/Widget.php";
+require_once PATH_ROOT_ABS."framework/request/config.php";
+require_once PATH_ROOT_ABS."framework/request/helper.php";
+require_once PATH_ROOT_ABS."framework/request/page.php";
 
 #TODO tmmp?
 require_once PATH_ROOT_ABS."pages/main/content/navigation/usernav.phtml";
-require_once PATH_ROOT_ABS."helper/elements.php";
-require_once PATH_ROOT_ABS."helper/messages.php";
+require_once PATH_ROOT_ABS."framework/elements.php";
+require_once PATH_ROOT_ABS."framework/messages.php";

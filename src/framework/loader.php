@@ -1,8 +1,12 @@
 <?php
+/**
+ * helperfunctions to load page sections
+ * @author Mikael Holmbom
+ */
 
-namespace Web;
+namespace Web\Framework;
 
-require_once PATH_ROOT_ABS."helper/format.php";
+require_once PATH_ROOT_ABS."framework/format.php";
 
 function loadSection(
     $name,
@@ -13,16 +17,6 @@ function loadSection(
     if (is_file($filepath)) {
         include $filepath;
     }
-}
-
-/**
- * loads the main and the page section of $name
- * @param $name
- */
-function loadSections($name)
-{
-    loadSection($name);
-    loadSection($name, getPage());  
 }
 
 /**

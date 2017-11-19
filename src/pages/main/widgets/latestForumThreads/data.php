@@ -2,11 +2,13 @@
 
 namespace Web\Pages\Main\Widgets\LatestForumThreads;
 
+use function Web\Framework\Request\getSettings;
+
 require_once "helper.php";
-require_once "./session/config/settings.php";
-require_once "./database/Extract.php";
-require_once "./helper/format.php";
-require_once "./framework/data/Widget.php";
+require_once PATH_ROOT_ABS."framework/config/settings.php";
+require_once PATH_ROOT_ABS."database/Extract.php";
+require_once PATH_ROOT_ABS."framework/format.php";
+require_once PATH_ROOT_ABS."framework/data/Widget.php";
 
 class Data extends \Web\Framework\Data\Widget
 {

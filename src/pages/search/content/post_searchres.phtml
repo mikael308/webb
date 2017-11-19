@@ -4,7 +4,7 @@
     <?php foreach($searchresitems as $post): ?>
         <?php
         $maxlen = 40;
-        $label = \Web\Helper\Format::textToLength($post->getMessage(), $maxlen);
+        $label = \Web\Framework\Format::textToLength($post->getMessage(), $maxlen);
         $p = \Web\Database\Count::postPageIndex($post->getPrimaryKey());
         $t = $post->getThread();
         $author = $post->getAuthor();

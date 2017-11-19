@@ -1,14 +1,17 @@
+<?php
+use function \Web\Framework\loadContentView;
+?>
 <div id="forum_top_bts" class="button_panel">
     <?php if (isCurrentMain()): ?>
         
     <?php elseif (isCurrentSubject()): ?>
-        <?php \Web\loadContentView("create_thread", "forum"); ?>
+        <?php loadContentView("create_thread", "forum"); ?>
     <?php elseif (isCurrentThread()): ?>
 
     <?php endif; ?>
 </div>
 
-<?php \Web\Framework\Factory\Widgets::addToPage("forum", getPage()); ?>
+<?php \Web\Framework\Factory\Widgets::addToPage("forum", \Web\Framework\Request\getPage()); ?>
 
 <div id="forum_bottom_bts" class="button_panel">
     <?php if (isCurrentMain()): ?>
@@ -16,7 +19,7 @@
     <?php elseif (isCurrentSubject()): ?>
         
     <?php elseif (isCurrentThread()): ?>
-        <?php \Web\loadContentView('post_reply', 'forum'); ?>
+        <?php loadContentView('post_reply', 'forum'); ?>
     <?php endif; ?>
 </div>
 

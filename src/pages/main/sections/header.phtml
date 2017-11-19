@@ -1,21 +1,25 @@
+<?php
+use function \Web\Framework\loadContentView;
+use function \Web\Framework\loadSection;
+?>
 <div id="banner">
     <div id="header_content">
-        <?php \Web\loadContentView('logo', 'main'); ?>
-        <?php \Web\loadContentView('security/logoutform'); ?>
+        <?php loadContentView('logo', 'main'); ?>
+        <?php loadContentView('security/logoutform'); ?>
         <nav>
-            <?php \Web\loadContentView('navigation/pagenav', 'main'); ?>
+            <?php loadContentView('navigation/pagenav', 'main'); ?>
             <ul id="user_nav">
-                <li><?= getUserNav(\Web\Session\Security\Authorizer::getAuthorizedUser()) ?></li>
+                <li><?= getUserNav(\Web\Framework\Session\Security\Authorizer::getAuthorizedUser()) ?></li>
             </ul>
         </nav>
     </div>
 </div>
 <div id="subheader_content">
     <ul id="subheader_left">
-        <?php \Web\loadSection('subnav', getPage()); ?>
+        <?php loadSection('subnav', \Web\Framework\Request\getPage()); ?>
     </ul>
     <div id="subheader_right">
-        <?php \Web\loadContentView('navigation/metanav', 'main'); ?>
+        <?php loadContentView('navigation/metanav', 'main'); ?>
     </div>
 </div>
 <?php \Web\Framework\Factory\Widgets::addToPage('searchsidepanel', 'main'); ?>

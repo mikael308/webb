@@ -1,5 +1,8 @@
 <?php
 
+use function Web\Framework\Request\getIndex;
+use function Web\Framework\Request\getSubpage;
+
 function getThreadIndex()
 {
     return getIndex("thread");
@@ -8,11 +11,6 @@ function getThreadIndex()
 function getSubjectIndex()
 {
     return getIndex("subject");
-}
-
-function getPageIndex()
-{
-    return getIndex("pageidx");
 }
 
 function isCurrentSubject()

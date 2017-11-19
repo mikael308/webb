@@ -1,9 +1,9 @@
 <?php
 
-namespace Web\Session\Security;
+namespace Web\Framework\Session\Security;
 
-require_once PATH_ROOT_ABS."session/security/authorizer.php";
-use \Web\Session\Security\Authorizer as Authorizer;
+require_once PATH_ROOT_ABS."framework/session/security/authorizer.php";
+use \Web\Framework\Session\Security\Authorizer as Authorizer;
 
 /**
  * listens for POST request for\n

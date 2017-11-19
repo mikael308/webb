@@ -7,6 +7,9 @@ require_once "./database/Read.php";
 use \Web\Database\Read;
 use \Web\Database\Count;
 
+use function Web\Framework\Request\getSettings;
+use function Web\Framework\Request\getPageIndex;
+
 class Data extends \Web\Framework\Data\Widget
 {
     protected $thread;

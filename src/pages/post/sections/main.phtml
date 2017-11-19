@@ -1,7 +1,7 @@
 <?php
 
 # modify database
-switch (getSubpage()) {
+switch (\Web\Framework\getSubpage()) {
     case "deletepost":
         \Web\Database\deletePost();
     break;

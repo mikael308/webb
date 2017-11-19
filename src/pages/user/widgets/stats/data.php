@@ -1,7 +1,7 @@
 <?php
 namespace Web\Pages\User\Widgets\Stats;
 
-use \Web\Session\Security\Authorizer as Authorizer;
+use \Web\Framework\Session\Security\Authorizer as Authorizer;
 
 class data extends \Web\Framework\Data\Widget
 {

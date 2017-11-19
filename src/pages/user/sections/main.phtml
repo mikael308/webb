@@ -2,7 +2,7 @@
 
 $view_user = getViewUser();
 if ($view_user != null) {
-    \Web\Framework\Factory\Widgets::addToPage(getSubpage(), 'user');
+    \Web\Framework\Factory\Widgets::addToPage(Web\Framework\Request\getSubpage(), 'user');
 
 } else {
     throw new \Exception("user was not found");

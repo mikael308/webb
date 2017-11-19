@@ -13,13 +13,12 @@ require_once PATH_ROOT_ABS."database/Read.php";
 require_once PATH_ROOT_ABS."database/Delete.php";
 require_once PATH_ROOT_ABS."database/Update.php";
 require_once PATH_ROOT_ABS."database/Persist.php";
-require_once PATH_ROOT_ABS."session/main.php";
-require_once PATH_ROOT_ABS."helper/security.php";
+require_once PATH_ROOT_ABS."framework/session/main.php";
 
 use \Web\Database\DAO\ForumPost;
 use \Web\Database\DAO\ForumThread;
 use \Web\Database\DAO\News;
-use \Web\Session\Security\Authorizer;
+use \Web\Framework\Session\Security\Authorizer;
 
 autoloadDAO();
 
@@ -135,7 +134,7 @@ function deletePost()
     $thread = $post->getThread();
     if (Delete::forumPost($post)) {
         # redirect to thread page
-        $pageIndex = $_REQUEST['page_index'];
+        $pageIndex = \Web\Framework\Request\getPageIndex();
         $pagelink = getThreadPageLink($thread, $pageIndex);
         header("Location: $pagelink");
         exit(); 

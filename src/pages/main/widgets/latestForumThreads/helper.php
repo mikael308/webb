@@ -22,7 +22,7 @@ function threadsLatestPostView(
           1
         )."'>"
     .   "<div class='topic'>"
-    .     \Web\Helper\Format::textToLength(
+    .     \Web\Framework\Format::textToLength(
             $thread->getTopic(),
             20
           )
@@ -33,7 +33,7 @@ function threadsLatestPostView(
           $thread->getLastPageIndex()
         )."'>"
     .   "<div class='message'>"
-    .     \Web\Helper\Format::textToLength(
+    .     \Web\Framework\Format::textToLength(
             $thread->getLastPost()->getMessage(),
             40
           )
@@ -41,7 +41,7 @@ function threadsLatestPostView(
     . "</a>"
     .   "<a href='".\Web\pagelinkUser($lastAuthor)."'>"
     .     "<div class='author'>"
-    .     \Web\Helper\Format::textToLength(
+    .     \Web\Framework\Format::textToLength(
             $lastAuthor->getName(),
             20
           )

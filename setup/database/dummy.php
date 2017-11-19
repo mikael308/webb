@@ -12,7 +12,7 @@ require_once PATH_ROOT_ABS."database/database.php";
 require_once PATH_ROOT_ABS."database/Persist.php";
 require_once PATH_ROOT_ABS."database/dao/ForumUser.class.php";
 require_once PATH_ROOT_ABS."database/dao/ForumSubject.class.php";
-require_once PATH_ROOT_ABS."helper/format.php";
+require_once PATH_ROOT_ABS."framework/format.php";
 
 \Web\Database\autoloadDAO();
 

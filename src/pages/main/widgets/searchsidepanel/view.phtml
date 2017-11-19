@@ -5,7 +5,7 @@
     <div class="sidepanel_content">
         <?php \Web\Framework\Factory\Widgets::addToPage("searchform"); ?>
     </div>
-    <?php if (\Web\Session\Security\Authorizer::userIsAuthorized()): ?>
+    <?php if (\Web\Framework\Session\Security\Authorizer::userIsAuthorized()): ?>
         <div id="searchres"></div>
     <?php else: ?>
         <span><a href="<?= $GLOBALS['pagelink']['register'] ?>">register to search forum</a></span>

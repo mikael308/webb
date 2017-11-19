@@ -2,7 +2,7 @@
 
 namespace Web\Framework\Factory;
 
-require_once PATH_ROOT_ABS."helper/format.php";
+require_once PATH_ROOT_ABS."framework/format.php";
 
 class Widgets
 {
@@ -11,7 +11,7 @@ class Widgets
         $filename,
         $page = "main"
     ) {
-        return \Web\Helper\Format::nsToPath(
+        return \Web\Framework\Format::nsToPath(
             PATH_ROOT_ABS."pages/$page/widgets/$filename"
         );
     }
@@ -34,7 +34,7 @@ class Widgets
         }
         require_once $dataPath;
 
-        $obj = \Web\Helper\Format::pathToNS(
+        $obj = \Web\Framework\Format::pathToNS(
             "\\web\\Pages\\$page\\widgets\\$widgetName\\data"
         );
 

@@ -1,13 +1,13 @@
 <?php
-use \Web\Session\Security\Authorizer as Authorizer;
+use \Web\Framework\Session\Security\Authorizer as Authorizer;
 
-\Web\Framework\Factory\Widgets::addToPage('newsfeed', getPage());
+\Web\Framework\Factory\Widgets::addToPage('newsfeed', \Web\Framework\Request\getPage());
 
 ?>
 <aside>
 <?php
     if (! Authorizer::userIsAuthorized()) {
-        \Web\loadContentView('security/loginform');
+        \Web\Framework\loadContentView('security/loginform');
     }
 
     #TODO show only if: user is authorized:

@@ -9,26 +9,26 @@
 namespace Web\FrontController;
 
 require_once PATH_ROOT_ABS."database/database.php";
-require_once PATH_ROOT_ABS."loader.php";
-require_once PATH_ROOT_ABS."pageref.php";
-require_once PATH_ROOT_ABS."session/main.php";
-require_once PATH_ROOT_ABS."session/config/settings.php";
+require_once PATH_ROOT_ABS."framework/loader.php";
+#require_once PATH_ROOT_ABS."reference.php";
+require_once PATH_ROOT_ABS."framework/session/main.php";
+require_once PATH_ROOT_ABS."framework/request/page.php";
+require_once PATH_ROOT_ABS."framework/config/settings.php";
 
-$_SESSION['settings'] = new \Web\Session\Config\Settings(
-    "../config/settings.conf"
-);
-if (! isset($_SESSION['settings'])) {
-    $_SESSION['settings'] = new \Web\Session\Config\Settings(
-        "../config/settings.conf"
-    );
-}
+use function Web\Framework\Request\getPage;
+use function \Web\Framework\loadSection;
+use function \Web\Framework\loadContentView;
 
-\Web\loadSections("request");
-\Web\loadSections("import");
+
+loadSection("request");
+loadSection("request", getPage());
+loadSection("import");
+loadSection("import", getPage());
 
 $display = false;
 try {
-    \Web\loadSections("listener");
+    loadSection("listener");
+    loadSection("listener", getPage());
     $display = true;
 } catch (\Exception $e) {
     #TODO create 404 exception
@@ -36,26 +36,27 @@ try {
 
 function head()
 {
-    \Web\loadSections("head");
+    loadSection("head");
+    loadSection("head", getPage());
 }
 
 function header()
 {
-    \Web\loadSection("header", "main");
+    loadSection("header", "main");
 }
 
 function main()
 {
     global $display;
     if ($display) {
-        \Web\loadSection("main", getPage());
+        loadSection("main", getPage());
     } else {
-        \Web\loadContentView("page404_notfound", "main");
+        loadContentView("page404_notfound", "main");
     }
 }
 
 function footer()
 {
-    \Web\loadSection("footer", "main");
-    \Web\loadSection("script", getPage());
+    loadSection("footer", "main");
+    loadSection("script", getPage());
 }

@@ -9,7 +9,7 @@
     action="<?= htmlentities(\Web\pagelinkPost("editpost")) ?>" >
     
     <input type="hidden" name="post" value="<?= $args["post"] ?>" />
-    <input type="hidden" name="page_index" value="<?= getPageIndex() ?>" />
+    <input type="hidden" name="page_index" value="<?= \Web\Framework\Request\getPageIndex() ?>" />
     
     <input type="submit" class="icon_button material-icons" 
         value="edit_post" name="op"></input>

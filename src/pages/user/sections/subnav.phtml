@@ -1,6 +1,6 @@
 <?php
 
-use \Web\Session\Security\Authorizer as Authorizer;
+use \Web\Framework\Session\Security\Authorizer as Authorizer;
 
 $pagelink = $GLOBALS["pagelink"];
 $authUser = Authorizer::getAuthorizedUser()->getPrimaryKey();

@@ -1,15 +1,15 @@
+<?php
+use function \Web\Framework\loadContentView;
+?>
 <article id="register">
     <?php
-    \Web\loadContentView(
-      "registeruserForm",
-      "register"
-    );
+    loadContentView("registeruserForm", "register");
+    loadContentView("validPasswordhint", \Web\Framework\Request\getPage());
 
-    \Web\loadContentView("validPasswordhint", getPage());
     ?>
 </article>
 
 <article id="login">
     <span id="login_h">already a member?</span>
-    <?php \Web\loadContentView("security/loginform"); ?>
+    <?php loadContentView("security/loginform"); ?>
 </article>

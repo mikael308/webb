@@ -1,4 +1,5 @@
 <?php
+namespace Web\Framework\Session\Security;
 /**
  * defines listeners for authorization
  *
@@ -8,9 +9,9 @@
 
 require_once PATH_ROOT_ABS."database/database.php";
 require_once PATH_ROOT_ABS."database/Read.php";
-require_once PATH_ROOT_ABS."session/security/authorizer.php";
+require_once PATH_ROOT_ABS."framework/session/security/authorizer.php";
 
-use Web\Session\Security\Authorizer as Authorizer;
+use Web\Framework\Session\Security\Authorizer as Authorizer;
 
 /**
  * if session authorized_user is not authorized:\n
@@ -24,7 +25,7 @@ function restrictedToAuthorized(
         $redirectPage = $GLOBALS["pagelink"]["register"];
     }
     if (!Authorizer::userIsAuthorized()) {
-        $_SESSION['redirect_url'] = getSubUrl();
+        $_SESSION['redirect_url'] = \Web\Framework\Request\getSubUrl();
         header("Location: " . $redirectPage);
         exit();
     }

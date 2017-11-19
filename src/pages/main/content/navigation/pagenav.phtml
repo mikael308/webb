@@ -1,6 +1,6 @@
 <?php
 
-use  \Web\Session\Security\Authorizer as Authorizer;
+use  \Web\Framework\Session\Security\Authorizer as Authorizer;
 
 $authorizedUser = Authorizer::getAuthorizedUser();
 
@@ -18,7 +18,7 @@ if ($authorizedUser != null && $authorizedUser->isAdmin()) {
 
 <ul id='page_nav'>
     <?php foreach($btns as $name => $link): ?>
-        <?php $extraClass = getPage() == $name ? 'currentpage':''; ?>
+        <?php $extraClass = \Web\Framework\Request\getPage() == $name ? 'currentpage':''; ?>
         <li>
             <a class="button btn_nav <?= $extraClass ?>" href="<?= $link ?>"><?= $name ?></a>
         </li>

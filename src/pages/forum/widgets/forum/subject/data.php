@@ -4,6 +4,8 @@ namespace Web\Pages\Forum\Widgets\Forum\Subject;
 
 use \Web\Database\Count;
 use \Web\Database\Read;
+use function Web\Framework\Request\getSettings;
+use function Web\Framework\Request\getPageIndex;
 
 class Data extends \Web\Framework\Data\Widget
 {

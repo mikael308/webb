@@ -6,41 +6,4 @@
  * @version 1.0
  */
 
-/**
- * get the current requested page
- */
-function getPage() 
-{
-    return $_REQUEST['page'] ?? '';
-}
 
-/**
- * get the current requested subpage
- */
-function getSubpage()
-{
-    return $_REQUEST['subpage'] ?? '';
-}
-
-/**
- * get index value from request GET\n
- * param must be >= 0
- * @param index string return value from GET request
- * @return 
- */
-function getIndex($key)
-{
-    $index = $_REQUEST[$key] ?? '';
-    return preg_match("/^[0-9]+$/", $index)
-        ? $index
-        : null;
-}
-
-/**
- * get the current domain sub url
- * @return string
- */
-function getSubUrl()
-{
-    return $_SERVER["REQUEST_URI"] ?? '';
-}

@@ -5,7 +5,7 @@
  * @author Mikael Holmbom
  */
 
-namespace Web\Session;
+namespace Web\Framework\Session;
 
 /**
  * starts session if not already active
@@ -14,7 +14,9 @@ function start()
 {
     if (session_status() !== PHP_SESSION_ACTIVE){
         session_start();
-        
-        #TODO read settings into session var
+
+        if (!isset($_SESSION['settings'])) {
+            $_SESSION['settings'] = new \Web\Framework\Config\Settings("../config/settings.conf");
+        }
     }
 }

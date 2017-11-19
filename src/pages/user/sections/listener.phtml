@@ -1,6 +1,6 @@
 <?php
 
-restrictedToAuthorized();
+Web\Framework\Session\Security\restrictedToAuthorized();
 
 function admintoolsListener(){
     try{
@@ -31,7 +31,7 @@ admintoolsListener();
 
 $reqUserName = getReqUser();
 if (empty(trim($reqUserName))) {
-    $authorizedUser = Web\Session\Security\Authorizer::getAuthorizedUser();
+    $authorizedUser = Web\Framework\Session\Security\Authorizer::getAuthorizedUser();
     $url = \Web\pagelinkUser($authorizedUser);
     header("Location: $url");
     exit();

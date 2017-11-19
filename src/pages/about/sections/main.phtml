@@ -3,12 +3,14 @@
  * @author Mikael Holmbom
  */
 
+use function \Web\Framework\loadContentView;
+
 $subpages = array(
     "about",
     "faq"
 );
 
-$req_subpage = getSubpage();
+$req_subpage = \Web\Framework\Request\getSubpage();
 
 $contentPath = in_array($req_subpage, $subpages)
     ? $req_subpage
@@ -18,9 +20,4 @@ $contentPath = in_array($req_subpage, $subpages)
 <h2><?= $req_subpage; ?></h2>
 
 <?php
-\Web\loadContentView(
-    $contentPath,
-    "about"
-);
-
-
+loadContentView($contentPath, "about");

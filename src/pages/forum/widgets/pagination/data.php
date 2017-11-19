@@ -29,7 +29,7 @@ class Data extends \Web\Framework\Data\Widget
 
     public function currentIndex()
     {
-        return getPageIndex();
+        return \Web\Framework\Request\getPageIndex();
     }
 
     public function isCurrent($idx)

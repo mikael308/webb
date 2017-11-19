@@ -22,7 +22,7 @@ $startOffset = $data->getStartOffset();
                 <?= $author->getRole() ?>
             </div>
             <div class="registered">registered<br>
-                <?= \Web\Helper\Format::date($author->getRegistered()) ?>
+                <?= \Web\Framework\Format::date($author->getRegistered()) ?>
             </div>
         </div>
         <div class="post">
@@ -30,9 +30,9 @@ $startOffset = $data->getStartOffset();
                 <?= $post->getMessage() ?>
             </div>
             <div class="dates">
-            <div class="created">created: <?= \Web\Helper\Format::dateTime($post->getCreated()) ?></div>
+            <div class="created">created: <?= \Web\Framework\Format::dateTime($post->getCreated()) ?></div>
                 <?php if($post->isEdited()): ?>
-                    <div class="edited">edited: <?= \Web\Helper\Format::dateTime($post->getEdited()) ?></div>
+                    <div class="edited">edited: <?= \Web\Framework\Format::dateTime($post->getEdited()) ?></div>
                 <?php endif; ?> 
             </div>
         </div>

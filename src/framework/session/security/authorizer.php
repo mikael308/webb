@@ -1,6 +1,6 @@
 <?php
 
-namespace Web\Session\Security;
+namespace Web\Framework\Session\Security;
 
 require_once PATH_ROOT_ABS."database/database.php";
 require_once PATH_ROOT_ABS."database/Read.php";

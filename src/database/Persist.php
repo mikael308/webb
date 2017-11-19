@@ -5,6 +5,7 @@ use Web\Database\DAO\ForumPost;
 use Web\Database\DAO\ForumSubject;
 use Web\Database\DAO\ForumThread;
 use Web\Database\DAO\News;
+require_once PATH_ROOT_ABS."framework/request/page.php";
 
 /**
  * persist data to database
