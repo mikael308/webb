@@ -9,6 +9,9 @@ case $1 in
     "init")
 sudo sh $0 create
 sudo sh $0 tables:create
+sudo su postgres <<SHELL
+psql -U postgres -d postgres -f /vagrant/setup/database/init_roles.sql
+SHELL
 ;;
     "create")
 
@@ -49,8 +52,6 @@ sudo sh $0 tables:create
 sudo su postgres <<SHELL
 echo "create tables"
 psql -U postgres -d postgres -f /vagrant/setup/database/create_tables.sql
-echo "init roles"
-psql -U postgres -d postgres -f /vagrant/setup/database/init_roles.sql
 SHELL
 ;;
 
