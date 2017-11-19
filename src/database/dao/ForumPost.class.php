@@ -4,6 +4,7 @@ namespace Web\Database\DAO;
 
 require_once PATH_ROOT_ABS."database/dao/DataAccessObject.class.php";
 require_once PATH_ROOT_ABS."database/Read.php";
+require_once PATH_ROOT_ABS."database/Count.php";
 
 use \Web\Database\Read;
 
@@ -132,6 +133,11 @@ class ForumPost extends DataAccessObject
         return $this->getAuthorFK() == null
             ? null
             : Read::forumUserById($this->getAuthorFK());
+    }
+
+    public function getPageIndex() : int
+    {
+        return \Web\Database\Count::postPageIndex($this->getPrimaryKey());
     }
 
     public function toArray()
