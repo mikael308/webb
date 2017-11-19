@@ -11,7 +11,7 @@ $threads = $data->getThreads();
     ?>
 
     <div class="forum_content_listitem forum_thread">
-        <a href="<?= Web\pagelinkForumThread($thread, 1) ?>">
+        <a href="<?= Web\pagelinkForumThread($thread->getId(), 1) ?>">
             <h3 class="topic"><?= $thread->getTopic() ?></h3>
         </a>
         <div class="info">
