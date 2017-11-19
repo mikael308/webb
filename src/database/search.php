@@ -7,41 +7,36 @@ require_once PATH_ROOT_ABS."database/Read.php";
 /**
  * get forumusers with id as param user_id
  * @param user_id string
- * @return array list of forumusers with match
+ * @return array|null list of forumusers with match
  */
 function searchForumUser(
     $user_id
 ) {
+    $users = [];
     $db_conn = connect();
     if ($db_conn) {
-        $query = "SELECT * FROM proj.get_user($1);";
 
         $res = pg_query_params(
             $db_conn,
-            $query,
+            "SELECT * FROM proj.get_user($1);",
             [
                 "%".$user_id."%"
             ]
         );
         if ($res) {
             $num_rows = pg_num_rows($res);
-            if ($num_rows == 0) return NULL;
-
-            $users = array();
             for ($i = 0; $i < $num_rows; $i++) {
                 $data = pg_fetch_object($res, $i);
-                $users[] = \Database\Read::forumUser($data->name);
+                $users[] = \Web\Database\Read::forumUserByName($data->name);
             }
 
             pg_free_result($res);
-
-            return $users;
 
         } else {
             #echo pg_last_error($db_conn);
         }
     }
-    return NULL;
+    return $users;
 }
 
 /**
@@ -52,32 +47,33 @@ function searchForumUser(
 function searchPost($post_msg)
 {
     $post_msg = htmlentities($post_msg);
+    $posts = [];
 
     $db_conn = connect();
     if ($db_conn) {
-        $query = "SELECT post.id "
-            . " FROM proj.get_post($1) AS post;";
 
-        $res = pg_query_params($db_conn, $query, array("%".$post_msg."%"));
-        if($res) {
-            $num_rows = pg_num_rows($res);
-            if ($num_rows == 0) return NULL;
+        $res = pg_query_params(
+            $db_conn,
+            "SELECT post.id FROM proj.get_post($1) AS post;",
+            [
+                "%$post_msg%"
+            ]
+        );
 
-            $posts = array();
-            for ($i = 0; $i < $num_rows; $i++) {
+        if ($res) {
+            $n_rows = pg_num_rows($res);
+            for ($i = 0; $i < $n_rows; $i++) {
                 $data = pg_fetch_object($res, $i);
-                $post = \Database\Read::forumPost($data->id);
+                $post = \Web\Database\Read::forumPost($data->id);
 
                 $posts[] = $post;
             }
 
             pg_free_result($res);
 
-            return $posts;
-
         } else {
             #echo pg_last_error($db_conn);
         }
     }
-    return NULL;
+    return $posts;
 }
