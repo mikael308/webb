@@ -6,3 +6,5 @@
 
 sudo apt-get -y install postgresql postgresql-contrib postgresql-client postgresql-client-common
 sudo service apache2 restart
+
+sh /vagrant/setup/database.sh init
