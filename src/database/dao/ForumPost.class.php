@@ -134,6 +134,16 @@ class ForumPost extends DataAccessObject
             : Read::forumUserById($this->getAuthorFK());
     }
 
+    public function toArray()
+    {
+        return [
+            'id'        => $this->getId(),
+            'author'    => $this->getAuthorFK(),
+            'thread'    => $this->getThreadFK(),
+            'message'   => $this->getMessage(),
+            'created'   => $this->getCreated(),
+            'edited'    => $this->getEdited()
+        ];
     }
 
 }
