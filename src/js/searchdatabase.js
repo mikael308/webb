@@ -24,9 +24,17 @@ function showSearchRes(str, target, searchType){
     }
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            var response = xmlhttp.responseText;
-            if(target !== null){
-                target.innerHTML = response; 
+            var response = JSON.parse(xmlhttp.responseText);
+            console.log(response.items.length);
+            if (target !== null) {
+                target.innerHTML = "";
+                //console.log("response status:"+response.status);
+                for (var i = 0; i < response.items.length; i++) {
+                    console.log(response.items[i]);
+                    target.appendChild(
+                        messageToHtml(response.items[i])
+                    );
+                }
             }
         }
     };
