@@ -13,7 +13,7 @@ require_once PATH_ROOT_ABS."database/Read.php";
 require_once PATH_ROOT_ABS."database/Delete.php";
 require_once PATH_ROOT_ABS."database/Update.php";
 require_once PATH_ROOT_ABS."database/Persist.php";
-require_once PATH_ROOT_ABS."session/main.phtml";
+require_once PATH_ROOT_ABS."session/main.php";
 require_once PATH_ROOT_ABS."helper/security.php";
 
 use \Web\Database\DAO\ForumPost;

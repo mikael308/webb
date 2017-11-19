@@ -18,7 +18,7 @@ header('Content-Type: application/json');
 #$databasePath = "$serverroot/webb/src/database/database.php";
 #require_once $_SERVER['DOCUMENT_ROOT'] ."/webb/src/database/database.php";
 #require_once $_SERVER['DOCUMENT_ROOT'] ."/webb/src/database/search.php";
-#require_once "./sections/forum/main.phtml";
+#require_once "./sections/forum/main.php";
 
 #TODO denna fil hittas. men den kraschar.. istllet för att fixa alla elements här i
 # returnera en JSON bara och skriv ut den i searchsidepanel... bara bra om den fixar all frontend...
