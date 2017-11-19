@@ -56,7 +56,7 @@ function search(s)
 
     var searchType = "";
     for (var i = 0; i < radio_btns.length; i++){
-        if(radio_btns[i].checked == true){
+        if(radio_btns[i].checked === true){
             searchType = radio_btns[i].value;
         }
     }
