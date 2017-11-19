@@ -1,4 +1,4 @@
 <?php
 
-require_once '../src/pages/reference.php';
-require_once '../src/framework/config/settings.php';
+require_once '/vagrant/src/pages/reference.php';
+require_once '/vagrant/src/framework/config/settings.php';
