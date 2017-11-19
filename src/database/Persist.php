@@ -93,6 +93,9 @@ class Persist
         \Web\Database\DAO\ForumUser $user,
         $passw
     ) {
+        if (exists($user))
+            throw new \Exception("username already exists");
+
         $db_conn = connect();
         if ($db_conn) {
             $banned_val = $user->isBanned() ? "TRUE" : "FALSE";
