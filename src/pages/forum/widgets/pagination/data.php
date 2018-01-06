@@ -54,7 +54,7 @@ class Data extends \Web\Framework\Data\Widget
 
     public function lastIndex()
     {
-        return $this->totPags();
+        return $this->totIndexes();
     }
 
     private function totIndexes()
