@@ -40,7 +40,7 @@ function confirm($message = '')
     $max_tries = 3;
     $in = '';
     for ($n_tries = 0; $n_tries < $max_tries; $n_tries++) {
-        echo "confirm $message (y/n): \n";
+        echo "confirm $message (y/n):\t";
         $in = trim(fgets(STDIN));
         if ($in === 'y' || $in === 'yes') {
             return true;
