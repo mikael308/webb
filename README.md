@@ -28,3 +28,8 @@ to synch box with source:
 ```
 vagrant rsync-auto
 ```
+### add predefined dummy values in database
+inside box:
+```
+klaatu database dummy
+```
