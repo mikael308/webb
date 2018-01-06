@@ -23,7 +23,8 @@ cd into root
 ```
 vagrant up
 ```
-for synchronizing source files
+### synchronizing
+to synch box with source:
 ```
 vagrant rsync-auto
 ```
