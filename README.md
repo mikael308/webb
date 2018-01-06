@@ -13,7 +13,8 @@ for demonstration see doc/presentation.ogv
  prerequisites:
 - vagrant
 
-edit /etc/hosts, add
+edit /etc/hosts<br>
+add:
 ```
 192.168.33.10	    local.webb.com
 ```
